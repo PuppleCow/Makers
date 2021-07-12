@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RegisterActicity">
+    tools:context=".RegisterActicity1">
 
     <TextView
         android:layout_width="match_parent"
@@ -27,7 +27,6 @@
         android:id="@+id/register_name_input"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/edit_text"
         android:hint="이름을 입력해주세요" />
 
     <TextView
@@ -42,7 +41,8 @@
         android:id="@+id/register_id_input"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/edit_text"
+        android:maxLength="13"
+        android:inputType="number"
         android:hint="주민등록번호를 입력해 주세요." />
 
     <TextView
@@ -56,14 +56,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/edit_text"
         >
 
         <EditText
-            android:id="@+id/register_editText2"
+            android:id="@+id/register_cellPhoneNumber_input"
             android:layout_width="276dp"
             android:layout_height="40dp"
-
+            android:maxLength="11"
+            android:inputType="phone"
             android:hint="010-" />
 
         <android.widget.Button
@@ -88,7 +88,7 @@
         android:id="@+id/register_number_input"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/edit_text"
+        android:inputType="number"
         android:hint="인증번호를 입력해주세요." />
 
     <TextView
