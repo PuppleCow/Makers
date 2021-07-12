@@ -11,8 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button1.setOnClickListener {
+
             //RegisterActivity로 넘어가기
-            val intent = Intent(this, RegisterActicity::class.java)
+            val intent = Intent(this, RegisterActicity1::class.java)
             startActivity(intent)
         }
     }
