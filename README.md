@@ -7,7 +7,7 @@
   <strong> 안전제일 넘버원 🎈 </strong>
   <p></p>
   <p>안전 제일 넘버원 설명.</p>
-  <p>domisol application 👉🏻 https://domisol.herokuapp.com/</p></br>
+  <p>pupplecow application 👉🏻 </p></br>
 </div>
 
 ### <br/>
