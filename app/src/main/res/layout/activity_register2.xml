@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity2">
 
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
     <TextView
         android:id="@+id/register2_register"
         android:layout_width="match_parent"
@@ -39,25 +45,14 @@
         android:layout_height="wrap_content"
         android:text="비밀번호" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/register2_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:ems="10"
 
-        <EditText
-            android:id="@+id/register2_password_input"
-            android:layout_width="308dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-    </LinearLayout>
+        android:inputType="textPassword"
+        app:passwordToggleEnabled="true" />
 
     <TextView
         android:id="@+id/register2_password_check_text"
@@ -65,25 +60,12 @@
         android:layout_height="wrap_content"
         android:text="비밀번호 확인" />
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/register2_password_check_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/register2_password_check_input"
-            android:layout_width="307dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Button" />
-    </LinearLayout>
+        android:ems="10"
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/register2_message"
@@ -95,4 +77,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입완료" />
+
+    <CheckBox
+        android:id="@+id/register2_checkBox_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/register2_checkBox_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/register2_checkBox_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/register2_checkBox_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/register2_checkBox_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckBox" />
 </LinearLayout>

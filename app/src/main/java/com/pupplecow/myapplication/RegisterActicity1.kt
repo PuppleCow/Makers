@@ -11,8 +11,6 @@ class RegisterActicity1 : AppCompatActivity() {
         setContentView(R.layout.activity_register1)
 
 
-
-
         //인증번호 받기 버튼 클릭
         register_id_button.setOnClickListener {
             //핸드폰번호 저장
