@@ -20,5 +20,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, QuizActivity1::class.java)
             startActivity(intent)
         }
+
+
+        button3.setOnClickListener {
+            //HomeActivity(작업장)로 넘어가기
+            val intent = Intent(this, HomeActivity1::class.java)
+            startActivity(intent)
+        }
     }
 }

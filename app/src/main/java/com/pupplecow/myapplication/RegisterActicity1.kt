@@ -14,21 +14,28 @@ class RegisterActicity1 : AppCompatActivity() {
         //인증번호 받기 버튼 클릭
         register_id_button.setOnClickListener {
             //핸드폰번호 저장
-            //val inputCellPhoneNumber
+
+            //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
             val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
+            if(userCellPhoneNumber==""){ }
+            else{
+            //val inputCellPhoneNumber
+           // val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
             val userCellPhoneNumberFront=userCellPhoneNumber.substring(0,3)
             val userCellPhoneNumberBack=userCellPhoneNumber.substring(7,11)
+
 
             //핸드폰 번호로 인증번호 전송 메시지
             //register_message.text=register_cellPhoneNumber_input.text
             register_message.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
 
             //인증번호 전송하기
-
+            }
         }
 
         //다음버튼 클릭
         register_button1.setOnClickListener {
+
 
             //인증번호 확인
             if(register_number_input.text.toString()=="1234") {
