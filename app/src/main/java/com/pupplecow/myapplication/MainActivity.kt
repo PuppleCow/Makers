@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActicity1::class.java)
             startActivity(intent)
         }
-        button2.setOnClickListener {
+        check_in_button2.setOnClickListener {
             val intent = Intent(this, QuizActivity1::class.java)
             startActivity(intent)
         }
@@ -27,5 +27,22 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity1::class.java)
             startActivity(intent)
         }
+
+
+        button4.setOnClickListener {
+            //LoginActivity로 넘어가기
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        button5.setOnClickListener {
+            //CheckInActivity로 넘어가기
+            val intent = Intent(this, CheckInActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
     }
 }
