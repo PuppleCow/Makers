@@ -1,33 +1,34 @@
 package com.pupplecow.myapplication
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_home1.*
+import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.util.*
 
 class HomeActivity1 : AppCompatActivity() {
 
     val workspaceData =arrayOf("인천항만","인천항만","인천항만","인천항만","기타")
-    val worksData =arrayOf("하역","하역","하역","하역","기타")
+    val workData =arrayOf("하역","하역","하역","하역","기타")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home1)
 
 
-        //어댑터를 생성한다. 접혔을 때의 모습을 구성할 Layout을 설정한다.
+       //작업장선택 스피너
         val workspaceAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,workspaceData)
-        //펼쳐졌을 때의 모습을 구성하기 위한 Layout을 지정한다
         workspaceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         home_spinner_workspace.adapter= workspaceAdapter
 
-        //어댑터를 생성한다. 접혔을 때의 모습을 구성할 Layout을 설정한다.
-        val workAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,worksData)
-        //펼쳐졌을 때의 모습을 구성하기 위한 Layout을 지정한다
+        //작업선택 스피너
+        val workAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,workData)
         workAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         home_spinner_work.adapter= workAdapter
 
 
@@ -40,34 +41,103 @@ class HomeActivity1 : AppCompatActivity() {
         home_text_date.text="안녕하세요\n오늘은 "+year+"년 "+month+"월 "+day+"일입니다."
 
         //근무시작버튼 활성화,근무종료버튼 비활성화
-
+        home_button_finish.setEnabled(false)
 
 
 
 
         //근무시작버튼
         home_button_start.setOnClickListener {
-            //근무시작시간,작업장,작업 서버에 저장
-            home_text_start.text=System.currentTimeMillis().toString()
-            //근무시작시간 표시
+            //근무시작 확인 다이얼로그
+            val builder=AlertDialog.Builder(this)
+            builder.setTitle("근무시작")
+            builder.setMessage("" +
+                    "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
+                    "${workData[home_spinner_work.selectedItemPosition]} 작업 시작하시겠습니까?")
+
+            // 버튼 클릭시에 무슨 작업을 할 것인가!
+            var listener = object : DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    when (p1) {
+                        //"네" 눌렀을때
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            //근무시작시간,작업장,작업 서버에 저장
+
+                            //근무시작시간 표시
+                            val homeNow = Calendar.getInstance()
+                            val hour = homeNow.get(Calendar.HOUR).toString()
+                            val minute = homeNow.get(Calendar.MINUTE).toString()
+                            home_text_start.text = "시작\n ${hour} 시 ${minute} 분"
+
+                            //근무장소 표시
+                            home_text_workspace.text =
+                                workspaceData[home_spinner_workspace.selectedItemPosition]
+                            home_text_work.text = workData[home_spinner_work.selectedItemPosition]
+
+                            //근무종료버튼 활성화
+
+                            home_button_finish.setEnabled(true)
+                            home_button_start.setEnabled(false)
+
+                            //스피너 비활성화
+                            home_spinner_workspace.setEnabled(false)
+                            home_spinner_work.setEnabled(false)
+                        }
+
+                    }
+                }
+            }
 
 
-            //근무장소 표시
-            home_text_start.text="시작\n"+home_spinner_workspace.selectedItemPosition
+            builder.setNegativeButton("아니오",listener)
+            builder.setPositiveButton("네",listener)
+            builder.show()
 
-            //근무종료버튼 활성화
 
         }
 
 
         //근무종료버튼
        home_button_finish.setOnClickListener {
-            //근무시작버튼 활성화
+           //근무종료 확인 다이얼로그
+           val builder=AlertDialog.Builder(this)
+           builder.setTitle("근무종료")
+           builder.setMessage("" +
+                   "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
+                   "${workData[home_spinner_work.selectedItemPosition]} 작업 종료하시겠습니까?")
 
-            //근무종료시간 저장
-           home_text_finish.text=System.currentTimeMillis().toString()
+           // 버튼 클릭시에 무슨 작업을 할 것인가!
+           var listener = object : DialogInterface.OnClickListener {
+               override fun onClick(p0: DialogInterface?, p1: Int) {
+                   when (p1) {
+                       //"네" 눌렀을때
+                       DialogInterface.BUTTON_POSITIVE ->{
+                           //근무시작버튼 활성화
 
-           //근무종료시간 저장
+                           home_button_start.setEnabled(true)
+                            home_button_finish.setEnabled(false)
+                           //근무종료시간 표시
+                           val homeNow=Calendar.getInstance()
+                           val hour=homeNow.get(Calendar.HOUR).toString()
+                           val minute=homeNow.get(Calendar.MINUTE).toString()
+                       home_text_finish.text="종료\n ${hour} 시 ${minute} 분"
+
+                               //근무종료시간 저장
+
+                            //스피너 비활성화
+                            home_spinner_workspace.setEnabled(true)
+                            home_spinner_work.setEnabled(true)
+                       }}
+               }
+           }
+           builder.setNegativeButton("아니오",listener)
+           builder.setPositiveButton("네",listener)
+           builder.show()
+
+
+
+
+
         }
 
 
