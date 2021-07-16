@@ -37,13 +37,12 @@ class HomeActivity1 : AppCompatActivity() {
         val year=homeNow.get(Calendar.YEAR).toString()
         val month=(homeNow.get(Calendar.MONTH)+1).toString()
         val day=homeNow.get(Calendar.DATE).toString()
+        //val dayOfWeek=homeNow.get(Calendar.DAY_OF_WEEK).toString()
 
         home_text_date.text="안녕하세요\n오늘은 "+year+"년 "+month+"월 "+day+"일입니다."
 
         //근무시작버튼 활성화,근무종료버튼 비활성화
         home_button_finish.setEnabled(false)
-
-
 
 
         //근무시작버튼
@@ -55,14 +54,16 @@ class HomeActivity1 : AppCompatActivity() {
                     "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
                     "${workData[home_spinner_work.selectedItemPosition]} 작업 시작하시겠습니까?")
 
-            // 버튼 클릭시에 무슨 작업을 할 것인가!
+            // 근무시작 다이얼로그
             var listener = object : DialogInterface.OnClickListener {
                 override fun onClick(p0: DialogInterface?, p1: Int) {
                     when (p1) {
                         //"네" 눌렀을때
                         DialogInterface.BUTTON_POSITIVE -> {
                             //근무시작시간,작업장,작업 서버에 저장
-
+                            val year = homeNow.get(Calendar.YEAR).toString()
+                            val month = homeNow.get(Calendar.MONTH).toString()
+                            val date = homeNow.get(Calendar.DATE).toString()
                             //근무시작시간 표시
                             val homeNow = Calendar.getInstance()
                             val hour = homeNow.get(Calendar.HOUR).toString()
@@ -106,14 +107,14 @@ class HomeActivity1 : AppCompatActivity() {
                    "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
                    "${workData[home_spinner_work.selectedItemPosition]} 작업 종료하시겠습니까?")
 
-           // 버튼 클릭시에 무슨 작업을 할 것인가!
-           var listener = object : DialogInterface.OnClickListener {
+                        
+            // 근무시작 다이얼로그
+            var listener = object : DialogInterface.OnClickListener {
                override fun onClick(p0: DialogInterface?, p1: Int) {
                    when (p1) {
                        //"네" 눌렀을때
                        DialogInterface.BUTTON_POSITIVE ->{
                            //근무시작버튼 활성화
-
                            home_button_start.setEnabled(true)
                             home_button_finish.setEnabled(false)
                            //근무종료시간 표시
@@ -134,16 +135,7 @@ class HomeActivity1 : AppCompatActivity() {
            builder.setPositiveButton("네",listener)
            builder.show()
 
-
-
-
-
         }
-
-
-
-
-
 
     }
 }
