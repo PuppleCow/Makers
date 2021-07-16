@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.activity_home1.*
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
-import kotlinx.android.synthetic.main.activity_register1.*
 
 class LoginActivity : AppCompatActivity() {
    val login_data = arrayOf("상용직","일용직")
@@ -44,11 +42,6 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, HomeActivity1::class.java)
                     startActivity(intent)
                 }
-                //이걸 따로 뺄 것인가 아니면 번호, 비밀번호 물어볼 때 같이 메시지 띄울 것인가?
-                else{
-                    println("상용직/일용직을 다시 선택해주세요")
-                }
-
 
             }
 
@@ -56,6 +49,17 @@ class LoginActivity : AppCompatActivity() {
             //로그인 실패했을 경우
 
             else{
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("틀렸습니다")
+                builder.setMessage("휴대폰 번호와 비밀번호를 확인해주세요")
+
+                builder.setPositiveButton("확인",{dialogInterface:DialogInterface?,i:Int->
+
+                })
+
+                builder.show()
+
+            }
 
                 /*
                 private fun showAlert() {
@@ -81,8 +85,26 @@ class LoginActivity : AppCompatActivity() {
         }
 
 
+        login_register_button.setOnClickListener{
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("아직 회원이 아니세요?")
+            builder.setMessage("회원가입하시겠습니까?")
+
+            builder.setPositiveButton("확인",{dialogInterface:DialogInterface?,i:Int->
+                val intent = Intent(this,RegisterActicity1::class.java)
+                startActivity(intent)
+            })
+            builder.setNegativeButton("취소",{dialogInterface:DialogInterface?,i:Int->
+
+            })
+        }
+
+
+
+
+
     }
 }
 
-}
+
 
