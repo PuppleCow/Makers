@@ -14,7 +14,7 @@
         android:text="회원가입" />
 
     <Button
-        android:id="@+id/check_in_button2"
+        android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="안전메뉴얼퀴즈" />

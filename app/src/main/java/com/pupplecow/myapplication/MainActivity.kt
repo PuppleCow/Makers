@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActicity1::class.java)
             startActivity(intent)
         }
-        check_in_button2.setOnClickListener {
+        button2.setOnClickListener {
             val intent = Intent(this, QuizActivity1::class.java)
             startActivity(intent)
         }
