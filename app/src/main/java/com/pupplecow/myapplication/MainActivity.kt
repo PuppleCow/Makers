@@ -42,6 +42,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        button6.setOnClickListener {
+            //ConplaintActivity로 넘어가기
+            val intent = Intent(this, ComplaintActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }

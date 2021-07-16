@@ -38,19 +38,19 @@
         android:text="비대면 체크인" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <Button
         android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="민원접수" />
 
     <Button
         android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />
