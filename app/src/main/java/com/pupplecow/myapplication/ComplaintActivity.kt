@@ -1,5 +1,4 @@
 package com.pupplecow.myapplication
-
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -63,7 +62,7 @@ class ComplaintActivity : AppCompatActivity() {
                                 val minute = homeNow.get(Calendar.MINUTE).toString()
 
 
-                                //서버에 사진,민원항목,민원내용,민원날짜,시간저장
+                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
 
                                 //민원항목
                                 val complaintCategory =
@@ -71,8 +70,8 @@ class ComplaintActivity : AppCompatActivity() {
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
-                                //val intent = Intent(this, MyComplaintActivity::class.java)
-                                //startActivity(intent)
+                                val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
+                                startActivity(intent)
 
                             }
 
@@ -97,11 +96,13 @@ class ComplaintActivity : AppCompatActivity() {
         //나의 민원 보기 버튼
         complaint_button_mycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
-            //val intent = Intent(this, MyComplaintActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, MyComplaintActivity::class.java)
+            startActivity(intent)
 
         }
 
 
     }
 }
+
+

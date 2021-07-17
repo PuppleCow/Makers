@@ -47,13 +47,13 @@
         android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="긴급알림" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="공지사항" />
 
 
 </LinearLayout>

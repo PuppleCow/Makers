@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EmergencyNoticeActivity">
+
+    <TextView
+        android:id="@+id/emergency_notice_emergency_notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="긴급알림"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:id="@+id/emergency_notice_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <TextView
+        android:id="@+id/emergency_notice_text_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/emergency_notice_button_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="확인" />
+</LinearLayout>

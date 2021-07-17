@@ -48,6 +48,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        button7.setOnClickListener {
+            //ConplaintActivity로 넘어가기
+            val intent = Intent(this, EmergencyNoticeActivity::class.java)
+            startActivity(intent)
+        }
+
+        button8.setOnClickListener {
+            //ConplaintActivity로 넘어가기
+            val intent = Intent(this, CreateAnnouncementActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }

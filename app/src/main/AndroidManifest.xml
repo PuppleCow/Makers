@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ManageActivity"></activity>
+        <activity android:name=".AnnouncementActivity"></activity>
+        <activity android:name=".CreateAnnouncementActivity" />
+        <activity android:name=".EmergencyNoticeActivity" />
+        <activity android:name=".ManageActivity" />
         <activity android:name=".MyComplaintActivity" />
         <activity android:name=".ComplaintActivity" />
         <activity android:name=".QuizActivity3" />
