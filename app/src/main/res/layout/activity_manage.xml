@@ -17,4 +17,10 @@
         android:id="@+id/manage_SelectNotifSp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/manage_Emergency_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="긴급 알림" />
 </LinearLayout>

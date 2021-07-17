@@ -1,5 +1,6 @@
 package com.pupplecow.myapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -25,6 +26,14 @@ class ManageActivity : AppCompatActivity() {
         val SelectNotifAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,Manage_SelectNotif)
         SelectGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         manage_SelectNotifSp.adapter= SelectGroupAdapter
+
+
+        manage_Emergency_button.setOnClickListener {
+            val intent = Intent(this, EmergencyNoticeActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 }
