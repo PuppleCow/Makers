@@ -59,6 +59,7 @@ class RegisterActivity2 : AppCompatActivity() {
                     //"정상적으로 회원가입되었습니다." 알림 띄우기기
                 }else{
                     //전체동의 안하면 안내 메시지
+
                 }
 
             }
