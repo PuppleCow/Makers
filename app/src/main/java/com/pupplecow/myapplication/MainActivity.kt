@@ -72,19 +72,19 @@ class MainActivity : AppCompatActivity() {
 
         button10.setOnClickListener {
             //ManageActivity 로 넘어가기
-            val intent = Intent(this, Activity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, AnnouncementActivity::class.java)
+            //startActivity(intent)
         }
 
         button11.setOnClickListener {
-            //ManageActivity 로 넘어가기
-            val intent = Intent(this, Activity::class.java)
+            //AnnouncementActivity 로 넘어가기
+            val intent = Intent(this, AnnouncementActivity::class.java)
             startActivity(intent)
         }
 
         button12.setOnClickListener {
-            //ManageActivity 로 넘어가기
-            val intent = Intent(this, Activity::class.java)
+            //작업자현황(WorkersStatusActivity 로 넘어가기
+            val intent = Intent(this, WorkersStatusActivity::class.java)
             startActivity(intent)
         }
 

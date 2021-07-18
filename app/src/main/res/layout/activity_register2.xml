@@ -77,29 +77,29 @@
         android:id="@+id/register2_checkBox_all"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="전체동의" />
 
     <CheckBox
         android:id="@+id/register2_checkBox_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="개인정보처리동의(필수)" />
 
     <CheckBox
         android:id="@+id/register2_checkBox_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="개인정보지속처리동의" />
 
     <CheckBox
         android:id="@+id/register2_checkBox_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="주민등록번호지속처리동의" />
 
     <CheckBox
         android:id="@+id/register2_checkBox_4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        android:text="출근 안내등 정보 이용 동의" />
 </LinearLayout>
