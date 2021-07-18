@@ -27,11 +27,20 @@ class ManageActivity : AppCompatActivity() {
         SelectGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         manage_SelectNotifSp.adapter= SelectGroupAdapter
 
+        //긴급 알림 버튼
+        manage_Emergency_button.setOnClickListener {
+            val intent = Intent(this, EmergencyNoticeActivity::class.java)
+            startActivity(intent)
+       }
 
-//        manage_Emergency_button.setOnClickListener {
-//            val intent = Intent(this, EmergencyNoticeActivity::class.java)
-//            startActivity(intent)
-//        }
+        //근무자 현황 버튼
+        manage_workerButton.setOnClickListener {
+            //val intent = Intent(this,)
+        }
+        //공지사항 목록보기 버튼
+        manage_NotifListButton.setOnClickListener {
+            //val intent = Intent(this,)
+        }
 
 
 
