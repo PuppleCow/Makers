@@ -89,8 +89,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         button13.setOnClickListener {
-            //ManageActivity 로 넘어가기
-            val intent = Intent(this, Activity::class.java)
+            //AnnounceMentListActivity 로 넘어가기
+            val intent = Intent(this, AnnounceMentListActivity::class.java)
             startActivity(intent)
         }
 
