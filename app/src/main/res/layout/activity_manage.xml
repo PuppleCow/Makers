@@ -23,4 +23,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="긴급 알림" />
+
+    <Button
+        android:id="@+id/manage_workerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="근무자 현황" />
+
+    <Button
+        android:id="@+id/manage_NotifListButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="공지사항 목록 보기" />
 </LinearLayout>

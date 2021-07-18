@@ -33,49 +33,26 @@
             android:layout_width="match_parent"
             android:layout_height="80dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_id"
+
+        <EditText
+            android:id="@+id/login_editTextPhone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="휴대폰번호"
-                android:text="010" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:width="1dp"
-                android:bottomLeftRadius="10dp"
-                android:bottomRightRadius="10dp"
-
-                android:color="#428BCA"
-                android:hint="비밀번호를 입력해주세요"
-                android:inputType="textPassword"
-                android:topLeftRadius="10dp"
-                android:topRightRadius="10dp"
-
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="휴대폰 번호"
+            android:inputType="phone" />
 
         <Space
             android:layout_width="match_parent"
             android:layout_height="40dp" />
 
-        <TextView
-            android:id="@+id/textView"
+        <EditText
+            android:id="@+id/login_editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="상용직/일용직 중 선택해주세요." />
+            android:ems="10"
+            android:hint="비밀번호"
+            android:inputType="textPassword" />
 
         <Spinner
             android:id="@+id/login_workpart"
@@ -97,6 +74,17 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="아직 회원이 아니신가요?"
+            android:textAlignment="center" />
 
         <Button
             android:id="@+id/login_register_button"

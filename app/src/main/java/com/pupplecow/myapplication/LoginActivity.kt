@@ -10,18 +10,16 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
 class LoginActivity : AppCompatActivity() {
-   val login_data = arrayOf("상용직","일용직")
-
+    val login_data = arrayOf("선택","상용직", "일용직")
+    //선택은 클릭해도 안되는 걸로 설정하기
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
 
-
-        val workpartAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,login_data)
+        val workpartAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, login_data)
         workpartAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        login_workpart.adapter= workpartAdapter
-
+        login_workpart.adapter = workpartAdapter
 
 
 
@@ -36,75 +34,67 @@ class LoginActivity : AppCompatActivity() {
 
 
             //로그인 성공했을 경우(id와 password와 일용직/상용직 매치되는 정보 있으면)
-            if(login_id.textView.toString()=="01087347954"&&login_password.textView.toString()=="991109") {
-                if(login_data[login_workpart.selectedItemPosition]=="상용직"){
-                    //HomeActivity1로 이동
-                    val intent = Intent(this, HomeActivity1::class.java)
-                    startActivity(intent)
-                }
+            if (login_editTextPhone.text.toString() == "01087347954" && login_editTextTextPassword.textView.toString() == "991109") {
+                val intent = Intent(this@LoginActivity,HomeActivity1::class.java)
+                startActivity(intent)
 
             }
 
 
-            //로그인 실패했을 경우
+            //<로그인 실패했을 경우>
 
-            else{
+
+
+            //휴대폰 번호가 입력되지 않았을 경우
+            else if(login_editTextPhone.text.toString()==""){
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("틀렸습니다")
-                builder.setMessage("휴대폰 번호와 비밀번호를 확인해주세요")
-
-                builder.setPositiveButton("확인",{dialogInterface:DialogInterface?,i:Int->
-
-                })
-
+                builder.setMessage("휴대폰 번호를 입력해주세요")
+                builder.setPositiveButton("확인", null)
                 builder.show()
 
             }
+            //비밀번호가 입력되지 않았을 경우
 
-                /*
-                private fun showAlert() {
-                    AlertDialog.Builder(this) .setTitle("휴대폰 번호나 비밀번호를 확인해주세요")
-                        .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int -> finish() }
-                        .setNegativeButton("취소") { dialogInterface: DialogInterface, i: Int -> } .show() }
-                */
+            else if(login_editTextTextPassword.text.toString()==""){
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("비밀번호를 입력해주세요")
+                builder.setPositiveButton("확인", null)
+                builder.show()
+            }
 
-            //or
-
-                /*
-                val dig: AlertDialog.Builder = AlertDialog.Builder(this@LoginActivity, android.R.style.Theme_DeviceDefault_Light_Dialog_NoActionBar_MinWidth)
-                dig.setTitle("일치하는 회원정보가 없습니다.") //제목
-                dig.setMessage("휴대폰 번호나 비밀번호를 확인해주세요")
-                dig.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
-                    startActivity(intent)
-                    finish()
-                })
-
-                dig.show()
-
-                 */
+            else {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("틀렸습니다")
+                builder.setMessage("휴대폰 번호와 비밀번호를 확인해주세요")
+                builder.setPositiveButton("확인", null)
+                builder.show()
+            }
         }
 
 
-        login_register_button.setOnClickListener{
+        login_register_button.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("아직 회원이 아니세요?")
             builder.setMessage("회원가입하시겠습니까?")
+            var listener = object : DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    when (p1) {
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            val intent = Intent(this@LoginActivity,RegisterActicity1::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+            builder.setNegativeButton("아니오",listener)
+            builder.setPositiveButton("네",listener)
+            builder.show()
 
-            builder.setPositiveButton("확인",{dialogInterface:DialogInterface?,i:Int->
-                val intent = Intent(this,RegisterActicity1::class.java)
-                startActivity(intent)
-            })
-            builder.setNegativeButton("취소",{dialogInterface:DialogInterface?,i:Int->
-
-            })
         }
-
-
-
-
 
     }
 }
+
 
 
 
