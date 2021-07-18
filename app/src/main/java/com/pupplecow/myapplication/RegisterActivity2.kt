@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CheckBox
 import android.widget.CompoundButton
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.activity_register2.*
 
@@ -18,6 +20,11 @@ class RegisterActivity2 : AppCompatActivity() {
 
         //로그인아이디 자동으로 입력
         register2_loginID.text="12345678"+"전화번호 뒤 8자리"
+
+        //비밀번호 자동으로 입력
+
+
+
         //비밀번호 입력받기
 
         //비밀번호 확인 실시간 확인하기
@@ -46,7 +53,8 @@ class RegisterActivity2 : AppCompatActivity() {
             //비밀번호 서로 같은지 확인하기
             val userPassword=register2_password_input.text.toString()
             val userPasswordCheck=register2_password_check_input.text.toString()
-            if(userPassword===userPasswordCheck){
+
+            if(userPassword==userPasswordCheck){
                 //비밀번호 같을때
 
                 //전체동의했는지 체크하기
@@ -56,15 +64,28 @@ class RegisterActivity2 : AppCompatActivity() {
                     && register2_checkBox_4.isChecked){
                     // 비밀번호 저장하기
 
-                    //"정상적으로 회원가입되었습니다." 알림 띄우기기
+                    //"정상적으로 회원가입되었습니다." 토스트 알림 띄우기
+                    var t1 = Toast.makeText(this, "정상적으로 회원가입되었습니다.", Toast.LENGTH_SHORT)
+                    t1.show()
+                    //로그인페이지로 이동
+                    //LoginActivity로 넘어가기
+                    val intent = Intent(this@RegisterActivity2, LoginActivity::class.java)
+                    startActivity(intent)
+
+
+
                 }else{
                     //전체동의 안하면 안내 메시지
-
+                    val builder= AlertDialog.Builder(this)
+                    builder.setTitle("")
+                    builder.setMessage("동의해주세요")
+                    builder.setPositiveButton("네",null)
+                    builder.show()
                 }
 
             }
             else{// 비밀번호 다를때
-                register_message.text="비밀번호가 맞지 않습니다."
+                register2_message.text="비밀번호가 맞지 않습니다."
             }
 
         }

@@ -45,8 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-
         android:inputType="textPassword"
+        android:text="990727"
         app:passwordToggleEnabled="true" />
 
     <TextView
@@ -60,18 +60,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:text="990727" />
 
     <TextView
         android:id="@+id/register2_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/register2_complete_button"
+    <TextView
+        android:id="@+id/register2_message2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입완료" />
+        android:text="기본 비밀번호는 생년월일 6자리 입니다." />
 
     <CheckBox
         android:id="@+id/register2_checkBox_all"
@@ -102,4 +103,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="출근 안내등 정보 이용 동의" />
+
+    <Button
+        android:id="@+id/register2_complete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원가입완료" />
 </LinearLayout>

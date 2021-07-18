@@ -54,7 +54,8 @@ class CreateAnnouncementActivity : AppCompatActivity() {
                                     val minute = homeNow.get(Calendar.MINUTE).toString()
 
 
-                                    //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장
+                                    //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장,필독정보
+
 
 
                                     //다음페이지로 넘어가기

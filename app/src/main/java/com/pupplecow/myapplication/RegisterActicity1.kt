@@ -19,7 +19,30 @@ class RegisterActicity1 : AppCompatActivity() {
 
             //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
             val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
-            if(userCellPhoneNumber==""){ }
+            val userIDNumber=register_id_input.text.toString()
+            val userName=register_name_input.text.toString()
+            if(userCellPhoneNumber==""||userCellPhoneNumber.length!=11){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("휴대폰 번호를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }
+            else if(userIDNumber==""||userIDNumber.length!=13){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("주민등록번호를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }
+            else if(userName==""){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("이름를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }
+
             else{
             //val inputCellPhoneNumber
            // val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()

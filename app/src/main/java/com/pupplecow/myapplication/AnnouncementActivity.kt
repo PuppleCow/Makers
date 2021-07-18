@@ -1,5 +1,6 @@
 package com.pupplecow.myapplication
 
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -33,7 +34,7 @@ class AnnouncementActivity : AppCompatActivity() {
             //다이얼로그
             val builder= AlertDialog.Builder(this)
             builder.setTitle("")
-            builder.setMessage("해당 공지를 삭제하시겠습니까?")
+            builder.setMessage("해당 공지를 수정하시겠습니까?")
             var listener = object : DialogInterface.OnClickListener {
                 override fun onClick(p0: DialogInterface?, p1: Int) {
                     when (p1) {
@@ -41,8 +42,8 @@ class AnnouncementActivity : AppCompatActivity() {
                         DialogInterface.BUTTON_POSITIVE -> {
                             //예누르면 공지사항 작성페이지로 이동 --> 수정공지사항은 입력되어있어야함
                             //Activity로 넘어가기
-                            //val intent = Intent(this@Activity, Activity::class.java)
-                            //startActivity(intent)
+                            val intent = Intent(this@AnnouncementActivity, CreateAnnouncementActivity::class.java)
+                            startActivity(intent)
 
                         }
 
@@ -74,9 +75,9 @@ class AnnouncementActivity : AppCompatActivity() {
 
 
                                 //공지사항 목록 페이지로 넘어가기
-                                //Activity로 넘어가기
-                                //val intent = Intent(this@Activity, Activity::class.java)
-                                //startActivity(intent)
+                                //AnnounceMentListActivity로 넘어가기
+                                val intent = Intent(this@AnnouncementActivity, AnnounceMentListActivity::class.java)
+                                startActivity(intent)
 
                             }
 
@@ -93,9 +94,9 @@ class AnnouncementActivity : AppCompatActivity() {
         //목록버튼 누르면
         announcement_button_list.setOnClickListener {
             //공지사항 목록 페이지로 넘어가기
-            //Activity로 넘어가기
-            //val intent = Intent(this@Activity, Activity::class.java)
-            //startActivity(intent)
+            //AnnounceMentListActivity로 넘어가기
+            val intent = Intent(this@AnnouncementActivity, AnnounceMentListActivity::class.java)
+            startActivity(intent)
 
 
         }

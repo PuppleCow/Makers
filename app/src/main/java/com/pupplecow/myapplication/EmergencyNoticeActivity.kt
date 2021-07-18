@@ -16,6 +16,8 @@ class EmergencyNoticeActivity : AppCompatActivity() {
         emergency_notice_button_confirm.setOnClickListener {
 
 
+            finish()
+
         }
 
 
