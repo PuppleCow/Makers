@@ -1,5 +1,6 @@
 package com.pupplecow.myapplication
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -63,11 +64,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
-//        button9.setOnClickListener {
-//            //ManageActivity 로 넘어가기
-//            val intent = Intent(this, ManageActivity::class.java)
-//            startActivity(intent)
-//        }
+        button9.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, ManageActivity::class.java)
+            startActivity(intent)
+        }
+
+        button10.setOnClickListener {
+            //ManageActivity 로 넘어가기
+           // val intent = Intent(this, Activity::class.java)
+            //startActivity(intent)
+        }
 
 
     }

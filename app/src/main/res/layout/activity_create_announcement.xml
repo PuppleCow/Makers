@@ -11,12 +11,17 @@
         android:id="@+id/create_announcement_create_announcement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="민원접수" />
+        android:text=" 공지사항 작성"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <Spinner
-        android:id="@+id/create_announcement_spinner_category"
+    <EditText
+        android:id="@+id/create_announcement_editText_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="제목을 입력해주세요"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/create_announcement_editTextTextMultiLine"
@@ -24,6 +29,7 @@
         android:layout_height="384dp"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="공지사항을 입력해주세요"
         android:inputType="textMultiLine" />
 
     <LinearLayout
@@ -49,8 +55,8 @@
 
     <CheckBox
         android:id="@+id/create_announcement_checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="86dp"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="필독" />
 

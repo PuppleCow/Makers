@@ -3,6 +3,8 @@ package com.pupplecow.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_create_announcement.*
 import kotlinx.android.synthetic.main.activity_register1.*
 
 class RegisterActicity1 : AppCompatActivity() {
@@ -30,12 +32,12 @@ class RegisterActicity1 : AppCompatActivity() {
             register_message.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
 
             //인증번호 전송하기
+
             }
         }
 
         //다음버튼 클릭
         register_button1.setOnClickListener {
-
 
             //인증번호 확인
             if(register_number_input.text.toString()=="1234") {
