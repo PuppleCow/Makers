@@ -72,8 +72,49 @@ class MainActivity : AppCompatActivity() {
 
         button10.setOnClickListener {
             //ManageActivity 로 넘어가기
-           // val intent = Intent(this, Activity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button11.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button12.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button13.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button14.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button15.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+
+        button16.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
+        }
+        button17.setOnClickListener {
+            //ManageActivity 로 넘어가기
+            val intent = Intent(this, Activity::class.java)
+            startActivity(intent)
         }
 
 
