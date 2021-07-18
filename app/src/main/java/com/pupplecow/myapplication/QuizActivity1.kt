@@ -16,11 +16,8 @@ class QuizActivity1 : AppCompatActivity() {
         binding= ActivityQuiz1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.quiz1Button1.setOnClickListener {
-            val quiz2_intent= Intent(this,QuizActivity2::class.java)
-            startActivity(quiz2_intent)
-        }
 
+        // 체크 박스들
         binding.quiz1CheckBox1.setOnClickListener {
             if(binding.quiz1CheckBox1.isChecked==true)
             {
@@ -30,25 +27,43 @@ class QuizActivity1 : AppCompatActivity() {
                 binding.quiz1CheckBox5.isChecked=true
             }
 
+
+            // 개인정보 처리 동의 버튼
             binding.quiz1ImageButton2.setOnClickListener{
                 val pop= PopupMenu(this,binding.quiz1Menu2)
                 menuInflater.inflate(R.menu.menu,pop.menu)
                 pop.show()
             }
+
+
+            // 개인정보 지속 처리 동의 버튼
             binding.quiz1ImageButton3.setOnClickListener{
                 val pop= PopupMenu(this,binding.quiz1Menu3)
                 menuInflater.inflate(R.menu.menu,pop.menu)
                 pop.show()
             }
+
+
+            // 주민등록번호 지속 처리 동의 버튼
             binding.quiz1ImageButton4.setOnClickListener{
                 val pop= PopupMenu(this,binding.quiz1Menu4)
                 menuInflater.inflate(R.menu.menu,pop.menu)
                 pop.show()
             }
+
+
+            // 출근 안내 등 정보이용 동의 버튼
             binding.quiz1ImageButton5.setOnClickListener{
                 val pop= PopupMenu(this,binding.quiz1Menu5)
                 menuInflater.inflate(R.menu.menu,pop.menu)
                 pop.show()
+            }
+
+
+            // 확인버튼
+            binding.quiz1Button1.setOnClickListener {
+                val quiz2_intent= Intent(this,QuizActivity2::class.java)
+                startActivity(quiz2_intent)
             }
         }
     }

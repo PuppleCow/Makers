@@ -61,5 +61,11 @@
         android:layout_height="wrap_content"
         android:text="관리자 탭" />
 
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="설정" />
+
 
 </LinearLayout>

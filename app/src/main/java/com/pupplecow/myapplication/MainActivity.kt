@@ -16,7 +16,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActicity1::class.java)
             startActivity(intent)
         }
+        
+        
         button2.setOnClickListener {
+            // 안전 메뉴얼 퀴즈
             val intent = Intent(this, QuizActivity1::class.java)
             startActivity(intent)
         }
@@ -59,11 +62,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        button9.setOnClickListener {
-            //ManageActivity 로 넘어가기
-            val intent = Intent(this, ManageActivity::class.java)
-            startActivity(intent)
-        }
+
+//        button9.setOnClickListener {
+//            //ManageActivity 로 넘어가기
+//            val intent = Intent(this, ManageActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
     }

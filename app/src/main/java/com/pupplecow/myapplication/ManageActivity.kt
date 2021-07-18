@@ -28,10 +28,10 @@ class ManageActivity : AppCompatActivity() {
         manage_SelectNotifSp.adapter= SelectGroupAdapter
 
 
-        manage_Emergency_button.setOnClickListener {
-            val intent = Intent(this, EmergencyNoticeActivity::class.java)
-            startActivity(intent)
-        }
+//        manage_Emergency_button.setOnClickListener {
+//            val intent = Intent(this, EmergencyNoticeActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
 

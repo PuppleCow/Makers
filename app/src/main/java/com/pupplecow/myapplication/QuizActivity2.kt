@@ -12,6 +12,8 @@ class QuizActivity2 : AppCompatActivity() {
         binding= ActivityQuiz2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        // 확인 버튼
         binding.quiz2Button1.setOnClickListener {
             val quiz3_intent= Intent(this,QuizActivity3::class.java)
             startActivity(quiz3_intent)

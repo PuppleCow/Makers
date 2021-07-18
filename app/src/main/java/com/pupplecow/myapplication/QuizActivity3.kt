@@ -12,6 +12,8 @@ class QuizActivity3 : AppCompatActivity() {
         binding= ActivityQuiz3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+        // 취소 버튼 ( 뒤로 가기 )
         binding.quiz3Button1.setOnClickListener {
             finish()
         }
