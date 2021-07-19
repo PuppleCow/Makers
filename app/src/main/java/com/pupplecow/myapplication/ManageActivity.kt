@@ -35,14 +35,17 @@ class ManageActivity : AppCompatActivity() {
 
         //근무자 현황 버튼
         manage_workerButton.setOnClickListener {
-            //val intent = Intent(this,)
+            //val intent = Intent(this,WorkersStatusActivity)
+            val intent = Intent(this, WorkersStatusActivity::class.java)
+            startActivity(intent)
+
         }
         //공지사항 목록보기 버튼
         manage_NotifListButton.setOnClickListener {
-            //val intent = Intent(this,)
+            val intent = Intent(this, AnnounceMentListActivity::class.java)
+            startActivity(intent)
+            //AnnounceMentListActivity
         }
-
-
 
     }
 }
