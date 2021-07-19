@@ -16,7 +16,12 @@ class QuizActivity2 : AppCompatActivity() {
         // 확인 버튼
         binding.quiz2Button1.setOnClickListener {
             val quiz3_intent= Intent(this,QuizActivity3::class.java)
-            startActivity(quiz3_intent)
+
+            // 두 문제 모두 체크되었을 때만 넘어가기
+            if((binding.quiz2RadioButton1.isChecked==true || binding.quiz2RadioButton2.isChecked==true) &&
+                (binding.quiz2RadioButton3.isChecked==true || binding.quiz2RadioButton4.isChecked==true)) {
+                startActivity(quiz3_intent)
+            }
         }
     }
 }
