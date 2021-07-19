@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         
         button2.setOnClickListener {
             // 안전 메뉴얼 퀴즈
-            val intent = Intent(this, QuizActivity1::class.java)
+            val intent = Intent(this, SafetyManualQuizActivity1::class.java)
             startActivity(intent)
         }
 

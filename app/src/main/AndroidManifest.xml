@@ -29,12 +29,12 @@
         <activity android:name=".ManageActivity" />
         <activity android:name=".MyComplaintActivity" />
         <activity android:name=".ComplaintActivity" />
-        <activity android:name=".QuizActivity3" />
+        <activity android:name=".SafetyManualQuizActivity3" />
         <activity android:name=".CheckInActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".HomeActivity1" />
-        <activity android:name=".QuizActivity2" />
-        <activity android:name=".QuizActivity1" />
+        <activity android:name=".SafetyManualQuizActivity2" />
+        <activity android:name=".SafetyManualQuizActivity1" />
         <activity android:name=".RegisterActivity2" />
         <activity android:name=".RegisterActicity1" />
         <activity android:name=".MainActivity">
