@@ -71,9 +71,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         button10.setOnClickListener {
-            //ManageActivity 로 넘어가기
-            //val intent = Intent(this, AnnouncementActivity::class.java)
-            //startActivity(intent)
+            // MyInformationSetting 으로 넘어가기
+            val intent=Intent(this,SettingActivity::class.java)
+            startActivity(intent)
         }
 
         button11.setOnClickListener {

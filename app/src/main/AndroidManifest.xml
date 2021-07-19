@@ -15,10 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-
-        <activity android:name=".WorkersStatusActivity"></activity>
-        <activity android:name=".AnnounceMentListActivity"></activity>
-        <!--<activity android:name=".Setting" />-->
+        <activity android:name=".SettingCheckSafetyManual"></activity>
+        <activity android:name=".SettingTermsAndPolicy" />
+        <activity android:name=".SettingOpenSourceLicense" />
+        <activity android:name=".SettingMyInformationSettingActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".MyInformationSetting" />
+        <activity android:name=".WorkersStatusActivity" />
+        <activity android:name=".AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".AnnouncementActivity" />
         <activity android:name=".CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
