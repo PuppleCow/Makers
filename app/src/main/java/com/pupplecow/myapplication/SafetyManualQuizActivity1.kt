@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.CompoundButton
 import android.widget.PopupMenu
+import android.widget.Toast
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz1Binding
 
 class SafetyManualQuizActivity1 : AppCompatActivity() {
@@ -56,8 +57,18 @@ class SafetyManualQuizActivity1 : AppCompatActivity() {
 
         // 확인버튼
         binding.quiz1Button1.setOnClickListener {
-            val quiz2_intent = Intent(this, SafetyManualQuizActivity2::class.java)
-            startActivity(quiz2_intent)
+
+            // 필수항목 체크됐을 때만 넘어가기
+            if (binding.quiz1CheckBox2.isChecked == true) {
+                val quiz2_intent = Intent(this, SafetyManualQuizActivity2::class.java)
+                startActivity(quiz2_intent)
+            }
+
+            // 필수 항목 체크돼있지 않으면
+            else{
+                val t1=Toast.makeText(this,"필수항목이 비어있습니다",Toast.LENGTH_SHORT)
+                t1.show()
+            }
         }
     }
 

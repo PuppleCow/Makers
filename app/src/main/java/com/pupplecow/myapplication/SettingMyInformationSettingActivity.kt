@@ -1,6 +1,7 @@
 package com.pupplecow.myapplication
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -70,7 +71,10 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
                             builder1.setMessage("메인화면으로 돌아갑니다")
                             builder1.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
-                                // '확인' 버튼 누르면 '홈'으로 이동
+                                // '확인' 버튼 누르면 '작업장(홈)'으로 이동
+                                val home_intent=Intent(this@SettingMyInformationSettingActivity,HomeActivity1::class.java)
+                                startActivity(home_intent)
+
                             }
                             builder1.show()
                         }

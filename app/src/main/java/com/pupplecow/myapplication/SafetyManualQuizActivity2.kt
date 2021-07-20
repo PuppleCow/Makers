@@ -3,6 +3,7 @@ package com.pupplecow.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz2Binding
 
 class SafetyManualQuizActivity2 : AppCompatActivity() {
@@ -21,6 +22,10 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
             if((binding.quiz2RadioButton1.isChecked==true || binding.quiz2RadioButton2.isChecked==true) &&
                 (binding.quiz2RadioButton3.isChecked==true || binding.quiz2RadioButton4.isChecked==true)) {
                 startActivity(quiz3_intent)
+            }
+            else{
+                val t1 = Toast.makeText(this, "풀지 않은 퀴즈가 있습니다", Toast.LENGTH_SHORT)
+                t1.show()
             }
         }
     }

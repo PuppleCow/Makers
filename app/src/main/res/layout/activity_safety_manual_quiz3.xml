@@ -63,7 +63,7 @@
         android:id="@+id/quiz3_textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="안전수칙 퀴즈로 넘어갑니다"
+        android:text="작업장(홈)으로 넘어갑니다"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
