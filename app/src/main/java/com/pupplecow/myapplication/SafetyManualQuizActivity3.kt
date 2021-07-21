@@ -12,12 +12,6 @@ class SafetyManualQuizActivity3 : AppCompatActivity() {
         binding= ActivitySafetyManualQuiz3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        // 취소 버튼 ( 뒤로 가기 )
-        binding.quiz3Button1.setOnClickListener {
-            finish()
-        }
-
         // 확인 버튼 ( 작업장(홈) 으로 가기 )
         binding.quiz3Button3.setOnClickListener{
             val home_intent=Intent(this,HomeActivity1::class.java )

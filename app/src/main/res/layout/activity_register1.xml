@@ -105,7 +105,6 @@
         android:background="@drawable/mybutton"
         android:fontFamily="@font/notosans_bold"
         android:text="다음"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
 </LinearLayout>
