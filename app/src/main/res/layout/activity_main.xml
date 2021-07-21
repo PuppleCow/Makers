@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,103 +7,22 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="회원가입" />
 
-    <Button
-        android:id="@+id/button2"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="안전메뉴얼퀴즈" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/_home_bottom_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="작업장(홈)" />
+    </FrameLayout>
 
-    <Button
-        android:id="@+id/button4"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/_home_bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="로그인" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="비대면 체크인" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="민원접수" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="긴급알림" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="공지사항" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="관리자 탭" />
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="내 정보 설정" />
-
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="공지글" />
-    <Button
-        android:id="@+id/button12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="작업자 현환" />
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="공지사항 목록" />
-
-    <Button
-        android:id="@+id/button14"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-
-    <Button
-        android:id="@+id/button15"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-
-
-</LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu" />
+</androidx.constraintlayout.widget.ConstraintLayout>
