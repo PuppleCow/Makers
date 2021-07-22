@@ -45,6 +45,11 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this,ResettingPassword1::class.java)
             startActivity(intent)
         }
+        //회원가입
+        button7.setOnClickListener{
+            val intent=Intent(this,RegisterActicity1::class.java)
+            startActivity(intent)
+        }
 
     }
 
