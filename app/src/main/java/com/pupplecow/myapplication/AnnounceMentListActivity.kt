@@ -13,7 +13,35 @@ import kotlinx.android.synthetic.main.activity_home1.*
 import kotlinx.android.synthetic.main.row.view.*
 
 class AnnounceMentListActivity : AppCompatActivity() {
-    /*
+    //순서대로 날짜, 공지 제목, 필독 유무
+
+
+
+
+    var AnnouncementList= arrayListOf<AnnounceMentListActivity2>(
+        AnnounceMentListActivity2("5/10", "Male", "필독" ),
+        AnnounceMentListActivity2("5/12", "Female", "필독" ),
+        AnnounceMentListActivity2("Golden Retriver", "Female", "3" ),
+        AnnounceMentListActivity2("Yorkshire Terrier", "Male", "5" ),
+        AnnounceMentListActivity2("Pug", "Male", "4"),
+        AnnounceMentListActivity2("Alaskan Malamute", "Male", "7"),
+        AnnounceMentListActivity2("Shih Tzu", "Female", "5")
+
+    )
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val listAdapter = AnnouncementListAdapterActivity(this, AnnouncementList)
+        announcementlist_recyclerview.adapter = listAdapter
+    }
+
+
+    //============================================================위에가 recyclerview 새로운 방법(안되면 listview하기...)
+
+/*
 
     var AnnouncementList=arrayOf("공지1","공지2","공지3")
 

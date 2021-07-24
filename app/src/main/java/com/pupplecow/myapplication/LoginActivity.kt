@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View.OnTouchListener
 import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_login.*
@@ -15,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 class LoginActivity : AppCompatActivity() {
     val login_data = arrayOf("선택", "상용직", "일용직")
+    //val spinner=findViewById<Spinner>(R.id.login_workpart)
+    //val choice=spinner.toString()
 
     //선택은 클릭해도 안되는 걸로 설정하기
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +54,14 @@ class LoginActivity : AppCompatActivity() {
 
             //로그인 성공했을 경우(id와 password와 일용직/상용직 매치되는 정보 있으면)
             if (login_editTextPhone.text.toString() == "01087347954" && login_editTextTextPassword.text.toString() == "991109") {
-                val intent = Intent(this@LoginActivity, HomeActivity1::class.java)
+                Toast.makeText(this@LoginActivity, "로그인 성공했습니다.", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this@LoginActivity, CheckInActivity::class.java)
                 startActivity(intent)
 
             }
+
+                //!!!로그인 성공했을 경우 toast 띄우기
 
 
             //<로그인 실패했을 경우>
@@ -76,6 +84,8 @@ class LoginActivity : AppCompatActivity() {
                 builder.show()
             }
             //상용/일용 선택되지 않았을 경우
+
+
 
             else if (workpart == "선택") {
                 val builder = AlertDialog.Builder(this)
