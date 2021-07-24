@@ -39,6 +39,11 @@
         android:text="필독" />
 
 
+    <ImageView
+        android:id="@+id/create_announcement_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <LinearLayout
         android:layout_width="match_parent"

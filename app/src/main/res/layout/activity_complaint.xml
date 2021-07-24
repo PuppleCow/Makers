@@ -31,12 +31,11 @@
         android:layout_height="72dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/complaint_button_photo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="사진첨부" />
+        <ImageView
+            android:id="@+id/complaint_imageView"
+            android:layout_width="195dp"
+            android:layout_height="47dp"
+            tools:srcCompat="@drawable/ic_baseline_announcement_24" />
 
         <Button
             android:id="@+id/complaint_button_enroll"
@@ -48,7 +47,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="71dp"
         android:orientation="horizontal">
 
         <Button
@@ -64,5 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="나의 민원내용보기" />
+
     </LinearLayout>
+
 </LinearLayout>

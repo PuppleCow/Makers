@@ -1,18 +1,45 @@
 package com.pupplecow.myapplication
 
+import android.app.Activity.RESULT_OK
 import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
+import android.text.TextUtils
+import android.widget.Gallery
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
+import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
+import java.io.File
+import java.io.InputStream
 import java.util.*
 
 class CreateAnnouncementActivity : AppCompatActivity() {
+    val PICK_IMAGE=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_announcement)
+
+        //이미지
+        create_announcement_imageView.setOnClickListener{
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = MediaStore.Images.Media.CONTENT_TYPE
+            @Suppress("DEPRECATION")
+            startActivityForResult(intent, PICK_IMAGE)
+
+
+        }
+
+
+
 
         //등록하기버튼
         create_announcement_button_enroll.setOnClickListener {
@@ -83,4 +110,14 @@ class CreateAnnouncementActivity : AppCompatActivity() {
 
 
     }
+
+
+
+
+
+
 }
+
+
+
+
