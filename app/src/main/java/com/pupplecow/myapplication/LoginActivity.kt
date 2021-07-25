@@ -46,6 +46,29 @@ class LoginActivity : AppCompatActivity() {
                 })
         }
             */
+
+
+        login_register_button.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("아직 회원이 아니세요?")
+            builder.setMessage("회원가입하시겠습니까?")
+            var listener = object : DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    when (p1) {
+                        DialogInterface.BUTTON_POSITIVE -> {
+                            val intent =
+                                Intent(this@LoginActivity, RegisterActicity1::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+            builder.setNegativeButton("아니오", listener)
+            builder.setPositiveButton("네", listener)
+            builder.show()
+
+
+        }
         login_button.setOnClickListener {
 
 
@@ -104,29 +127,6 @@ class LoginActivity : AppCompatActivity() {
                 builder.show()
             }
 
-
-
-            login_register_button.setOnClickListener {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("아직 회원이 아니세요?")
-                builder.setMessage("회원가입하시겠습니까?")
-                var listener = object : DialogInterface.OnClickListener {
-                    override fun onClick(p0: DialogInterface?, p1: Int) {
-                        when (p1) {
-                            DialogInterface.BUTTON_POSITIVE -> {
-                                val intent =
-                                    Intent(this@LoginActivity, RegisterActicity1::class.java)
-                                startActivity(intent)
-                            }
-                        }
-                    }
-                }
-                builder.setNegativeButton("아니오", listener)
-                builder.setPositiveButton("네", listener)
-                builder.show()
-
-
-            }
 
         }
     }

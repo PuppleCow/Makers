@@ -18,7 +18,7 @@ class CheckInActivity : AppCompatActivity() {
             //어디 페이지로 이동? -> 안전매뉴얼퀴즈로 이동(QuizActivity2)
 
 
-            val intent = Intent(this@CheckInActivity,SafetyManualQuizActivity2::class.java)
+            val intent = Intent(this@CheckInActivity,SafetyManualQuizActivity1::class.java)
             startActivity(intent)
         }
 
