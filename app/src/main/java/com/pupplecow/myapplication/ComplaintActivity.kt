@@ -53,6 +53,11 @@ class ComplaintActivity : AppCompatActivity() {
             startActivityForResult(albumIntent, 0)
         }
 
+        //사진삭제버튼
+        complaint_button_image_delete.setOnClickListener {
+            complaint_imageView.setImageResource(0)
+        }
+
 
 
         //등록하기버튼
@@ -107,6 +112,8 @@ class ComplaintActivity : AppCompatActivity() {
                 builder.show()
             }
         }
+
+
 
         //전화걸기 버튼
         complaint_button_phonecall.setOnClickListener {
