@@ -39,23 +39,16 @@
         android:text="필독" />
 
 
-    <ImageView
-        android:id="@+id/create_announcement_imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/create_announcement_button_photo"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/create_announcement_imageView"
+            android:layout_width="178dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="사진첨부" />
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
         <Button
             android:id="@+id/create_announcement_button_enroll"

@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         //회원가입
         button7.setOnClickListener{
-            val intent=Intent(this,CreateAnnouncementActivity::class.java)
+            val intent=Intent(this,RegisterActivity2::class.java)
             startActivity(intent)
         }
 
