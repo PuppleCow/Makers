@@ -22,8 +22,8 @@ class ResettingPassword1 : AppCompatActivity() {
             //핸드폰번호 저장
 
             //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
-            val name=binding.resettingName.text.toString()
-            val phoneNumber=binding.resettingNumber.text.toString()
+            val name=binding.resetting1Name.text.toString()
+            val phoneNumber=binding.resetting1Phone.text.toString()
 
             if(phoneNumber==""||phoneNumber.length!=11){
                 val builder= AlertDialog.Builder(this)
@@ -41,8 +41,8 @@ class ResettingPassword1 : AppCompatActivity() {
             }
             // 이름과 전화번호 모두 입력했다면
             else{
-                val phoneNumberFront=binding.resettingNumber.text.substring(0,3)
-                val phoneNumberBehind=binding.resettingNumber.text.substring(7,11)
+                val phoneNumberFront=binding.resetting1Phone.text.substring(0,3)
+                val phoneNumberBehind=binding.resetting1Phone.text.substring(7,11)
 
 
                 //핸드폰 번호로 인증번호 전송 메시지
@@ -57,7 +57,7 @@ class ResettingPassword1 : AppCompatActivity() {
         binding.resetting1Button2.setOnClickListener {
 
             //인증번호 확인
-            if(binding.resettingNumber.text.toString()=="1234") {
+            if(binding.resetting1Number.text.toString()=="1234") {
 
                 //인증번호 확인되면
                 //RegisterActivity_2로 넘어가기
