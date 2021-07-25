@@ -68,11 +68,13 @@ class RegisterActicity1 : AppCompatActivity() {
                 //이름, 주민등록번호, 전화번호 저장
                 val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
                 var userName=register_name_input.text.toString()
-                var userId=register_name_input.text.toString()
+                var userId=register_id_input.text.toString()
 
                 //RegisterActivity_2로 넘어가기
                 val intent = Intent(this, RegisterActivity2::class.java)
                 intent.putExtra("userCellPhoneNumber",userCellPhoneNumber)
+                intent.putExtra("userName",userName)
+                intent.putExtra("userId",userId)
                 startActivity(intent)
 
 

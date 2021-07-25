@@ -1,12 +1,12 @@
 package com.pupplecow.myapplication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.CheckBox
+import android.text.Editable
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.activity_register2.*
 
@@ -16,12 +16,21 @@ class RegisterActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_register2)
 
         //인텐트 가져오기
-        //val userCellPhoneNumber=intent.getIntExtra("userCellPhoneNumber")
+        val intent = intent
+
+        val userCellPhoneNumber=intent.extras!!.getString("userCellPhoneNumber")
+        val userName=intent.extras!!.getString("userName")
+        val userId=intent.extras!!.getString("userId")
+
 
         //로그인아이디 자동으로 입력
-        register2_loginID.text="12345678"+"전화번호 뒤 8자리"
+        val loginID=userCellPhoneNumber?.substring(4,11)
+        register2_loginID.text=loginID
 
         //비밀번호 자동으로 입력
+        val loginPW=userId?.substring(0,6)
+        register2_password_input.setText(loginPW)
+        register2_password_check_input.setText(loginPW)
 
 
 
@@ -116,4 +125,5 @@ class RegisterActivity2 : AppCompatActivity() {
             }
         }
 
-    }}
+    }
+}

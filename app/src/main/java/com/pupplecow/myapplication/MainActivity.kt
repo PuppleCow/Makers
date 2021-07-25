@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         }
         //회원가입
         button7.setOnClickListener{
-            val intent=Intent(this,RegisterActivity2::class.java)
+            val intent=Intent(this,RegisterActicity1::class.java)
             startActivity(intent)
         }
 
@@ -56,7 +56,11 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this,AnnounceMentListActivity::class.java)
             startActivity(intent)
         }
-
+        //회원가입
+        button9.setOnClickListener{
+            val intent=Intent(this,NavbarTest::class.java)
+            startActivity(intent)
+        }
     }
 
 
