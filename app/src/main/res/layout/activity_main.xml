@@ -47,7 +47,7 @@
         android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="회원가입" />
+        android:text="메인 네비바" />
 
     <Button
         android:id="@+id/button8"
@@ -61,10 +61,6 @@
         android:layout_height="wrap_content"
         android:text="네비게이션바 테스트" />
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="지혜_test" />
+
 
 </LinearLayout>

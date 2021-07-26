@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ResettingPassword1::class.java)
             startActivity(intent)
         }
-        //회원가입
+        //메인 네비바
         button7.setOnClickListener {
-            val intent = Intent(this, CreateAnnouncementActivity::class.java)
+            val intent = Intent(this, MainNavActivity::class.java)
             startActivity(intent)
         }
 
@@ -68,10 +68,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NavbarTest::class.java)
             startActivity(intent)
         }
-        button10.setOnClickListener {
-            val intent = Intent(this, MainNavActivity::class.java)
-            startActivity(intent)
-        }
+
     }
 
 
