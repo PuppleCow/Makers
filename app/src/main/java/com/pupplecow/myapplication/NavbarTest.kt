@@ -10,36 +10,66 @@ import com.pupplecow.myapplication.ui.home.HomeFragment
 import com.pupplecow.myapplication.ui.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_navbar_test.*
 
+
 @Suppress("DEPRECATION")
-class NavbarTest : AppCompatActivity(){
+class NavbarTest : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var navbarTestSetting: NavbarTestSetting
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navbar_test)
 
-        /*
+        bottom_nav_bar.setOnNavigationItemSelectedListener(this)
 
-        @Suppress("DEPRECATION")
-        bottom_nav_bar.setOnNavigationItemSelectedListener (this)
-
-        bottom_nav_bar.selectedItemId=R.id.navbar_home
-
-         */
     }
-//
-//    override fun onNavigationItemSelected(item: MenuItem):Boolean {
-//        when(item.itemId){
-//            R.id.navbar_home->{
-//                supportFragmentManager.beginTransaction().replace(R.id.main_frame,HomeFragment()).commit()
-//            }
-//            R.id.navbar_complaint->{
-//                supportFragmentManager.beginTransaction().replace(R.id.main_frame,ComplaintFragment()).commit()
-//            }
-//            R.id.navbar_announcement->{
-//                supportFragmentManager.beginTransaction().replace(R.id.main_frame,AnnouncementFragment()).commit()
-//            }
-//            R.id.navbar_settings->{
-//                supportFragmentManager.beginTransaction().replace(R.id.main_frame,SettingsFragment()).commit()
-//            }
-//        }
-//    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.navbar_settings->{
+//                val intent=Intent(this,SettingActivity::class.java)
+//                startActivity(intent)
+                navbarTestSetting= NavbarTestSetting.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.main_frame,navbarTestSetting).commit()
+
+            }
+        }
+
+        return true
+    }
 }
+
+//@Suppress("DEPRECATION")
+//class NavbarTest : AppCompatActivity(){
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_navbar_test)
+//
+//        /*
+//
+//        @Suppress("DEPRECATION")
+//        bottom_nav_bar.setOnNavigationItemSelectedListener (this)
+//
+//        bottom_nav_bar.selectedItemId=R.id.navbar_home
+//
+//         */
+//    }
+////
+////    override fun onNavigationItemSelected(item: MenuItem):Boolean {
+////        when(item.itemId){
+////            R.id.navbar_home->{
+////                supportFragmentManager.beginTransaction().replace(R.id.main_frame,HomeFragment()).commit()
+////            }
+////            R.id.navbar_complaint->{
+////                supportFragmentManager.beginTransaction().replace(R.id.main_frame,ComplaintFragment()).commit()
+////            }
+////            R.id.navbar_announcement->{
+////                supportFragmentManager.beginTransaction().replace(R.id.main_frame,AnnouncementFragment()).commit()
+////            }
+////            R.id.navbar_settings->{
+////                supportFragmentManager.beginTransaction().replace(R.id.main_frame,SettingsFragment()).commit()
+////            }
+////        }
+////    }
+//}
