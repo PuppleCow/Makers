@@ -5,9 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.NavbarTestSetting
 import com.pupplecow.myapplication.R
 
 class SettingsFragment:Fragment() {
+
+    companion object {
+        fun newInstance(): SettingsFragment {
+            return SettingsFragment()
+        }
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
         val view=inflater.inflate(R.layout.activity_setting,container,false)
 

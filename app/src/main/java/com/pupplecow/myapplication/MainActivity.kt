@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         button10.setOnClickListener {
-            val intent = Intent(this, JihyeNavbarTestActivity::class.java)
+            val intent = Intent(this, MainNavActivity::class.java)
             startActivity(intent)
         }
     }

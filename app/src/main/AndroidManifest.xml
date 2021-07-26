@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".JihyeNavbarTestActivity"></activity>
+        <activity android:name=".MainNavActivity"></activity>
+        <activity android:name=".JihyeNavbarTestActivity" />
         <activity android:name=".NavbarTest" />
         <activity android:name=".MainActivity2" />
         <activity

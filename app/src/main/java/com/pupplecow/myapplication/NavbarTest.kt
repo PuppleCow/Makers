@@ -38,6 +38,9 @@ class NavbarTest : AppCompatActivity(), BottomNavigationView.OnNavigationItemSel
 
         return true
     }
+
+
+
 }
 
 //@Suppress("DEPRECATION")

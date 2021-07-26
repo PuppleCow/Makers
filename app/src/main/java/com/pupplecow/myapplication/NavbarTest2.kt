@@ -32,7 +32,7 @@ class NavbarTest2 : AppCompatActivity(), BottomNavigationView.OnNavigationItemSe
 //                val intent=Intent(this,SettingActivity::class.java)
 //                startActivity(intent)
                 navbarTestSetting= NavbarTestSetting.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_frame2,navbarTestSetting).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,navbarTestSetting).commit()
 
             }
         }
