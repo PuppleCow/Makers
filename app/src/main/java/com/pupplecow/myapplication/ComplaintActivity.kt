@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.io.InputStream
@@ -30,7 +31,7 @@ class ComplaintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
-
+        complaint_button_image_delete.isVisible=false
         //민원항목 선택 스피너
 
         val complaintAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,complaintCategoryData)
@@ -51,11 +52,13 @@ class ComplaintActivity : AppCompatActivity() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
+            complaint_button_image_delete.isVisible=true
         }
 
         //사진삭제버튼
         complaint_button_image_delete.setOnClickListener {
             complaint_imageView.setImageResource(0)
+            complaint_button_image_delete.isVisible=false
         }
 
 
@@ -135,6 +138,7 @@ class ComplaintActivity : AppCompatActivity() {
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode == RESULT_OK){

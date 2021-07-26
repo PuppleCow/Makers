@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK
+import androidx.core.view.isVisible
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
 import java.io.File
@@ -35,7 +36,7 @@ class CreateAnnouncementActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_announcement)
-
+        create_announcement_button_image_delete.isVisible=false
         //이미지
         create_announcement_imageView.setOnClickListener{
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
@@ -47,8 +48,13 @@ class CreateAnnouncementActivity : AppCompatActivity() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
+            create_announcement_button_image_delete.isVisible=true
         }
 
+        create_announcement_button_image_delete.setOnClickListener {
+            create_announcement_imageView.setImageResource(0)
+            create_announcement_button_image_delete.isVisible=false
+        }
 
 
 

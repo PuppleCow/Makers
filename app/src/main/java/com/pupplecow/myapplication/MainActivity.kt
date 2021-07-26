@@ -41,28 +41,31 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         //비밀번호 재설정
-        button6.setOnClickListener{
-            val intent=Intent(this,ResettingPassword1::class.java)
+        button6.setOnClickListener {
+            val intent = Intent(this, ResettingPassword1::class.java)
             startActivity(intent)
         }
         //회원가입
-        button7.setOnClickListener{
-            val intent=Intent(this,ComplaintActivity::class.java)
+        button7.setOnClickListener {
+            val intent = Intent(this, CreateAnnouncementActivity::class.java)
             startActivity(intent)
         }
 
         //공지사항 목록
-        button8.setOnClickListener{
-            val intent=Intent(this,AnnounceMentListActivity::class.java)
+        button8.setOnClickListener {
+            val intent = Intent(this, AnnounceMentListActivity::class.java)
             startActivity(intent)
         }
         //회원가입
-        button9.setOnClickListener{
-            val intent=Intent(this,NavbarTest::class.java)
+        button9.setOnClickListener {
+            val intent = Intent(this, NavbarTest::class.java)
+            startActivity(intent)
+        }
+        button10.setOnClickListener {
+            val intent = Intent(this, JihyeNavbarTestActivity::class.java)
             startActivity(intent)
         }
     }
-
 
 
 
