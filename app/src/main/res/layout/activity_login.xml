@@ -89,6 +89,14 @@
             android:layout_width="match_parent"
             android:layout_height="10dp" />
 
+        <Button
+            android:id="@+id/login_button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DB92E7"
+            android:backgroundTint="#D28BDE"
+            android:text="비밀번호 찾기" />
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="20dp" />

@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 
 class LoginActivity : AppCompatActivity() {
-    val login_data = arrayOf("선택", "상용직", "일용직")
+    val login_data = arrayOf( "상용직", "일용직")
     //val spinner=findViewById<Spinner>(R.id.login_workpart)
     //val choice=spinner.toString()
 
@@ -33,19 +33,19 @@ class LoginActivity : AppCompatActivity() {
 
         //비밀번호 보여주기 이미지 클릭 시 text 보여주기 활성화(layout 분리해서)
 
+        //비밀번호 숨기기 해제
+//
+//        login_imageButton.setOnClickListener(new OnTouchListener(){
+//            private fun boolean onTouch(View v, MotionEvent event) {
+//                login_imageButton.setOnTouchListener(OnTouchListener { v, event ->
+//                    when (event.action) {
+//                        MotionEvent.ACTION_UP -> editText.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
+//                        MotionEvent.ACTION_DOWN -> editText.setInputType(InputType.TYPE_CLASS_TEXT)
+//                    }
+//                    true
+//                })
+//        }
 
-        /*비밀번호 숨기기 해제
-        login_imageButton.setOnClickListener(new OnTouchListener(){
-            private fun boolean onTouch(View v, MotionEvent event) {
-                login_imageButton.setOnTouchListener(OnTouchListener { v, event ->
-                    when (event.action) {
-                        MotionEvent.ACTION_UP -> editText.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                        MotionEvent.ACTION_DOWN -> editText.setInputType(InputType.TYPE_CLASS_TEXT)
-                    }
-                    true
-                })
-        }
-            */
 
 
         login_register_button.setOnClickListener {
@@ -68,6 +68,10 @@ class LoginActivity : AppCompatActivity() {
             builder.show()
 
 
+        }
+        login_button10.setOnClickListener {
+            val intent = Intent(this@LoginActivity,ResettingPassword1::class.java)
+            startActivity(intent)
         }
         login_button.setOnClickListener {
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_announce_ment_list.*
 import kotlinx.android.synthetic.main.activity_announce_ment_list.view.*
@@ -19,13 +20,13 @@ class AnnounceMentListActivity : AppCompatActivity() {
 
 
     var AnnouncementList= arrayListOf<AnnounceMentListActivity2>(
-        AnnounceMentListActivity2("5/10", "Male", "필독" ),
-        AnnounceMentListActivity2("5/12", "Female", "필독" ),
-        AnnounceMentListActivity2("Golden Retriver", "Female", "3" ),
-        AnnounceMentListActivity2("Yorkshire Terrier", "Male", "5" ),
-        AnnounceMentListActivity2("Pug", "Male", "4"),
-        AnnounceMentListActivity2("Alaskan Malamute", "Male", "7"),
-        AnnounceMentListActivity2("Shih Tzu", "Female", "5")
+        AnnounceMentListActivity2("5/10", "공지1", "필독" ),
+        AnnounceMentListActivity2("5/12", "공지2", "필독" ),
+        AnnounceMentListActivity2("5/13", "공지3", "" ),
+        AnnounceMentListActivity2("5/14", "공지4", "" ),
+        AnnounceMentListActivity2("5/15", "공지5", ""),
+        AnnounceMentListActivity2("5/16", "공지6", ""),
+        AnnounceMentListActivity2("5/17", "공지7", "필독")
 
     )
 
@@ -36,6 +37,11 @@ class AnnounceMentListActivity : AppCompatActivity() {
 
         val listAdapter = AnnouncementListAdapterActivity(this, AnnouncementList)
         announcementlist_recyclerview.adapter = listAdapter
+
+
+        val lm = LinearLayoutManager(this)
+        announcementlist_recyclerview.layoutManager = lm
+        announcementlist_recyclerview.setHasFixedSize(true)
     }
 
 

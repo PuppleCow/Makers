@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+import kotlin.collections.ArrayList
 
 class AnnouncementListAdapterActivity(val context:Context, val AnnouncementList:ArrayList<AnnounceMentListActivity2>):
     RecyclerView.Adapter<AnnouncementListAdapterActivity.Holder>() {
@@ -14,7 +16,6 @@ class AnnouncementListAdapterActivity(val context:Context, val AnnouncementList:
 
             val view = LayoutInflater.from(context).inflate(R.layout.activity_frameofannouncementlist, parent, false)
             return Holder(view)
-        TODO("Not yet implemented")
     }
 
         override fun getItemCount(): Int {
@@ -22,7 +23,6 @@ class AnnouncementListAdapterActivity(val context:Context, val AnnouncementList:
         }
 
         override fun onBindViewHolder(holder: Holder, position: Int) {
-            TODO("Not yet implemented")
             holder?.bind(AnnouncementList[position], context)
         }
 
@@ -31,11 +31,12 @@ class AnnouncementListAdapterActivity(val context:Context, val AnnouncementList:
             val Title = itemView?.findViewById<TextView>(R.id.frame_textView3)
             val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
 
-            fun bind(dog: AnnounceMentListActivity2, context: Context) {
-                date?.text = dog.Date
-                Title?.text = dog.Title
-                EssentialRead?.text = dog.EssentialRead
+            fun bind(AnnouncementListActivity2: AnnounceMentListActivity2, context: Context) {
+                date?.text = AnnouncementListActivity2.Date
+                Title?.text = AnnouncementListActivity2.Title
+                EssentialRead?.text = AnnouncementListActivity2.EssentialRead
             }
+
         }
 
 
