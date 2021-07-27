@@ -58,11 +58,11 @@ class MainActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-        // 네비게이션 테스트 2
-        button8.setOnClickListener {
-            val intent=Intent(this,NavbarTest2::class.java)
-            startActivity(intent)
-        }
+//        // 네비게이션 테스트 2
+//        button8.setOnClickListener {
+//            val intent=Intent(this,NavbarTest2::class.java)
+//            startActivity(intent)
+//        }
         //회원가입
         button9.setOnClickListener {
             val intent = Intent(this, NavbarTest::class.java)
