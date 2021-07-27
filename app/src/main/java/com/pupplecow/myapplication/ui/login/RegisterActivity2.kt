@@ -1,12 +1,12 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.activity_register2.*
 

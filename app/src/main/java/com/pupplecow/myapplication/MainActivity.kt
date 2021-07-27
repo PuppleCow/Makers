@@ -4,7 +4,9 @@ package com.pupplecow.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
+import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
+import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import com.pupplecow.myapplication.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 

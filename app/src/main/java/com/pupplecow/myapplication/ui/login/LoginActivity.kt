@@ -1,17 +1,16 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.login
 
-import android.R.attr.button
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
-import android.view.MotionEvent
-import android.view.View.OnTouchListener
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.pupplecow.myapplication.CheckInActivity
+import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ResettingPassword1
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
@@ -90,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
 
         }
         login_button10.setOnClickListener {
-            val intent = Intent(this@LoginActivity,ResettingPassword1::class.java)
+            val intent = Intent(this@LoginActivity, ResettingPassword1::class.java)
             startActivity(intent)
         }
         login_button.setOnClickListener {

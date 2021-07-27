@@ -1,14 +1,12 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.Button
 import androidx.appcompat.app.AlertDialog
+import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_home1.*
-import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.*
 
 class HomeActivity1 : AppCompatActivity() {

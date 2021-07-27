@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySettingMyInformationSettingBinding
+import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 
 class SettingMyInformationSettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingMyInformationSettingBinding
@@ -72,7 +73,8 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
                             builder1.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
                                 // '확인' 버튼 누르면 '작업장(홈)'으로 이동
-                                val home_intent=Intent(this@SettingMyInformationSettingActivity,HomeActivity1::class.java)
+                                val home_intent=Intent(this@SettingMyInformationSettingActivity,
+                                    HomeActivity1::class.java)
                                 startActivity(home_intent)
 
                             }

@@ -1,10 +1,10 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import kotlinx.android.synthetic.main.activity_create_announcement.*
+import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_register1.*
 
 class RegisterActicity1 : AppCompatActivity() {

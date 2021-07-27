@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeActivity1">
+    tools:context=".temporaryStorage.HomeActivity1">
 
     <TextView
         android:id="@+id/home_home"

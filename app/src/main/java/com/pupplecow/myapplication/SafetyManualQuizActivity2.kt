@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz2Binding
+import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 
 class SafetyManualQuizActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivitySafetyManualQuiz2Binding
@@ -50,7 +51,7 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                     // 확인 누르면 '작업장(홈)'으로 가기
 
                     builder.setPositiveButton("확인"){ dialogInterface: DialogInterface, i: Int ->
-                        val home_intent=Intent(this,HomeActivity1::class.java)
+                        val home_intent=Intent(this, HomeActivity1::class.java)
                         startActivity(home_intent)
                     }
 
