@@ -57,3 +57,65 @@
 
 ###
 "# Purple_application" 
+
+
+
+## 💡 Getting Started
+
+### Prerequisites
+
+```
+$ node -v
+v12.16.1
+
+$ npm -v
+v6.13.4
+```
+
+### Installation
+1. `clone` the repository,
+```
+$ git clone "https://github.com/do-mi-sol/domisol-web-application.git"
+```
+
+2. `Install` dependencies,
+```
+$ npm install
+```       
+3. `start` the project,
+```
+$ npm start
+```
+
+### <br/>
+###
+
+## 💡 Role
+최지혜|이현진|김진욱| 
+:-------:|:-------:|:-------:|
+`developer`<br/>`developer`|`FE-developer`<br/>|`FE-developer`<br/>|
+server connect(axios)<br/>홈(작업장)페이지<br/>컴플레인페이지<br/><br/>project refactoring<br/>|<br/><br/><br/>project refactoring<br/>|
+
+### <br/>
+###
+
+
+### <br/>
+###
+
+## 💡 Link
+### purplecow project
+
+`purpleCow application` :  <https://github.com/do-mi-sol/domisol-web-application>
+
+`purpleCow server` : <https://github.com/do-mi-sol/domisol-server>
+
+### do-mi-sol developer
+
+`최지혜` 👉🏻 <https://github.com/jangnyer>
+
+`김진욱` 👉🏻 <>
+
+`이현진` 👉🏻 <>
+
+
