@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -18,6 +19,7 @@ import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
+import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
 class CreateAnnounecementFragment:Fragment() {
@@ -36,6 +38,14 @@ class CreateAnnounecementFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //산업안전 뉴스 제목,링크 불러오기
+        create_announcement_text_news.text = "뉴스 제목입니다."
+
+        create_announcement_text_news.setOnClickListener {
+        var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+        startActivity(intent)
+        }
 
         create_announcement_button_image_delete.isVisible=false
         //이미지

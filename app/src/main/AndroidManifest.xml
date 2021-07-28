@@ -31,7 +31,7 @@
         <activity android:name=".SettingMyInformationSettingActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".MyInformationSetting" />
-        <activity android:name=".WorkersStatusActivity" />
+        <activity android:name=".ui.manager.WorkersStatusActivity" />
         <activity android:name=".AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".temporaryStorage.AnnouncementActivity" />
         <activity android:name=".temporaryStorage.CreateAnnouncementActivity" />

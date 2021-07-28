@@ -1,13 +1,12 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.manager
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.pupplecow.myapplication.R
 
 class workersStatusListAdapter(val context: Context, val workersList: ArrayList<workersStatus>) :
     RecyclerView.Adapter<workersStatusListAdapter.Holder>() {

@@ -89,5 +89,11 @@
                 android:layout_weight="1"
                 android:text="근무종료" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_text_news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="뉴스" />
     </LinearLayout>
 </LinearLayout>

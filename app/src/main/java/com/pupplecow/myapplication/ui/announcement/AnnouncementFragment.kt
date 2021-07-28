@@ -1,6 +1,8 @@
 package com.pupplecow.myapplication.ui.announcement
 
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_announcement.*
+import kotlinx.android.synthetic.main.activity_home1.*
 
 class AnnouncementFragment:Fragment() {
     private lateinit var createAnnounecementFragment:CreateAnnounecementFragment
@@ -22,6 +25,15 @@ class AnnouncementFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //산업안전 뉴스 제목,링크 불러오기
+        announcement_text_news.text="뉴스 제목입니다."
+
+        announcement_text_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
 
         //제목,공지날짜 서버에서 가져오기
         announcement_text_title.text="5/10 공지입니다."

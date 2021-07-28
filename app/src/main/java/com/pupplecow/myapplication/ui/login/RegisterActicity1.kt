@@ -62,6 +62,33 @@ class RegisterActicity1 : AppCompatActivity() {
         //다음버튼 클릭
         register_button1.setOnClickListener {
 
+            //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
+            val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
+            val userIDNumber=register_id_input.text.toString()
+            val userName=register_name_input.text.toString()
+            if(userCellPhoneNumber==""||userCellPhoneNumber.length!=11){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("휴대폰 번호를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }
+            else if(userIDNumber==""||userIDNumber.length!=13){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("주민등록번호를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }
+            else if(userName==""){
+                val builder= AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("이름를 입력해주세요")
+                builder.setPositiveButton("네",null)
+                builder.show()
+            }else{
+
+
             //인증번호 확인
             if(register_number_input.text.toString()=="1234") {
                 //인증번호 확인되면
@@ -83,7 +110,7 @@ class RegisterActicity1 : AppCompatActivity() {
                 //인증번호 틀리면
                 register_message.text="인증번호가 틀렸습니다. 다시 인증해 주세요"
             }
-        }
+        }}
 
     }
 

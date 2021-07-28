@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import com.pupplecow.myapplication.ui.manager.WorkersStatusActivity
 import com.pupplecow.myapplication.ui.login.LoginActivity
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import kotlinx.android.synthetic.main.activity_main.*
@@ -57,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         //공지사항 목록
         button8.setOnClickListener{
-            val intent=Intent(this,WorkersStatusActivity::class.java)
+            val intent=Intent(this, WorkersStatusActivity::class.java)
             startActivity(intent)
         }
 

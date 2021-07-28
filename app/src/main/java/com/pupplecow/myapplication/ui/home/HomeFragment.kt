@@ -1,5 +1,7 @@
 package com.pupplecow.myapplication.ui.home
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.strictmode.InstanceCountViolation
 import android.view.LayoutInflater
@@ -26,6 +28,9 @@ class HomeFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //산업안전 뉴스 제목,링크 불러오기
+        home_text_news.text="뉴스 제목입니다."
 
 
         //작업장선택 스피너
@@ -143,6 +148,13 @@ class HomeFragment:Fragment() {
             builder.show()
 
         }
+
+        home_text_news.setOnClickListener{
+
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
+
 
     }
 

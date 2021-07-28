@@ -49,8 +49,6 @@ class RegisterActivity2 : AppCompatActivity() {
             //비밀번호 숨기기 해제
             if(register2_toggleButton.isChecked==true) {
                 register2_password_input.inputType=InputType.TYPE_CLASS_TEXT
-                //InputType.TYPE_CLASS_TEXT
-
             }
             else{
                 register2_password_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
@@ -64,11 +62,9 @@ class RegisterActivity2 : AppCompatActivity() {
             //비밀번호 숨기기 해제
             if(register2_toggleButton.isChecked==true) {
                 register2_password_check_input.inputType=InputType.TYPE_CLASS_TEXT
-                //InputType.TYPE_CLASS_TEXT
-
             }
             else{
-                register2_password_check_input.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                register2_password_check_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
             }
         }
