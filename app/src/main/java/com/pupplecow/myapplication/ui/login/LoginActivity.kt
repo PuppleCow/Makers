@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.pupplecow.myapplication.CheckInActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_login.*
@@ -44,7 +43,7 @@ class LoginActivity : AppCompatActivity() {
                login_editTextPassword.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
                login_showButton.setBackgroundDrawable(
-                   getDrawable(R.drawable.pic)
+                   getDrawable(R.drawable.eye_close)
                )
 
            }

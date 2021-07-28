@@ -27,14 +27,14 @@ class AnnouncementListAdapterActivity(val context:Context, val AnnouncementList:
         }
 
         inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-            val date = itemView?.findViewById<TextView>(R.id.frame_textView2)
+            val Date = itemView?.findViewById<TextView>(R.id.frame_textView2)
             val Title = itemView?.findViewById<TextView>(R.id.frame_textView3)
             val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
 
-            fun bind(AnnouncementListActivity2: AnnounceMentListActivity2, context: Context) {
-                date?.text = AnnouncementListActivity2.Date
-                Title?.text = AnnouncementListActivity2.Title
-                EssentialRead?.text = AnnouncementListActivity2.EssentialRead
+            fun bind(Announce: AnnounceMentListActivity2, context: Context) {
+                Date?.text = Announce.Date
+                Title?.text = Announce.Title
+                EssentialRead?.text = Announce.EssentialRead
             }
 
         }
