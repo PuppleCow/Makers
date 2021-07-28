@@ -1,12 +1,11 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.pupplecow.myapplication.ManageActivity
 import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
-import java.util.regex.Pattern
 
 class ResettingPassword2 : AppCompatActivity() {
     private lateinit var binding: ActivityResettingPassword2Binding

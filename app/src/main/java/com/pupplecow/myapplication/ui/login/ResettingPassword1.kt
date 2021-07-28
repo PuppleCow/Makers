@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

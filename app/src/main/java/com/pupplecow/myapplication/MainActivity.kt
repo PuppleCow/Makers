@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity
+import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import kotlinx.android.synthetic.main.activity_main.*
 
 

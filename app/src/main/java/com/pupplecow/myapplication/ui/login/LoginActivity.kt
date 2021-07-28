@@ -10,7 +10,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.pupplecow.myapplication.CheckInActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ResettingPassword1
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 

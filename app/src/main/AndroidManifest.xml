@@ -23,8 +23,8 @@
         <activity
             android:name=".ui.login.NavbarTest"
             android:label="@string/title_activity_navbar_test" />
-        <activity android:name=".ResettingPassword2" />
-        <activity android:name=".ResettingPassword1" />
+        <activity android:name=".ui.login.ResettingPassword2" />
+        <activity android:name=".ui.login.ResettingPassword1" />
         <activity android:name=".SettingCheckSafetyManual" />
         <activity android:name=".SettingTermsAndPolicy" />
         <activity android:name=".SettingOpenSourceLicense" />
