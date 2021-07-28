@@ -45,7 +45,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="80dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,53 +159,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 
-    <ImageButton
-        android:id="@+id/settintg1_imageButton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:srcCompat="@drawable/safetynews" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/setting1_textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="작업장"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/setting1_textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="민원접수"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/setting1_textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="공지사항"
-            android:textAlignment="center" />
-
-        <TextView
-            android:id="@+id/setting1_textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="설정"
-            android:textAlignment="center" />
-    </LinearLayout>
 
 </LinearLayout>
