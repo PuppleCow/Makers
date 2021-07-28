@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         //공지사항 목록
         button8.setOnClickListener{
-            val intent=Intent(this, WorkersStatusActivity::class.java)
+            val intent=Intent(this, AnnounceMentListActivity::class.java)
             startActivity(intent)
         }
 

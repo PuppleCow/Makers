@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.pupplecow.myapplication.CheckInActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
@@ -30,40 +31,26 @@ class LoginActivity : AppCompatActivity() {
         login_workpart.adapter = workpartAdapter
 
 
-        //비밀번호 보여주기 이미지 클릭 시 text 보여주기 활성화(layout 분리해서)
-
-
-
-        //이미지 버튼 클릭 시 바뀌는 걸로 하고 싶은데,,,그건 아직 안되네요,,
-       login_checkbox.setOnClickListener{
+       login_showButton.setOnClickListener{
            //비밀번호 숨기기 해제
-           if(login_checkbox.isChecked) {
+           if(login_showButton.isChecked) {
                login_editTextPassword.inputType=InputType.TYPE_CLASS_TEXT
+               login_showButton.setBackgroundDrawable(
+                   getDrawable(R.drawable.eye_open)
+               )
 
            }
            else{
                login_editTextPassword.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
+               login_showButton.setBackgroundDrawable(
+                   getDrawable(R.drawable.pic)
+               )
+
            }
-//            while(login_show.isClickable){
-//                login_editTextPassword.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-//            }
+
         }
 
-
-
-//
-//
-//            login_imageButton.setOnClickListener(new OnTouchListener(){
-//                private fun boolean onTouch(View v, MotionEvent event) {
-//                login_imageButton.setOnTouchListener(OnTouchListener { v, event ->
-//                    when (event.action) {
-//                        MotionEvent.ACTION_UP -> editText.setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-//                        MotionEvent.ACTION_DOWN -> editText.setInputType(InputType.TYPE_CLASS_TEXT)
-//                    }
-//                    true
-//                })
-//            }
 
 
         login_register_button.setOnClickListener {
@@ -99,14 +86,12 @@ class LoginActivity : AppCompatActivity() {
 
             //로그인 성공했을 경우(id와 password와 일용직/상용직 매치되는 정보 있으면)
             if (login_editTextPhone.text.toString() == "01087347954" && login_editTextPassword.text.toString() == "991109") {
-                Toast.makeText(this@LoginActivity, "로그인 성공했습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this@LoginActivity, CheckInActivity::class.java)
+                val intent = Intent(this@LoginActivity, HomeFragment::class.java)
                 startActivity(intent)
 
             }
-
-                //!!!로그인 성공했을 경우 toast 띄우기
 
 
             //<로그인 실패했을 경우>
@@ -125,16 +110,6 @@ class LoginActivity : AppCompatActivity() {
             else if (login_editTextPassword.text.toString() == "") {
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("비밀번호를 입력해주세요")
-                builder.setPositiveButton("확인", null)
-                builder.show()
-            }
-            //상용/일용 선택되지 않았을 경우
-
-
-
-            else if (workpart == "선택") {
-                val builder = AlertDialog.Builder(this)
-                builder.setMessage("상용직/일용직 중 선택해주세요")
                 builder.setPositiveButton("확인", null)
                 builder.show()
             }

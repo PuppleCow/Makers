@@ -33,7 +33,7 @@ class AnnounceMentListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_announce_ment_list)
 
         val listAdapter = AnnouncementListAdapterActivity(this, AnnouncementList)
         announcementlist_recyclerview.adapter = listAdapter

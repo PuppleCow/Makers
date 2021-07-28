@@ -34,13 +34,20 @@
             android:layout_height="80dp" />
 
 
-        <EditText
-            android:id="@+id/login_editTextPhone"
-            android:layout_width="300dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="10"
-            android:hint="휴대폰 번호"
-            android:inputType="phone" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/login_editTextPhone"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="휴대폰 번호"
+                android:inputType="phone"
+                android:textAlignment="textStart" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,12 +62,15 @@
                 android:hint="비밀번호"
                 android:inputType="textPassword" />
 
-            <CheckBox
-                android:id="@+id/login_checkbox"
+            <ToggleButton
+                android:id="@+id/login_showButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="보기" />
+                android:background="@drawable/pic"
+                android:text="ToggleButton"
+                android:textOff="."
+                android:textOn="." />
 
         </LinearLayout>
 
@@ -92,7 +102,7 @@
         <Button
             android:id="@+id/login_button10"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="#DB92E7"
             android:backgroundTint="#D28BDE"
             android:text="비밀번호 찾기" />
