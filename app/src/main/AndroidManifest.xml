@@ -33,11 +33,11 @@
         <activity android:name=".MyInformationSetting" />
         <activity android:name=".WorkersStatusActivity" />
         <activity android:name=".AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
-        <activity android:name=".AnnouncementActivity" />
-        <activity android:name=".CreateAnnouncementActivity" />
+        <activity android:name=".temporaryStorage.AnnouncementActivity" />
+        <activity android:name=".temporaryStorage.CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".ManageActivity" />
-        <activity android:name=".MyComplaintActivity" />
+        <activity android:name=".temporaryStorage.MyComplaintActivity" />
         <activity android:name=".temporaryStorage.ComplaintActivity" />
         <activity android:name=".SafetyManualQuizActivity3" />
         <activity android:name=".CheckInActivity" />

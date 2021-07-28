@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import com.pupplecow.myapplication.MyComplaintActivity
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*

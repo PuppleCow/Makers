@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AnnouncementActivity">
+    tools:context=".temporaryStorage.AnnouncementActivity">
 
     <TextView
         android:id="@+id/announcement_announcement"

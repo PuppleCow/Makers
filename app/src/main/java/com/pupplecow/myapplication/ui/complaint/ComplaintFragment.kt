@@ -18,10 +18,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
 import java.util.*
 
 class ComplaintFragment:Fragment() {
+
+    private lateinit var myComplaintFragment: MyComplaintFragment
+    private lateinit var myComplaintListFragment: MyComplaintListFragment
+
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.ACCESS_MEDIA_LOCATION
@@ -111,8 +116,8 @@ class ComplaintFragment:Fragment() {
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
-                                //val intent = Intent(this, MyComplaintActivity::class.java)
-                                //startActivity(intent)
+                                myComplaintFragment= MyComplaintFragment.newInstance()
+                                val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintFragment)?.commit()
 
                             }
 
@@ -138,9 +143,8 @@ class ComplaintFragment:Fragment() {
         //나의 민원 보기 버튼
         complaint_button_mycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
-            //val intent = Intent(this, MyComplaintActivity::class.java)
-            //startActivity(intent)
-
+            myComplaintListFragment= MyComplaintListFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.commit()
         }
 
     }

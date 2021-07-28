@@ -1,41 +1,42 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.announcement
 
 import android.Manifest
-import android.app.Activity.RESULT_OK
 import android.content.DialogInterface
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
-import android.text.TextUtils
-import android.widget.Gallery
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
-import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
-import java.io.File
-import java.io.InputStream
 import java.util.*
 
-class CreateAnnouncementActivity : AppCompatActivity() {
-    val PICK_IMAGE=0
+class CreateAnnounecementFragment:Fragment() {
+    private lateinit var announcmentListFragment:AnnouncmentListFragment
+
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.ACCESS_MEDIA_LOCATION
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_announcement)
+    companion object {
+        fun newInstance(): CreateAnnounecementFragment {
+            return CreateAnnounecementFragment()
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         create_announcement_button_image_delete.isVisible=false
         //이미지
         create_announcement_imageView.setOnClickListener{
@@ -66,7 +67,7 @@ class CreateAnnouncementActivity : AppCompatActivity() {
             //제목란 비어있는지 확인
             if (create_announcement_editText_title.text.toString() == "") {
                 //비어있으면 작성해주세요 다이얼로그
-                val builder = AlertDialog.Builder(this)
+                val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("공지사항")
                 builder.setMessage("제목을 작성해주세요")
                 builder.setPositiveButton("네", null)
@@ -76,14 +77,14 @@ class CreateAnnouncementActivity : AppCompatActivity() {
 
                 if (create_announcement_editTextTextMultiLine.text.toString() == "") {
                     //비어있으면 작성해주세요 다이얼로그
-                    val builder = AlertDialog.Builder(this)
+                    val builder = AlertDialog.Builder(requireActivity())
                     builder.setTitle("공지사항")
                     builder.setMessage("공지사항을 작성해주세요")
                     builder.setPositiveButton("네", null)
                     builder.show()
                 } else {
                     //공지사항작성 다이얼로그
-                    val builder = AlertDialog.Builder(this)
+                    val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("공지사항")
                     builder.setMessage("공지사항을 등록하시겠습니까?")
                     var listener = object : DialogInterface.OnClickListener {
@@ -105,13 +106,12 @@ class CreateAnnouncementActivity : AppCompatActivity() {
 
 
 
-                                    //다음페이지로 넘어가기
-                                    //MyConplaintActivity로 넘어가기
-                                    val intent = Intent(
-                                        this@CreateAnnouncementActivity,
-                                        AnnouncementActivity::class.java
-                                    )
-                                    startActivity(intent)
+                                    //공지사항 목록 페이지로 넘어가기
+                                    //AnnouncmentListFragment로 넘어가기
+                                    announcmentListFragment= AnnouncmentListFragment.newInstance()
+                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcmentListFragment)?.commit()
+
+
 
                                 }
 
@@ -125,48 +125,42 @@ class CreateAnnouncementActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(resultCode == RESULT_OK){
+        if(resultCode == AppCompatActivity.RESULT_OK){
             // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
             val uri = data?.data
 
             if(uri != null){
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
                     // 안드로이드 10버전 부터
-                    val source = ImageDecoder.createSource(contentResolver, uri)
+                    val source = ImageDecoder.createSource(requireActivity().contentResolver, uri)
                     val bitmap = ImageDecoder.decodeBitmap(source)
-                    create_announcement_imageView.setImageBitmap(bitmap)
+                    complaint_imageView.setImageBitmap(bitmap)
                 } else {
                     // 안드로이드 9버전 까지
-                    val cursor = contentResolver.query(uri, null, null, null, null)
+                    val cursor = requireActivity().contentResolver.query(uri, null, null, null, null)
                     if(cursor != null){
                         cursor.moveToNext()
                         // 이미지 경로를 가져온다.
+                        @Suppress("DEPRECATION")
                         val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                         val source = cursor.getString(index)
                         // 이미지를 생성한다.
                         val bitmap = BitmapFactory.decodeFile(source)
-                        create_announcement_imageView.setImageBitmap(bitmap)
+                        complaint_imageView.setImageBitmap(bitmap)
                     }
                 }
             }
         }
     }
 
-
-
-
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
+        val view=inflater.inflate(R.layout.activity_create_announcement,container,false)
+        return view
+    }
 
 }
-
-
-
-
