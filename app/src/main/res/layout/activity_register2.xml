@@ -40,14 +40,26 @@
         android:layout_height="wrap_content"
         android:text="비밀번호" />
 
-    <EditText
-        android:id="@+id/register2_password_input"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="990727"
-        app:passwordToggleEnabled="true" />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/register2_password_input"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="990727"
+            app:passwordToggleEnabled="true" />
+
+        <ToggleButton
+            android:id="@+id/register2_toggleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ToggleButton" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/register2_password_check_text"
@@ -55,13 +67,26 @@
         android:layout_height="wrap_content"
         android:text="비밀번호 확인" />
 
-    <EditText
-        android:id="@+id/register2_password_check_input"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:text="990727" />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/register2_password_check_input"
+            android:layout_width="339dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text="990727" />
+
+        <ToggleButton
+            android:id="@+id/register2_toggleButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ToggleButton" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/register2_message"
@@ -109,4 +134,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="회원가입완료" />
+
 </LinearLayout>

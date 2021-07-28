@@ -2,11 +2,13 @@ package com.pupplecow.myapplication.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.pupplecow.myapplication.R
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.activity_register2.*
 
@@ -43,9 +45,34 @@ class RegisterActivity2 : AppCompatActivity() {
 
         //비밀번호 가리기버튼1
         //한번누르면 비밀번호 보이게하기
+        register2_toggleButton.setOnClickListener{
+            //비밀번호 숨기기 해제
+            if(register2_toggleButton.isChecked==true) {
+                register2_password_input.inputType=InputType.TYPE_CLASS_TEXT
+                //InputType.TYPE_CLASS_TEXT
+
+            }
+            else{
+                register2_password_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
+            }
+        }
 
         //비밀번호 가리기버튼2
         //한번누르면 비밀번호 보이게하기
+        register2_toggleButton2.setOnClickListener{
+            //비밀번호 숨기기 해제
+            if(register2_toggleButton.isChecked==true) {
+                register2_password_check_input.inputType=InputType.TYPE_CLASS_TEXT
+                //InputType.TYPE_CLASS_TEXT
+
+            }
+            else{
+                register2_password_check_input.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
+            }
+        }
+
 
         //체크상태파악
         //전체동의했을때 모두 체크

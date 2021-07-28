@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_workers_status.*
 
 class WorkersStatusActivity : AppCompatActivity() {
@@ -53,9 +54,11 @@ class WorkersStatusActivity : AppCompatActivity() {
                 //해당 팀에서 일하는 근무인원 이름 전화번호 시작시간 종료시간 관리자여부 서버에서 받아오기
 
                 val workersAdapter=workersStatusListAdapter(this,workersList)
-                workers_status_listview.adapter=workersAdapter
+                workers_status_recyclerview.adapter=workersAdapter
 
-
+                val lm = LinearLayoutManager(this)
+                workers_status_recyclerview.layoutManager = lm
+                workers_status_recyclerview.setHasFixedSize(true)
 
 
 
