@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.CheckInActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.login.RegisterActivity2
 import com.pupplecow.myapplication.ui.settings.SettingsFragment
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
@@ -95,6 +97,11 @@ class HomeFragment:Fragment() {
                             //스피너 비활성화
                             home_spinner_workspace.setEnabled(false)
                             home_spinner_work.setEnabled(false)
+
+                            //비대면체크인 페이지
+                            val intent = Intent(requireContext(), CheckInActivity::class.java)
+                            startActivity(intent)
+
                         }
 
                     }
