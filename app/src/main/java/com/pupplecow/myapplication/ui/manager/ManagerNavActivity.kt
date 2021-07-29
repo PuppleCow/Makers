@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.manager.fragment.ManagerAnnouncementListFragment
-import com.pupplecow.myapplication.ui.manager.fragment.ManagerComplaintListFragment
-import com.pupplecow.myapplication.ui.manager.fragment.ManagerSettingsFragment
-import com.pupplecow.myapplication.ui.manager.fragment.ManagerHomeFragment
+import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
+import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
+import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingsFragment
+import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
 import kotlinx.android.synthetic.main.activity_manager_nav.*
 
 @Suppress("DEPRECATION")

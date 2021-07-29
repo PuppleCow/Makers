@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.manager
+package com.pupplecow.myapplication.ui.manager.home
 
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,11 +1,13 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import com.pupplecow.myapplication.ui.manager.WorkersStatusActivity
+import com.pupplecow.myapplication.AnnounceMentListActivity
+import com.pupplecow.myapplication.EmergencyNoticeActivity
+import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_manage.*
 
 class ManageActivity : AppCompatActivity() {

@@ -32,12 +32,12 @@
         <activity android:name=".SettingMyInformationSettingActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".MyInformationSetting" />
-        <activity android:name=".ui.manager.WorkersStatusActivity" />
+        <activity android:name=".temporaryStorage.WorkersStatusActivity" />
         <activity android:name=".AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".temporaryStorage.AnnouncementActivity" />
         <activity android:name=".temporaryStorage.CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
-        <activity android:name=".ManageActivity" />
+        <activity android:name=".temporaryStorage.ManageActivity" />
         <activity android:name=".temporaryStorage.MyComplaintActivity" />
         <activity android:name=".temporaryStorage.ComplaintActivity" />
         <activity android:name=".SafetyManualQuizActivity3" />

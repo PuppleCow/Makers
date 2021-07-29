@@ -1,6 +1,5 @@
-package com.pupplecow.myapplication.ui.manager.fragment
+package com.pupplecow.myapplication.ui.manager.home
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,13 +8,12 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 
 class ManagerHomeFragment:Fragment() {
-    private lateinit var workersStatusFragment: WorkersStatusFragment
+    private lateinit var managerWorkersStatusFragment: ManagerWorkersStatusFragment
 
     val Manage_SelectGroup = arrayOf("긴급알림 그룹 선택","모든 그룹","A","B","C","D","E")
     //직접 쓰기-> 따로 페이지 이동해야 함.
@@ -76,8 +74,8 @@ class ManagerHomeFragment:Fragment() {
         manager_home_workerButton.setOnClickListener {
             //다음페이지로 넘어가기
             //WorkersStatusFragment로 넘어가기
-            workersStatusFragment= WorkersStatusFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,workersStatusFragment)?.commit()
+            managerWorkersStatusFragment= ManagerWorkersStatusFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.commit()
 
 
         }

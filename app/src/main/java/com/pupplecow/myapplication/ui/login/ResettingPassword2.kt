@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.pupplecow.myapplication.ManageActivity
+import com.pupplecow.myapplication.temporaryStorage.ManageActivity
 import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
 
 class ResettingPassword2 : AppCompatActivity() {

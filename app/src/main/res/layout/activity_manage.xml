@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ManageActivity">
+    tools:context=".temporaryStorage.ManageActivity">
 
     <Spinner
         android:id="@+id/manage_SelectGroupSp"

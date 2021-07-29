@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
-import com.pupplecow.myapplication.ui.manager.WorkersStatusActivity
 import com.pupplecow.myapplication.ui.login.LoginActivity
-import com.pupplecow.myapplication.ui.login.RegisterActivity2
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_main.*
