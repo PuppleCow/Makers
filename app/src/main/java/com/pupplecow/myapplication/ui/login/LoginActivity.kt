@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_login.*
@@ -87,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
             if (login_editTextPhone.text.toString() == "01087347954" && login_editTextPassword.text.toString() == "991109") {
                 Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-                val intent = Intent(this@LoginActivity, HomeFragment::class.java)
+                val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
                 startActivity(intent)
 
             }
