@@ -44,6 +44,14 @@ class ComplaintFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //산업안전 뉴스 제목,링크 불러오기
+        complaint_text_news.text="뉴스 제목입니다."
+        complaint_text_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
+
         complaint_button_image_delete.isVisible=false
         //민원항목 선택 스피너
 

@@ -1,5 +1,7 @@
 package com.pupplecow.myapplication.ui.manager.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +30,14 @@ class ManagerHomeFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //산업안전 뉴스 제목,링크 불러오기
+        manager_home_text_news.text="뉴스 제목입니다."
+
+        manager_home_text_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
 
         //긴급알림 그룹 선택 스피너
         val SelectGroupAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,Manage_SelectGroup)

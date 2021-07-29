@@ -37,6 +37,16 @@ class MyComplaintFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        //산업안전 뉴스 제목,링크 불러오기
+        mycomplaint_text_news.text="뉴스 제목입니다."
+
+        mycomplaint_text_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
+
         //서버에서 내용받아오기
         MyComplaint_text_title.text="민원제목입니다."
         MyComplaint_text_content.text="민원내용입니다."
