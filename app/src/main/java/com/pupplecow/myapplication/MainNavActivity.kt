@@ -43,14 +43,17 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,complaintFragment).commit()
 
             }
+
             R.id.navbar_announcement->{
                 announcementListFragment= AnnouncmentListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementListFragment).commit()
+
 
             }
             R.id.navbar_settings->{
                 settingsFragment= SettingsFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingsFragment).commit()
+
 
             }
         }

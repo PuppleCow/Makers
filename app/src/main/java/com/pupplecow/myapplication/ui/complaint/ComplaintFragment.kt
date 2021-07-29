@@ -117,7 +117,7 @@ class ComplaintFragment:Fragment() {
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
                                 myComplaintFragment= MyComplaintFragment.newInstance()
-                                val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintFragment)?.commit()
+                                val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintFragment)?.addToBackStack(null)?.commit()
 
                             }
 
@@ -144,7 +144,7 @@ class ComplaintFragment:Fragment() {
         complaint_button_mycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
             myComplaintListFragment= MyComplaintListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.commit()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.addToBackStack(null)?.commit()
         }
 
     }

@@ -75,8 +75,7 @@ class ManagerHomeFragment:Fragment() {
             //다음페이지로 넘어가기
             //WorkersStatusFragment로 넘어가기
             managerWorkersStatusFragment= ManagerWorkersStatusFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.commit()
-
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.addToBackStack(null)?.commit()
 
         }
         //공지사항 목록보기 버튼

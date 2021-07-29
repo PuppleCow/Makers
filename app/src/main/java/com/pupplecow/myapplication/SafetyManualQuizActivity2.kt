@@ -44,15 +44,16 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
 
                     val builder= AlertDialog.Builder(this)
                     builder.setTitle("메뉴얼 퀴즈가 제출되었습니다.")
-                    builder.setMessage("작업장(홈)으로 넘어갑니다")
+                    builder.setMessage("작업을 시작합니다.")
                     builder.setNegativeButton("취소",null)
 
 
                     // 확인 누르면 '작업장(홈)'으로 가기
 
                     builder.setPositiveButton("확인"){ dialogInterface: DialogInterface, i: Int ->
-                        val home_intent=Intent(this, HomeActivity1::class.java)
-                        startActivity(home_intent)
+//                        val home_intent=Intent(this, HomeActivity1::class.java)
+//                        startActivity(home_intent)
+                        finish()
                     }
 
                     builder.show()

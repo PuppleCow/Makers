@@ -21,6 +21,7 @@ class CheckInActivity : AppCompatActivity() {
                 if ((check_in_radioButton.isChecked == true || check_in_radioButton2.isChecked == true)){
                     val intent = Intent(this@CheckInActivity, SafetyManualQuizActivity1::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 else{
                     val builder = AlertDialog.Builder(this)

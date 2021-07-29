@@ -18,12 +18,7 @@
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".ui.manager.ManagerNavActivity"></activity>
         <activity android:name=".MainNavActivity" />
-        <activity android:name=".JihyeNavbarTestActivity" />
-        <activity android:name=".NavbarTest" />
-        <activity android:name=".MainActivity2" />
-        <activity
-            android:name=".ui.login.NavbarTest"
-            android:label="@string/title_activity_navbar_test" />
+
         <activity android:name=".ui.login.ResettingPassword2" />
         <activity android:name=".ui.login.ResettingPassword1" />
         <activity android:name=".SettingCheckSafetyManual" />
@@ -31,7 +26,6 @@
         <activity android:name=".SettingOpenSourceLicense" />
         <activity android:name=".SettingMyInformationSettingActivity" />
         <activity android:name=".SettingActivity" />
-        <activity android:name=".MyInformationSetting" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
         <activity android:name=".AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".temporaryStorage.AnnouncementActivity" />

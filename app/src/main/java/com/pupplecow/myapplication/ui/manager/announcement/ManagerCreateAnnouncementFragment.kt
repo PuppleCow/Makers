@@ -1,6 +1,5 @@
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.ui.manager.announcement
 
-import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -17,39 +16,34 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.announcement.AnnouncmentListFragment
+import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
-import kotlinx.android.synthetic.main.activity_home1.*
+import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
-class CreateAnnounecementFragment:Fragment() {
-    private lateinit var announcmentListFragment:AnnouncmentListFragment
-
-    val permission_list = arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
-    )
-
+class ManagerCreateAnnouncementFragment:Fragment() {
+    private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     companion object {
-        fun newInstance(): CreateAnnounecementFragment {
-            return CreateAnnounecementFragment()
+        fun newInstance(): ManagerCreateAnnouncementFragment {
+            return ManagerCreateAnnouncementFragment()
         }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         //산업안전 뉴스 제목,링크 불러오기
-        create_announcement_text_news.text = "뉴스 제목입니다."
+        manager_create_announcement_text_news.text = "뉴스 제목입니다."
 
-        create_announcement_text_news.setOnClickListener {
-        var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-        startActivity(intent)
+        manager_create_announcement_text_news.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
         }
 
-        create_announcement_button_image_delete.isVisible=false
+        manager_create_announcement_button_image_delete.isVisible=false
         //이미지
-        create_announcement_imageView.setOnClickListener{
+        manager_create_announcement_imageView.setOnClickListener{
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
             val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
@@ -59,12 +53,12 @@ class CreateAnnounecementFragment:Fragment() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
-            create_announcement_button_image_delete.isVisible=true
+            manager_create_announcement_button_image_delete.isVisible=true
         }
 
-        create_announcement_button_image_delete.setOnClickListener {
-            create_announcement_imageView.setImageResource(0)
-            create_announcement_button_image_delete.isVisible=false
+        manager_create_announcement_button_image_delete.setOnClickListener {
+            manager_create_announcement_imageView.setImageResource(0)
+            manager_create_announcement_button_image_delete.isVisible=false
         }
 
 
@@ -73,9 +67,9 @@ class CreateAnnounecementFragment:Fragment() {
 
 
         //등록하기버튼
-        create_announcement_button_enroll.setOnClickListener {
+        manager_create_announcement_button_enroll.setOnClickListener {
             //제목란 비어있는지 확인
-            if (create_announcement_editText_title.text.toString() == "") {
+            if (manager_create_announcement_editText_title.text.toString() == "") {
                 //비어있으면 작성해주세요 다이얼로그
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("공지사항")
@@ -85,7 +79,7 @@ class CreateAnnounecementFragment:Fragment() {
             } else {
                 //textarea비어있는지 확인
 
-                if (create_announcement_editTextTextMultiLine.text.toString() == "") {
+                if (manager_create_announcement_editTextTextMultiLine.text.toString() == "") {
                     //비어있으면 작성해주세요 다이얼로그
                     val builder = AlertDialog.Builder(requireActivity())
                     builder.setTitle("공지사항")
@@ -118,8 +112,8 @@ class CreateAnnounecementFragment:Fragment() {
 
                                     //공지사항 목록 페이지로 넘어가기
                                     //AnnouncmentListFragment로 넘어가기
-                                    announcmentListFragment= AnnouncmentListFragment.newInstance()
-                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcmentListFragment)?.addToBackStack(null)?.commit()
+                                    managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
+                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
 
 
 
@@ -168,9 +162,11 @@ class CreateAnnounecementFragment:Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.activity_create_announcement,container,false)
+
+
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
+        val view=inflater.inflate(R.layout.fragment_manager_create_announecement,container,false)
         return view
     }
-
 }
