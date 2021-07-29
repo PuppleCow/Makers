@@ -9,11 +9,14 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 
 class ManagerHomeFragment:Fragment() {
+    private lateinit var workersStatusFragment: WorkersStatusFragment
+
     val Manage_SelectGroup = arrayOf("긴급알림 그룹 선택","모든 그룹","A","B","C","D","E")
     //직접 쓰기-> 따로 페이지 이동해야 함.
     val Manage_SelectNotif = arrayOf("긴급알림 종류 선택","모든 작업 일시 중단","공지사항 필독","직접 쓰기")
@@ -71,9 +74,11 @@ class ManagerHomeFragment:Fragment() {
         }
         //근무자 현황 버튼
         manager_home_workerButton.setOnClickListener {
-            //val intent = Intent(this,WorkersStatusActivity)
-//            val intent = Intent(this, WorkersStatusActivity::class.java)
-//            startActivity(intent)
+            //다음페이지로 넘어가기
+            //WorkersStatusFragment로 넘어가기
+            workersStatusFragment= WorkersStatusFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,workersStatusFragment)?.commit()
+
 
         }
         //공지사항 목록보기 버튼
