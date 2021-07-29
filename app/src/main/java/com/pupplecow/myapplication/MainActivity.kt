@@ -8,7 +8,9 @@ import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.manager.WorkersStatusActivity
 import com.pupplecow.myapplication.ui.login.LoginActivity
+import com.pupplecow.myapplication.ui.login.RegisterActivity2
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
+import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -58,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         //공지사항 목록
         button8.setOnClickListener{
-            val intent=Intent(this, WorkersStatusActivity::class.java)
+            val intent=Intent(this, ManagerNavActivity::class.java)
             startActivity(intent)
         }
 

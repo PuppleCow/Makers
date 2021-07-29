@@ -11,4 +11,10 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="underline_1"><u>개인정보처리동의(필수)</u>.</string>
+    <string name="underline_2"><u>개인정보지속처리동의</u>.</string>
+    <string name="underline_3"><u>주민등록번호지속처리동의</u>.</string>
+    <string name="underline_4"><u>출근 안내등 정보 이용 동의)</u>.</string>
+
+
 </resources>

@@ -3,6 +3,7 @@ package com.pupplecow.myapplication.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,6 +17,9 @@ class RegisterActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
+
+        //스크롤뷰 안보이게
+        register2_scrollview.visibility= View.INVISIBLE
 
         //인텐트 가져오기
         val intent = intent
@@ -67,6 +71,40 @@ class RegisterActivity2 : AppCompatActivity() {
                 register2_password_check_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
             }
+        }
+
+        //약관 클릭
+        register2_text_1.setOnClickListener {
+
+            //스크롤뷰 보이게
+            register2_scrollview.visibility= View.VISIBLE
+            //텍스트 바꾸기
+            register2_text_area.text="약관1 \n" +
+                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
+        }
+        register2_text_2.setOnClickListener {
+
+            //스크롤뷰 보이게
+            register2_scrollview.visibility= View.VISIBLE
+            //텍스트 바꾸기
+            register2_text_area.text="약관2 \n" +
+                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
+        }
+        register2_text_3.setOnClickListener {
+
+            //스크롤뷰 보이게
+            register2_scrollview.visibility= View.VISIBLE
+            //텍스트 바꾸기
+            register2_text_area.text="약관3 \n" +
+                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
+        }
+        register2_text_4.setOnClickListener {
+
+            //스크롤뷰 보이게
+            register2_scrollview.visibility= View.VISIBLE
+            //텍스트 바꾸기
+            register2_text_area.text="약관4 \n" +
+                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
         }
 
 
