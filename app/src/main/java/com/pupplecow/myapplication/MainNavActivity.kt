@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.ui.announcement.AnnouncementFragment
+import com.pupplecow.myapplication.ui.announcement.AnnouncmentListFragment
 import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import com.pupplecow.myapplication.ui.settings.SettingsFragment
@@ -12,12 +13,13 @@ import kotlinx.android.synthetic.main.activity_main_nav.*
 import kotlinx.android.synthetic.main.activity_navbar_test.*
 
 
+
 @Suppress("DEPRECATION")
 class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var complaintFragment: ComplaintFragment
-    private lateinit var announcementFragment: AnnouncementFragment
+    private lateinit var announcementListFragment: AnnouncmentListFragment
     private lateinit var settingsFragment: SettingsFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +44,8 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
             }
             R.id.navbar_announcement->{
-                announcementFragment= AnnouncementFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementFragment).commit()
+                announcementListFragment= AnnouncmentListFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementListFragment).commit()
 
             }
             R.id.navbar_settings->{
