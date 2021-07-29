@@ -5,30 +5,30 @@
     android:orientation="vertical">
 
     <Spinner
-        android:id="@+id/manage_SelectGroupSp2"
+        android:id="@+id/manager_home_SelectGroupSp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="gravity" />
 
     <Spinner
-        android:id="@+id/manage_SelectNotifSp2"
+        android:id="@+id/manager_home_electNotifSp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/manage_Emergency_button2"
+        android:id="@+id/manager_home_Emergency_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="긴급 알림" />
 
     <Button
-        android:id="@+id/manage_workerButton2"
+        android:id="@+id/manager_home_workerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="근무자 현황" />
 
     <Button
-        android:id="@+id/manage_NotifListButton2"
+        android:id="@+id/manager_home_NotifListButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="공지사항 목록 보기" />
