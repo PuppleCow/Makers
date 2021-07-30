@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.*
-import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingsFragment
 import kotlinx.android.synthetic.main.activity_setting.*
 
 class SettingsFragment:Fragment() {
@@ -31,6 +30,8 @@ class SettingsFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 내 정보 설정
         setting1_imageButton1.setOnClickListener {
 
 //            val myInformationSetting_intent= Intent(activity,SettingMyInformationSettingActivity::class.java)
