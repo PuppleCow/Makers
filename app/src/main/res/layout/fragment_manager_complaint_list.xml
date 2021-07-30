@@ -10,4 +10,21 @@
         android:text="민원목록"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/manager_complaint_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="534dp" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

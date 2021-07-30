@@ -27,8 +27,8 @@ class ManagerComplaintFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //서버에서 내용받아오기
-        MyComplaint_text_title.text="민원제목입니다."
-        MyComplaint_text_content.text="민원내용입니다."
+        manager_MyComplaint_text_title.text="민원제목입니다."
+        manager_MyComplaint_text_content.text="민원내용입니다."
 
 
 
@@ -44,8 +44,11 @@ class ManagerComplaintFragment:Fragment() {
         //목록버튼
         manager_MyComplaint_button_list.setOnClickListener {
             //목록페이지로 넘어가기
-            managerComplaintListFragment = ManagerComplaintListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,managerComplaintListFragment)?.addToBackStack(null)?.commit()
+//            managerComplaintListFragment = ManagerComplaintListFragment.newInstance()
+//            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerComplaintListFragment)?.addToBackStack(null)?.commit()
+//           // activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit();
+            activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+            activity?.supportFragmentManager?.popBackStack()
         }
 
 
