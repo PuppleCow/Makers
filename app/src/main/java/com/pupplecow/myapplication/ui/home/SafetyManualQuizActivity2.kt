@@ -2,12 +2,14 @@ package com.pupplecow.myapplication.ui.home
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz2Binding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 class SafetyManualQuizActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivitySafetyManualQuiz2Binding
@@ -69,6 +71,15 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                 val t1 = Toast.makeText(this, "풀지 않은 퀴즈가 있습니다", Toast.LENGTH_SHORT)
                 t1.show()
             }
+        }
+
+        //산업안전 뉴스 제목,링크 불러오기
+        binding.quiz2TextView5.text="뉴스 제목입니다."
+
+        binding.quiz2TextView5.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
         }
     }
 }
