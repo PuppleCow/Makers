@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.FragmentManagerSettingMyInformationBinding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import kotlinx.android.synthetic.main.fragment_manager_setting_my_information.*
 
@@ -23,7 +22,7 @@ class ManagerSettingMyInformationFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val veiw=inflater.inflate(R.layout.fragment_manager_setting_my_information,container,false)
+        val view=inflater.inflate(R.layout.fragment_manager_setting_my_information,container,false)
         return view
     }
 

@@ -61,14 +61,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_setting1_imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -89,14 +81,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_setting1_imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -117,14 +101,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_setting1_imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -145,14 +121,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_setting1_imageButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
