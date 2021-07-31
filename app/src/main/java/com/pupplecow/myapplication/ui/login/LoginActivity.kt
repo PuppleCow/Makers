@@ -11,12 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.HomeFragment
+import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 
 
 class LoginActivity : AppCompatActivity() {
-    val login_data = arrayOf( "상용직", "일용직")
+    val login_data = arrayOf( "선택","상용직", "일용직","관리자")
     //val spinner=findViewById<Spinner>(R.id.login_workpart)
     //val choice=spinner.toString()
 
@@ -85,6 +86,23 @@ class LoginActivity : AppCompatActivity() {
             val workpart = login_data[login_workpart.selectedItemPosition]
 
             //로그인 성공했을 경우(id와 password와 일용직/상용직 매치되는 정보 있으면)
+            //휴대폰 번호가 입력되지 않았을 경우
+            if (login_editTextPhone.text.toString() == "") {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("휴대폰 번호를 입력해주세요")
+            builder.setPositiveButton("확인", null)
+            builder.show()
+
+        }
+        //비밀번호가 입력되지 않았을 경우
+
+        else if (login_editTextPassword.text.toString() == "") {
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("비밀번호를 입력해주세요")
+            builder.setPositiveButton("확인", null)
+            builder.show()
+        }
+            else if(workpart=="상용직"||workpart=="일용직"){
             if (login_editTextPhone.text.toString() == "01087347954" && login_editTextPassword.text.toString() == "991109") {
                 Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
@@ -92,7 +110,38 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
 
             }
+            else {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("틀렸습니다")
+                builder.setMessage("휴대폰 번호와 비밀번호를 확인해주세요")
+                builder.setPositiveButton("확인", null)
+                builder.show()
+            }
+            }
+            else if(workpart=="관리자") {
+                //관리자로 로그인할 경우
+                if (login_editTextPhone.text.toString() == "01087347954" && login_editTextPassword.text.toString() == "991109") {
+                    Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
+                    val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
+                    startActivity(intent)
+
+                }
+                else {
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("틀렸습니다")
+                    builder.setMessage("휴대폰 번호와 비밀번호를 확인해주세요")
+                    builder.setPositiveButton("확인", null)
+                    builder.show()
+                }
+            }
+            else if(workpart=="선택"){
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("상용직/일용직/관리자를 선택해주세요")
+                builder.setPositiveButton("확인", null)
+                builder.show()
+            }
 
             //<로그인 실패했을 경우>
 

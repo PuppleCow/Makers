@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.CompoundButton
 import android.widget.PopupMenu
 import android.widget.Toast
+import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz1Binding
 
 class SafetyManualQuizActivity1 : AppCompatActivity() {
