@@ -34,12 +34,12 @@
         <activity android:name=".temporaryStorage.ManageActivity" />
         <activity android:name=".temporaryStorage.MyComplaintActivity" />
         <activity android:name=".temporaryStorage.ComplaintActivity" />
-        <activity android:name=".SafetyManualQuizActivity3" />
+        <activity android:name=".ui.home.SafetyManualQuizActivity3" />
         <activity android:name=".CheckInActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".temporaryStorage.HomeActivity1" />
-        <activity android:name=".SafetyManualQuizActivity2" />
-        <activity android:name=".SafetyManualQuizActivity1" />
+        <activity android:name=".ui.home.SafetyManualQuizActivity2" />
+        <activity android:name=".ui.home.SafetyManualQuizActivity1" />
         <activity android:name=".ui.login.RegisterActivity2" />
         <activity android:name=".ui.login.RegisterActicity1" />
         <activity android:name=".MainActivity">

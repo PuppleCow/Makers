@@ -10,6 +10,10 @@ import com.pupplecow.myapplication.databinding.FragmentManagerSettingsBinding
 import com.pupplecow.myapplication.ui.settings.*
 
 class ManagerSettingsFragment:Fragment() {
+    private lateinit var managerSettingMyInformationFragment: ManagerSettingMyInformationFragment
+    private lateinit var managerSettingOpenSourceLicenseFragment: ManagerSettingOpenSourceLicenseFragment
+    private lateinit var managerSettingTermsAndPolicyFragment: ManagerSettingTermsAndPolicyFragment
+    private lateinit var managerSettingCheckSafetyManualFragment: ManagerSettingCheckSafetyManualFragment
 
     private val binding:FragmentManagerSettingsBinding?=null
 
@@ -17,10 +21,7 @@ class ManagerSettingsFragment:Fragment() {
         fun newInstance(): ManagerSettingsFragment {
             return ManagerSettingsFragment()
         }
-        private lateinit var managerSettingMyInformationFragment: ManagerSettingMyInformationFragment
-        private lateinit var managerSettingOpenSourceLicenseFragment: ManagerSettingOpenSourceLicenseFragment
-        private lateinit var managerSettingTermsAndPolicyFragment: ManagerSettingTermsAndPolicyFragment
-        private lateinit var managerSettingCheckSafetyManualFragment: ManagerSettingCheckSafetyManualFragment
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
@@ -35,7 +36,7 @@ class ManagerSettingsFragment:Fragment() {
         binding?.fragmentManagerSettings1ImageButton1?.setOnClickListener {
 
             managerSettingMyInformationFragment = ManagerSettingMyInformationFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, managerSettingMyInformationFragment)?.addToBackStack(null)?.commit()
+            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame, managerSettingMyInformationFragment)?.addToBackStack(null)?.commit()
         }
 
         // 오픈소스 라이센스

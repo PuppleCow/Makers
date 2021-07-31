@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.ui.home
 
 import android.content.DialogInterface
 import android.content.Intent

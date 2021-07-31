@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
+import com.pupplecow.myapplication.ui.home.SafetyManualQuizActivity1
 import kotlinx.android.synthetic.main.activity_check_in.*
 
 class CheckInActivity : AppCompatActivity() {
