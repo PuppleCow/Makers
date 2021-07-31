@@ -16,7 +16,7 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
     private lateinit var managerHomeFragment: ManagerHomeFragment
     private lateinit var managerComplaintListFragment: ManagerComplaintListFragment
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
-    private lateinit var managerSettingsFragment: ManagerSettingFragment
+    private lateinit var managerSettingFragment: ManagerSettingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,8 +43,8 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
 
             }
             R.id.navbar_settings->{
-                managerSettingsFragment= ManagerSettingFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingsFragment).commit()
+                managerSettingFragment= ManagerSettingFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingFragment).commit()
 
             }
         }

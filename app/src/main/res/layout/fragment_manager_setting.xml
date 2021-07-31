@@ -48,6 +48,7 @@
         android:layout_height="80dp" />
 
     <LinearLayout
+        android:id="@+id/fragment_manager_setting1_linearlayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -61,14 +62,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_manager_setting1_imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -76,6 +69,7 @@
         android:layout_height="30dp" />
 
     <LinearLayout
+        android:id="@+id/fragment_manager_setting1_linearlayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -89,14 +83,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_manager_setting1_imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -104,6 +90,7 @@
         android:layout_height="30dp" />
 
     <LinearLayout
+        android:id="@+id/fragment_manager_setting1_linearlayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -117,14 +104,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_manager_setting1_imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
@@ -132,6 +111,7 @@
         android:layout_height="30dp" />
 
     <LinearLayout
+        android:id="@+id/fragment_manager_setting1_linearlayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -145,14 +125,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textColor="@color/black" />
 
-        <ImageButton
-            android:id="@+id/fragment_manager_setting1_imageButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            app:srcCompat="@android:drawable/ic_media_play" />
     </LinearLayout>
 
     <Space
