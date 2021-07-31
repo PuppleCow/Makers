@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.*
 import kotlinx.android.synthetic.main.activity_setting.*
+import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingsFragment:Fragment() {
 
@@ -23,7 +24,7 @@ class SettingsFragment:Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
-        val view=inflater.inflate(R.layout.activity_setting,container,false)
+        val view=inflater.inflate(R.layout.fragment_setting,container,false)
 
         return view
     }
@@ -32,7 +33,7 @@ class SettingsFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // 내 정보 설정
-        setting1_imageButton1.setOnClickListener {
+        fragment_setting1_imageButton1.setOnClickListener {
 
 //            val myInformationSetting_intent= Intent(activity,SettingMyInformationSettingActivity::class.java)
 //            startActivity(myInformationSetting_intent)
@@ -42,7 +43,7 @@ class SettingsFragment:Fragment() {
         }
 
         // 오픈소스 라이센스
-        setting1_imageButton2.setOnClickListener {
+        fragment_setting1_imageButton2.setOnClickListener {
 
 //            val openSourceLicense_intent= Intent(activity,SettingOpenSourceLicense::class.java)
 //            startActivity(openSourceLicense_intent)
@@ -52,7 +53,7 @@ class SettingsFragment:Fragment() {
         }
 
         // 약관 및 정책
-        setting1_imageButton3.setOnClickListener {
+        fragment_setting1_imageButton3.setOnClickListener {
 
 //            val termsAndPolicy_intent= Intent(activity,SettingTermsAndPolicy::class.java)
 //            startActivity(termsAndPolicy_intent)
@@ -62,7 +63,7 @@ class SettingsFragment:Fragment() {
         }
 
         // 안전 메뉴얼 확인
-        setting1_imageButton4.setOnClickListener {
+        fragment_setting1_imageButton4.setOnClickListener {
 
 //            val checkSafetyManual_intent= Intent(activity,SettingCheckSafetyManual::class.java)
 //            startActivity(checkSafetyManual_intent)

@@ -7,8 +7,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
-import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingsFragment
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
+import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingFragment
 import kotlinx.android.synthetic.main.activity_manager_nav.*
 
 @Suppress("DEPRECATION")
@@ -16,7 +16,7 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
     private lateinit var managerHomeFragment: ManagerHomeFragment
     private lateinit var managerComplaintListFragment: ManagerComplaintListFragment
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
-    private lateinit var managerSettingsFragment: ManagerSettingsFragment
+    private lateinit var managerSettingsFragment: ManagerSettingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
 
             }
             R.id.navbar_settings->{
-                managerSettingsFragment= ManagerSettingsFragment.newInstance()
+                managerSettingsFragment= ManagerSettingFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingsFragment).commit()
 
             }

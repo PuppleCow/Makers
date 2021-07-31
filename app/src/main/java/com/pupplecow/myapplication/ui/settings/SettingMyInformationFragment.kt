@@ -10,12 +10,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.FragmentSettingMyInformationSettingBinding
+import com.pupplecow.myapplication.databinding.FragmentSettingMyInformationBinding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import kotlinx.android.synthetic.main.fragment_setting_my_information.*
 
 class SettingMyInformationFragment: Fragment() {
 
-    private val binding:FragmentSettingMyInformationSettingBinding?=null
+    //private val binding:FragmentSettingMyInformationBinding?=null
 
     companion object{
         fun newInstance(): SettingMyInformationFragment{
@@ -24,20 +25,20 @@ class SettingMyInformationFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
-      val binding=FragmentSettingMyInformationSettingBinding.inflate(inflater,container,false)
-        return binding.root
+      val view=inflater.inflate(R.layout.fragment_setting_my_information,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // 내 정보 저장
-        binding?.fragmentSetting2Button1?.setOnClickListener {
+        fragment_setting2_button1.setOnClickListener {
             val t1 = Toast.makeText(requireContext(), "정보가 저장되었습니다", Toast.LENGTH_SHORT)
             t1.show()
         }
 
         // 회원탈퇴
-        binding?.fragmentSetting2Button2?.setOnClickListener {
+        fragment_setting2_button2.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("회원탈퇴 하시겠습니까?")
             builder.setMessage("※ 탈퇴하시면 기존 정보는 초기화됩니다. ※")
@@ -48,8 +49,7 @@ class SettingMyInformationFragment: Fragment() {
 
                         // '예' 버튼 눌렀을 때
                         DialogInterface.BUTTON_NEGATIVE -> {
-                            val builder =
-                                AlertDialog.Builder(requireContext())
+                            val builder =AlertDialog.Builder(requireContext())
                             builder.setTitle("정상적으로 회원탈퇴 되었습니다.")
                             builder.setMessage("지금까지 이용해주셔서 감사합니다")
                             builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
@@ -69,7 +69,7 @@ class SettingMyInformationFragment: Fragment() {
         }
 
         // 로그아웃
-        binding?.fragmentSetting2Button3?.setOnClickListener {
+        fragment_setting2_button3.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("")
             builder.setMessage("로그아웃 하시겠습니까?")

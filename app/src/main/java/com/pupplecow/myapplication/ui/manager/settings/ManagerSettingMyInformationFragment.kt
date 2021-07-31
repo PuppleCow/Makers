@@ -1,5 +1,6 @@
 package com.pupplecow.myapplication.ui.manager.settings
 
+import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -7,15 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.FragmentManagerSettingMyInformationBinding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import kotlinx.android.synthetic.main.fragment_manager_setting_my_information.*
 
-
-class ManagerSettingMyInformationFragment : Fragment(){
-
-    private val binding: FragmentManagerSettingMyInformationBinding?=null
+class ManagerSettingMyInformationFragment: Fragment() {
 
     companion object{
         fun newInstance(): ManagerSettingMyInformationFragment{
@@ -23,21 +22,22 @@ class ManagerSettingMyInformationFragment : Fragment(){
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
-        val binding= FragmentManagerSettingMyInformationBinding.inflate(inflater,container,false)
-        return binding.root
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val veiw=inflater.inflate(R.layout.fragment_manager_setting_my_information,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // 내 정보 저장
-        binding?.fragmentManagerSetting2Button1?.setOnClickListener {
-            val t1 = Toast.makeText(requireContext(), "정보가 저장되었습니다", Toast.LENGTH_SHORT)
+        fragment_manager_setting2_button1.setOnClickListener {
+            val t1=Toast.makeText(requireContext(),"정보가 저장되었습니다",Toast.LENGTH_SHORT)
             t1.show()
         }
 
         // 회원탈퇴
-        binding?.fragmentManagerSetting2Button2?.setOnClickListener {
+        fragment_manager_setting2_button2.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("회원탈퇴 하시겠습니까?")
             builder.setMessage("※ 탈퇴하시면 기존 정보는 초기화됩니다. ※")
@@ -61,7 +61,6 @@ class ManagerSettingMyInformationFragment : Fragment(){
                     }
                 }
             }
-
             builder.setPositiveButton("아니요", listener)
             builder.setNegativeButton("예", listener)
             builder.show()
@@ -69,7 +68,7 @@ class ManagerSettingMyInformationFragment : Fragment(){
         }
 
         // 로그아웃
-        binding?.fragmentManagerSetting2Button3?.setOnClickListener {
+        fragment_manager_setting2_button3.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("")
             builder.setMessage("로그아웃 하시겠습니까?")
@@ -102,4 +101,8 @@ class ManagerSettingMyInformationFragment : Fragment(){
             builder.show()
         }
     }
+
 }
+
+
+

@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.FragmentManagerSettingOpenSourceLicenseBinding
+import com.pupplecow.myapplication.databinding.FragmentSettingOpenSourceLicenseBinding
 
-
-class ManagerSettingOpenSourceLicenseFragment : Fragment(){
-
-    private val binding: FragmentManagerSettingOpenSourceLicenseBinding?=null
+class ManagerSettingOpenSourceLicenseFragment: Fragment() {
 
     companion object{
         fun newInstance(): ManagerSettingOpenSourceLicenseFragment{
@@ -19,15 +18,14 @@ class ManagerSettingOpenSourceLicenseFragment : Fragment(){
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding=FragmentManagerSettingOpenSourceLicenseBinding.inflate(inflater,container,false)
-        return binding.root
+        val view=inflater.inflate(R.layout.fragment_manager_setting_open_source_license,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 오픈소스 라이선스 구현~~!!
-
     }
 
 }
+

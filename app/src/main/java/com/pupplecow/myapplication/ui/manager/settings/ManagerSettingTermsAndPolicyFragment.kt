@@ -5,29 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.FragmentManagerSettingTermsAndPolicyBinding
 
-
-class ManagerSettingTermsAndPolicyFragment: Fragment() {
-
-    private var binding:FragmentManagerSettingTermsAndPolicyBinding?=null
+class ManagerSettingTermsAndPolicyFragment :Fragment(){
 
     companion object{
-        fun newInstance(): ManagerSettingTermsAndPolicyFragment{
+        fun newInstance():ManagerSettingTermsAndPolicyFragment{
             return ManagerSettingTermsAndPolicyFragment()
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val binding=FragmentManagerSettingTermsAndPolicyBinding.inflate(inflater,container,false)
-        return binding.root
+        val view=inflater.inflate(R.layout.fragment_manager_setting_terms_and_policy,container,false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 약관 및 정책 구현 ~~!!
-
     }
-
 }
