@@ -3,11 +3,12 @@ package com.pupplecow.myapplication.ui.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.CompoundButton
-import android.widget.PopupMenu
 import android.widget.Toast
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz1Binding
+import com.pupplecow.myapplication.ui.home.SafetyManualQuizActivity2
 
 class SafetyManualQuizActivity1 : AppCompatActivity() {
     private lateinit var binding: ActivitySafetyManualQuiz1Binding
@@ -24,35 +25,41 @@ class SafetyManualQuizActivity1 : AppCompatActivity() {
         binding.quiz1CheckBox4.setOnClickListener{ onCheckChanged(binding.quiz1CheckBox4)}
         binding.quiz1CheckBox5.setOnClickListener{ onCheckChanged(binding.quiz1CheckBox5)}
 
+        // ====================== 약관 내용 보이기 ========================
+
         // 개인정보 처리 동의 버튼
-        binding.quiz1ImageButton2.setOnClickListener {
-            val pop = PopupMenu(this, binding.quiz1Menu2)
-            menuInflater.inflate(R.menu.menu, pop.menu)
-            pop.show()
+        binding.quiz1TextView2.setOnClickListener {
+            binding.quiz1Scrollview.visibility= View.VISIBLE
+
+            binding.quiz1TextView6.text="약관1 \n" +
+                    "개인정보\n처리\n동의\n"
         }
 
 
         // 개인정보 지속 처리 동의 버튼
-        binding.quiz1ImageButton3.setOnClickListener {
-            val pop = PopupMenu(this, binding.quiz1Menu3)
-            menuInflater.inflate(R.menu.menu, pop.menu)
-            pop.show()
+        binding.quiz1TextView3.setOnClickListener {
+            binding.quiz1Scrollview.visibility= View.VISIBLE
+
+            binding.quiz1TextView6.text="약관2 \n" +
+                    "개인정보\n지속\n처리\n동의\n"
         }
 
 
         // 주민등록번호 지속 처리 동의 버튼
-        binding.quiz1ImageButton4.setOnClickListener {
-            val pop = PopupMenu(this, binding.quiz1Menu4)
-            menuInflater.inflate(R.menu.menu, pop.menu)
-            pop.show()
+        binding.quiz1TextView4.setOnClickListener {
+            binding.quiz1Scrollview.visibility= View.VISIBLE
+
+            binding.quiz1TextView6.text="약관3 \n" +
+                    "주민등록번호\n지속\n처리\n동의\n"
         }
 
 
         // 출근 안내 등 정보이용 동의 버튼
-        binding.quiz1ImageButton5.setOnClickListener {
-            val pop = PopupMenu(this, binding.quiz1Menu5)
-            menuInflater.inflate(R.menu.menu, pop.menu)
-            pop.show()
+        binding.quiz1TextView5.setOnClickListener {
+            binding.quiz1Scrollview.visibility= View.VISIBLE
+
+            binding.quiz1TextView6.text="약관4 \n" +
+                    "출근 안내 등\n정보이용\n동의\n"
         }
 
 
