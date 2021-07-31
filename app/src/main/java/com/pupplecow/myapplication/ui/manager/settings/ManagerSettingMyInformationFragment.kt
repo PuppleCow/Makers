@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import kotlinx.android.synthetic.main.fragment_manager_setting_my_information.*
+import com.pupplecow.myapplication.ui.login.ResettingPassword1
 
 class ManagerSettingMyInformationFragment: Fragment() {
 
@@ -33,6 +34,12 @@ class ManagerSettingMyInformationFragment: Fragment() {
         fragment_manager_setting2_button1.setOnClickListener {
             val t1=Toast.makeText(requireContext(),"정보가 저장되었습니다",Toast.LENGTH_SHORT)
             t1.show()
+        }
+
+        // 비밀번호 변경
+        fragment_manager_setting2_button4.setOnClickListener{
+            val intent=Intent(requireContext(),ResettingPassword1::class.java)
+            startActivity(intent)
         }
 
         // 회원탈퇴

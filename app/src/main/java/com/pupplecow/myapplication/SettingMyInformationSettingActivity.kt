@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySettingMyInformationSettingBinding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import com.pupplecow.myapplication.ui.login.ResettingPassword1
 
 class SettingMyInformationSettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingMyInformationSettingBinding
@@ -20,6 +21,12 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         binding.setting2Button1.setOnClickListener {
             val t1 = Toast.makeText(this, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
             t1.show()
+        }
+
+        // 비밀번호 변경
+        binding.setting2Button4.setOnClickListener {
+            val intent=Intent(this,ResettingPassword1::class.java)
+            startActivity(intent)
         }
 
         // 회원탈퇴
