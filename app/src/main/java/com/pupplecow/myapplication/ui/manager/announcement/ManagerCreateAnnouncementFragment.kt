@@ -16,10 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.announcement.AnnouncmentListFragment
-import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
-import kotlinx.android.synthetic.main.activity_create_announcement.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 

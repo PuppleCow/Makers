@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
-                android:background="#F4F2F2"
+                android:background="@color/white"
                 android:text="필독!"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#EF1A1A" />

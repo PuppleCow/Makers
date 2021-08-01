@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AnnounceMentListActivity">
+    tools:context=".temporaryStorage.AnnounceMentListActivity">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView34"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="공지사항"
@@ -25,7 +25,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/announcementlist_recyclerview"
+                android:id="@+id/announcementlist_recyclerview2"
                 android:layout_width="match_parent"
                 android:layout_height="450dp" />
         </LinearLayout>

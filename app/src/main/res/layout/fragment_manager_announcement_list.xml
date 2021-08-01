@@ -5,9 +5,40 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="공지사항"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/announcementlist_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="407dp" />
+
+            <TextView
+                android:id="@+id/fragment_announcement_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="뉴스입니다"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+            <Button
+                android:id="@+id/announcementlist_writeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="글쓰기" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

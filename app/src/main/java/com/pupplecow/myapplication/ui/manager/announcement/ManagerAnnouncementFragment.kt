@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.announcement.CreateAnnounecementFragment
 import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 
 class ManagerAnnouncementFragment:Fragment() {

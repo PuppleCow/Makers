@@ -19,11 +19,10 @@ import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_create_announcement.*
-import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
 class CreateAnnounecementFragment:Fragment() {
-    private lateinit var announcmentListFragment:AnnouncmentListFragment
+    private lateinit var announcementListFragment:AnnouncementListFragment
 
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -118,8 +117,8 @@ class CreateAnnounecementFragment:Fragment() {
 
                                     //공지사항 목록 페이지로 넘어가기
                                     //AnnouncmentListFragment로 넘어가기
-                                    announcmentListFragment= AnnouncmentListFragment.newInstance()
-                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcmentListFragment)?.addToBackStack(null)?.commit()
+                                    announcementListFragment= AnnouncementListFragment.newInstance()
+                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
 
 
 

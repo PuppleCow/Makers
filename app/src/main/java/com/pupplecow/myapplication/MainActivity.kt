@@ -4,6 +4,7 @@ package com.pupplecow.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.pupplecow.myapplication.temporaryStorage.AnnounceMentListActivity
 import com.pupplecow.myapplication.temporaryStorage.ComplaintActivity
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity

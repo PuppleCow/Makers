@@ -11,11 +11,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_announcement.*
-import kotlinx.android.synthetic.main.activity_home1.*
 
 class AnnouncementFragment:Fragment() {
     private lateinit var createAnnounecementFragment:CreateAnnounecementFragment
-    private lateinit var announcmentListFragment:AnnouncmentListFragment
+    private lateinit var announcementListFragment:AnnouncementListFragment
 
     companion object {
         fun newInstance(): AnnouncementFragment {
@@ -96,8 +95,8 @@ class AnnouncementFragment:Fragment() {
 
                             //공지사항 목록 페이지로 넘어가기
                             //AnnouncmentListFragment로 넘어가기
-                            announcmentListFragment= AnnouncmentListFragment.newInstance()
-                            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcmentListFragment)?.addToBackStack(null)?.commit()
+                            announcementListFragment= AnnouncementListFragment.newInstance()
+                            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
 
                         }
 
@@ -115,8 +114,8 @@ class AnnouncementFragment:Fragment() {
         announcement_button_list.setOnClickListener {
             //공지사항 목록 페이지로 넘어가기
             //AnnouncmentListFragment로 넘어가기
-            announcmentListFragment= AnnouncmentListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcmentListFragment)?.addToBackStack(null)?.commit()
+            announcementListFragment= AnnouncementListFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
 
         }
 

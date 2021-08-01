@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.pupplecow.myapplication.AnnounceMentListActivity
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_announcement.*
 import kotlinx.android.synthetic.main.activity_complaint.*

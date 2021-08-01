@@ -31,28 +31,43 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="50dp" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/login_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="휴대폰 번호" />
 
             <EditText
                 android:id="@+id/login_editTextPhone"
                 android:layout_width="280dp"
                 android:layout_height="match_parent"
+                android:autoText="true"
                 android:ems="10"
                 android:hint="휴대폰 번호"
                 android:inputType="phone"
+                android:text="010"
                 android:textAlignment="textStart" />
+
+            <TextView
+                android:id="@+id/login_passwordText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="비밀번호" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/login_editTextPassword"
@@ -73,6 +88,14 @@
                 android:textOn="." />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/login_passwordhintText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autoText="false"
+            android:text="기존 비밀번호는 생년월일 6자리입니다."
+            android:textColor="#2196F3" />
 
         <Space
             android:layout_width="match_parent"
