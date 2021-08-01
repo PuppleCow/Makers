@@ -39,7 +39,7 @@ class SettingsFragment:Fragment() {
 //            startActivity(myInformationSetting_intent)
 
             settingMyInformationFragment=SettingMyInformationFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingMyInformationFragment)?.addToBackStack(null)?.commit()
+            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingMyInformationFragment)?.commit()
         }
 
         // 오픈소스 라이센스
@@ -49,7 +49,7 @@ class SettingsFragment:Fragment() {
 //            startActivity(openSourceLicense_intent)
 
             settingOpenSourceLicenseFragment=SettingOpenSourceLicenseFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingOpenSourceLicenseFragment)?.addToBackStack(null)?.commit()
+            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingOpenSourceLicenseFragment)?.commit()
         }
 
         // 약관 및 정책
@@ -59,7 +59,7 @@ class SettingsFragment:Fragment() {
 //            startActivity(termsAndPolicy_intent)
 
             settingTermsAndPolicyFragment=SettingTermsAndPolicyFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingTermsAndPolicyFragment)?.addToBackStack(null)?.commit()
+            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingTermsAndPolicyFragment)?.commit()
         }
 
         // 안전 메뉴얼 확인
@@ -69,7 +69,7 @@ class SettingsFragment:Fragment() {
 //            startActivity(checkSafetyManual_intent)
 
             settingCheckSafetyManualFragment=SettingCheckSafetyManualFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingCheckSafetyManualFragment)?.addToBackStack(null)?.commit()
+            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingCheckSafetyManualFragment)?.commit()
         }
     }
 }
