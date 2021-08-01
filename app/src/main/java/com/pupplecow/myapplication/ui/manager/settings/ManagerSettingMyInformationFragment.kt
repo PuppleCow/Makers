@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import com.pupplecow.myapplication.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_manager_setting_my_information.*
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 
@@ -60,7 +61,9 @@ class ManagerSettingMyInformationFragment: Fragment() {
                             builder.setMessage("지금까지 이용해주셔서 감사합니다")
                             builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
-                                // '확인' 버튼 누르면 '홈'으로 이동
+                                // '확인' 버튼 누르면 '로그인페이지'으로 이동
+                                val home_intent= Intent(activity, LoginActivity::class.java)
+                                startActivity(home_intent)
                             }
                             builder.show()
                         }
@@ -91,8 +94,8 @@ class ManagerSettingMyInformationFragment: Fragment() {
                             builder1.setMessage("메인화면으로 돌아갑니다")
                             builder1.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
-                                // '확인' 버튼 누르면 '작업장(홈)'으로 이동
-                                val home_intent= Intent(activity, HomeActivity1::class.java)
+                                // '확인' 버튼 누르면 '로그인페이지'으로 이동
+                                val home_intent= Intent(activity, LoginActivity::class.java)
                                 startActivity(home_intent)
 
                             }

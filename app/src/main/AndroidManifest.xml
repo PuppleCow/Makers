@@ -18,7 +18,6 @@
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".ui.manager.ManagerNavActivity"></activity>
         <activity android:name=".MainNavActivity" />
-
         <activity android:name=".ui.login.ResettingPassword2" />
         <activity android:name=".ui.login.ResettingPassword1" />
         <activity android:name=".SettingCheckSafetyManual" />
@@ -36,18 +35,20 @@
         <activity android:name=".temporaryStorage.ComplaintActivity" />
         <activity android:name=".ui.home.SafetyManualQuizActivity3" />
         <activity android:name=".CheckInActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.login.LoginActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity android:name=".temporaryStorage.HomeActivity1" />
         <activity android:name=".ui.home.SafetyManualQuizActivity2" />
         <activity android:name=".ui.home.SafetyManualQuizActivity1" />
         <activity android:name=".ui.login.RegisterActivity2" />
         <activity android:name=".ui.login.RegisterActicity1" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

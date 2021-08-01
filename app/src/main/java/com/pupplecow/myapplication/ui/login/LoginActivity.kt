@@ -108,6 +108,7 @@ class LoginActivity : AppCompatActivity() {
 
                 val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
                 startActivity(intent)
+                finish()
 
             }
             else {
@@ -125,6 +126,7 @@ class LoginActivity : AppCompatActivity() {
 
                     val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
                     startActivity(intent)
+                    finish()
 
                 }
                 else {
