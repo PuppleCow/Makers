@@ -72,14 +72,5 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                 t1.show()
             }
         }
-
-        //산업안전 뉴스 제목,링크 불러오기
-        binding.quiz2TextView5.text="뉴스 제목입니다."
-
-        binding.quiz2TextView5.setOnClickListener {
-            var intent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-            startActivity(intent)
-        }
     }
 }

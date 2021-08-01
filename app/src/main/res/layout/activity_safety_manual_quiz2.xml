@@ -120,13 +120,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp" />
 
-            <TextView
-                android:id="@+id/quiz2_textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />

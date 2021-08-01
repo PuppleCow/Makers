@@ -23,7 +23,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="50dp" />
 
     <TextView
         android:id="@+id/fragment_manager_setting2_textView2"
@@ -154,5 +154,10 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/fragment_manager_setting2_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

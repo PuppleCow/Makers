@@ -3,6 +3,7 @@ package com.pupplecow.myapplication.ui.manager.settings
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -108,6 +109,15 @@ class ManagerSettingMyInformationFragment: Fragment() {
             builder.setPositiveButton("아니요", null)
             builder.setNegativeButton("예", listener)
             builder.show()
+        }
+
+                //산업안전 뉴스 제목,링크 불러오기
+        fragment_manager_setting2_news.text="뉴스 제목입니다."
+
+        fragment_manager_setting2_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
         }
     }
 
