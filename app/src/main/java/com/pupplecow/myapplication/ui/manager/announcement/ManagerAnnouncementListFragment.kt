@@ -39,6 +39,7 @@ class ManagerAnnouncementListFragment:Fragment() {
 
         val listAdapter = ManagerAnnouncementListAdapter(requireContext(), AnnouncementList){
            Announcement->
+
             managerAnnouncementFragment= ManagerAnnouncementFragment.newInstance()
             val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementFragment)?.addToBackStack(null)?.commit()
 

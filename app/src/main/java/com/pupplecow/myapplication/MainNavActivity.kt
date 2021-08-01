@@ -32,22 +32,26 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
 
         when(item.itemId){
             R.id.navbar_home->{
+                supportFragmentManager?.popBackStack()
                 homeFragment= HomeFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,homeFragment).commit()
             }
             R.id.navbar_complaint->{
+                supportFragmentManager?.popBackStack()
                 complaintFragment= ComplaintFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,complaintFragment).commit()
 
             }
 
             R.id.navbar_announcement->{
+                supportFragmentManager?.popBackStack()
                 announcementListFragment= AnnouncementListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementListFragment).commit()
 
 
             }
             R.id.navbar_settings->{
+                supportFragmentManager?.popBackStack()
                 settingsFragment= SettingsFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingsFragment).commit()
 

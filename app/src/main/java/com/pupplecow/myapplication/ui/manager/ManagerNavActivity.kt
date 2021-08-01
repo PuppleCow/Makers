@@ -29,20 +29,25 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
 
         when(item.itemId){
             R.id.navbar_home->{
+                supportFragmentManager?.popBackStack()
                 managerHomeFragment= ManagerHomeFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerHomeFragment).commit()
+
             }
             R.id.navbar_complaint->{
+                supportFragmentManager?.popBackStack()
                 managerComplaintListFragment= ManagerComplaintListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerComplaintListFragment).commit()
 
             }
             R.id.navbar_announcement->{
+                supportFragmentManager?.popBackStack()
                 managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerAnnouncementListFragment).commit()
 
             }
             R.id.navbar_settings->{
+                supportFragmentManager?.popBackStack()
                 managerSettingFragment= ManagerSettingFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingFragment).commit()
 
