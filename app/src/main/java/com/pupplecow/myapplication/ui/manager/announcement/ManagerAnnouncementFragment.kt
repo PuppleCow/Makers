@@ -106,22 +106,7 @@ class ManagerAnnouncementFragment:Fragment() {
             builder.setPositiveButton("네",listener)
             builder.show()
         }
-
-
-
-        //목록버튼 누르면
-        manager_announcement_button_list.setOnClickListener {
-            //공지사항 목록 페이지로 넘어가기
-            //ManagerAnnouncementListFragment로 넘어가기
-            managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
-
-        }
-
     }
-
-
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
         val view=inflater.inflate(R.layout.fragment_manager_announcement,container,false)

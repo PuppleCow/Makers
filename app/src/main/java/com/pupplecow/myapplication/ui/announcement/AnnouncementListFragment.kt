@@ -1,19 +1,24 @@
 package com.pupplecow.myapplication.ui.announcement
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.pupplecow.myapplication.MainActivity
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.fragment_announcementworker.*
+
 
 //근무자 위한 list 프래그먼트
 class AnnouncementListFragment:Fragment() {
 
 
     private lateinit var announcementFragmentWorkerVer : AnnouncementFragmentWorkerVer
+
 
     var AnnouncementList= arrayListOf<AnnounceMentList>(
         AnnounceMentList("5/10", "공지1", "필독!" ),
@@ -27,16 +32,15 @@ class AnnouncementListFragment:Fragment() {
     )
 
 
-
     companion object {
         fun newInstance(): AnnouncementListFragment {
             return AnnouncementListFragment()
         }
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
         val listAdapter = AnnouncementListAdapterActivity(requireContext(), AnnouncementList){
@@ -45,6 +49,7 @@ class AnnouncementListFragment:Fragment() {
             val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementFragmentWorkerVer)?.addToBackStack(null)?.commit()
 
         }
+
         announcementlist_recyclerviewWorker.adapter = listAdapter
 
 

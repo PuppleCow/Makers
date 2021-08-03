@@ -59,9 +59,11 @@ class AnnouncementFragmentWorkerVer:Fragment() {
         announcement_button_list.setOnClickListener {
             //공지사항 목록 페이지로 넘어가기
             //AnnouncmentListFragment로 넘어가기
-            announcementListFragment= AnnouncementListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
+            //announcementListFragment= AnnouncementListFragment.newInstance()
+            //val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
 
+            val transaction= activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
+            activity?.supportFragmentManager?.popBackStack()
         }
 
     }

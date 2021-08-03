@@ -27,12 +27,6 @@
         android:layout_height="wrap_content"
         android:text="근무자 현황" />
 
-    <Button
-        android:id="@+id/manager_home_NotifListButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="공지사항 목록 보기" />
-
     <TextView
         android:id="@+id/manager_home_text_news"
         android:layout_width="match_parent"
