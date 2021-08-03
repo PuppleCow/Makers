@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz2Binding
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
+import kotlinx.android.synthetic.main.activity_safety_manual_quiz2.*
 
 class SafetyManualQuizActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivitySafetyManualQuiz2Binding
@@ -28,38 +29,35 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                 val builder= AlertDialog.Builder(this)
                 builder.setTitle("")
                 builder.setMessage("퀴즈를 제출하시겠습니까?")
+                builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
-//                var listener = object : DialogInterface.OnClickListener {
-//                    override fun onClick(p0: DialogInterface?, p1: Int) {
-//                        when (p1) {
-//                            DialogInterface.BUTTON_POSITIVE -> {
-//                                val intent =
-//                                    Intent(this@LoginActivity, RegisterActicity1::class.java)
-//                                startActivity(intent)
-//                            }
-//                        }
-//                    }
-//                }
-
-                builder.setPositiveButton("확인"){ dialogInterface: DialogInterface, i: Int ->
-
-                    val builder= AlertDialog.Builder(this)
-                    builder.setTitle("메뉴얼 퀴즈가 제출되었습니다.")
-                    builder.setMessage("작업을 시작합니다.")
-                    builder.setNegativeButton("취소",null)
+                    // 정답: 관리자(radioButton1), 오른쪽(radioButton3)
+                     if((binding.quiz2RadioButton1.isChecked==true)&& (binding.quiz2RadioButton3.isChecked==true)) {
+                        // 맞았을 때
+                        val builder = AlertDialog.Builder(this)
+                        builder.setTitle("메뉴얼 퀴즈가 제출되었습니다.")
+                        builder.setMessage("작업을 시작합니다.")
+                        builder.setNegativeButton("취소", null)
 
 
-                    // 확인 누르면 '작업장(홈)'으로 가기
+                        // 확인 누르면 '작업장(홈)'으로 가기
 
-                    builder.setPositiveButton("확인"){ dialogInterface: DialogInterface, i: Int ->
+                        builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 //                        val home_intent=Intent(this, HomeActivity1::class.java)
 //                        startActivity(home_intent)
-                        finish()
+                            finish()
+                        }
+
+                        builder.show()
                     }
 
-                    builder.show()
+                    // 틀렸을 때
+                    else
+                     {
+                         val t1 = Toast.makeText(this, "정답이 아닙니다.", Toast.LENGTH_SHORT)
+                         t1.show()
+                     }
                 }
-
 
                 builder.setNegativeButton("취소",null)
                 builder.show()
