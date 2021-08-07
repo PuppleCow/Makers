@@ -111,14 +111,14 @@ class ManagerSettingMyInformationFragment: Fragment() {
             builder.show()
         }
 
-                //산업안전 뉴스 제목,링크 불러오기
-        fragment_manager_setting2_news.text="뉴스 제목입니다."
-
-        fragment_manager_setting2_news.setOnClickListener {
-            var intent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-            startActivity(intent)
-        }
+//                //산업안전 뉴스 제목,링크 불러오기
+//        fragment_manager_setting2_news.text="뉴스 제목입니다."
+//
+//        fragment_manager_setting2_news.setOnClickListener {
+//            var intent =
+//                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+//            startActivity(intent)
+//        }
     }
 
 }
