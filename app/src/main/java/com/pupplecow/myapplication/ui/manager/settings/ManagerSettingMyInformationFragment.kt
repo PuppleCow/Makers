@@ -34,8 +34,19 @@ class ManagerSettingMyInformationFragment: Fragment() {
 
         // 내 정보 저장
         fragment_manager_setting2_button1.setOnClickListener {
-            val t1=Toast.makeText(requireContext(),"정보가 저장되었습니다",Toast.LENGTH_SHORT)
-            t1.show()
+
+            // 입력하지 않은 것이 있다면
+            if(fragment_manager_setting2_editTextTextPhoneNumber.text.toString()==" " ||
+                fragment_manager_setting2_editTextTextBirth.text.toString()=="" ||
+                fragment_manager_setting2_editTextTextOtherNumber.text.toString()==" " ||
+                fragment_manager_setting2_editTextTextBloodType.text.toString() ==" " ) {
+                val t1=Toast.makeText(requireContext(),"입력하지 않은 정보가 있습니다.",Toast.LENGTH_SHORT)
+                t1.show()
+            }
+                else {
+                val t1 = Toast.makeText(requireContext(), "정보가 저장되었습니다", Toast.LENGTH_SHORT)
+                t1.show()
+            }
         }
 
         // 비밀번호 변경
