@@ -37,6 +37,12 @@
             android:textColor="@color/design_default_color_error" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/nnouncement_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@android:drawable/ic_menu_camera" />
+
     <TextView
         android:id="@+id/announcement_text_content"
         android:layout_width="match_parent"

@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_manager_workers_status.*
 
 class ManagerWorkersStatusFragment:Fragment() {
     //민원항목
-    val groupData= arrayOf("근무자그룹선택","모든 작업자","A","B","기타")
+    val groupData= arrayOf("근무자그룹선택","모든 작업자","인천항만 하역","인천항만 하역","기타")
 
     //리스트뷰에 들어갈 작업자 목록
     var workersList = arrayListOf<workersStatus>(

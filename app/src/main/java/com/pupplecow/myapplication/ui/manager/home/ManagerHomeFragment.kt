@@ -89,15 +89,7 @@ class ManagerHomeFragment:Fragment() {
             val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.addToBackStack(null)?.commit()
 
         }
-        //공지사항 목록보기 버튼
-        manager_home_NotifListButton.setOnClickListener {
-//            val intent = Intent(this, AnnounceMentListActivity::class.java)
-//            startActivity(intent)
-            //AnnounceMentListActivity
-            managerAnnouncementListFragment = ManagerAnnouncementListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
 
-        }
 
     }
 

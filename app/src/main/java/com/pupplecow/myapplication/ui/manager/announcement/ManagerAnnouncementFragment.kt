@@ -36,6 +36,14 @@ class ManagerAnnouncementFragment:Fragment() {
         //제목,공지날짜 서버에서 가져오기
         manager_announcement_text_title.text="5/10 공지입니다."
 
+        //이미지 가져오기(있을때 없을때 구분)
+        if(true) {
+            manager_announcement_text_must_read.text = "필독!!"
+        }
+        else{
+            manager_announcement_text_must_read.text = ""
+        }
+
         //필독 체크 유무 서버에서 가져오기
         if(true) {
             manager_announcement_text_must_read.text = "필독!!"

@@ -16,9 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.manager.ManagerNavActivity"></activity>
+        <activity android:name=".ui.home.ConfirmWaitingActivity"></activity>
+        <activity android:name=".ui.manager.ManagerNavActivity" />
         <activity android:name=".MainNavActivity" />
-
         <activity android:name=".ui.login.ResettingPassword2" />
         <activity android:name=".ui.login.ResettingPassword1" />
         <activity android:name=".SettingCheckSafetyManual" />
