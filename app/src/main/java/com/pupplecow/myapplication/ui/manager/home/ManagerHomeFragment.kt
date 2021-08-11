@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.fragment_manager_home.*
@@ -17,8 +18,9 @@ import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 class ManagerHomeFragment:Fragment() {
     private lateinit var managerWorkersStatusFragment: ManagerWorkersStatusFragment
+    private lateinit var managerComplaintListFragment: ManagerComplaintListFragment
     private lateinit var managerAnnouncementListFragment : ManagerAnnouncementListFragment
-    val Manage_SelectGroup = arrayOf("긴급알림 그룹 선택","모든 그룹","A","B","C","D","E")
+    val Manage_SelectGroup = arrayOf("긴급알림 그룹 선택","모든 그룹","인천항만 하역","인천항만 하역","인천항만 하역")
     //직접 쓰기-> 따로 페이지 이동해야 함.
     val Manage_SelectNotif = arrayOf("긴급알림 종류 선택","모든 작업 일시 중단","공지사항 필독","직접 쓰기")
 
@@ -57,12 +59,12 @@ class ManagerHomeFragment:Fragment() {
             //알림 종류 선택
             val Manage_Notif=Manage_SelectNotif[manage_SelectNotifSp.selectedItemPosition]
 
-            if (Manage_Group == "선택") {
+            if (Manage_Group == "긴급알림 그룹 선택") {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setMessage("근무자 그룹을 선택해주세요")
                 builder.setPositiveButton("확인", null)
                 builder.show()
-            } else if (Manage_Notif == "선택") {
+            } else if (Manage_Notif == "긴급알림 종류 선택") {
                 val builder = AlertDialog.Builder(requireContext())
                 builder.setMessage("긴급 알림 메시지를 선택해주세요")
                 builder.setPositiveButton("확인", null)
@@ -87,6 +89,14 @@ class ManagerHomeFragment:Fragment() {
             //WorkersStatusFragment로 넘어가기
             managerWorkersStatusFragment= ManagerWorkersStatusFragment.newInstance()
             val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.addToBackStack(null)?.commit()
+
+        }
+
+        manager_home_complaint_list.setOnClickListener {
+            //다음페이지로 넘어가기
+            //ManagerComplaintListFragment로 넘어가기
+            managerComplaintListFragment= ManagerComplaintListFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerComplaintListFragment)?.addToBackStack(null)?.commit()
 
         }
 

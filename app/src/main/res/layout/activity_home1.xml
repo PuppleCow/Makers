@@ -90,6 +90,12 @@
                 android:text="근무종료" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/home_button_complaint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="현장 민원접수" />
+
         <TextView
             android:id="@+id/home_text_news"
             android:layout_width="match_parent"

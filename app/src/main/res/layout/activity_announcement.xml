@@ -40,8 +40,8 @@
     <ImageView
         android:id="@+id/nnouncement_imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:srcCompat="@android:drawable/ic_menu_camera" />
+        android:layout_height="167dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/announcement_text_content"

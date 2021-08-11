@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.announcement.CreateAnnounecementFragment
@@ -38,10 +39,10 @@ class ManagerAnnouncementFragment:Fragment() {
 
         //이미지 가져오기(있을때 없을때 구분)
         if(true) {
-            manager_announcement_text_must_read.text = "필독!!"
+            //manager_announcement_imageView.setImageResource(0)
         }
         else{
-            manager_announcement_text_must_read.text = ""
+            manager_announcement_imageView.isInvisible=true
         }
 
         //필독 체크 유무 서버에서 가져오기

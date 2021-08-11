@@ -16,10 +16,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
+import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 import kotlinx.android.synthetic.main.fragment_my_complaint.*
 import java.util.*
 
@@ -40,6 +42,15 @@ class MyComplaintFragment:Fragment() {
 
         //산업안전 뉴스 제목,링크 불러오기
         mycomplaint_text_news.text="뉴스 제목입니다."
+
+        //사진 서버에서 가져오기
+        //이미지 가져오기(있을때 없을때 구분)
+        if(true) {
+            //MyComplaint_imageView.setImageResource(0)
+        }
+        else{
+            MyComplaint_imageView.isInvisible=true
+        }
 
         mycomplaint_text_news.setOnClickListener {
             var intent =

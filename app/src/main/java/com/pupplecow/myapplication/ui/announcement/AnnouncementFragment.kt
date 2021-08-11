@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_announcement.*
+import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 
 class AnnouncementFragment:Fragment() {
     private lateinit var createAnnounecementFragment:CreateAnnounecementFragment
@@ -36,6 +38,15 @@ class AnnouncementFragment:Fragment() {
 
         //제목,공지날짜 서버에서 가져오기
         announcement_text_title.text="5/10 공지입니다."
+
+        //사진 서버에서 가져오기
+        //이미지 가져오기(있을때 없을때 구분)
+        if(true) {
+            //manager_announcement_imageView.setImageResource(0)
+        }
+        else{
+            manager_announcement_imageView.isInvisible=true
+        }
 
         //필독 체크 유무 서버에서 가져오기
         if(true) {

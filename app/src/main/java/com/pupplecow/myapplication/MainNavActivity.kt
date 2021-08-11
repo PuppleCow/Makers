@@ -7,7 +7,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
 import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
 import com.pupplecow.myapplication.ui.home.HomeFragment
+import com.pupplecow.myapplication.ui.safetyManual.SafetyManualFragment
+import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment
 import com.pupplecow.myapplication.ui.settings.SettingsFragment
+import com.pupplecow.myapplication.ui.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_main_nav.*
 
 
@@ -15,9 +18,10 @@ import kotlinx.android.synthetic.main.activity_main_nav.*
 class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
 
     private lateinit var homeFragment: HomeFragment
-    private lateinit var complaintFragment: ComplaintFragment
+    private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     private lateinit var announcementListFragment: AnnouncementListFragment
     private lateinit var settingsFragment: SettingsFragment
+    private lateinit var shoppingFragment: ShoppingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,29 +35,34 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
+            R.id.navbar_shopping->{
+                //supportFragmentManager?.popBackStack()
+                shoppingFragment= ShoppingFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,shoppingFragment).commit()
+            }
             R.id.navbar_home->{
                 //supportFragmentManager?.popBackStack()
                 homeFragment= HomeFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,homeFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,homeFragment).commit()
             }
-            R.id.navbar_complaint->{
+            R.id.navbar_safty_manual->{
                 //supportFragmentManager?.popBackStack()
-                complaintFragment= ComplaintFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,complaintFragment).addToBackStack(null).commit()
+                settingCheckSafetyManualFragment= SettingCheckSafetyManualFragment.newInstance()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingCheckSafetyManualFragment).addToBackStack(null).commit()
 
             }
 
             R.id.navbar_announcement->{
                 //supportFragmentManager?.popBackStack()
                 announcementListFragment= AnnouncementListFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementListFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,announcementListFragment).commit()
 
 
             }
             R.id.navbar_settings->{
                 //supportFragmentManager?.popBackStack()
                 settingsFragment= SettingsFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingsFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingsFragment).commit()
 
 
             }
