@@ -17,6 +17,8 @@ class ManagerAnnouncementListFragment:Fragment() {
 
 
     private lateinit var managerAnnouncementFragment: ManagerAnnouncementFragment
+    private lateinit var managerCreateAnnouncementFragment: ManagerCreateAnnouncementFragment
+
 
     var AnnouncementList= arrayListOf<AnnounceMentList>(
         AnnounceMentList("5/10", "[모집]","공지1"),
@@ -60,9 +62,17 @@ class ManagerAnnouncementListFragment:Fragment() {
         }
 
         announcementlist_writeButton.setOnClickListener {
-            val intent = Intent(getActivity(), ManagerCreateAnnouncementFragment::class.java)
-            startActivity(intent)
+            managerCreateAnnouncementFragment = ManagerCreateAnnouncementFragment.newInstance()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerCreateAnnouncementFragment)?.addToBackStack(null)?.commit()
         }
+
+        /*  //공지사항 목록 페이지로 넘어가기
+                                    //AnnouncmentListFragment로 넘어가기
+                                    managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
+                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
+
+
+        * */
 
 
 
