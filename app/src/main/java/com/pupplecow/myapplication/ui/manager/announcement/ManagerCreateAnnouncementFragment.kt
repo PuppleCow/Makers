@@ -11,16 +11,21 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
+import kotlinx.android.synthetic.main.activity_home1.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
 class ManagerCreateAnnouncementFragment:Fragment() {
+    val category = arrayOf( "카테고리 선택","모집", "A","B","C")
+
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     companion object {
         fun newInstance(): ManagerCreateAnnouncementFragment {
@@ -30,6 +35,13 @@ class ManagerCreateAnnouncementFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //카테고리 스피너
+        val categoryAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,category)
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        manager_createAnnouncement_spinner.adapter= categoryAdapter
+
+
         //산업안전 뉴스 제목,링크 불러오기
         manager_create_announcement_text_news.text = "뉴스 제목입니다."
 
@@ -65,6 +77,9 @@ class ManagerCreateAnnouncementFragment:Fragment() {
 
         //등록하기버튼
         manager_create_announcement_button_enroll.setOnClickListener {
+
+            val selectCategory = category[manager_createAnnouncement_spinner.selectedItemPosition]
+
             //제목란 비어있는지 확인
             if (manager_create_announcement_editText_title.text.toString() == "") {
                 //비어있으면 작성해주세요 다이얼로그
@@ -83,7 +98,17 @@ class ManagerCreateAnnouncementFragment:Fragment() {
                     builder.setMessage("공지사항을 작성해주세요")
                     builder.setPositiveButton("네", null)
                     builder.show()
-                } else {
+                }
+                else if(selectCategory=="카테고리 선택"){
+                    //카테고리 선택이 안됐을 경우
+                    val builder = AlertDialog.Builder(requireActivity())
+                    builder.setTitle("카테고리")
+                    builder.setMessage("카테고리를 선택해주세요")
+                    builder.setPositiveButton("네", null)
+                    builder.show()
+
+                }
+                else {
                     //공지사항작성 다이얼로그
                     val builder = AlertDialog.Builder(requireContext())
                     builder.setTitle("공지사항")

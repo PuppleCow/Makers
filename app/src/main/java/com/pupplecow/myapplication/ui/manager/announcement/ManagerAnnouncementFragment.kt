@@ -11,7 +11,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
 import com.pupplecow.myapplication.ui.announcement.CreateAnnounecementFragment
+import kotlinx.android.synthetic.main.activity_announcement.*
 import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 
 class ManagerAnnouncementFragment:Fragment() {
@@ -114,6 +116,15 @@ class ManagerAnnouncementFragment:Fragment() {
             builder.setNegativeButton("아니오",listener)
             builder.setPositiveButton("네",listener)
             builder.show()
+        }
+
+
+        manager_announcement_button_list.setOnClickListener {
+            //공지사항 목록 페이지로 넘어가기
+            //AnnouncmentListFragment로 넘어가기
+            managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
+
         }
     }
 

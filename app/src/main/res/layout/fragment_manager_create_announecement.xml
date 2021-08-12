@@ -23,6 +23,11 @@
         android:hint="제목을 입력해주세요"
         android:inputType="textPersonName" />
 
+    <Spinner
+        android:id="@+id/manager_createAnnouncement_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="43dp" />
+
     <EditText
         android:id="@+id/manager_create_announcement_editTextTextMultiLine"
         android:layout_width="match_parent"
@@ -31,12 +36,6 @@
         android:gravity="start|top"
         android:hint="공지사항을 입력해주세요"
         android:inputType="textMultiLine" />
-
-    <CheckBox
-        android:id="@+id/manager_create_announcement_checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="필독" />
 
 
     <LinearLayout

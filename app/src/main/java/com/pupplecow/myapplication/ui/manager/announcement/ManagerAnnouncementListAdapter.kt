@@ -28,12 +28,14 @@ class ManagerAnnouncementListAdapter (val context: Context, val announcementList
     inner class Holder(itemView: View, itemClick: (AnnounceMentList) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val Date = itemView?.findViewById<TextView>(R.id.frame_textView2)
         val Title = itemView?.findViewById<TextView>(R.id.frame_textView3)
-        val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
+        val Category = itemView?.findViewById<TextView>(R.id.frame_textView6)
+        //val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
 
         fun bind(Announce: AnnounceMentList, context: Context) {
             Date?.text= Announce.Date
             Title?.text= Announce.Title
-            EssentialRead?.text= Announce.EssentialRead
+            Category?.text = Announce.Category
+            //EssentialRead?.text= Announce.EssentialRead
 
             //itemview를 클릭하면 itemClick(수행)
             itemView.setOnClickListener { itemClick(Announce) }

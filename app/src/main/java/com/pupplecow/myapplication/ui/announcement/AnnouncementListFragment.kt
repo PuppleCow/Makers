@@ -21,13 +21,13 @@ class AnnouncementListFragment:Fragment() {
 
 
     var AnnouncementList= arrayListOf<AnnounceMentList>(
-        AnnounceMentList("5/10", "공지1", "필독!" ),
-        AnnounceMentList("5/12", "공지2", "필독!" ),
-        AnnounceMentList("5/13", "공지3", "" ),
-        AnnounceMentList("5/14", "공지4", "" ),
-        AnnounceMentList("5/15", "공지5", ""),
-        AnnounceMentList("5/16", "공지6", ""),
-        AnnounceMentList("5/17", "공지7", "필독!")
+        AnnounceMentList("5/10","[모집]","공지1", ),
+        AnnounceMentList("5/12", "[모집]","공지2"),
+        AnnounceMentList("5/13", "[모집]","공지3"),
+        AnnounceMentList("5/14", "[A]","공지4"),
+        AnnounceMentList("5/15", "[B]","공지5"),
+        AnnounceMentList("5/16", "[C]","공지6"),
+        AnnounceMentList("5/17", "[A]","공지7")
 
     )
 
