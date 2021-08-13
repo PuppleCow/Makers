@@ -1,29 +1,41 @@
-package com.pupplecow.myapplication.ui.login
+package com.pupplecow.myapplication.ui.manager.settings
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
-import com.pupplecow.myapplication.temporaryStorage.ManageActivity
-import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
+import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
+import kotlinx.android.synthetic.main.fragment_manager_setting_resetting_password2.*
+import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingMyInformationFragment
 
-class ResettingPassword2 : AppCompatActivity() {
-    private lateinit var binding: ActivityResettingPassword2Binding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityResettingPassword2Binding.inflate(layoutInflater)
-        setContentView(binding.root)
+class ManagerSettingResettingPassword2Fragement:Fragment() {
 
+    companion object{
+        fun newInstance(): ManagerSettingResettingPassword2Fragement{
+            return ManagerSettingResettingPassword2Fragement()
+        }
+        private lateinit var managerSettingMyInformationFragment: ManagerSettingMyInformationFragment
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view=inflater.inflate(R.layout.fragment_manager_setting_resetting_password2,container,false)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // 새로운 비밀번호 입력받은 후, 기존 비밀번호에서 변경
 
 
         // 다음버튼 눌렀을때
-        binding.resetting2Button1.setOnClickListener {
+        manager_resetting_password2_button1.setOnClickListener {
             //비밀번호 서로 같은지 확인하기
-            val password = binding.resetting2Password.text.toString()
-            val passwordCheck = binding.resetting2Password2.text.toString()
+            val password = manager_resetting_password2_password.text.toString()
+            val passwordCheck = manager_resetting_password2_password2.text.toString()
 
 
 
@@ -47,25 +59,25 @@ class ResettingPassword2 : AppCompatActivity() {
 
             // ====================> 비밀번호 조건: 6자리 & 숫자로만 <=====================
 
-            if (binding.resetting2Password.length() != 6 || binding.resetting2Password2.length() != 6) {
-                binding.resetting2TextView4.text = "글자 수가 맞지 않습니다. 다시 입력해주세요."
-                binding.resetting2TextView5.text = ""
+            if (manager_resetting_password2_password.length() != 6 || manager_resetting_password2_password2.length() != 6) {
+                manager_resetting_password2_textView4.text = "글자 수가 맞지 않습니다. 다시 입력해주세요."
+                manager_resetting_password2_textView5.text = ""
             }else if(isNumOnly(password)==false || isNumOnly(passwordCheck)==false){
                 // 숫자로만 이루어져있는 지 확인
-                binding.resetting2TextView4.text = "숫자로만 입력해주세요."
-                binding.resetting2TextView5.text = ""
+                manager_resetting_password2_textView4.text = "숫자로만 입력해주세요."
+                manager_resetting_password2_textView5.text = ""
             }
             else if (password != passwordCheck) {
                 // 비밀번호 다를 때
 
-                binding.resetting2TextView4.text = "비밀번호가 맞지 않습니다. 다시 입력해주세요."
-                binding.resetting2TextView5.text = ""
+                manager_resetting_password2_textView4.text = "비밀번호가 맞지 않습니다. 다시 입력해주세요."
+                manager_resetting_password2_textView5.text = ""
             } else {
 
                 //비밀번호 같을때
                 //"비밀번호 변경이 정상적으로 완료되었습니다." 메세지
 
-                val builder = AlertDialog.Builder(this)
+                val builder = AlertDialog.Builder(requireContext())
                 builder.setTitle("")
                 builder.setMessage("비밀번호 변경이 정상적으로 완료되었습니다")
                 builder.setPositiveButton("확인", null)
@@ -75,8 +87,12 @@ class ResettingPassword2 : AppCompatActivity() {
                 // ManageActivity로 넘어가기---(x)
 
                 // 메인 -> 메인 설정 ( 내 정보 설정 ) , 관리자 -> 관리자 설정 ( 내 정보 설정 )
-//                val intent = Intent(this,ManageActivity::class.java)
+//                val intent = Intent(requireContext(),ManagerSettingMyInformationFragment::class.java)
 //                startActivity(intent)
+                managerSettingMyInformationFragment= ManagerSettingMyInformationFragment.newInstance()
+                val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,
+                    managerSettingMyInformationFragment
+                )?.addToBackStack(null)?.commit()
             }
         }
 
@@ -94,19 +110,4 @@ class ResettingPassword2 : AppCompatActivity() {
     }
 }
 
-//    fun validatePasswordc(c:Char) {
-//        return /^1(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$/.test(character)
-//    }
-
-//
-//        fun isAlphabet(c: Char) {
-//            c in 'a'..'z' || c in 'A'..'Z'
-//        }
-//
-//        fun isNUmber(c: Char) = c in '0'..'9'
-
-//    fun isAlphabetInString(s:String) :Boolean {
-//        for(c in s){
-//
-//        }
 
