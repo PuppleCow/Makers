@@ -11,20 +11,23 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.fragment_manager_workers_status.*
+import kotlinx.android.synthetic.main.workers_status_item.*
 
 class ManagerWorkersStatusFragment:Fragment() {
+    private lateinit var managerWorkerInfoFragment: ManagerWorkerInfoFragment
     //민원항목
     val groupData= arrayOf("근무자그룹선택","모든 작업자","인천항만 하역","인천항만 하역","기타")
 
     //리스트뷰에 들어갈 작업자 목록
     var workersList = arrayListOf<workersStatus>(
-        workersStatus("이름","시작시간","종료시간","휴대폰번호","관리자 여부"),
-        workersStatus("홍길동","01:01","00:00","010-1234-5789","관리자"),
-        workersStatus("김길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("이길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("최길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("홍길동","01:01","00:00","010-1234-5789",""),
+        workersStatus("이름","승인","시작시간","종료시간","휴대폰번호","관리자 여부"),
+        workersStatus("홍길동","미승인","01:01","00:00","010-1234-5789","관리자"),
+        workersStatus("김길동","승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("이길동","미승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("최길동","승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("홍길동","미승인","01:01","00:00","010-1234-5789",""),
     )
     companion object {
         fun newInstance(): ManagerWorkersStatusFragment {
@@ -73,7 +76,14 @@ class ManagerWorkersStatusFragment:Fragment() {
 
                 //해당 팀에서 일하는 근무인원 이름 전화번호 시작시간 종료시간 관리자여부 서버에서 받아오기
 
-                val workersAdapter = workersStatusListAdapter(requireContext(), workersList)
+                val workersAdapter = workersStatusListAdapter(requireContext(), workersList){
+                        worker->
+                    //다음페이지로 넘어가기
+                    //ManagerWorkerInfoFragment로 넘어가기
+                    managerWorkerInfoFragment= ManagerWorkerInfoFragment.newInstance()
+                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkerInfoFragment)?.addToBackStack(null)?.commit()
+
+                }
                 workers_status_recyclerview.adapter = workersAdapter
 
                 val lm = LinearLayoutManager(requireContext())
@@ -83,6 +93,18 @@ class ManagerWorkersStatusFragment:Fragment() {
 
             }
 
+
+
+        }
+
+        workers_status_button_allCheck.setOnClickListener {
+            //val cnt=workersStatusListAdapter.getcount
+
+
+
+        }
+
+        workers_status_button_confirm.setOnClickListener {
 
         }
     }

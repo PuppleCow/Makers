@@ -6,11 +6,15 @@
     android:background="@drawable/workers_status_border">
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/workers_status_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1" />
-
+    <TextView
+        android:id="@+id/workers_status_text_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="승인" />
     <TextView
         android:id="@+id/workers_status_text_name"
         android:layout_width="wrap_content"

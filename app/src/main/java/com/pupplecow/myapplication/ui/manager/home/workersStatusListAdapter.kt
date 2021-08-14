@@ -4,16 +4,19 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.pupplecow.myapplication.R
 
-class workersStatusListAdapter(val context: Context, val workersList: ArrayList<workersStatus>) :
+class workersStatusListAdapter(val context: Context, val workersList: ArrayList<workersStatus>,val itemClick:(workersStatus)->Unit)  :
     RecyclerView.Adapter<workersStatusListAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.workers_status_item, parent, false)
-        return Holder(view)
+        return Holder(view,itemClick)
     }
 
     override fun getItemCount(): Int {
@@ -24,9 +27,11 @@ class workersStatusListAdapter(val context: Context, val workersList: ArrayList<
         holder?.bind(workersList[position], context)
     }
 
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class Holder(itemView: View,itemClick: (workersStatus) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         val workersName = itemView?.findViewById<TextView>(R.id.workers_status_text_name)
+        val workersNoneConfirm = itemView?.findViewById<CheckBox>(R.id.workers_status_checkbox)
+        val workersConfirm = itemView?.findViewById<TextView>(R.id.workers_status_text_confirm  )
         val workersPhoneNum = itemView?.findViewById<TextView>(R.id.workers_status_text_phNum)
         val workersStartTime = itemView?.findViewById<TextView>(R.id.workers_status_text_startT)
         val workersFinishTime= itemView?.findViewById<TextView>(R.id.workers_status_text_finishT)
@@ -34,12 +39,23 @@ class workersStatusListAdapter(val context: Context, val workersList: ArrayList<
 
 
         fun bind (worker: workersStatus, context: Context) {
+            if(worker.confirm=="미승인"){
+                workersNoneConfirm.isInvisible=true
+                workersConfirm.isVisible=true
+            }
+            else if(worker.confirm=="승인"){
+                workersNoneConfirm.isVisible=true
+                workersConfirm.isInvisible=true
+
+            }
 
             workersName?.text=worker.workerName
             workersPhoneNum?.text=worker.phoneNumber
             workersStartTime?.text=worker.startTime
             workersFinishTime?.text=worker.finishTime
             workersmanager?.text=worker.manager
+
+            itemView.setOnClickListener { itemClick(worker) }
         }
     }
 }

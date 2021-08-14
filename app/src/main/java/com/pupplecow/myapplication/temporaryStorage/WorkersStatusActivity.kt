@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.manager.home.ManagerWorkerInfoFragment
 import com.pupplecow.myapplication.ui.manager.home.workersStatus
 import com.pupplecow.myapplication.ui.manager.home.workersStatusListAdapter
 import kotlinx.android.synthetic.main.activity_workers_status.*
@@ -16,12 +17,12 @@ class WorkersStatusActivity : AppCompatActivity() {
 
     //리스트뷰에 들어갈 작업자 목록
     var workersList = arrayListOf<workersStatus>(
-        workersStatus("이름","시작시간","종료시간","휴대폰번호","관리자 여부"),
-        workersStatus("홍길동","01:01","00:00","010-1234-5789","관리자"),
-        workersStatus("김길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("이길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("최길동","01:01","00:00","010-1234-5789",""),
-        workersStatus("홍길동","01:01","00:00","010-1234-5789",""),
+        workersStatus("이름","승인","시작시간","종료시간","휴대폰번호","관리자 여부"),
+        workersStatus("홍길동","미승인","01:01","00:00","010-1234-5789","관리자"),
+        workersStatus("김길동","승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("이길동","미승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("최길동","승인","01:01","00:00","010-1234-5789",""),
+        workersStatus("홍길동","미승인","01:01","00:00","010-1234-5789",""),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +57,10 @@ class WorkersStatusActivity : AppCompatActivity() {
 
                 //해당 팀에서 일하는 근무인원 이름 전화번호 시작시간 종료시간 관리자여부 서버에서 받아오기
 
-                val workersAdapter= workersStatusListAdapter(this,workersList)
+                val workersAdapter= workersStatusListAdapter(this,workersList){
+                        worker->
+
+                }
                 workers_status_recyclerview1.adapter=workersAdapter
 
                 val lm = LinearLayoutManager(this)
