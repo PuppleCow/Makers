@@ -13,7 +13,10 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
+import com.pupplecow.myapplication.ui.manager.announcement.ManagerCreateAnnouncementFragment
+import com.pupplecow.myapplication.ui.manager.home.ManagerWorkersStatusFragment
 import kotlinx.android.synthetic.main.fragment_setting_my_information.*
+import com.pupplecow.myapplication.ui.settings.SettingResettingPassword1Fragment
 
 class SettingMyInformationFragment: Fragment() {
 
@@ -23,6 +26,7 @@ class SettingMyInformationFragment: Fragment() {
         fun newInstance(): SettingMyInformationFragment{
             return SettingMyInformationFragment()
         }
+        private lateinit var settingResettingPassword1Fragment:SettingResettingPassword1Fragment
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
@@ -51,10 +55,14 @@ class SettingMyInformationFragment: Fragment() {
         }
         }
 
-        // 비밀번호 변경
+        // 비밀번호 변경으로 이동
         fragment_setting2_button4.setOnClickListener{
-            val intent=Intent(requireContext(), ResettingPassword1::class.java)
-            startActivity(intent)
+//            val intent=Intent(requireContext(), SettingResettingPassword1Fragment::class.java)
+//            startActivity(intent)
+            settingResettingPassword1Fragment= SettingResettingPassword1Fragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,
+                settingResettingPassword1Fragment)?.addToBackStack(null)?.commit()
+
         }
 
         // 회원탈퇴

@@ -46,7 +46,7 @@ class ResettingPassword1 : AppCompatActivity() {
 
 
                 //핸드폰 번호로 인증번호 전송 메시지
-                binding.resetting1TextView5.text=phoneNumberFront+" **** "+phoneNumberBehind+"로 발송하였습니다.\n비밀번호 변경을 계속 하시려면 인증번호를 입력하세요."
+                binding.resetting1TextView4.text=phoneNumberFront+" **** "+phoneNumberBehind+"로 발송하였습니다.\n비밀번호 변경을 계속 하시려면 인증번호를 입력하세요."
 
                 //인증번호 전송하기
 
