@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/manager_home_manager_home_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="긴급알림(홈)"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <Spinner
         android:id="@+id/manager_home_SelectGroupSp"
         android:layout_width="match_parent"
@@ -14,6 +22,14 @@
         android:id="@+id/manager_home_electNotifSp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/manager_home_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="긴급알림 내용을 입력해주세요" />
 
     <Button
         android:id="@+id/manager_home_Emergency_button"

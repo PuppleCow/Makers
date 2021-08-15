@@ -51,8 +51,8 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                         // 확인 누르면 '작업장(홈)'으로 가기
 
                         builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
-//                        val home_intent=Intent(this, HomeActivity1::class.java)
-//                        startActivity(home_intent)
+                            val home_intent=Intent(this, ConfirmWaitingActivity::class.java)
+                            startActivity(home_intent)
                             finish()
                         }
 

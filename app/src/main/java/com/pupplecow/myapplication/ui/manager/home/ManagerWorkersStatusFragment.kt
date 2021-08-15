@@ -14,6 +14,7 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
 import kotlinx.android.synthetic.main.fragment_manager_workers_status.*
 import kotlinx.android.synthetic.main.workers_status_item.*
+import kotlinx.android.synthetic.main.workers_status_item.view.*
 
 class ManagerWorkersStatusFragment:Fragment() {
     private lateinit var managerWorkerInfoFragment: ManagerWorkerInfoFragment
@@ -55,6 +56,15 @@ class ManagerWorkersStatusFragment:Fragment() {
         workerGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         workers_status_spinner_workers_group.adapter = workerGroupAdapter
 
+
+        val workersAdapter = workersStatusListAdapter(requireContext(), workersList){
+                worker->
+            //다음페이지로 넘어가기
+            //ManagerWorkerInfoFragment로 넘어가기
+            managerWorkerInfoFragment= ManagerWorkerInfoFragment.newInstance()
+            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkerInfoFragment)?.addToBackStack(null)?.commit()
+
+        }
         //근무자 그룹선택후 조회하기 버튼 클릭
         workers_status_spinner_button_check.setOnClickListener {
             val workersGruop =
@@ -97,15 +107,42 @@ class ManagerWorkersStatusFragment:Fragment() {
 
         }
 
-        workers_status_button_allCheck.setOnClickListener {
-            //val cnt=workersStatusListAdapter.getcount
 
+        //전체선택 버튼
+//        workers_status_toggleButton.setOnClickListener {
+//            val cnt=workersList.size
+//            if(workers_status_toggleButton.isChecked==true) {
+//                setChe
+////                for (i in 0..cnt){
+////                    //workers_status_checkbox.isChecked=true
+////                    val cnt: Int =workers_status_recyclerview.adapter!!.itemCount
+////                        //workersAdapter.getCount() //리스트뷰에 올라가있는 리스트 개수 구하기
+////                    for (i in 0 until cnt) {
+////                        workers_status_recyclerview.(i, true)
+////                    }
+//                    notifyDataSetChanged()
+////
+////                }
+//                //workerGroupAdapter.setCheckAll(false)
+//
+//
+//            }
+//            else{
+//                //workerGroupAdapter.setCheckAll(boolean = true)
+//                for (i in 0..cnt){
+//                    workers_status_checkbox.isChecked=false
+//                }
+//            }
+//            //val cnt=workersStatusListAdapter.getItemCount()
+//
+//
+//
+//        }
 
-
-        }
-
+        //승인하기 버튼
         workers_status_button_confirm.setOnClickListener {
 
+            //체크 되어있는 근무자 미승인->승인으로 바꾸기
         }
     }
 
@@ -115,4 +152,8 @@ class ManagerWorkersStatusFragment:Fragment() {
         return view
     }
 
+
 }
+
+
+

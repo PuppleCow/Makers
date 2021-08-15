@@ -37,35 +37,35 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
             R.id.manager_navbar_home->{
                 //supportFragmentManager?.popBackStack()
                 managerHomeFragment= ManagerHomeFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerHomeFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerHomeFragment).commit()
 
 
             }
             R.id.manager_navbar_safety_manual->{
                 //supportFragmentManager?.popBackStack()
                 settingCheckSafetyManualFragment= SettingCheckSafetyManualFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,settingCheckSafetyManualFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,settingCheckSafetyManualFragment).commit()
 
 
             }
             R.id.manager_navbar_shopping->{
                 //supportFragmentManager?.popBackStack()
                 shoppingFragment= ShoppingFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,shoppingFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,shoppingFragment).commit()
 
 
             }
             R.id.manager_navbar_announcement->{
                 //supportFragmentManager?.popBackStack()
                 managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerAnnouncementListFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerAnnouncementListFragment).commit()
 
 
             }
             R.id.manager_navbar_settings->{
                 //supportFragmentManager?.popBackStack()
                 managerSettingFragment= ManagerSettingFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingFragment).addToBackStack(null).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,managerSettingFragment).commit()
 
 
             }

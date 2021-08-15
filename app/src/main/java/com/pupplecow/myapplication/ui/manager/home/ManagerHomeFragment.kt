@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
@@ -51,6 +54,26 @@ class ManagerHomeFragment:Fragment() {
         val SelectNotifAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,Manage_SelectNotif)
         SelectGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         manager_home_electNotifSp.adapter= SelectNotifAdapter
+
+        //직접입력칸 안보이게 하기
+        manager_home_editText.isInvisible=true
+        //알림종류 선택 - 직접입력 선택 리스너
+        manager_home_electNotifSp.onItemSelectedListener= object :AdapterView.OnItemSelectedListener {
+            override fun onItemSelected( parent: AdapterView<*>?,view: View?,position: Int,id: Long ) {
+                Manage_SelectNotif.get(position)?.let {
+                    if (position==3)
+                        manager_home_editText.isVisible=true
+                    else
+                        manager_home_editText.isInvisible=true
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+
+        }
 
         //긴급 알림 버튼
         manager_home_Emergency_button.setOnClickListener {
@@ -100,9 +123,9 @@ class ManagerHomeFragment:Fragment() {
 
         }
 
+        //inner class SpListner: AdapterView.OnItemSele
+
     }
-
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
@@ -112,4 +135,7 @@ class ManagerHomeFragment:Fragment() {
 
 
 
+
 }
+
+
