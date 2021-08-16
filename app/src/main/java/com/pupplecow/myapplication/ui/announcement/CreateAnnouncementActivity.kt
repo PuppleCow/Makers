@@ -1,10 +1,11 @@
-package com.pupplecow.myapplication.temporaryStorage
+package com.pupplecow.myapplication.ui.announcement
 
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,7 +18,6 @@ import kotlinx.android.synthetic.main.activity_create_announcement.*
 import java.util.*
 
 class CreateAnnouncementActivity : AppCompatActivity() {
-    val PICK_IMAGE=0
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.ACCESS_MEDIA_LOCATION
@@ -26,11 +26,21 @@ class CreateAnnouncementActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_announcement)
-        create_announcement_button_image_delete.isVisible=false
+        //산업안전 뉴스 제목,링크 불러오기
+        create_announcement_text_news.text = "뉴스 제목입니다."
+
+        create_announcement_text_news.setOnClickListener {
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
+        }
+
+        create_announcement_button_image_delete.isVisible = false
         //이미지
-        create_announcement_imageView.setOnClickListener{
+        create_announcement_imageView.setOnClickListener {
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
-            val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            val albumIntent =
+                Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
             albumIntent.type = "image/*"
             // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
@@ -38,17 +48,13 @@ class CreateAnnouncementActivity : AppCompatActivity() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
-            create_announcement_button_image_delete.isVisible=true
+            create_announcement_button_image_delete.isVisible = true
         }
 
         create_announcement_button_image_delete.setOnClickListener {
             create_announcement_imageView.setImageResource(0)
-            create_announcement_button_image_delete.isVisible=false
+            create_announcement_button_image_delete.isVisible = false
         }
-
-
-
-
 
 
         //등록하기버튼
@@ -94,14 +100,15 @@ class CreateAnnouncementActivity : AppCompatActivity() {
                                     //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장,필독정보
 
 
-
-                                    //다음페이지로 넘어가기
-                                    //MyConplaintActivity로 넘어가기
+                                    //공지사항 목록 페이지로 넘어가기
+                                    //AnnouncmentListFragment로 넘어가기
                                     val intent = Intent(
                                         this@CreateAnnouncementActivity,
                                         AnnouncementActivity::class.java
                                     )
                                     startActivity(intent)
+                                    finish()
+
 
                                 }
 
@@ -114,13 +121,9 @@ class CreateAnnouncementActivity : AppCompatActivity() {
                 }
             }
         }
-
-
-
-
-
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode == RESULT_OK){
@@ -149,13 +152,16 @@ class CreateAnnouncementActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
 
 
 

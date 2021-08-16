@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
-import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
 import com.pupplecow.myapplication.ui.home.HomeFragment
-import com.pupplecow.myapplication.ui.safetyManual.SafetyManualFragment
 import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment
 import com.pupplecow.myapplication.ui.settings.SettingsFragment
 import com.pupplecow.myapplication.ui.shopping.ShoppingFragment

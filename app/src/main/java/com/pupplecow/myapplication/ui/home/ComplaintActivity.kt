@@ -1,31 +1,21 @@
-package com.pupplecow.myapplication.ui.complaint
-
+package com.pupplecow.myapplication.ui.home
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
+import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
-class ComplaintFragment:Fragment() {
 
-    private lateinit var myComplaintFragment: MyComplaintFragment
-    private lateinit var myComplaintListFragment: MyComplaintListFragment
+class ComplaintActivity : AppCompatActivity() {
 
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -34,15 +24,9 @@ class ComplaintFragment:Fragment() {
     //민원항목
     val complaintCategoryData= arrayOf("불편사항 접수","불법행위 신고","시설물 파손 신고/수리요청","환경오염 행위 신고","기타")
 
-
-    companion object {
-        fun newInstance(): ComplaintFragment {
-            return ComplaintFragment()
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_complaint)
 
         //산업안전 뉴스 제목,링크 불러오기
         complaint_text_news.text="뉴스 제목입니다."
@@ -55,7 +39,7 @@ class ComplaintFragment:Fragment() {
         complaint_button_image_delete.isVisible=false
         //민원항목 선택 스피너
 
-        val complaintAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,complaintCategoryData)
+        val complaintAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,complaintCategoryData)
         complaintAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         complaint_spinner_category.adapter= complaintAdapter
 
@@ -90,7 +74,7 @@ class ComplaintFragment:Fragment() {
             //textarea비어있는지 확인
             if(complaint_editTextTextMultiLine.text.toString()=="") {
                 //비어있으면 작성해주세요 다이얼로그
-                val builder= AlertDialog.Builder(requireContext())
+                val builder= AlertDialog.Builder(this)
                 builder.setTitle("민원접수")
                 builder.setMessage("민원내용을 작성해주세요")
                 builder.setPositiveButton("네",null)
@@ -98,7 +82,7 @@ class ComplaintFragment:Fragment() {
             }
             else {
                 //민원접수 다이얼로그
-                val builder= AlertDialog.Builder(requireContext())
+                val builder= AlertDialog.Builder(this)
                 builder.setTitle("민원접수")
                 builder.setMessage("민원내용을 접수하시겠습니까?")
                 var listener = object : DialogInterface.OnClickListener {
@@ -124,9 +108,8 @@ class ComplaintFragment:Fragment() {
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
-                                myComplaintFragment= MyComplaintFragment.newInstance()
-                                val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintFragment)?.addToBackStack(null)?.commit()
-
+                                val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
+                                startActivity(intent)
                             }
 
                         }
@@ -151,53 +134,14 @@ class ComplaintFragment:Fragment() {
         //나의 민원 보기 버튼
         complaint_button_mycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
-            myComplaintListFragment= MyComplaintListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.addToBackStack(null)?.commit()
+            //val intent = Intent(this@ComplaintActivity, MyComplaintListActivity::class.java)
+            //startActivity(intent)
         }
 
+
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        @Suppress("DEPRECATION")
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode == AppCompatActivity.RESULT_OK){
-            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
-            val uri = data?.data
-
-            if(uri != null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-                    // 안드로이드 10버전 부터
-                    val source = ImageDecoder.createSource(requireActivity().contentResolver, uri)
-                    val bitmap = ImageDecoder.decodeBitmap(source)
-                    complaint_imageView.setImageBitmap(bitmap)
-                } else {
-                    // 안드로이드 9버전 까지
-                    val cursor = requireActivity().contentResolver.query(uri, null, null, null, null)
-                    if(cursor != null){
-                        cursor.moveToNext()
-                        // 이미지 경로를 가져온다.
-                        @Suppress("DEPRECATION")
-                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                        val source = cursor.getString(index)
-                        // 이미지를 생성한다.
-                        val bitmap = BitmapFactory.decodeFile(source)
-                        complaint_imageView.setImageBitmap(bitmap)
-                    }
-                }
-            }
-        }
-    }
-
-
-    override fun onCreateView(inflater: LayoutInflater,container:ViewGroup?,savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.activity_complaint,container,false)
-
-        return view
-    }
-
-
 
 }
+
 
 

@@ -11,14 +11,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.temporaryStorage.CheckInActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
-import com.pupplecow.myapplication.ui.announcement.CreateAnnounecementFragment
-import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
+import com.pupplecow.myapplication.temporaryStorage.ComplaintFragment
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
 class HomeFragment:Fragment() {
-    private lateinit var complaintFragment:ComplaintFragment
+    private lateinit var complaintFragment: ComplaintFragment
 
     val workspaceData =arrayOf("인천항만","인천항만","인천항만","인천항만","기타")
     val workData =arrayOf("하역","하역","하역","하역","기타")
@@ -160,9 +158,8 @@ class HomeFragment:Fragment() {
         //현장 민원접수 버튼 눌렀을때
         home_button_complaint.setOnClickListener {
             //민원접수 페이지로 가기
-            complaintFragment= ComplaintFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,complaintFragment)?.addToBackStack(null)?.commit()
-
+            val intent = Intent(requireContext(), ComplaintActivity::class.java)
+            startActivity(intent)
         }
 
         home_text_news.setOnClickListener{

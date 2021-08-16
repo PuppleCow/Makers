@@ -16,7 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.home.ConfirmWaitingActivity"></activity>
+        <activity android:name=".ui.manager.Complaint.ManagerComplaintActivity"></activity>
+        <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
+        <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
+        <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />
+        <activity android:name=".ui.manager.home.ManagerWorkerInfoActivity" />
+        <activity android:name=".ui.home.ConfirmWaitingActivity" />
         <activity android:name=".ui.manager.ManagerNavActivity" />
         <activity android:name=".MainNavActivity" />
         <activity android:name=".ui.login.ResettingPassword2" />
@@ -27,13 +32,13 @@
         <activity android:name=".SettingMyInformationSettingActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
-        <activity android:name=".temporaryStorage.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
-        <activity android:name=".temporaryStorage.AnnouncementActivity" />
-        <activity android:name=".temporaryStorage.CreateAnnouncementActivity" />
+        <activity android:name=".ui.announcement.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
+        <activity android:name=".ui.announcement.AnnouncementActivity" />
+        <activity android:name=".ui.announcement.CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".temporaryStorage.ManageActivity" />
-        <activity android:name=".temporaryStorage.MyComplaintActivity" />
-        <activity android:name=".temporaryStorage.ComplaintActivity" />
+        <activity android:name=".ui.home.MyComplaintActivity" />
+        <activity android:name=".ui.home.ComplaintActivity" />
         <activity android:name=".ui.home.SafetyManualQuizActivity3" />
         <activity android:name=".temporaryStorage.CheckInActivity" />
         <activity android:name=".ui.login.LoginActivity" />

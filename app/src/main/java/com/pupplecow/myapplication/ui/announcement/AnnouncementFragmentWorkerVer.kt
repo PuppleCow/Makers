@@ -8,10 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.temporaryStorage.CreateAnnounecementFragment
 import kotlinx.android.synthetic.main.activity_announcement.*
 
 class AnnouncementFragmentWorkerVer:Fragment() {
-    private lateinit var createAnnounecementFragment:CreateAnnounecementFragment
+    private lateinit var createAnnounecementFragment: CreateAnnounecementFragment
     private lateinit var announcementListFragment:AnnouncementListFragment
 
     companion object {

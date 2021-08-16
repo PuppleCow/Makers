@@ -1,29 +1,18 @@
-package com.pupplecow.myapplication.ui.complaint
+package com.pupplecow.myapplication.temporaryStorage
 
-import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.HomeFragment
-import kotlinx.android.synthetic.main.activity_complaint.*
-import kotlinx.android.synthetic.main.fragment_manager_announcement.*
+import com.pupplecow.myapplication.ui.home.MyComplaintListFragment
 import kotlinx.android.synthetic.main.fragment_my_complaint.*
-import java.util.*
 
 
 class MyComplaintFragment:Fragment() {

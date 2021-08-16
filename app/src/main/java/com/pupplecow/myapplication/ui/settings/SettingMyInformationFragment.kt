@@ -10,13 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity
-import com.pupplecow.myapplication.ui.login.ResettingPassword1
-import com.pupplecow.myapplication.ui.manager.announcement.ManagerCreateAnnouncementFragment
-import com.pupplecow.myapplication.ui.manager.home.ManagerWorkersStatusFragment
 import kotlinx.android.synthetic.main.fragment_setting_my_information.*
-import com.pupplecow.myapplication.ui.settings.SettingResettingPassword1Fragment
 
 class SettingMyInformationFragment: Fragment() {
 

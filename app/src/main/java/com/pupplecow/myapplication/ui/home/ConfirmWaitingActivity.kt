@@ -21,6 +21,5 @@ class ConfirmWaitingActivity : AppCompatActivity() {
 
 
 
-
     }
 }

@@ -2,22 +2,18 @@ package com.pupplecow.myapplication.ui.manager.home
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.complaint.MyComplaintFragment
+import com.pupplecow.myapplication.temporaryStorage.ManagerWorkerInfoFragment
+import com.pupplecow.myapplication.ui.announcement.AnnouncementActivity
 import kotlinx.android.synthetic.main.fragment_manager_workers_status.*
-import kotlinx.android.synthetic.main.workers_status_item.*
-import kotlinx.android.synthetic.main.workers_status_item.view.*
 
-class ManagerWorkersStatusFragment:Fragment() {
-    private lateinit var managerWorkerInfoFragment: ManagerWorkerInfoFragment
+class ManagerWorkersStatusActivity : AppCompatActivity() {
+
     //민원항목
     val groupData= arrayOf("근무자그룹선택","모든 작업자","인천항만 하역","인천항만 하역","기타")
 
@@ -30,14 +26,10 @@ class ManagerWorkersStatusFragment:Fragment() {
         workersStatus("최길동","승인","01:01","00:00","010-1234-5789",""),
         workersStatus("홍길동","미승인","01:01","00:00","010-1234-5789",""),
     )
-    companion object {
-        fun newInstance(): ManagerWorkersStatusFragment {
-            return ManagerWorkersStatusFragment()
-        }
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_manager_workers_status)
 
         //산업안전 뉴스 제목,링크 불러오기
         workers_status_text_news.text="뉴스 제목입니다."
@@ -52,18 +44,17 @@ class ManagerWorkersStatusFragment:Fragment() {
 
         //민원항목 선택 스피너
 
-        val workerGroupAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, groupData)
+        val workerGroupAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, groupData)
         workerGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         workers_status_spinner_workers_group.adapter = workerGroupAdapter
 
 
-        val workersAdapter = workersStatusListAdapter(requireContext(), workersList){
+        val workersAdapter = workersStatusListAdapter(this, workersList){
                 worker->
             //다음페이지로 넘어가기
             //ManagerWorkerInfoFragment로 넘어가기
-            managerWorkerInfoFragment= ManagerWorkerInfoFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkerInfoFragment)?.addToBackStack(null)?.commit()
-
+            val intent = Intent(this,ManagerWorkerInfoActivity::class.java)
+            startActivity(intent)
         }
         //근무자 그룹선택후 조회하기 버튼 클릭
         workers_status_spinner_button_check.setOnClickListener {
@@ -72,7 +63,7 @@ class ManagerWorkersStatusFragment:Fragment() {
 
 
             if (workersGruop == "근무자그룹선택") {
-                val builder = AlertDialog.Builder(requireContext())
+                val builder = AlertDialog.Builder(this)
                 builder.setTitle("")
                 builder.setMessage("근무자 그룹을 선택해주세요")
                 builder.setPositiveButton("네", null)
@@ -86,17 +77,16 @@ class ManagerWorkersStatusFragment:Fragment() {
 
                 //해당 팀에서 일하는 근무인원 이름 전화번호 시작시간 종료시간 관리자여부 서버에서 받아오기
 
-                val workersAdapter = workersStatusListAdapter(requireContext(), workersList){
+                val workersAdapter = workersStatusListAdapter(this, workersList){
                         worker->
                     //다음페이지로 넘어가기
                     //ManagerWorkerInfoFragment로 넘어가기
-                    managerWorkerInfoFragment= ManagerWorkerInfoFragment.newInstance()
-                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkerInfoFragment)?.addToBackStack(null)?.commit()
-
+                    val intent = Intent(this, ManagerWorkerInfoActivity::class.java)
+                    startActivity(intent)
                 }
                 workers_status_recyclerview.adapter = workersAdapter
 
-                val lm = LinearLayoutManager(requireContext())
+                val lm = LinearLayoutManager(this)
                 workers_status_recyclerview.layoutManager = lm
                 workers_status_recyclerview.setHasFixedSize(true)
 
@@ -146,14 +136,4 @@ class ManagerWorkersStatusFragment:Fragment() {
         }
     }
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.fragment_manager_workers_status,container,false)
-        return view
     }
-
-
-}
-
-
-

@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.temporaryStorage
+package com.pupplecow.myapplication.ui.announcement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

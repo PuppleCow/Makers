@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.complaint
+package com.pupplecow.myapplication.ui.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.temporaryStorage.ComplaintFragment
+import com.pupplecow.myapplication.temporaryStorage.MyComplaintFragment
 import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintList
 import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListAdapter
 import kotlinx.android.synthetic.main.activity_my_complaint_list.*

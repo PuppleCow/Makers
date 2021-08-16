@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.EmergencyNoticeActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.announcement.AnnounceMentListActivity
 import kotlinx.android.synthetic.main.activity_manage.*
 
 class ManageActivity : AppCompatActivity() {

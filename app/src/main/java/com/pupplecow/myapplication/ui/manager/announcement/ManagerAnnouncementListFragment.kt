@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.CreateAnnouncementActivity
 import com.pupplecow.myapplication.ui.announcement.AnnounceMentList
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 

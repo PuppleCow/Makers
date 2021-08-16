@@ -1,20 +1,15 @@
-package com.pupplecow.myapplication.ui.manager.Complaint
+package com.pupplecow.myapplication.temporaryStorage
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
-import com.pupplecow.myapplication.ui.complaint.MyComplaintListFragment
+import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
 import kotlinx.android.synthetic.main.fragment_manager_complaint.*
-import kotlinx.android.synthetic.main.fragment_my_complaint.*
-import kotlinx.android.synthetic.main.fragment_my_complaint.MyComplaint_button_list
 
 class ManagerComplaintFragment:Fragment() {
     private lateinit var managerComplaintListFragment: ManagerComplaintListFragment

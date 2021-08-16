@@ -1,54 +1,47 @@
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.ui.manager.announcement
 
-import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.announcement.AnnouncementActivity
 import kotlinx.android.synthetic.main.activity_complaint.*
-import kotlinx.android.synthetic.main.activity_create_announcement.*
+import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
-class CreateAnnounecementFragment:Fragment() {
-    private lateinit var announcementListFragment:AnnouncementListFragment
+class ManagerCreateAnnouncementActivity : AppCompatActivity() {
+    val category = arrayOf( "카테고리 선택","모집", "A","B","C")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_manager_create_announcement)
 
-    val permission_list = arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
-    )
 
-    companion object {
-        fun newInstance(): CreateAnnounecementFragment {
-            return CreateAnnounecementFragment()
-        }
-    }
+        //카테고리 스피너
+        val categoryAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,category)
+        categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        manager_createAnnouncement_spinner.adapter= categoryAdapter
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         //산업안전 뉴스 제목,링크 불러오기
-        create_announcement_text_news.text = "뉴스 제목입니다."
+        manager_create_announcement_text_news.text = "뉴스 제목입니다."
 
-        create_announcement_text_news.setOnClickListener {
-        var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-        startActivity(intent)
+        manager_create_announcement_text_news.setOnClickListener {
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
         }
 
-        create_announcement_button_image_delete.isVisible=false
+        manager_create_announcement_button_image_delete.isVisible=false
         //이미지
-        create_announcement_imageView.setOnClickListener{
+        manager_create_announcement_imageView.setOnClickListener{
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
             val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
@@ -58,12 +51,12 @@ class CreateAnnounecementFragment:Fragment() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
-            create_announcement_button_image_delete.isVisible=true
+            manager_create_announcement_button_image_delete.isVisible=true
         }
 
-        create_announcement_button_image_delete.setOnClickListener {
-            create_announcement_imageView.setImageResource(0)
-            create_announcement_button_image_delete.isVisible=false
+        manager_create_announcement_button_image_delete.setOnClickListener {
+            manager_create_announcement_imageView.setImageResource(0)
+            manager_create_announcement_button_image_delete.isVisible=false
         }
 
 
@@ -72,11 +65,14 @@ class CreateAnnounecementFragment:Fragment() {
 
 
         //등록하기버튼
-        create_announcement_button_enroll.setOnClickListener {
+        manager_create_announcement_button_enroll.setOnClickListener {
+
+            val selectCategory = category[manager_createAnnouncement_spinner.selectedItemPosition]
+
             //제목란 비어있는지 확인
-            if (create_announcement_editText_title.text.toString() == "") {
+            if (manager_create_announcement_editText_title.text.toString() == "") {
                 //비어있으면 작성해주세요 다이얼로그
-                val builder = AlertDialog.Builder(requireContext())
+                val builder = AlertDialog.Builder(this)
                 builder.setTitle("공지사항")
                 builder.setMessage("제목을 작성해주세요")
                 builder.setPositiveButton("네", null)
@@ -84,16 +80,26 @@ class CreateAnnounecementFragment:Fragment() {
             } else {
                 //textarea비어있는지 확인
 
-                if (create_announcement_editTextTextMultiLine.text.toString() == "") {
+                if (manager_create_announcement_editTextTextMultiLine.text.toString() == "") {
                     //비어있으면 작성해주세요 다이얼로그
-                    val builder = AlertDialog.Builder(requireActivity())
+                    val builder = AlertDialog.Builder(this)
                     builder.setTitle("공지사항")
                     builder.setMessage("공지사항을 작성해주세요")
                     builder.setPositiveButton("네", null)
                     builder.show()
-                } else {
+                }
+                else if(selectCategory=="카테고리 선택"){
+                    //카테고리 선택이 안됐을 경우
+                    val builder = AlertDialog.Builder(this)
+                    builder.setTitle("카테고리")
+                    builder.setMessage("카테고리를 선택해주세요")
+                    builder.setPositiveButton("네", null)
+                    builder.show()
+
+                }
+                else {
                     //공지사항작성 다이얼로그
-                    val builder = AlertDialog.Builder(requireContext())
+                    val builder = AlertDialog.Builder(this)
                     builder.setTitle("공지사항")
                     builder.setMessage("공지사항을 등록하시겠습니까?")
                     var listener = object : DialogInterface.OnClickListener {
@@ -117,10 +123,9 @@ class CreateAnnounecementFragment:Fragment() {
 
                                     //공지사항 목록 페이지로 넘어가기
                                     //AnnouncmentListFragment로 넘어가기
-                                    announcementListFragment= AnnouncementListFragment.newInstance()
-                                    val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementListFragment)?.addToBackStack(null)?.commit()
-
-
+                                    val intent = Intent(this@ManagerCreateAnnouncementActivity,
+                                        ManagerAnnouncementActivity::class.java)
+                                    startActivity(intent)
 
                                 }
 
@@ -133,7 +138,6 @@ class CreateAnnounecementFragment:Fragment() {
                 }
             }
         }
-
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         @Suppress("DEPRECATION")
@@ -146,12 +150,12 @@ class CreateAnnounecementFragment:Fragment() {
             if(uri != null){
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
                     // 안드로이드 10버전 부터
-                    val source = ImageDecoder.createSource(requireActivity().contentResolver, uri)
+                    val source = ImageDecoder.createSource(this.contentResolver, uri)
                     val bitmap = ImageDecoder.decodeBitmap(source)
-                    complaint_imageView.setImageBitmap(bitmap)
+                    manager_create_announcement_imageView.setImageBitmap(bitmap)
                 } else {
                     // 안드로이드 9버전 까지
-                    val cursor = requireActivity().contentResolver.query(uri, null, null, null, null)
+                    val cursor = this.contentResolver.query(uri, null, null, null, null)
                     if(cursor != null){
                         cursor.moveToNext()
                         // 이미지 경로를 가져온다.
@@ -160,16 +164,10 @@ class CreateAnnounecementFragment:Fragment() {
                         val source = cursor.getString(index)
                         // 이미지를 생성한다.
                         val bitmap = BitmapFactory.decodeFile(source)
-                        complaint_imageView.setImageBitmap(bitmap)
+                        manager_create_announcement_imageView.setImageBitmap(bitmap)
                     }
                 }
             }
         }
     }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.activity_create_announcement,container,false)
-        return view
-    }
-
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".temporaryStorage.ComplaintActivity">
+    tools:context=".ui.home.ComplaintActivity">
 
     <TextView
         android:id="@+id/complaint_complaint"

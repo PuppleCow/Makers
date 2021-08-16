@@ -13,6 +13,8 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.temporaryStorage.ManagerWorkersStatusFragment
+import com.pupplecow.myapplication.ui.announcement.AnnouncementActivity
 import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_manage.*
@@ -110,9 +112,8 @@ class ManagerHomeFragment:Fragment() {
         manager_home_workerButton.setOnClickListener {
             //다음페이지로 넘어가기
             //WorkersStatusFragment로 넘어가기
-            managerWorkersStatusFragment= ManagerWorkersStatusFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerWorkersStatusFragment)?.addToBackStack(null)?.commit()
-
+            val intent = Intent(requireContext(), ManagerWorkersStatusActivity::class.java)
+            startActivity(intent)
         }
 
         manager_home_complaint_list.setOnClickListener {

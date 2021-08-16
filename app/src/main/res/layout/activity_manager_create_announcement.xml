@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.announcement.CreateAnnouncementActivity">
+    tools:context=".ui.manager.announcement.ManagerCreateAnnouncementActivity">
 
     <TextView
         android:id="@+id/manager_create_announcement_create_announcement"
@@ -69,5 +69,6 @@
         android:id="@+id/manager_create_announcement_text_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 
 </LinearLayout>

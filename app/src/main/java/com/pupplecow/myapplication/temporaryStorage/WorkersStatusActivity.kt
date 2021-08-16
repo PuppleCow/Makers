@@ -6,7 +6,6 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.manager.home.ManagerWorkerInfoFragment
 import com.pupplecow.myapplication.ui.manager.home.workersStatus
 import com.pupplecow.myapplication.ui.manager.home.workersStatusListAdapter
 import kotlinx.android.synthetic.main.activity_workers_status.*

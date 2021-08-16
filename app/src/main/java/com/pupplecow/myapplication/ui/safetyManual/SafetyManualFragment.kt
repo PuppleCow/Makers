@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.pupplecow.myapplication.R
 
-import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
-
 class SafetyManualFragment:Fragment() {
 
     companion object {

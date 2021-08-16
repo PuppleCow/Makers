@@ -2,26 +2,15 @@ package com.pupplecow.myapplication.ui.manager.home
 
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.complaint.ComplaintFragment
 import kotlinx.android.synthetic.main.fragment_manager_worker_info.*
 
-class ManagerWorkerInfoFragment:Fragment() {
-
-    companion object {
-        fun newInstance(): ManagerWorkerInfoFragment {
-            return ManagerWorkerInfoFragment()
-        }
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+class ManagerWorkerInfoActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_manager_worker_info)
 
         //서버에서 이름,작업시작,종료시간,전화번호 보호자연락처,혈액형,특이사항 받아오기
         val name:String="홍길동"
@@ -52,20 +41,10 @@ class ManagerWorkerInfoFragment:Fragment() {
 
         manager_workerinfo_text_text_news.text="뉴스 제목입니다."
         manager_workerinfo_text_text_news.setOnClickListener {
-             var intent =
-             Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-             startActivity(intent)
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+            startActivity(intent)
         }
 
-
     }
-
-
-    override fun onCreateView(inflater: LayoutInflater,container:ViewGroup?,savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.fragment_manager_worker_info,container,false)
-        return view
-    }
-
-
-
 }
