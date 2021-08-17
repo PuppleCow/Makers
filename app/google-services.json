@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "49282523445",
+    "project_id": "purplecow-application",
+    "storage_bucket": "purplecow-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49282523445:android:825815182e80760276ec7c",
+        "android_client_info": {
+          "package_name": "com.pupplecow.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49282523445-6l7lrih8dja4s7i4u4i9bhlftsm8g7qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO8C39om0tIxQmfLJ_96goT4uRcrc_w6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49282523445-6l7lrih8dja4s7i4u4i9bhlftsm8g7qs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

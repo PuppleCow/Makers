@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.firebase.database.FirebaseDatabase
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
@@ -99,12 +100,22 @@ class ComplaintActivity : AppCompatActivity() {
                                 val hour = homeNow.get(Calendar.HOUR).toString()
                                 val minute = homeNow.get(Calendar.MINUTE).toString()
 
-
-                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
-
                                 //민원항목
                                 val complaintCategory =
                                     complaintCategoryData[complaint_spinner_category.selectedItemPosition]
+
+                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
+                                val database=FirebaseDatabase.getInstance()
+                                val myRef=database.getReference()
+
+                                var dataInput=ComplaintData(
+                                    month,date,complaintCategory,
+                                    complaint_editText_title.text.toString(),
+                                    complaint_editTextTextMultiLine.text.toString()
+                                )
+                                //myRef.child(uid).push().setValue(dataInput)
+
+
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기

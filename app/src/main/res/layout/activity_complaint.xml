@@ -19,6 +19,14 @@
         android:layout_height="wrap_content" />
 
     <EditText
+        android:id="@+id/complaint_editText_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="제목을 입력해주세요" />
+
+    <EditText
         android:id="@+id/complaint_editTextTextMultiLine"
         android:layout_width="match_parent"
         android:layout_height="384dp"
