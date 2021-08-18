@@ -18,8 +18,5 @@ class ConfirmWaitingActivity : AppCompatActivity() {
         confrim_waiting_.setOnClickListener{
             finish()
         }
-
-
-
     }
 }

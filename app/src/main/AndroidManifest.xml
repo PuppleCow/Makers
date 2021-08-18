@@ -21,6 +21,8 @@
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
         <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />
         <activity android:name=".ui.manager.home.ManagerWorkerInfoActivity" />
+        <activity android:name=".ui.manager.settings.ManagerResettingPassword1" />
+        <activity android:name=".ui.manager.settings.ManagerResettingPassword2" />
         <activity android:name=".ui.home.ConfirmWaitingActivity" />
         <activity android:name=".ui.manager.ManagerNavActivity" />
         <activity android:name=".MainNavActivity" />

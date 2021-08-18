@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.login.LoginActivity
+import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import kotlinx.android.synthetic.main.fragment_setting_my_information.*
 
 class SettingMyInformationFragment: Fragment() {
@@ -51,13 +52,15 @@ class SettingMyInformationFragment: Fragment() {
         }
 
         // 비밀번호 변경으로 이동
+        // ResettingPassword1 액티비티로 이동
         fragment_setting2_button4.setOnClickListener{
 //            val intent=Intent(requireContext(), SettingResettingPassword1Fragment::class.java)
 //            startActivity(intent)
-            settingResettingPassword1Fragment= SettingResettingPassword1Fragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,
-                settingResettingPassword1Fragment)?.addToBackStack(null)?.commit()
-
+//            settingResettingPassword1Fragment= SettingResettingPassword1Fragment.newInstance()
+//            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,
+//                settingResettingPassword1Fragment)?.addToBackStack(null)?.commit()
+            val intent=Intent(requireContext(),ResettingPassword1::class.java)
+            startActivity(intent)
         }
 
         // 회원탈퇴
