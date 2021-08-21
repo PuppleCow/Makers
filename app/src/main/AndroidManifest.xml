@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.manager.Complaint.ManagerComplaintActivity"></activity>
+        <activity android:name=".ui.home.ComplaintListActivity"></activity>
+        <activity android:name=".ui.manager.Complaint.ManagerComplaintActivity" />
         <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
         <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />

@@ -17,6 +17,7 @@ import java.util.*
 
 
 class ComplaintActivity : AppCompatActivity() {
+    private var uid:String=""
 
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -28,6 +29,11 @@ class ComplaintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
+
+        //파이어베이스
+        if(intent.hasExtra("uid")){
+            uid= intent.getStringExtra("uid").toString()
+        }
 
         //산업안전 뉴스 제목,링크 불러오기
         complaint_text_news.text="뉴스 제목입니다."
@@ -95,7 +101,7 @@ class ComplaintActivity : AppCompatActivity() {
                                 //민원시간 표시
                                 val homeNow = Calendar.getInstance()
                                 val year = homeNow.get(Calendar.YEAR).toString()
-                                val month = homeNow.get(Calendar.MONTH).toString()
+                                val month = (homeNow.get(Calendar.MONTH)+1).toString()
                                 val date = homeNow.get(Calendar.DATE).toString()
                                 val hour = homeNow.get(Calendar.HOUR).toString()
                                 val minute = homeNow.get(Calendar.MINUTE).toString()
@@ -113,7 +119,7 @@ class ComplaintActivity : AppCompatActivity() {
                                     complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()
                                 )
-                                //myRef.child(uid).push().setValue(dataInput)
+                                myRef.child(uid).push().setValue(dataInput)
 
 
 
@@ -145,8 +151,8 @@ class ComplaintActivity : AppCompatActivity() {
         //나의 민원 보기 버튼
         complaint_button_mycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
-            //val intent = Intent(this@ComplaintActivity, MyComplaintListActivity::class.java)
-            //startActivity(intent)
+            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
+            startActivity(intent)
         }
 
 

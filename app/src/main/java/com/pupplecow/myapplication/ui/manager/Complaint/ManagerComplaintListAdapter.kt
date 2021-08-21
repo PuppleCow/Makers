@@ -11,7 +11,7 @@ import com.pupplecow.myapplication.R
 
 
 class ManagerComplaintListAdapter(val context:Context, val complaintList:ArrayList<ManagerComplaintList>,val itemClick: (ManagerComplaintList) -> Unit):
-RecyclerView.Adapter<ManagerComplaintListAdapter.Holder>() {
+    RecyclerView.Adapter<ManagerComplaintListAdapter.Holder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.manager_complaint_list_item, parent, false)

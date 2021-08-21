@@ -24,32 +24,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //작업장(홈)
-        button2.setOnClickListener {
-            val intent = Intent(this, HomeActivity1::class.java)
-            startActivity(intent)
-        }
-
-        //민원접수
-        button3.setOnClickListener {
-            val intent = Intent(this, ComplaintActivity::class.java)
-            startActivity(intent)
-        }
-        //공지사항
-        button4.setOnClickListener {
-            val intent = Intent(this, AnnounceMentListActivity::class.java)
-            startActivity(intent)
-        }
-        //설정
-        button5.setOnClickListener {
-            val intent = Intent(this, SettingActivity::class.java)
-            startActivity(intent)
-        }
-        //비밀번호 재설정
-        button6.setOnClickListener {
-            val intent = Intent(this, ResettingPassword1::class.java)
-            startActivity(intent)
-        }
         //메인 네비바
         button7.setOnClickListener {
             val intent = Intent(this, MainNavActivity::class.java)
