@@ -115,18 +115,18 @@ class ComplaintActivity : AppCompatActivity() {
                                 val myRef=database.getReference()
 
                                 var dataInput= ComplaintData(
+                                    uid,
                                     month,date,complaintCategory,
                                     complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()
                                 )
-                                myRef.child(uid).push().setValue(dataInput)
-
-
+                                myRef.child("board").push().setValue(dataInput)
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
                                 val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
                                 startActivity(intent)
+                                finish()
                             }
 
                         }

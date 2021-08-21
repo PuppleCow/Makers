@@ -13,6 +13,8 @@ import com.pupplecow.myapplication.R
 class ManagerComplaintListAdapter(val context:Context, val complaintList:ArrayList<ManagerComplaintList>,val itemClick: (ManagerComplaintList) -> Unit):
     RecyclerView.Adapter<ManagerComplaintListAdapter.Holder>() {
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.manager_complaint_list_item, parent, false)
         return Holder(view, itemClick)
@@ -38,15 +40,15 @@ class ManagerComplaintListAdapter(val context:Context, val complaintList:ArrayLi
         fun bind(complaint: ManagerComplaintList, context: Context) {
             /* dogPhoto의 setImageResource에 들어갈 이미지의 id를 파일명(String)으로 찾고,
           이미지가 없는 경우 안드로이드 기본 아이콘을 표시한다.*/
-            if (complaint.photo != "") {
-                val resourceId =
-                    context.resources.getIdentifier(complaint.photo, "drawable", context.packageName)
-                complaintPhoto?.setImageResource(resourceId)
-            } else {
-                complaintPhoto?.setImageResource(R.mipmap.ic_launcher)
-            }
+//            if (complaint.photo != "") {
+//                val resourceId =
+//                    context.resources.getIdentifier(complaint.photo, "drawable", context.packageName)
+//                complaintPhoto?.setImageResource(resourceId)
+//            } else {
+//                complaintPhoto?.setImageResource(R.mipmap.ic_launcher)
+//            }
 
-            complaintNum ?.text = complaint.number
+            complaintNum ?.text = complaint.month+"/"+complaint.date
             complaintTitle?.text = complaint.title
             complaintCategory?.text = complaint.category
 

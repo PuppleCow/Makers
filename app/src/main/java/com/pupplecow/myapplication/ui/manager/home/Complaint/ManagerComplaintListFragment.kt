@@ -16,8 +16,8 @@ class ManagerComplaintListFragment:Fragment() {
     private lateinit var managerComplaintFragment: ManagerComplaintFragment
     var managerComplaintList= arrayListOf<ManagerComplaintList>(
         //숫자,제목,항목,사진
-        ManagerComplaintList("05","23","불편사항 신고",""),
-        ManagerComplaintList("05","23","불편사항 신고",""),
+//        ManagerComplaintList("05","23","불편사항 신고",""),
+//        ManagerComplaintList("05","23","불편사항 신고",""),
 
 
     )

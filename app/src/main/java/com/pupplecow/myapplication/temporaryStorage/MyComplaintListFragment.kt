@@ -16,11 +16,11 @@ class MyComplaintListFragment:Fragment() {
     private lateinit var complaintFragment: ComplaintFragment
     var complaintList= arrayListOf<ManagerComplaintList>(
         //숫자,제목,항목,사진
-        ManagerComplaintList("1", "title1", "불편사항 신고", ""),
-        ManagerComplaintList("2", "title2", "불편사항 신고", ""),
-        ManagerComplaintList("3", "title3", "불편사항 신고", ""),
-        ManagerComplaintList("4", "title4", "불편사항 신고", ""),
-        ManagerComplaintList("5", "title5", "불편사항 신고", ""),
+//        ManagerComplaintList("1", "title1", "불편사항 신고", ""),
+//        ManagerComplaintList("2", "title2", "불편사항 신고", ""),
+//        ManagerComplaintList("3", "title3", "불편사항 신고", ""),
+//        ManagerComplaintList("4", "title4", "불편사항 신고", ""),
+//        ManagerComplaintList("5", "title5", "불편사항 신고", ""),
 
         )
 

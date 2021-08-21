@@ -97,9 +97,6 @@ class MyComplaintActivity : AppCompatActivity() {
             //myComplaintListFragment= MyComplaintListFragment.newInstance()
             finish()
 
-            // val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.addToBackStack(null)?.commit()
-            //val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,myComplaintListFragment)?.addToBackStack(null)?.commit()
-
         }
 
 
