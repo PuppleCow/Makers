@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.temporaryStorage.CheckInActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.ComplaintFragment
+import com.pupplecow.myapplication.ui.home.complaint.ComplaintActivity
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 

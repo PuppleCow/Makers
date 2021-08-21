@@ -14,8 +14,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.ManagerWorkersStatusFragment
-import com.pupplecow.myapplication.ui.announcement.AnnouncementActivity
-import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.fragment_manager_home.*

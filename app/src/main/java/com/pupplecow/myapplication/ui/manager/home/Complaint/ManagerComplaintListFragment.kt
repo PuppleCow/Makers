@@ -1,5 +1,6 @@
-package com.pupplecow.myapplication.ui.manager.Complaint
+package com.pupplecow.myapplication.ui.manager.home.Complaint
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.ManagerComplaintFragment
+import com.pupplecow.myapplication.ui.home.complaint.ComplaintListActivity
 import kotlinx.android.synthetic.main.fragment_manager_complaint_list.*
 
 class ManagerComplaintListFragment:Fragment() {
@@ -33,9 +35,9 @@ class ManagerComplaintListFragment:Fragment() {
             complaint->
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 해당 내용 서버에서 불러오기
-            managerComplaintFragment= ManagerComplaintFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerComplaintFragment)?.addToBackStack(null)?.commit()
-
+            //MyConplaintActivity로 넘어가기
+            val intent = Intent(requireContext(), ManagerComplaintActivity::class.java)
+            startActivity(intent)
         }
         manager_complaint_recyclerview.adapter = mAdapter
 

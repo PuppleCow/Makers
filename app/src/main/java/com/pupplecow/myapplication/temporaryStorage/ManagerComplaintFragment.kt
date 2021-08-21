@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListFragment
 import kotlinx.android.synthetic.main.fragment_manager_complaint.*
 
 class ManagerComplaintFragment:Fragment() {

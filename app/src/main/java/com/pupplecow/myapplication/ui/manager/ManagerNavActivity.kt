@@ -5,12 +5,10 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.SettingCheckSafetyManual
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
-import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListFragment
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
 import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingFragment
-import com.pupplecow.myapplication.ui.safetyManual.SafetyManualFragment
 import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment
 import com.pupplecow.myapplication.ui.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_manager_nav.*

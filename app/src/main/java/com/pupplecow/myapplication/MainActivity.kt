@@ -4,11 +4,7 @@ package com.pupplecow.myapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.pupplecow.myapplication.ui.announcement.AnnounceMentListActivity
-import com.pupplecow.myapplication.ui.home.ComplaintActivity
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity
-import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_main.*
 

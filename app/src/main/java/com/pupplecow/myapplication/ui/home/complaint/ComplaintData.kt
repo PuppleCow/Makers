@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.home.complaint
 
 data class ComplaintData(
     var month:String="",

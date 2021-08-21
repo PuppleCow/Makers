@@ -1,15 +1,13 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.home.complaint
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.MyComplaintFragment
-import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintList
-import com.pupplecow.myapplication.ui.manager.Complaint.ManagerComplaintListAdapter
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintList
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListAdapter
 import kotlinx.android.synthetic.main.activity_complaint_list.*
-import kotlinx.android.synthetic.main.activity_my_complaint_list.*
 
 class ComplaintListActivity : AppCompatActivity() {
 
@@ -30,7 +28,7 @@ class ComplaintListActivity : AppCompatActivity() {
                 complaint->
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 해당 내용 서버에서 불러오기
-            val intent = Intent(this,MyComplaintActivity::class.java)
+            val intent = Intent(this, MyComplaintActivity::class.java)
             startActivity(intent)
         }
         complaint_list_recyclerview.adapter = mAdapter

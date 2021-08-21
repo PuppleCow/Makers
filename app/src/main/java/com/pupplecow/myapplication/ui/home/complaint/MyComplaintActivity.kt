@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.home.complaint
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -79,7 +79,7 @@ class MyComplaintActivity : AppCompatActivity() {
 
                             //다음페이지로 넘어가기
                             //민원작성페이지로 넘어가기
-                            val intent = Intent(this@MyComplaintActivity, ComplaintActivity::class.java)
+                            val intent = Intent(this@MyComplaintActivity, ComplaintListActivity::class.java)
                             startActivity(intent)
                         }
 

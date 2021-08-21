@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.MyComplaintListFragment
 import kotlinx.android.synthetic.main.fragment_my_complaint.*
 
 

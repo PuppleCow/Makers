@@ -18,7 +18,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.MyComplaintListFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
 import java.util.*
 

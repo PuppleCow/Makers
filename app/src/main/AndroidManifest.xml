@@ -16,8 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.home.ComplaintListActivity"></activity>
-        <activity android:name=".ui.manager.Complaint.ManagerComplaintActivity" />
+        <activity android:name=".ui.home.complaint.ComplaintListActivity"></activity>
+        <activity android:name="com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintActivity" />
         <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
         <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />
@@ -40,8 +40,8 @@
         <activity android:name=".ui.announcement.CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".temporaryStorage.ManageActivity" />
-        <activity android:name=".ui.home.MyComplaintActivity" />
-        <activity android:name=".ui.home.ComplaintActivity" />
+        <activity android:name=".ui.home.complaint.MyComplaintActivity" />
+        <activity android:name=".ui.home.complaint.ComplaintActivity" />
         <activity android:name=".ui.home.SafetyManualQuizActivity3" />
         <activity android:name=".temporaryStorage.CheckInActivity" />
         <activity android:name=".ui.login.LoginActivity" />

@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.home.complaint
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
@@ -114,7 +114,7 @@ class ComplaintActivity : AppCompatActivity() {
                                 val database=FirebaseDatabase.getInstance()
                                 val myRef=database.getReference()
 
-                                var dataInput=ComplaintData(
+                                var dataInput= ComplaintData(
                                     month,date,complaintCategory,
                                     complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()

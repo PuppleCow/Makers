@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.manager.Complaint
+package com.pupplecow.myapplication.ui.manager.home.Complaint
 
 import android.content.Context
 import android.view.LayoutInflater
