@@ -102,10 +102,7 @@ class CreateAnnouncementActivity : AppCompatActivity() {
 
                                     //공지사항 목록 페이지로 넘어가기
                                     //AnnouncmentListFragment로 넘어가기
-                                    val intent = Intent(
-                                        this@CreateAnnouncementActivity,
-                                        AnnouncementActivity::class.java
-                                    )
+                                    val intent = Intent(this@CreateAnnouncementActivity, AnnouncementListFragment::class.java)
                                     startActivity(intent)
                                     finish()
 

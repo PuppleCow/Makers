@@ -25,6 +25,7 @@ import java.util.*
 
 class ManagerCreateAnnouncementFragment:Fragment() {
     val category = arrayOf( "카테고리 선택","모집", "A","B","C")
+    private var uid : String? = null
 
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     companion object {
@@ -35,6 +36,7 @@ class ManagerCreateAnnouncementFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         //카테고리 스피너
         val categoryAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,category)

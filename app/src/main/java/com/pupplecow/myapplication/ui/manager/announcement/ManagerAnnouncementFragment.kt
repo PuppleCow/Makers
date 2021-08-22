@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import kotlinx.android.synthetic.main.activity_announcement.*
 import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 
 class ManagerAnnouncementFragment:Fragment() {
@@ -56,7 +57,7 @@ class ManagerAnnouncementFragment:Fragment() {
 
 
         //수정버튼 누르면
-        manager_announcement_button_edit.setOnClickListener {
+        announcement_button_edit.setOnClickListener {
             //다이얼로그
             val builder= AlertDialog.Builder(requireContext())
             builder.setTitle("")
@@ -86,7 +87,7 @@ class ManagerAnnouncementFragment:Fragment() {
 
 
         //삭제버튼 누르면
-        manager_announcement_button_delete.setOnClickListener {
+        announcement_button_delete.setOnClickListener {
             //다이얼로그
             val builder= AlertDialog.Builder(requireContext())
             builder.setTitle("")
@@ -116,7 +117,7 @@ class ManagerAnnouncementFragment:Fragment() {
         }
 
 
-        manager_announcement_button_list.setOnClickListener {
+        announcement_button_list.setOnClickListener {
             //공지사항 목록 페이지로 넘어가기
             //AnnouncmentListFragment로 넘어가기
             managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()

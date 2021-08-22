@@ -10,13 +10,15 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.announcement.AnnounceMentList
+import com.pupplecow.myapplication.ui.manager.home.ManagerWorkersStatusActivity
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 class ManagerAnnouncementListFragment:Fragment() {
 
 
     private lateinit var managerAnnouncementFragment: ManagerAnnouncementFragment
-    private lateinit var managerCreateAnnouncementFragment: ManagerCreateAnnouncementFragment
+    private lateinit var managerCreateAnnouncementActivity: ManagerCreateAnnouncementActivity
+    //private lateinit var auth : FirebaseAuth
 
 
     var AnnouncementList= arrayListOf<AnnounceMentList>(
@@ -38,11 +40,15 @@ class ManagerAnnouncementListFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //auth=FirebaseAuth.getInstance()
+
         val listAdapter = ManagerAnnouncementListAdapter(requireContext(), AnnouncementList){
                 Announcement->
+            val intent = Intent(requireContext(), ManagerAnnouncementActivity::class.java)
+            startActivity(intent)
 
-            managerAnnouncementFragment= ManagerAnnouncementFragment.newInstance()
-            val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementFragment)?.addToBackStack(null)?.commit()
+            //managerAnnouncementFragment= ManagerAnnouncementFragment.newInstance()
+            //val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementFragment)?.addToBackStack(null)?.commit()
 
         }
         announcementlist_recyclerview.adapter = listAdapter
@@ -61,8 +67,8 @@ class ManagerAnnouncementListFragment:Fragment() {
         }
 
         announcementlist_writeButton.setOnClickListener {
-            managerCreateAnnouncementFragment = ManagerCreateAnnouncementFragment.newInstance()
-            val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerCreateAnnouncementFragment)?.addToBackStack(null)?.commit()
+            val intent = Intent(requireContext(), ManagerCreateAnnouncementActivity::class.java)
+            startActivity(intent)
         }
 
         /*  //공지사항 목록 페이지로 넘어가기

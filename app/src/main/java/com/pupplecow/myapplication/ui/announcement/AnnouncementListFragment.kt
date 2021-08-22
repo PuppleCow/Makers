@@ -5,19 +5,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pupplecow.myapplication.MainActivity
 import com.pupplecow.myapplication.R
-import kotlinx.android.synthetic.main.fragment_announcementworker.*
+import com.pupplecow.myapplication.temporaryStorage.CheckInActivity
+import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 
 //근무자 위한 list 프래그먼트
 class AnnouncementListFragment:Fragment() {
 
 
-    private lateinit var announcementFragmentWorkerVer : AnnouncementFragmentWorkerVer
+    //private lateinit var announcementFragmentWorkerVer : AnnouncementFragmentWorkerVer
 
 
     var AnnouncementList= arrayListOf<AnnounceMentList>(
@@ -42,27 +41,31 @@ class AnnouncementListFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        announcementlist_writeButton.visibility=View.GONE
+
 
         val listAdapter = AnnouncementListAdapterActivity(requireContext(), AnnouncementList){
                 Announcement->
-            announcementFragmentWorkerVer= AnnouncementFragmentWorkerVer.newInstance()
-            val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementFragmentWorkerVer)?.addToBackStack(null)?.commit()
+            val intent = Intent(requireContext(), AnnouncementWorkerActivity::class.java)
+            startActivity(intent)
+            //announcementFragmentWorkerVer= AnnouncementFragmentWorkerVer.newInstance()
+            //val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,announcementFragmentWorkerVer)?.addToBackStack(null)?.commit()
 
         }
 
-        announcementlist_recyclerviewWorker.adapter = listAdapter
+        announcementlist_recyclerview.adapter = listAdapter
 
 
         val lm = LinearLayoutManager(requireContext())
-        announcementlist_recyclerviewWorker.layoutManager = lm
-        announcementlist_recyclerviewWorker.setHasFixedSize(true)
+        announcementlist_recyclerview.layoutManager = lm
+        announcementlist_recyclerview.setHasFixedSize(true)
 
 
     }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState:Bundle?): View?{
-        val view=inflater.inflate(R.layout.fragment_announcementworker,container,false)
+        val view=inflater.inflate(R.layout.fragment_manager_announcement_list,container,false)
         return view
     }
 

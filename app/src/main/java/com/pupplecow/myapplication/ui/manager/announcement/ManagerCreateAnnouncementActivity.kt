@@ -12,17 +12,23 @@ import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.announcement.AnnouncementActivity
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
 class ManagerCreateAnnouncementActivity : AppCompatActivity() {
+    private var uid:String =""
     val category = arrayOf( "카테고리 선택","모집", "A","B","C")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_create_announcement)
+
+        if(intent.hasExtra("uid")){
+            uid = intent.getStringExtra("uid").toString()
+        }
 
 
         //카테고리 스피너
@@ -66,8 +72,10 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
 
         //등록하기버튼
         manager_create_announcement_button_enroll.setOnClickListener {
-
             val selectCategory = category[manager_createAnnouncement_spinner.selectedItemPosition]
+
+
+
 
             //제목란 비어있는지 확인
             if (manager_create_announcement_editText_title.text.toString() == "") {
@@ -118,6 +126,22 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
 
 
                                     //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장,필독정보
+
+
+                                    //파이어베이스
+                                    val database = FirebaseDatabase.getInstance()
+                                    val myRef = database.getReference()
+
+                                    val dataInput = AnnouncementData(
+                                        uid,
+                                        month,date,selectCategory,
+                                        manager_create_announcement_editText_title.text.toString(),
+                                        manager_create_announcement_editTextTextMultiLine.text.toString()
+
+                                    )
+
+                                    //이건 무슨 코드??
+                                    myRef.child("board").push().setValue(dataInput)
 
 
 

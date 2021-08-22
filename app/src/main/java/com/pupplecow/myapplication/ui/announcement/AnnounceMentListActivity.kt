@@ -1,3 +1,4 @@
+
 package com.pupplecow.myapplication.ui.announcement
 
 import androidx.appcompat.app.AppCompatActivity
@@ -41,3 +42,4 @@ class AnnounceMentListActivity : AppCompatActivity() {
 
 
 }
+

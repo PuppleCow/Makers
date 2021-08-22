@@ -12,7 +12,7 @@ import com.pupplecow.myapplication.temporaryStorage.CreateAnnounecementFragment
 import kotlinx.android.synthetic.main.activity_announcement.*
 
 class AnnouncementFragmentWorkerVer:Fragment() {
-    private lateinit var createAnnounecementFragment: CreateAnnounecementFragment
+    //private lateinit var createAnnounecementFragment: CreateAnnounecementFragment
     private lateinit var announcementListFragment:AnnouncementListFragment
 
     companion object {
@@ -65,6 +65,7 @@ class AnnouncementFragmentWorkerVer:Fragment() {
 
             val transaction= activity?.supportFragmentManager?.beginTransaction()?.remove(this)?.commit()
             activity?.supportFragmentManager?.popBackStack()
+
         }
 
     }

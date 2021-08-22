@@ -38,7 +38,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/nnouncement_imageView"
+        android:id="@+id/announcement_imageView"
         android:layout_width="match_parent"
         android:layout_height="167dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
