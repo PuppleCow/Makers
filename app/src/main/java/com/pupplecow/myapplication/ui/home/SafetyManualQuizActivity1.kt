@@ -17,6 +17,11 @@ class SafetyManualQuizActivity1 : AppCompatActivity() {
         binding = ActivitySafetyManualQuiz1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // webView 실행
+        binding.quiz1WebviewButton9.setOnClickListener {
+            val intent=Intent(this,SafetyManualQuizWebViewActivity1::class.java)
+            startActivity(intent)
+        }
 
         // 체크 박스들
         binding.quiz1CheckBox1.setOnClickListener{ onCheckChanged(binding.quiz1CheckBox1)}
