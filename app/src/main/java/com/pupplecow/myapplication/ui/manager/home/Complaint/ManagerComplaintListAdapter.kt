@@ -33,7 +33,7 @@ class ManagerComplaintListAdapter(val context:Context, val complaintList:ArrayLi
         val complaintPhoto = itemView?.findViewById<ImageView>(R.id.manager_complaint_list_imageview)
         val complaintNum = itemView?.findViewById<TextView>(R.id.manager_complaint_list_number)
         val complaintTitle = itemView?.findViewById<TextView>(R.id.manager_complaint_list_title)
-        val complaintCategory = itemView?.findViewById<TextView>(R.id.manager_complaint_list_category)
+        //val complaintCategory = itemView?.findViewById<TextView>(R.id.manager_complaint_list_category)
 
 
 
@@ -49,8 +49,8 @@ class ManagerComplaintListAdapter(val context:Context, val complaintList:ArrayLi
 //            }
 
             complaintNum ?.text = complaint.month+"/"+complaint.date
-            complaintTitle?.text = complaint.title
-            complaintCategory?.text = complaint.category
+            complaintTitle?.text = "["+complaint.category+"]"+complaint.title
+            //complaintCategory?.text = complaint.category
 
             itemView.setOnClickListener { itemClick(complaint) }
             /* (3) itemView가 클릭됐을 때 처리할 일을 itemClick으로 설정한다.

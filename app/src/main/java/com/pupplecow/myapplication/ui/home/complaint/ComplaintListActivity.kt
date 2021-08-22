@@ -53,8 +53,7 @@ class ComplaintListActivity : AppCompatActivity() {
         complaint_list_recyclerview.setHasFixedSize(true)
 
 
-
-
+        
         database.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
