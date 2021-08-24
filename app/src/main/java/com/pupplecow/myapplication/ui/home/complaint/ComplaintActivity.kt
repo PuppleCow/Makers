@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
@@ -17,7 +19,10 @@ import java.util.*
 
 
 class ComplaintActivity : AppCompatActivity() {
-    private var uid:String=""
+//    private var uid:String=""
+
+    var fbAuth: FirebaseAuth?=null
+    var fbFirestore: FirebaseFirestore?=null
 
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -30,10 +35,14 @@ class ComplaintActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
 
-        //파이어베이스
-        if(intent.hasExtra("uid")){
-            uid= intent.getStringExtra("uid").toString()
-        }
+        //파이어스토어 파이어베이스
+        fbAuth= FirebaseAuth.getInstance()
+        fbFirestore= FirebaseFirestore.getInstance()
+
+//        //파이어베이스
+//        if(intent.hasExtra("uid")){
+//            uid= intent.getStringExtra("uid").toString()
+//        }
 
         //산업안전 뉴스 제목,링크 불러오기
         complaint_text_news.text="뉴스 제목입니다."
@@ -110,22 +119,31 @@ class ComplaintActivity : AppCompatActivity() {
                                 val complaintCategory =
                                     complaintCategoryData[complaint_spinner_category.selectedItemPosition]
 
-                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
-                                val database=FirebaseDatabase.getInstance()
-                                val myRef=database.getReference()
+//                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
+//                                val database=FirebaseDatabase.getInstance()
+//                                val myRef=database.getReference()
+//
+//                                var dataInput= ComplaintData(
+////                                    uid,
+//                                    month,date,complaintCategory,
+//                                    complaint_editText_title.text.toString(),
+//                                    complaint_editTextTextMultiLine.text.toString()
+//                                )
+//                                myRef.child("board").push().setValue(dataInput)
 
                                 var dataInput= ComplaintData(
-                                    uid,
+//                                    uid,
                                     month,date,complaintCategory,
                                     complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()
                                 )
-                                myRef.child("board").push().setValue(dataInput)
+                                fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
-                                val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
-                                startActivity(intent)
+//                                val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
+//                                startActivity(intent)
+                                setResult(RESULT_OK)
                                 finish()
                             }
 

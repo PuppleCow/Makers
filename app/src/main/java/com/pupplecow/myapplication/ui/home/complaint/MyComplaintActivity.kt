@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import com.pupplecow.myapplication.R
@@ -16,14 +17,14 @@ class MyComplaintActivity : AppCompatActivity() {
         setContentView(R.layout.activity_my_complaint)
 //산업안전 뉴스 제목,링크 불러오기
         mycomplaint_text_news.text="뉴스 제목입니다."
-
+        val data = intent.getSerializableExtra("uid")
         //사진 서버에서 가져오기
         //이미지 가져오기(있을때 없을때 구분)
         if(true) {
             //MyComplaint_imageView.setImageResource(0)
         }
         else{
-            MyComplaint_imageView.isInvisible=true
+            MyComplaint_imageView.visibility= View.VISIBLE
         }
 
         mycomplaint_text_news.setOnClickListener {

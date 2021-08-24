@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintList
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaint
 import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListAdapter
 import kotlinx.android.synthetic.main.activity_my_complaint_list.*
 
 class MyComplaintListFragment:Fragment() {
     private lateinit var myComplaintFragment: MyComplaintFragment
     private lateinit var complaintFragment: ComplaintFragment
-    var complaintList= arrayListOf<ManagerComplaintList>(
+    var complaintList= arrayListOf<ManagerComplaint>(
         //숫자,제목,항목,사진
 //        ManagerComplaintList("1", "title1", "불편사항 신고", ""),
 //        ManagerComplaintList("2", "title2", "불편사항 신고", ""),
@@ -32,7 +32,7 @@ class MyComplaintListFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val mAdapter = ManagerComplaintListAdapter(requireContext(), complaintList){
+        val mAdapter = ManagerComplaintListAdapter(requireContext()){
                 complaint->
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 해당 내용 서버에서 불러오기

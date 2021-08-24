@@ -1,7 +1,7 @@
 package com.pupplecow.myapplication.ui.manager.home.Complaint
 
 //숫자,제목,항목,사진
-data class ManagerComplaintList (
+data class ManagerComplaint (
     val month: String,
     val date:String,
     val title:String,

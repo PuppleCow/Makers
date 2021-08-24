@@ -10,16 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.ManagerComplaintFragment
 import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintListActivity
 import kotlinx.android.synthetic.main.fragment_manager_complaint_list.*
 
 class ManagerComplaintListFragment:Fragment() {
     private lateinit var database: DatabaseReference
     private lateinit var auth: FirebaseAuth
 
-    var managerComplaintList= arrayListOf<ManagerComplaintList>(
+    var managerComplaintList= arrayListOf<ManagerComplaint>(
         //숫자,제목,항목,사진
 //        ManagerComplaintList("05","23","불편사항 신고",""),
 //        ManagerComplaintList("05","23","불편사항 신고",""),
@@ -39,7 +37,7 @@ class ManagerComplaintListFragment:Fragment() {
 
         database= FirebaseDatabase.getInstance().getReference().child("board")
 
-        val mAdapter = ManagerComplaintListAdapter(requireContext(), managerComplaintList){
+        val mAdapter = ManagerComplaintListAdapter(requireContext()){
             complaint->
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 해당 내용 서버에서 불러오기
@@ -63,7 +61,7 @@ class ManagerComplaintListFragment:Fragment() {
                 for(data in snapshot.children){
                     val modelResult=data.getValue(ComplaintData::class.java)
                     managerComplaintList.apply {
-                        add(ManagerComplaintList(
+                        add(ManagerComplaint(
                             month = modelResult?.month.toString(),
                             date = modelResult?.date.toString(),
                             title = modelResult?.title.toString(),
@@ -78,6 +76,7 @@ class ManagerComplaintListFragment:Fragment() {
 
             }
         })
+        FirebaseDatabase.getInstance()
 
     }
 

@@ -179,7 +179,13 @@ class HomeFragment:Fragment() {
         return view
     }
 
-
-
-
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if(resultCode != RESULT.OK) {
+//            return;
+//        }
+//        if(requestCode == "요청했던 리퀘스트 코드") {
+//            //새로 고침해서 서버에서 글 불러오기
+//        }
+//    }
 }
