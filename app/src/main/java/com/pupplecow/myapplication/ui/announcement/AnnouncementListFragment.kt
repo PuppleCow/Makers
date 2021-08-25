@@ -7,28 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.CheckInActivity
+import com.pupplecow.myapplication.ui.manager.announcement.AnnouncementData
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 
 //근무자 위한 list 프래그먼트
 class AnnouncementListFragment:Fragment() {
 
+    var firestore : FirebaseFirestore? = null
 
     //private lateinit var announcementFragmentWorkerVer : AnnouncementFragmentWorkerVer
 
+    var announcementList: ArrayList<AnnouncementData> = arrayListOf()
 
-    var AnnouncementList= arrayListOf<AnnounceMentList>(
-        AnnounceMentList("5/10","[모집]","공지1", ),
-        AnnounceMentList("5/12", "[모집]","공지2"),
-        AnnounceMentList("5/13", "[모집]","공지3"),
-        AnnounceMentList("5/14", "[A]","공지4"),
-        AnnounceMentList("5/15", "[B]","공지5"),
-        AnnounceMentList("5/16", "[C]","공지6"),
-        AnnounceMentList("5/17", "[A]","공지7")
 
-    )
 
 
     companion object {
@@ -40,11 +34,14 @@ class AnnouncementListFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //파이어스토어 인스턴그 초기화
+        firestore = FirebaseFirestore.getInstance()
+
 
         announcementlist_writeButton.visibility=View.GONE
 
 
-        val listAdapter = AnnouncementListAdapterActivity(requireContext(), AnnouncementList){
+        val listAdapter = AnnouncementListAdapterActivity(requireContext()){
                 Announcement->
             val intent = Intent(requireContext(), AnnouncementWorkerActivity::class.java)
             startActivity(intent)

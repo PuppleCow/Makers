@@ -12,7 +12,9 @@ import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
@@ -21,15 +23,25 @@ import java.util.*
 
 class ManagerCreateAnnouncementActivity : AppCompatActivity() {
     private var uid:String =""
+
+    var Firestore : FirebaseFirestore? = null
+    var Auth : FirebaseAuth? = null
+
+
     val category = arrayOf( "카테고리 선택","모집", "A","B","C")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_create_announcement)
 
+        Firestore = FirebaseFirestore.getInstance()
+
+        /*
         if(intent.hasExtra("uid")){
             uid = intent.getStringExtra("uid").toString()
         }
 
+
+         */
 
         //카테고리 스피너
         val categoryAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,category)
@@ -129,8 +141,9 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
 
 
                                     //파이어베이스
-                                    val database = FirebaseDatabase.getInstance()
-                                    val myRef = database.getReference()
+
+                                    //val database = FirebaseDatabase.getInstance()
+                                    //val myRef = database.getReference()
 
                                     val dataInput = AnnouncementData(
                                         uid,
@@ -139,9 +152,11 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
                                         manager_create_announcement_editTextTextMultiLine.text.toString()
 
                                     )
+                                    Firestore?.collection("announcement")?.document(Auth?.uid.toString())?.set(dataInput)
 
-                                    //이건 무슨 코드??
-                                    myRef.child("board").push().setValue(dataInput)
+                                    setResult(RESULT_OK)
+                                    finish()
+
 
 
 

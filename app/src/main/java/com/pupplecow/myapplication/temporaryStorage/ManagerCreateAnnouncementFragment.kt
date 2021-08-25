@@ -1,4 +1,5 @@
-package com.pupplecow.myapplication.ui.manager.announcement
+
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -17,9 +18,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_complaint.*
-import kotlinx.android.synthetic.main.activity_home1.*
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
@@ -136,7 +136,8 @@ class ManagerCreateAnnouncementFragment:Fragment() {
 
                                     //공지사항 목록 페이지로 넘어가기
                                     //AnnouncmentListFragment로 넘어가기
-                                    managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
+                                    managerAnnouncementListFragment=
+                                        ManagerAnnouncementListFragment.newInstance()
                                     val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
 
 
@@ -194,3 +195,4 @@ class ManagerCreateAnnouncementFragment:Fragment() {
         return view
     }
 }
+

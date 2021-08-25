@@ -6,7 +6,7 @@
 //import android.view.ViewGroup
 //import android.widget.TextView
 //import androidx.recyclerview.widget.RecyclerView
-//import com.pupplecow.myapplication.ui.announcement.AnnounceMentList
+//import com.pupplecow.myapplication.temporaryStorage.AnnounceMentList
 //import kotlin.collections.ArrayList
 //
 //class AnnouncementListAdapterActivity(val context:Context, val announcementList:ArrayList<AnnounceMentList>, val itemClick: (AnnounceMentList) -> Unit):

@@ -37,7 +37,7 @@ class ManagerAnnouncementActivity : AppCompatActivity() {
 
 
         //공지내용 서버에서 가져오기
-        announcement_text_news.text="공지\n공지입니당\n공쥐\n팥쥐"
+        announcement_text_content.text="공지\n공지입니당\n공쥐\n팥쥐"
 
 
         //수정버튼 누르면

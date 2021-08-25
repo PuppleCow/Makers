@@ -30,7 +30,6 @@
                 android:id="@+id/fragment_announcement_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="뉴스입니다"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

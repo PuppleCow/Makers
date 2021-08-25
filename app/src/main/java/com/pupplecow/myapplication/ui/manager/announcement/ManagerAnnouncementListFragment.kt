@@ -8,27 +8,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.announcement.AnnounceMentList
-import com.pupplecow.myapplication.ui.manager.home.ManagerWorkersStatusActivity
+import com.pupplecow.myapplication.temporaryStorage.ManagerAnnouncementFragment
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 class ManagerAnnouncementListFragment:Fragment() {
 
+    private lateinit var database: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+
+    private var Firestore: FirebaseFirestore?=null
 
     private lateinit var managerAnnouncementFragment: ManagerAnnouncementFragment
     private lateinit var managerCreateAnnouncementActivity: ManagerCreateAnnouncementActivity
     //private lateinit var auth : FirebaseAuth
 
 
-    var AnnouncementList= arrayListOf<AnnounceMentList>(
-        AnnounceMentList("5/10", "[모집]","공지1"),
-        AnnounceMentList("5/12", "[모집]","공지2"),
-        AnnounceMentList("5/13", "[모집]","공지3"),
-        AnnounceMentList("5/14", "[A]","공지4"),
-        AnnounceMentList("5/15", "[A]","공지5"),
-        AnnounceMentList("5/16", "[A]","공지6" ),
-        AnnounceMentList("5/17", "[A]","공지7")
+    var AnnouncementList= arrayListOf<AnnouncementData>(
+
 
     )
     companion object {
@@ -40,15 +40,18 @@ class ManagerAnnouncementListFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //auth=FirebaseAuth.getInstance()
 
-        val listAdapter = ManagerAnnouncementListAdapter(requireContext(), AnnouncementList){
+        Firestore= FirebaseFirestore.getInstance()
+
+        auth = FirebaseAuth.getInstance()
+        database= FirebaseDatabase.getInstance().getReference().child("announcement")
+
+
+        val listAdapter = ManagerAnnouncementListAdapter(requireContext()){
                 Announcement->
             val intent = Intent(requireContext(), ManagerAnnouncementActivity::class.java)
+            intent.putExtra("uid",auth.currentUser?.uid)
             startActivity(intent)
-
-            //managerAnnouncementFragment= ManagerAnnouncementFragment.newInstance()
-            //val transaction = activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementFragment)?.addToBackStack(null)?.commit()
 
         }
         announcementlist_recyclerview.adapter = listAdapter
@@ -59,7 +62,42 @@ class ManagerAnnouncementListFragment:Fragment() {
         announcementlist_recyclerview.setHasFixedSize(true)
 
 
-        fragment_announcement_news.setOnClickListener{
+/*
+
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(data in snapshot.children){
+                    val modelResult=data.getValue(AnnouncementData::class.java)
+                    AnnouncementList.apply {
+                        add(
+                            AnnouncementData(
+                            month = modelResult?.month.toString(),
+                            date = modelResult?.date.toString(),
+                            title = modelResult?.title.toString(),
+                            category = modelResult?.category.toString(),
+                            uid = modelResult?.uid.toString(),
+                            content = modelResult?.content.toString()
+                        )
+                        )
+                        //ManagerComplaintList.complaintList=complaintList
+                    }
+                }
+                listAdapter.notifyDataSetChanged()
+
+            }
+        })
+        FirebaseDatabase.getInstance()
+
+ */
+
+
+
+        fragment_announcement_news.text = "뉴스 제목입니다"
+
+        fragment_announcement_news.setOnClickListener {
             var intent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
             startActivity(intent)

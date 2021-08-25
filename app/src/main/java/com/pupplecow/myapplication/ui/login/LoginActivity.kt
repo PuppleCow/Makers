@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.HomeFragment
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_login.view.*
 
 
 class LoginActivity : AppCompatActivity() {
+    var auth : FirebaseAuth? =null
     val login_data = arrayOf( "선택","상용직", "일용직","관리자")
     //val spinner=findViewById<Spinner>(R.id.login_workpart)
     //val choice=spinner.toString()

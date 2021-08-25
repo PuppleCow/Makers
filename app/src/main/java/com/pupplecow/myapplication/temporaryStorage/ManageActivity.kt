@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.EmergencyNoticeActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.announcement.AnnounceMentListActivity
+//import com.pupplecow.myapplication.temporaryStorage.AnnounceMentListActivity
 import kotlinx.android.synthetic.main.activity_manage.*
 
 class ManageActivity : AppCompatActivity() {
@@ -69,7 +69,7 @@ class ManageActivity : AppCompatActivity() {
         }
         //공지사항 목록보기 버튼
         manage_NotifListButton.setOnClickListener {
-            val intent = Intent(this, AnnounceMentListActivity::class.java)
+            //val intent = Intent(this, AnnounceMentListActivity::class.java)
             startActivity(intent)
             //AnnounceMentListActivity
         }

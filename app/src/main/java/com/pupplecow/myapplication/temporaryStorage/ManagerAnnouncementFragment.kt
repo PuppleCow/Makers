@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.manager.announcement
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -11,12 +11,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_announcement.*
 import kotlinx.android.synthetic.main.fragment_manager_announcement.*
 
 class ManagerAnnouncementFragment:Fragment() {
-    private lateinit var managerCreateAnnouncementFragment:ManagerCreateAnnouncementFragment
-    private lateinit var managerAnnouncementListFragment:ManagerAnnouncementListFragment
+    private lateinit var managerCreateAnnouncementFragment: ManagerCreateAnnouncementFragment
+    private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     companion object {
         fun newInstance(): ManagerAnnouncementFragment {
             return ManagerAnnouncementFragment()
@@ -69,7 +70,8 @@ class ManagerAnnouncementFragment:Fragment() {
                         DialogInterface.BUTTON_POSITIVE -> {
                             //예누르면 공지사항 작성페이지로 이동 --> 수정공지사항은 입력되어있어야함
                             //CreateAnnounecementFragment로 넘어가기
-                            managerCreateAnnouncementFragment= ManagerCreateAnnouncementFragment.newInstance()
+                            managerCreateAnnouncementFragment=
+                                ManagerCreateAnnouncementFragment.newInstance()
                             val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerCreateAnnouncementFragment)?.addToBackStack(null)?.commit()
 
                         }
@@ -103,7 +105,8 @@ class ManagerAnnouncementFragment:Fragment() {
 
                             //공지사항 목록 페이지로 넘어가기
                             //ManagerAnnouncementListFragmentt로 넘어가기
-                            managerAnnouncementListFragment= ManagerAnnouncementListFragment.newInstance()
+                            managerAnnouncementListFragment=
+                                ManagerAnnouncementListFragment.newInstance()
                             val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerAnnouncementListFragment)?.addToBackStack(null)?.commit()
 
                         }

@@ -1,3 +1,3 @@
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.temporaryStorage
 
 data class AnnounceMentList(var Date:String, var Category:String,var Title:String)

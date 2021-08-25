@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.content.Intent
 import android.net.Uri
@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.CreateAnnounecementFragment
+import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
 import kotlinx.android.synthetic.main.activity_announcement.*
 
 class AnnouncementFragmentWorkerVer:Fragment() {
     //private lateinit var createAnnounecementFragment: CreateAnnounecementFragment
-    private lateinit var announcementListFragment:AnnouncementListFragment
+    private lateinit var announcementListFragment: AnnouncementListFragment
 
     companion object {
         fun newInstance(): AnnouncementFragmentWorkerVer {
