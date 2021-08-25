@@ -41,9 +41,9 @@
         <ImageView
             android:id="@+id/complaint_imageView"
             android:layout_width="248dp"
-            android:layout_height="match_parent"
+            android:layout_height="78dp"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@drawable/eye_open" />
 
         <Button
             android:id="@+id/complaint_button_image_delete"

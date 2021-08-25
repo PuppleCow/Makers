@@ -2,9 +2,13 @@ package com.pupplecow.myapplication.ui.home.complaint
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -15,11 +19,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
+import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
 
 class ComplaintActivity : AppCompatActivity() {
-//    private var uid:String=""
+    private var uid:String=""
 
     var fbAuth: FirebaseAuth?=null
     var fbFirestore: FirebaseFirestore?=null
@@ -39,10 +44,10 @@ class ComplaintActivity : AppCompatActivity() {
         fbAuth= FirebaseAuth.getInstance()
         fbFirestore= FirebaseFirestore.getInstance()
 
-//        //파이어베이스
-//        if(intent.hasExtra("uid")){
-//            uid= intent.getStringExtra("uid").toString()
-//        }
+        //파이어베이스
+        if(intent.hasExtra("uid")){
+            uid= intent.getStringExtra("uid").toString()
+        }
 
         //산업안전 뉴스 제목,링크 불러오기
         complaint_text_news.text="뉴스 제목입니다."
@@ -74,13 +79,13 @@ class ComplaintActivity : AppCompatActivity() {
             albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
             @Suppress("DEPRECATION")
             startActivityForResult(albumIntent, 0)
-            complaint_button_image_delete.isVisible=true
+            //complaint_button_image_delete.visibility=View.VISIBLE
         }
 
         //사진삭제버튼
         complaint_button_image_delete.setOnClickListener {
             complaint_imageView.setImageResource(0)
-            complaint_button_image_delete.isVisible=false
+            complaint_button_image_delete.visibility=View.INVISIBLE
         }
 
 
@@ -119,25 +124,15 @@ class ComplaintActivity : AppCompatActivity() {
                                 val complaintCategory =
                                     complaintCategoryData[complaint_spinner_category.selectedItemPosition]
 
-//                                //서버에 사진,민원항목,민원내용,민원날짜,시간,민원인 정보 저장
-//                                val database=FirebaseDatabase.getInstance()
-//                                val myRef=database.getReference()
-//
-//                                var dataInput= ComplaintData(
-////                                    uid,
-//                                    month,date,complaintCategory,
-//                                    complaint_editText_title.text.toString(),
-//                                    complaint_editTextTextMultiLine.text.toString()
-//                                )
-//                                myRef.child("board").push().setValue(dataInput)
 
                                 var dataInput= ComplaintData(
-//                                    uid,
+                                    uid,
                                     month,date,complaintCategory,
                                     complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()
                                 )
-                                fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
+                                //fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
+                                fbFirestore?.collection("complaint")?.add(dataInput)
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
@@ -174,6 +169,37 @@ class ComplaintActivity : AppCompatActivity() {
         }
 
 
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == AppCompatActivity.RESULT_OK){
+            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
+            val uri = data?.data
+
+            if(uri != null){
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                    // 안드로이드 10버전 부터
+                    val source = ImageDecoder.createSource(this.contentResolver, uri)
+                    val bitmap = ImageDecoder.decodeBitmap(source)
+                    complaint_imageView.setImageBitmap(bitmap)
+                } else {
+                    // 안드로이드 9버전 까지
+                    val cursor = this.contentResolver.query(uri, null, null, null, null)
+                    if(cursor != null){
+                        cursor.moveToNext()
+                        // 이미지 경로를 가져온다.
+                        @Suppress("DEPRECATION")
+                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+                        val source = cursor.getString(index)
+                        // 이미지를 생성한다.
+                        val bitmap = BitmapFactory.decodeFile(source)
+                        complaint_imageView.setImageBitmap(bitmap)
+                    }
+                }
+            }
+        }
     }
 
 }

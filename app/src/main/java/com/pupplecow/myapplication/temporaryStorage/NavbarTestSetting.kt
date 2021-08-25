@@ -1,15 +1,16 @@
-package com.pupplecow.myapplication
+package com.pupplecow.myapplication.temporaryStorage
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pupplecow.myapplication.R
 
 class NavbarTestSetting: Fragment() {
 
     companion object{
-        fun newInstance() : NavbarTestSetting{
+        fun newInstance() : NavbarTestSetting {
             return NavbarTestSetting()
         }
     }

@@ -11,17 +11,16 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
-        android:hardwareAccelerated="true"
-
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ui.home.complaint.ComplaintListActivity"></activity>
-        <activity android:name="com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintActivity" />
+        android:theme="@style/Theme.MyApplication"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.manager.home.Complaint.ManagerComplaintListActivity"></activity>
+        <activity android:name=".ui.home.complaint.ComplaintListActivity" />
+        <activity android:name=".ui.manager.home.Complaint.ManagerComplaintActivity" />
         <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
         <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />

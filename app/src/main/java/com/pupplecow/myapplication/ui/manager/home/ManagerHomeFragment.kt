@@ -14,8 +14,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.ManagerWorkersStatusFragment
-import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListFragment
+import com.pupplecow.myapplication.temporaryStorage.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
+import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListActivity
 import kotlinx.android.synthetic.main.activity_manage.*
 import kotlinx.android.synthetic.main.fragment_manager_home.*
 
@@ -118,9 +119,8 @@ class ManagerHomeFragment:Fragment() {
         manager_home_complaint_list.setOnClickListener {
             //다음페이지로 넘어가기
             //ManagerComplaintListFragment로 넘어가기
-            managerComplaintListFragment= ManagerComplaintListFragment.newInstance()
-            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.manager_nav_frame,managerComplaintListFragment)?.addToBackStack(null)?.commit()
-
+            val intent = Intent(requireContext(), ManagerComplaintListActivity::class.java)
+            startActivity(intent)
         }
 
         //inner class SpListner: AdapterView.OnItemSele
