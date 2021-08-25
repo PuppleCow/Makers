@@ -3,6 +3,7 @@ package com.pupplecow.myapplication.ui.settings
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.login.LoginActivity
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import kotlinx.android.synthetic.main.fragment_setting_my_information.*
+import androidx.core.view.isVisible
 
 class SettingMyInformationFragment: Fragment() {
 
@@ -32,6 +34,30 @@ class SettingMyInformationFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        // 사진 등록
+        fragment_setting2_imageView.setOnClickListener{
+            // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
+//            val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
+//            albumIntent.type = "image/*"
+//            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
+//            val mimeType = arrayOf("image/*")
+//            albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
+//            @Suppress("DEPRECATION")
+//            startActivityForResult(albumIntent, 0)
+//            complaint_button_image_delete.isVisible=true
+            val albumInternet=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            albumInternet.type="image/*"
+            val mimeType= arrayOf("image/*")
+            albumInternet.putExtra(Intent.EXTRA_MIME_TYPES,mimeType)
+            @Suppress("DEPRECATION")
+            startActivityForResult(albumInternet,0)
+            fragment_setting2_image_delete2.isVisible=true
+        }
+
+
         // 내 정보 저장
         fragment_setting2_button1.setOnClickListener {
 
@@ -45,6 +71,11 @@ class SettingMyInformationFragment: Fragment() {
                 t1.show()
             }
 
+            // 사진 등록이 안 되어있다면
+            else if(fragment_setting2_imageView.getDrawable()==null){
+                val t1 = Toast.makeText(requireContext(), "사진 부분을 클릭하여 사진을 등록해주세요", Toast.LENGTH_SHORT)
+                t1.show()
+            }
             else{
             val t1 = Toast.makeText(requireContext(), "정보가 저장되었습니다", Toast.LENGTH_SHORT)
             t1.show()
