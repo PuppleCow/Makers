@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -38,9 +39,8 @@
         <activity android:name=".SettingMyInformationSettingActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
-        <activity android:name=".ui.announcement.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
+        <activity android:name=".temporaryStorage.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".ui.announcement.AnnouncementWorkerActivity" />
-        <activity android:name=".ui.announcement.CreateAnnouncementActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".temporaryStorage.ManageActivity" />
         <activity android:name=".ui.home.complaint.MyComplaintActivity" />

@@ -138,12 +138,7 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
 
 
                                     //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장,필독정보
-
-
                                     //파이어베이스
-
-                                    //val database = FirebaseDatabase.getInstance()
-                                    //val myRef = database.getReference()
 
                                     val dataInput = AnnouncementData(
                                         uid,
@@ -152,8 +147,9 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
                                         manager_create_announcement_editTextTextMultiLine.text.toString()
 
                                     )
-                                    Firestore?.collection("announcement")?.document(Auth?.uid.toString())?.set(dataInput)
 
+                                    //공지사항 목록이 쭉 나열됨
+                                    Firestore?.collection("announcement")?.add(dataInput)
                                     setResult(RESULT_OK)
                                     finish()
 
