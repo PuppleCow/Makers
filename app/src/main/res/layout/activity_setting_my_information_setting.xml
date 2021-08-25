@@ -117,7 +117,7 @@
                     android:layout_width="95dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    tools:srcCompat="@android:drawable/ic_menu_gallery" />
+                    app:srcCompat="@android:drawable/ic_menu_gallery" />
 
                 <Button
                     android:id="@+id/setting2_image_delete2"
