@@ -35,11 +35,12 @@ class SettingsFragment:Fragment() {
         // 내 정보 설정
         fragment_setting1_textView4.setOnClickListener {
 
-//            val myInformationSetting_intent= Intent(activity,SettingMyInformationSettingActivity::class.java)
-//            startActivity(myInformationSetting_intent)
+             //SettingMyInformationSettingActivity로 넘어가기
+            val myInformationSetting_intent= Intent(requireContext(),SettingMyInformationSettingActivity::class.java)
+            startActivity(myInformationSetting_intent)
 
-            settingMyInformationFragment=SettingMyInformationFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingMyInformationFragment)?.commit()
+//            settingMyInformationFragment=SettingMyInformationFragment.newInstance()
+//            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingMyInformationFragment)?.commit()
         }
 
         // 오픈소스 라이센스
