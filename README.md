@@ -64,13 +64,7 @@
 
 ### Prerequisites
 
-```
-$ node -v
-v12.16.1
-
-$ npm -v
-v6.13.4
-```
+추후작성
 
 ### Installation
 1. `clone` the repository,
@@ -78,14 +72,7 @@ v6.13.4
 $ git clone "https://github.com/do-mi-sol/domisol-web-application.git"
 ```
 
-2. `Install` dependencies,
-```
-$ npm install
-```       
-3. `start` the project,
-```
-$ npm start
-```
+추후작성
 
 ### <br/>
 ###
