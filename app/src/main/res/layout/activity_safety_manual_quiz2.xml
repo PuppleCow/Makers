@@ -24,10 +24,12 @@
                 android:id="@+id/quiz2_textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_bold"
                 android:text="안전 메뉴얼 퀴즈"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display3"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -37,7 +39,17 @@
                 android:id="@+id/quiz2_textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="입장 시 체크사항" />
+                android:fontFamily="@font/notosans_bold"
+                android:text="안전한 작업장을 위한"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/quiz2_textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_bold"
+                android:text="입장 시 확인 사항"
+                android:textSize="20dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -47,10 +59,12 @@
                 android:id="@+id/quiz2_textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:fontFamily="@font/notosans_bold"
                 android:text="위급 상황이 생기면 누구에게 먼저 알려야 할까요?"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textSize="19sp" />
+                android:textSize="12dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -64,13 +78,19 @@
                     android:id="@+id/quiz2_radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="동료" />
+                    android:buttonTint="#422A81"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="동료"
+                    android:textSize="12dp" />
 
                 <RadioButton
                     android:id="@+id/quiz2_radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="관리자" />
+                    android:buttonTint="#422A81"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="관리자"
+                    android:textSize="12dp" />
             </RadioGroup>
 
             <Space
@@ -81,9 +101,12 @@
                 android:id="@+id/quiz2_textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:fontFamily="@font/notosans_bold"
                 android:text="이동할 땐 어느쪽으로 해야 할까요?"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="12dp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -97,13 +120,19 @@
                     android:id="@+id/quiz2_radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="오른쪽" />
+                    android:buttonTint="#422A81"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="오른쪽"
+                    android:textSize="12dp" />
 
                 <RadioButton
                     android:id="@+id/quiz2_radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="왼쪽" />
+                    android:buttonTint="#422A81"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="왼쪽"
+                    android:textSize="12dp" />
             </RadioGroup>
 
             <Space
@@ -114,7 +143,11 @@
                 android:id="@+id/quiz2_button1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="완료" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:backgroundTint="#422A81"
+                android:text="완료"
+                app:cornerRadius="22dp" />
 
             <Space
                 android:layout_width="match_parent"
