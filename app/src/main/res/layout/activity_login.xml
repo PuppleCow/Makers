@@ -108,10 +108,10 @@
 
                 <ToggleButton
                     android:id="@+id/login_showButton"
-                    android:layout_width="24dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@android:drawable/ic_menu_zoom"
+                    android:background="@drawable/eyes"
                     android:text="ToggleButton"
                     android:textOff="."
                     android:textOn="." />
@@ -157,8 +157,7 @@
         <Button
             android:id="@+id/login_button10"
             android:layout_width="match_parent"
-            android:layout_height="43dp"
-            android:layout_weight="308dp"
+            android:layout_height="match_parent"
             android:backgroundTint="#FFFFFF"
             android:text="비밀번호 찾기"
             android:textColor="#422A81"
