@@ -91,12 +91,14 @@
                         android:id="@+id/check_in_radioButton5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#422A81"
                         android:text="네" />
 
                     <RadioButton
                         android:id="@+id/check_in_radioButton6"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#422A81"
                         android:text="아니요" />
                 </RadioGroup>
 
@@ -126,13 +128,14 @@
                         android:id="@+id/check_in_radioButton3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/noselectcheckbutton"
+                        android:buttonTint="#422A81"
                         android:text="네" />
 
                     <RadioButton
                         android:id="@+id/check_in_radioButton4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#422A81"
                         android:text="아니요" />
                 </RadioGroup>
 
@@ -159,12 +162,14 @@
                         android:id="@+id/check_in_radioButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#422A81"
                         android:text="네" />
 
                     <RadioButton
                         android:id="@+id/check_in_radioButton2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="#422A81"
                         android:text="아니요" />
                 </RadioGroup>
 

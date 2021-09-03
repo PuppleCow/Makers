@@ -23,7 +23,7 @@ class CheckInActivity : AppCompatActivity() {
             if ((check_in_radioButton3.isChecked == true || check_in_radioButton4.isChecked == true)&&(check_in_radioButton.isChecked == true || check_in_radioButton2.isChecked == true)
                 && (check_in_radioButton5.isChecked == true || check_in_radioButton6.isChecked)) {
 
-                if ((check_in_radioButton4.isChecked == true) && (check_in_radioButton2.isChecked == true) && (check_in_radioButton6.isChecked == true)){
+                if ((check_in_radioButton4.isChecked == true) && (check_in_radioButton.isChecked == true) && (check_in_radioButton6.isChecked == true)){
                 val intent =
                     Intent(this@CheckInActivity, SafetyManualQuizActivity1::class.java)
                 startActivity(intent)
