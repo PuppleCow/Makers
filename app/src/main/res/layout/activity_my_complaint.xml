@@ -11,6 +11,10 @@
         android:id="@+id/MyComplaint_MyComplaint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/notosans_bold"
         android:text="내 민원"
         android:textAlignment="center"
@@ -23,17 +27,24 @@
 
     <TextView
         android:id="@+id/MyComplaint_text_title"
-        android:layout_width="425dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/notosans_bold"
-        android:text="민원제목" />
+        android:text="민원제목"
+        android:textColor="#575756" />
 
     <TextView
         android:id="@+id/MyComplaint_text_date"
-        android:layout_width="425dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="@font/notosans_medium"
-        android:text="민원날짜" />
+        android:text="민원날짜"
+        android:textColor="#575756" />
 
     <View
         android:layout_width="match_parent"
@@ -43,44 +54,74 @@
     <ImageView
         android:id="@+id/MyComplaint_imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="97dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
         tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/MyComplaint_text_content"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/notosans_medium"
-        android:text="민원내용" />
+        android:text="민원내용"
+        android:textColor="#575756" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line_color"></View>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="77dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="0"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/MyComplaint_button_edit"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="수정" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/MyComplaint_button_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="삭제 " />
+            <Button
+                android:id="@+id/MyComplaint_button_edit"
+                android:layout_width="52dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/button_outline_422a81"
+                android:text="수정"
+                android:textSize="14dp" />
+
+            <Button
+                android:id="@+id/MyComplaint_button_delete"
+                android:layout_width="52dp"
+                android:layout_height="30dp"
+                android:layout_weight="0"
+                android:background="@drawable/button_outline_422a81"
+                android:text="삭제 "
+                android:textSize="14dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/MyComplaint_button_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="목록" />
+            android:layout_width="52dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="150dp"
+            android:background="@drawable/button_422a81"
+            android:text="목록"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
     </LinearLayout>
 
 

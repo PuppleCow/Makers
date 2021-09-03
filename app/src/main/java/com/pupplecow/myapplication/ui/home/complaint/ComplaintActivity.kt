@@ -128,7 +128,7 @@ class ComplaintActivity : AppCompatActivity() {
                                 var dataInput= ComplaintData(
                                     uid,
                                     month,date,complaintCategory,
-                                    complaint_editText_title.text.toString(),
+                                    //complaint_editText_title.text.toString(),
                                     complaint_editTextTextMultiLine.text.toString()
                                 )
                                 //fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
@@ -161,12 +161,12 @@ class ComplaintActivity : AppCompatActivity() {
 //        }
 //
 //
-//        //나의 민원 보기 버튼
-//        complaint_button_mycomplaint.setOnClickListener {
-//            //MyConplaintActivity로 넘어가기
-//            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
-//            startActivity(intent)
-//        }
+        //나의 민원 보기 버튼
+        complaint_button_mycomplaint.setOnClickListener {
+            //MyConplaintActivity로 넘어가기
+            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
