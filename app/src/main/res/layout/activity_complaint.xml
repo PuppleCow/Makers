@@ -97,7 +97,6 @@
     </LinearLayout>
 
     <View
-
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/line_color"></View>
@@ -106,7 +105,8 @@
         android:id="@+id/complaint_button_enroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_422a81"
+        android:background="@drawable/mybutton"
+        android:backgroundTint="@color/button_color_422a81"
         android:fontFamily="@font/notosans_medium"
         android:text="등록" />
 
