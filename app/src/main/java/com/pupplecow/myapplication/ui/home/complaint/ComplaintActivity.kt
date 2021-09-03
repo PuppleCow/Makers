@@ -49,13 +49,13 @@ class ComplaintActivity : AppCompatActivity() {
             uid= intent.getStringExtra("uid").toString()
         }
 
-        //산업안전 뉴스 제목,링크 불러오기
-        complaint_text_news.text="뉴스 제목입니다."
-        complaint_text_news.setOnClickListener {
-            var intent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-            startActivity(intent)
-        }
+//        //산업안전 뉴스 제목,링크 불러오기
+//        complaint_text_news.text="뉴스 제목입니다."
+//        complaint_text_news.setOnClickListener {
+//            var intent =
+//                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+//            startActivity(intent)
+//        }
 
         complaint_button_image_delete.isVisible=false
         //민원항목 선택 스피너
@@ -153,20 +153,20 @@ class ComplaintActivity : AppCompatActivity() {
 
 
 
-        //전화걸기 버튼
-        complaint_button_phonecall.setOnClickListener {
-            var intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:01012345678")
-            startActivity(intent)
-        }
-
-
-        //나의 민원 보기 버튼
-        complaint_button_mycomplaint.setOnClickListener {
-            //MyConplaintActivity로 넘어가기
-            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
-            startActivity(intent)
-        }
+//        //전화걸기 버튼
+//        complaint_button_phonecall.setOnClickListener {
+//            var intent = Intent(Intent.ACTION_DIAL)
+//            intent.data = Uri.parse("tel:01012345678")
+//            startActivity(intent)
+//        }
+//
+//
+//        //나의 민원 보기 버튼
+//        complaint_button_mycomplaint.setOnClickListener {
+//            //MyConplaintActivity로 넘어가기
+//            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
     }

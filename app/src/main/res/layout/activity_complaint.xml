@@ -7,31 +7,73 @@
     android:orientation="vertical"
     tools:context=".ui.home.complaint.ComplaintActivity">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
     <TextView
         android:id="@+id/complaint_complaint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="민원접수" />
+        android:fontFamily="@font/notosans_bold"
+        android:text="민원접수"
+        android:textAlignment="center"
+        android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"></View>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <Spinner
         android:id="@+id/complaint_spinner_category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="38dp" />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"></View>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <EditText
         android:id="@+id/complaint_editText_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:fontFamily="@font/notosans_medium"
+        android:hint="제목을 입력해주세요"
         android:inputType="textPersonName" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <EditText
         android:id="@+id/complaint_editTextTextMultiLine"
         android:layout_width="match_parent"
         android:layout_height="384dp"
         android:ems="10"
+        android:fontFamily="@font/notosans_medium"
         android:gravity="start|top"
+        android:hint="민원 내용을 입력해주세요"
         android:inputType="textMultiLine" />
+
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"></View>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,8 +82,8 @@
 
         <ImageView
             android:id="@+id/complaint_imageView"
-            android:layout_width="248dp"
-            android:layout_height="78dp"
+            android:layout_width="133dp"
+            android:layout_height="49dp"
             android:layout_weight="1"
             tools:srcCompat="@drawable/eye_open" />
 
@@ -52,38 +94,47 @@
             android:background="@drawable/ic_baseline_delete_forever_24"
             android:backgroundTint="@color/black" />
 
-        <Button
-            android:id="@+id/complaint_button_enroll"
-            android:layout_width="101dp"
-            android:layout_height="wrap_content"
-            android:text="등록하기" />
     </LinearLayout>
 
-    <LinearLayout
+    <View
+
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line_color"></View>
+
+    <Button
+        android:id="@+id/complaint_button_enroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="@drawable/button_422a81"
+        android:fontFamily="@font/notosans_medium"
+        android:text="등록" />
 
-        <Button
-            android:id="@+id/complaint_button_phonecall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="민원전화하기" />
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal">-->
+<!--ㅁ-->
+<!--        <Button-->
+<!--            android:id="@+id/complaint_button_phonecall"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="민원전화하기" />-->
 
-        <Button
-            android:id="@+id/complaint_button_mycomplaint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="나의 민원내용보기" />
+<!--        <Button-->
+<!--            android:id="@+id/complaint_button_mycomplaint"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="나의 민원내용보기" />-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
 
-    <TextView
-        android:id="@+id/complaint_text_news"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+<!--    <TextView-->
+<!--        android:id="@+id/complaint_text_news"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView" />-->
 
 </LinearLayout>
