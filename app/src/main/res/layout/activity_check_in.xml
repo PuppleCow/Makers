@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#F6F6F8"
     android:orientation="vertical">
 
     <ScrollView
@@ -14,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
@@ -69,7 +68,8 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
-                android:backgroundTint="#F0F3F8" />
+                android:background="#A0A0A0"
+                android:backgroundTint="#A0A0A0" />
 
             <LinearLayout
                 android:layout_width="match_parent"

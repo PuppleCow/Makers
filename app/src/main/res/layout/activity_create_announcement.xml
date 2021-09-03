@@ -11,9 +11,11 @@
         android:id="@+id/create_announcement_create_announcement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/notosans_bold"
         android:text=" 공지사항 작성"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/create_announcement_editText_title"
@@ -31,12 +33,6 @@
         android:gravity="start|top"
         android:hint="공지사항을 입력해주세요"
         android:inputType="textMultiLine" />
-
-    <CheckBox
-        android:id="@+id/create_announcement_checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="필독" />
 
 
     <LinearLayout
@@ -64,7 +60,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@drawable/round"
-            android:text="등록하기" />
+            android:backgroundTint="#422A81"
+            android:fontFamily="@font/notosans_bold"
+            android:text="등록하기"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
