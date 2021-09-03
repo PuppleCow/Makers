@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF"
+    android:background="@drawable/stroke"
     android:orientation="vertical"
     tools:context=".ui.manager.announcement.ManagerAnnouncementActivity">
 
@@ -48,7 +48,7 @@
     <TextView
         android:id="@+id/announcement_text_content"
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="70dp"
         android:text="공지내용" />
 
     <LinearLayout
@@ -80,7 +80,7 @@
             android:id="@+id/announcement_button_list"
             android:layout_width="52dp"
             android:layout_height="40dp"
-            android:layout_marginStart="230dp"
+            android:layout_marginStart="220dp"
             android:background="@drawable/round"
             android:backgroundTint="#422A81"
             android:text="목록"
