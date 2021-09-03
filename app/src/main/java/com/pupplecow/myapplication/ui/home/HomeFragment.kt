@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import com.pupplecow.myapplication.temporaryStorage.CheckInActivity
+import com.pupplecow.myapplication.ui.login.CheckInActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.temporaryStorage.ComplaintFragment
 import com.pupplecow.myapplication.ui.home.complaint.ComplaintActivity

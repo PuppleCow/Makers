@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -26,7 +27,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="로그인"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF" />
 
 
         <Space
@@ -44,48 +46,76 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="휴대폰 번호" />
+                android:text="휴대폰 번호"
+                android:textColor="#FFFFFF" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="14dp"
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/login_editTextPhone"
-                android:layout_width="280dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:autoText="true"
+                android:background="@drawable/round"
                 android:ems="10"
-                android:hint="휴대폰 번호"
+                android:hint="010-"
                 android:inputType="phone"
-                android:text="010"
-                android:textAlignment="textStart" />
+                android:textAlignment="textStart"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/login_passwordText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="비밀번호" />
-        </LinearLayout>
+                android:text="비밀번호"
+                android:textColor="#FFFFFF" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="14dp"
+                android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/login_editTextPassword"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="비밀번호"
-                android:inputType="textPassword" />
-
-            <ToggleButton
-                android:id="@+id/login_showButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@drawable/eye_close"
-                android:text="ToggleButton"
-                android:textOff="."
-                android:textOn="." />
+                android:background="@drawable/round"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/login_editTextPassword"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="비밀번호를 입력하세요"
+                    android:inputType="textPassword"
+                    android:textColor="#FFFFFF" />
+
+                <ToggleButton
+                    android:id="@+id/login_showButton"
+                    android:layout_width="24dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:drawable/ic_menu_zoom"
+                    android:text="ToggleButton"
+                    android:textOff="."
+                    android:textOn="." />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -95,7 +125,7 @@
             android:layout_height="wrap_content"
             android:autoText="false"
             android:text="기존 비밀번호는 생년월일 6자리입니다."
-            android:textColor="#2196F3" />
+            android:textColor="#FFFFFF" />
 
         <Space
             android:layout_width="match_parent"
@@ -114,9 +144,11 @@
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#428BCA"
-            android:text="로그인" />
+            android:layout_height="43dp"
+            android:backgroundTint="#422A81"
+            android:text="로그인"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -125,10 +157,13 @@
         <Button
             android:id="@+id/login_button10"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#DB92E7"
-            android:backgroundTint="#D28BDE"
-            android:text="비밀번호 찾기" />
+            android:layout_height="43dp"
+            android:layout_weight="308dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="비밀번호 찾기"
+            android:textColor="#422A81"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -139,13 +174,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="아직 회원이 아니신가요?"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/login_register_button"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="회원가입" />
+            android:layout_height="43dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="회원가입"
+            android:textColor="#422A81"
+            android:textSize="15sp"
+            app:cornerRadius="20dp" />
 
     </LinearLayout>
 

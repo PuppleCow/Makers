@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
            if(login_showButton.isChecked) {
                login_editTextPassword.inputType=InputType.TYPE_CLASS_TEXT
                login_showButton.setBackgroundDrawable(
-                   getDrawable(R.drawable.eye_open)
+                   getDrawable(R.drawable.eyes)
                )
 
            }
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                login_editTextPassword.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
                login_showButton.setBackgroundDrawable(
-                   getDrawable(R.drawable.eye_close)
+                   getDrawable(R.drawable.eyes)
                )
 
            }
