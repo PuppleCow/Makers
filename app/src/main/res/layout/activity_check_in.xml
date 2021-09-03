@@ -193,6 +193,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="#422A81"
         android:text="안전 매뉴얼 퀴즈로 이동"
+        android:textColor="#FFFFFF"
         app:cornerRadius="20dp" />
 
 </LinearLayout>
