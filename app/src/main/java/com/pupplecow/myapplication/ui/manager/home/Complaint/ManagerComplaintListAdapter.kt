@@ -57,7 +57,7 @@ class ManagerComplaintListAdapter(val context: Context, val itemClick: (Complain
 
     inner class Holder(itemView: View, itemClick: (ComplaintData) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
-        val complaintPhoto = itemView?.findViewById<ImageView>(R.id.manager_complaint_list_imageview)
+        //val complaintPhoto = itemView?.findViewById<ImageView>(R.id.manager_complaint_list_imageview)
         val complaintNum = itemView?.findViewById<TextView>(R.id.manager_complaint_list_number)
         val complaintTitle = itemView?.findViewById<TextView>(R.id.manager_complaint_list_title)
         //val complaintCategory = itemView?.findViewById<TextView>(R.id.manager_complaint_list_category)

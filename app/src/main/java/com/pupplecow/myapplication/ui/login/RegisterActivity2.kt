@@ -18,8 +18,7 @@ class RegisterActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
 
-        //스크롤뷰 안보이게
-        register2_scrollview.visibility= View.INVISIBLE
+
 
         //인텐트 가져오기
         val intent = intent
@@ -76,35 +75,15 @@ class RegisterActivity2 : AppCompatActivity() {
         //약관 클릭
         register2_text_1.setOnClickListener {
 
-            //스크롤뷰 보이게
-            register2_scrollview.visibility= View.VISIBLE
-            //텍스트 바꾸기
-            register2_text_area.text="약관1 \n" +
-                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
         }
         register2_text_2.setOnClickListener {
 
-            //스크롤뷰 보이게
-            register2_scrollview.visibility= View.VISIBLE
-            //텍스트 바꾸기
-            register2_text_area.text="약관2 \n" +
-                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
         }
         register2_text_3.setOnClickListener {
 
-            //스크롤뷰 보이게
-            register2_scrollview.visibility= View.VISIBLE
-            //텍스트 바꾸기
-            register2_text_area.text="약관3 \n" +
-                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
         }
         register2_text_4.setOnClickListener {
 
-            //스크롤뷰 보이게
-            register2_scrollview.visibility= View.VISIBLE
-            //텍스트 바꾸기
-            register2_text_area.text="약관4 \n" +
-                    "sdfsdfsdf\nsdfsdfsd\nsdfsdf\nsdfdf\nsdfsdf\nsdfsdf\nsdfsdfs\nsdfsdfsd\n\n\n\n\nsdfsdf\n"
         }
 
 
