@@ -9,4 +9,13 @@
     <font
         android:font="@font/notosans_medium"
         android:fontStyle="normal"/>
+    <font
+        android:font="@font/notosans_light"
+        android:fontStyle="normal"/>
+    <font
+        android:font="@font/notosans_regular"
+        android:fontStyle="normal"/>
+    <font
+        android:font="@font/notosans_semibold"
+        android:fontStyle="normal"/>
 </font-family>
