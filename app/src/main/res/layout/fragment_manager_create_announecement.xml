@@ -19,6 +19,7 @@
         android:id="@+id/manager_create_announcement_editText_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@null"
         android:ems="10"
         android:hint="제목을 입력해주세요"
         android:inputType="textPersonName" />
@@ -32,6 +33,7 @@
         android:id="@+id/manager_create_announcement_editTextTextMultiLine"
         android:layout_width="match_parent"
         android:layout_height="384dp"
+        android:background="@null"
         android:ems="10"
         android:gravity="start|top"
         android:hint="공지사항을 입력해주세요"
