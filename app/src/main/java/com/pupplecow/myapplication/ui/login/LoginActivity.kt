@@ -20,6 +20,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.api.FirebaseDatabase
 import com.pupplecow.myapplication.databinding.ActivityLoginBinding
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
@@ -242,7 +243,28 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        //데이터베이스에 있는지 없는지 체크
+        if (user != null) {
+            FirebaseDatabase().getUserData(user.uid) {isSuccess,data ->
+                if(isSuccess){
+                    if(data==null){
+                        //회원가입 하기
 
+
+                    }else{
+                        //유저타입 분기
+                        when(data.userType){
+                            0->{}   //관리자
+                            else->{}  //근무자
+                        }
+                    }
+                    //Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this,isSuccess.toString()+data?.uid,Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
     }
     // [END auth_with_google]
 
