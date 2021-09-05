@@ -17,32 +17,57 @@
         android:textSize="18dp" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/marnager_home_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/notosans_light"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:text="9월 2일 목요일"/>
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오늘도 안전한 하루 되세요" />
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:fontFamily="@font/notosans_light"
+        android:text="오늘도 안전한 하루 되세요"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
     <Spinner
         android:id="@+id/manager_home_SelectGroupSp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/transfarent_button"
+        android:popupBackground="@drawable/transfarent_button"
         android:textAlignment="gravity" />
 
     <Spinner
         android:id="@+id/manager_home_electNotifSp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/transfarent_button"
+        android:popupBackground="@drawable/transfarent_button" />
 
     <EditText
         android:id="@+id/manager_home_editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -50,26 +75,44 @@
         android:id="@+id/manager_home_Emergency_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
         android:text="긴급 알림" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="100dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/manager_home_workerButton"
+            android:layout_width="134dp"
+            android:layout_height="40dp"
+            android:background="@drawable/transfarent_button"
+            android:fontFamily="@font/notosans_semibold"
+            android:text="근무자 현황"
+            android:textColor="@color/main_color"
+            android:textSize="15dp" />
+
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/transfarent_button"
-            android:text="근무자 현황" />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/manager_home_complaint_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="134dp"
+            android:layout_height="40dp"
             android:background="@drawable/round"
-            android:text="민원목록" />
+            android:fontFamily="@font/notosans_semibold"
+            android:text="민원목록"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
     </LinearLayout>
 
 

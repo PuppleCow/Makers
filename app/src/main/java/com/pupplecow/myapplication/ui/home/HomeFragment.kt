@@ -53,10 +53,10 @@ class HomeFragment:Fragment() {
         val day=homeNow.get(Calendar.DATE).toString()
         //val dayOfWeek=homeNow.get(Calendar.DAY_OF_WEEK).toString()
 
-        home_text_date.text="안녕하세요\n오늘은 "+year+"년 "+month+"월 "+day+"일입니다."
+        home_text_date.text=month+"월 "+day+"일"
 
-        //근무시작버튼 활성화,근무종료버튼 비활성화
-        home_button_finish.setEnabled(false)
+//        //근무시작버튼 활성화,근무종료버튼 비활성화
+//        home_button_finish.setEnabled(false)
 
 
         //근무시작버튼
@@ -82,17 +82,17 @@ class HomeFragment:Fragment() {
                             val homeNow = Calendar.getInstance()
                             val hour = homeNow.get(Calendar.HOUR).toString()
                             val minute = homeNow.get(Calendar.MINUTE).toString()
-                            home_text_start.text = "시작\n ${hour} 시 ${minute} 분"
-
-                            //근무장소 표시
-                            home_text_workspace.text =
-                                workspaceData[home_spinner_workspace.selectedItemPosition]
-                            home_text_work.text = workData[home_spinner_work.selectedItemPosition]
-
-                            //근무종료버튼 활성화
-
-                            home_button_finish.setEnabled(true)
-                            home_button_start.setEnabled(false)
+//                            home_text_start.text = "시작\n ${hour} 시 ${minute} 분"
+//
+//                            //근무장소 표시
+//                            home_text_workspace.text =
+//                                workspaceData[home_spinner_workspace.selectedItemPosition]
+//                            home_text_work.text = workData[home_spinner_work.selectedItemPosition]
+//
+//                            //근무종료버튼 활성화
+//
+//                            home_button_finish.setEnabled(true)
+//                            home_button_start.setEnabled(false)
 
                             //스피너 비활성화
                             home_spinner_workspace.setEnabled(false)
@@ -117,44 +117,44 @@ class HomeFragment:Fragment() {
         }
 
 
-        //근무종료버튼
-        home_button_finish.setOnClickListener {
-            //근무종료 확인 다이얼로그
-            val builder= AlertDialog.Builder(requireContext())
-            builder.setTitle("근무종료")
-            builder.setMessage("" +
-                    "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
-                    "${workData[home_spinner_work.selectedItemPosition]} 작업 종료하시겠습니까?")
-
-
-            // 근무시작 다이얼로그
-            var listener = object : DialogInterface.OnClickListener {
-                override fun onClick(p0: DialogInterface?, p1: Int) {
-                    when (p1) {
-                        //"네" 눌렀을때
-                        DialogInterface.BUTTON_POSITIVE ->{
-                            //근무시작버튼 활성화
-                            home_button_start.setEnabled(true)
-                            home_button_finish.setEnabled(false)
-                            //근무종료시간 표시
-                            val homeNow= Calendar.getInstance()
-                            val hour=homeNow.get(Calendar.HOUR).toString()
-                            val minute=homeNow.get(Calendar.MINUTE).toString()
-                            home_text_finish.text="종료\n ${hour} 시 ${minute} 분"
-
-                            //근무종료시간 저장
-
-                            //스피너 비활성화
-                            home_spinner_workspace.setEnabled(true)
-                            home_spinner_work.setEnabled(true)
-                        }}
-                }
-            }
-            builder.setNegativeButton("아니오",listener)
-            builder.setPositiveButton("네",listener)
-            builder.show()
-
-        }
+//        //근무종료버튼
+//        home_button_finish.setOnClickListener {
+//            //근무종료 확인 다이얼로그
+//            val builder= AlertDialog.Builder(requireContext())
+//            builder.setTitle("근무종료")
+//            builder.setMessage("" +
+//                    "${workspaceData[home_spinner_workspace.selectedItemPosition]} 에서 " +
+//                    "${workData[home_spinner_work.selectedItemPosition]} 작업 종료하시겠습니까?")
+//
+//
+//            // 근무시작 다이얼로그
+//            var listener = object : DialogInterface.OnClickListener {
+//                override fun onClick(p0: DialogInterface?, p1: Int) {
+//                    when (p1) {
+//                        //"네" 눌렀을때
+//                        DialogInterface.BUTTON_POSITIVE ->{
+//                            //근무시작버튼 활성화
+//                            home_button_start.setEnabled(true)
+//                            home_button_finish.setEnabled(false)
+//                            //근무종료시간 표시
+//                            val homeNow= Calendar.getInstance()
+//                            val hour=homeNow.get(Calendar.HOUR).toString()
+//                            val minute=homeNow.get(Calendar.MINUTE).toString()
+//                            home_text_finish.text="종료\n ${hour} 시 ${minute} 분"
+//
+//                            //근무종료시간 저장
+//
+//                            //스피너 비활성화
+//                            home_spinner_workspace.setEnabled(true)
+//                            home_spinner_work.setEnabled(true)
+//                        }}
+//                }
+//            }
+//            builder.setNegativeButton("아니오",listener)
+//            builder.setPositiveButton("네",listener)
+//            builder.show()
+//
+//        }
 
         //현장 민원접수 버튼 눌렀을때
         home_button_complaint.setOnClickListener {

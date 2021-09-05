@@ -135,6 +135,19 @@
             android:layout_width="match_parent"
             android:layout_height="40dp" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/login_google"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:cardCornerRadius="20dp" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="4dp"
+                android:src="@drawable/icon_login_google"/>
+            </androidx.cardview.widget.CardView>
+
         <Spinner
             android:id="@+id/login_workpart"
             android:layout_width="match_parent"
