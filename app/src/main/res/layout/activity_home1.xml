@@ -70,6 +70,7 @@
         android:id="@+id/home_button_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/home_button"
         android:text="근무시작" />
 
     <!--    <LinearLayout-->
