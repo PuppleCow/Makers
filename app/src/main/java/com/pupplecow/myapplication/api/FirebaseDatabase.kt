@@ -12,7 +12,7 @@ class FirebaseDatabase :Contract.firebaseDatabase {
 
     //유저 데이터 가져오기
     override fun getUserData(uid: String, callback: (Boolean, UserData?) -> Unit) {
-       //루트 안에
+       //루트 안에 자식들에게 접근
         db.child("users")
             .child(uid)
             .addListenerForSingleValueEvent(object : ValueEventListener{

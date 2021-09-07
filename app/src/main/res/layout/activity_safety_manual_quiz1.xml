@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/notosans_bold"
         android:text="개인 정보 수집 이용 동의"
-        android:textSize="15dp" />
+        android:textSize="16dp" />
 
     <TextView
         android:id="@+id/quiz_textView8"
@@ -197,8 +197,10 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/round"
         android:backgroundTint="#422A81"
         android:text="확인"
+        android:textColor="@color/white"
         app:cornerRadius="22dp" />
 
     <Space

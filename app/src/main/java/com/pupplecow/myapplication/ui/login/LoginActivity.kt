@@ -247,6 +247,7 @@ class LoginActivity : AppCompatActivity() {
         if (user != null) {
             FirebaseDatabase().getUserData(user.uid) {isSuccess,data ->
                 if(isSuccess){
+                    //
                     if(data==null){
                         //회원가입 페이지로 넘어가기
 

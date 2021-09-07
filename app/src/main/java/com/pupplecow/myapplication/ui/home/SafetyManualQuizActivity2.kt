@@ -32,12 +32,18 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
 
                 builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
+
                     // 정답: 관리자(radioButton1), 오른쪽(radioButton3)
+
 
                     // 틀렸을 때
                     if (binding.quiz2RadioButton1.isChecked == false || binding.quiz2RadioButton3.isChecked == false) {
-                        val t1 = Toast.makeText(this, "정답이 아닙니다.", Toast.LENGTH_SHORT)
-                        t1.show()
+//                        val t1 = Toast.makeText(this, "정답이 아닙니다.", Toast.LENGTH_SHORT)
+//                        t1.show()
+                        val builder=AlertDialog.Builder(this)
+                        builder.setMessage("정답이 아닙니다")
+                        builder.setPositiveButton("확인",null)
+                        builder.show()
                     }
 
                     // 맞았을 때
@@ -45,8 +51,7 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                         val builder = AlertDialog.Builder(this)
                         builder.setTitle("메뉴얼 퀴즈가 제출되었습니다.")
                         builder.setMessage("작업을 시작합니다.")
-                        builder.setNegativeButton("취소", null)
-
+                        //builder.setNegativeButton("취소", null)
 
                         // 확인 누르면 '작업장(홈)'으로 가기
 

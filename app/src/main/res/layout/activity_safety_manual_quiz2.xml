@@ -145,8 +145,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:background="@drawable/round"
                 android:backgroundTint="#422A81"
                 android:text="완료"
+                android:textColor="@color/white"
                 app:cornerRadius="22dp" />
 
             <Space
