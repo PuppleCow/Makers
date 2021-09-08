@@ -199,7 +199,7 @@ class SafetyManualQuizActivity1 : AppCompatActivity() {
             if (binding.quiz1CheckBox2.isChecked == true) {
                 val quiz2_intent = Intent(this, SafetyManualQuizActivity2::class.java)
                 startActivity(quiz2_intent)
-                finish()
+                //finish()
             }
 
             // 필수 항목 체크돼있지 않으면

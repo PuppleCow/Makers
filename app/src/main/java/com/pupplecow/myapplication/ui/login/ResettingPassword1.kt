@@ -36,7 +36,7 @@ class ResettingPassword1 : AppCompatActivity() {
                 val builder= AlertDialog.Builder(this)
                 builder.setTitle("")
                 builder.setMessage("이름를 입력해주세요")
-                builder.setPositiveButton("네",null)
+                builder.setPositiveButton("확인",null)
                 builder.show()
             }
             // 이름과 전화번호 모두 입력했다면
@@ -46,7 +46,7 @@ class ResettingPassword1 : AppCompatActivity() {
 
 
                 //핸드폰 번호로 인증번호 전송 메시지
-                binding.resetting1TextView4.text=phoneNumberFront+" **** "+phoneNumberBehind+"로 발송하였습니다.\n비밀번호 변경을 계속 하시려면 인증번호를 입력하세요."
+                binding.resetting1TextView5.text=phoneNumberFront+" **** "+phoneNumberBehind+"로 발송하였습니다.\n비밀번호 변경을 계속 하시려면 인증번호를 입력하세요."
 
                 //인증번호 전송하기
 
@@ -63,8 +63,9 @@ class ResettingPassword1 : AppCompatActivity() {
                 //RegisterActivity_2로 넘어가기
                 val intent = Intent(this, ResettingPassword2::class.java)
                 startActivity(intent)
-                // 뒤로 가기 ( 설정 첫 화면 까지)
-                finish()
+
+//                // 뒤로 가기 ( 설정 첫 화면 까지)
+//                finish()
             }
 
             else{

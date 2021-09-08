@@ -4,11 +4,16 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContentProviderCompat.requireContext
+import com.pupplecow.myapplication.MainNavActivity
+import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.SettingMyInformationSettingActivity
 import com.pupplecow.myapplication.temporaryStorage.ManageActivity
 import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
 import com.pupplecow.myapplication.ui.home.HomeFragment
+import com.pupplecow.myapplication.ui.settings.SettingsFragment
 
 class ResettingPassword2 : AppCompatActivity() {
     private lateinit var binding: ActivityResettingPassword2Binding
@@ -19,6 +24,46 @@ class ResettingPassword2 : AppCompatActivity() {
 
 
         // 새로운 비밀번호 입력받은 후, 기존 비밀번호에서 변경
+
+
+        // 눈알 버튼 눌렀을 때 비밀번호 보이게 하기
+
+        //비밀번호 가리기버튼1
+        //한번누르면 비밀번호 보이게하기
+        binding.resetting2Toggle.setOnClickListener{
+            //비밀번호 숨기기 해제
+            if(binding.resetting2Toggle.isChecked==true) {
+                binding.resetting2Password.inputType=InputType.TYPE_CLASS_TEXT
+                binding.resetting2Toggle.setBackgroundDrawable(
+                    getDrawable(R.drawable.eyes)
+                )
+            }
+            else{
+                binding.resetting2Password.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.resetting2Toggle.setBackgroundDrawable(
+                    getDrawable(R.drawable.eyes)
+                )
+            }
+        }
+
+        //비밀번호 가리기버튼2
+        //한번누르면 비밀번호 보이게하기
+        binding.resetting2Toggle2.setOnClickListener{
+            //비밀번호 숨기기 해제
+            if(binding.resetting2Toggle2.isChecked==true) {
+                binding.resetting2Password2.inputType=InputType.TYPE_CLASS_TEXT
+                binding.resetting2Toggle2.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_24)
+                )
+            }
+            else{
+                binding.resetting2Password2.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.resetting2Toggle2.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_off_24)
+                )
+
+            }
+        }
 
 
         // 다음버튼 눌렀을때
@@ -51,17 +96,14 @@ class ResettingPassword2 : AppCompatActivity() {
 
             if (binding.resetting2Password.length() != 6 || binding.resetting2Password2.length() != 6) {
                 binding.resetting2TextView4.text = "글자 수가 맞지 않습니다. 다시 입력해주세요."
-                binding.resetting2TextView5.text = ""
             }else if(isNumOnly(password)==false || isNumOnly(passwordCheck)==false){
                 // 숫자로만 이루어져있는 지 확인
                 binding.resetting2TextView4.text = "숫자로만 입력해주세요."
-                binding.resetting2TextView5.text = ""
             }
             else if (password != passwordCheck) {
                 // 비밀번호 다를 때
 
                 binding.resetting2TextView4.text = "비밀번호가 맞지 않습니다. 다시 입력해주세요."
-                binding.resetting2TextView5.text = ""
             } else {
 
                 //비밀번호 같을때
@@ -71,8 +113,13 @@ class ResettingPassword2 : AppCompatActivity() {
                 builder.setTitle("")
                 builder.setMessage("비밀번호 변경이 정상적으로 완료되었습니다")
                 builder.setPositiveButton("확인"){dialogInterface: DialogInterface, i: Int ->
-                    // 뒤로 가기 ( 설정 첫 화면 까지 )
-                    finish()
+
+                    //메인 홈으로 이동
+                val intent=Intent(this,MainNavActivity::class.java)
+                startActivity(intent)
+
+//                    // 뒤로 가기 ( 설정 첫 화면 까지 )
+//                    finish()
                 }
                 builder.show()
 
