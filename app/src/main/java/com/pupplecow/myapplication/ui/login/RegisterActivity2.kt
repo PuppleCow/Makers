@@ -9,15 +9,20 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.databinding.ActivityLoginBinding
+import com.pupplecow.myapplication.databinding.ActivityRegister2Binding
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register1.*
 import kotlinx.android.synthetic.main.activity_register2.*
 
 class RegisterActivity2 : AppCompatActivity() {
+
+    private lateinit var binding:ActivityRegister2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
-
+        binding= ActivityRegister2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
         //인텐트 가져오기
@@ -48,27 +53,40 @@ class RegisterActivity2 : AppCompatActivity() {
 
         //비밀번호 가리기버튼1
         //한번누르면 비밀번호 보이게하기
-        register2_toggleButton.setOnClickListener{
+        binding.register2ToggleButton.setOnClickListener{
             //비밀번호 숨기기 해제
-            if(register2_toggleButton.isChecked==true) {
-                register2_password_input.inputType=InputType.TYPE_CLASS_TEXT
+            if(binding.register2ToggleButton.isChecked) {
+                binding.register2PasswordInput.inputType=InputType.TYPE_CLASS_TEXT
+                binding.register2ToggleButton.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_24)
+                )
             }
             else{
-                register2_password_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.register2ToggleButton.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
+                binding.register2ToggleButton2.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_off_24)
+                )
             }
         }
 
         //비밀번호 가리기버튼2
         //한번누르면 비밀번호 보이게하기
-        register2_toggleButton2.setOnClickListener{
+
+        binding.register2ToggleButton2.setOnClickListener{
             //비밀번호 숨기기 해제
-            if(register2_toggleButton.isChecked==true) {
-                register2_password_check_input.inputType=InputType.TYPE_CLASS_TEXT
+            if(binding.register2ToggleButton.isChecked) {
+                binding.register2PasswordCheckInput.inputType=InputType.TYPE_CLASS_TEXT
+                binding.register2ToggleButton2.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_24)
+                )
             }
             else{
-                register2_password_check_input.inputType= InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                binding.register2ToggleButton2.inputType=InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
 
+                binding.register2ToggleButton2.setBackgroundDrawable(
+                    getDrawable(R.drawable.ic_baseline_visibility_off_24)
+                )
             }
         }
 
