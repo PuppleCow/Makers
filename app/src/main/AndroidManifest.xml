@@ -37,6 +37,7 @@
         <activity android:name=".SettingTermsAndPolicy" />
         <activity android:name=".SettingOpenSourceLicense" />
         <activity android:name=".SettingMyInformationSettingActivity" />
+        <activity android:name=".SettingEmergencyInformationActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
         <activity android:name=".temporaryStorage.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->

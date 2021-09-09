@@ -1,5 +1,6 @@
 package com.pupplecow.myapplication.ui.settings
 
+import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -27,6 +28,13 @@ class SettingMyInformationFragment: Fragment() {
         private lateinit var settingResettingPassword1Fragment:SettingResettingPassword1Fragment
     }
 
+    // 사진을 가져오기 위한 권한을 확인하는 코드
+    val permission_list = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.ACCESS_MEDIA_LOCATION
+    )
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
       val view=inflater.inflate(R.layout.fragment_setting_my_information,container,false)
         return view
@@ -36,20 +44,17 @@ class SettingMyInformationFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        @Suppress("DEPRECATION")
+        requestPermissions(permission_list, 0)
+
         // 사진 등록
         fragment_setting2_imageView.setOnClickListener{
+
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
-//            val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-//            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
-//            albumIntent.type = "image/*"
-//            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
-//            val mimeType = arrayOf("image/*")
-//            albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
-//            @Suppress("DEPRECATION")
-//            startActivityForResult(albumIntent, 0)
-//            complaint_button_image_delete.isVisible=true
             val albumInternet=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
             albumInternet.type="image/*"
+            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
             val mimeType= arrayOf("image/*")
             albumInternet.putExtra(Intent.EXTRA_MIME_TYPES,mimeType)
             @Suppress("DEPRECATION")

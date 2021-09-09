@@ -21,7 +21,7 @@ class FirebaseDatabase :Contract.firebaseDatabase {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    //접근권한없을떄 ㅈ데이터 없을떄등 실패 했을 떄
+                    //접근권한없을 때 데이터 없을때 등 실패 했을 떄
                     callback(false,UserData().apply { this.uid=error.message.toString() })
                 }
 

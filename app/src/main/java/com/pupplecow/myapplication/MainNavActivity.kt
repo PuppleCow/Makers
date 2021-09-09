@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
 import com.pupplecow.myapplication.ui.home.HomeFragment
 import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment
-import com.pupplecow.myapplication.ui.settings.SettingsFragment
+import com.pupplecow.myapplication.ui.settings.SettingFragment
 import com.pupplecow.myapplication.ui.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_main_nav.*
 
@@ -18,7 +18,7 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
     private lateinit var homeFragment: HomeFragment
     private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     private lateinit var announcementListFragment: AnnouncementListFragment
-    private lateinit var settingsFragment: SettingsFragment
+    private lateinit var settingsFragment: SettingFragment
     private lateinit var shoppingFragment: ShoppingFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
             }
             R.id.navbar_settings->{
                 //supportFragmentManager?.popBackStack()
-                settingsFragment= SettingsFragment.newInstance()
+                settingsFragment= SettingFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.main_nav_frame,settingsFragment).commit()
 
 

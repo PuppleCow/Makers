@@ -6,14 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.SettingMyInformationSettingActivity
-import com.pupplecow.myapplication.temporaryStorage.ManageActivity
 import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
-import com.pupplecow.myapplication.ui.home.HomeFragment
-import com.pupplecow.myapplication.ui.settings.SettingsFragment
 
 class ResettingPassword2 : AppCompatActivity() {
     private lateinit var binding: ActivityResettingPassword2Binding
