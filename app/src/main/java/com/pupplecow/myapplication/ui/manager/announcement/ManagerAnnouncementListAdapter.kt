@@ -53,9 +53,10 @@ class ManagerAnnouncementListAdapter (val context: Context,val itemClick: (Annou
         //holder?.bind(announcement[position], context)
         var viewHolder = holder.itemView
 
-        viewHolder.frame_textView2.text=announcement[position].month
-        viewHolder.frame_textView6.text=announcement[position].date
-        viewHolder.frame_textView3.text=announcement[position].title
+
+        viewHolder.frameofannouncementlist_number.text=announcement[position].number
+        viewHolder.frameofannouncementlist_category.text="["+announcement[position].category+"]"+announcement[position].title
+        viewHolder.frameofannouncementlist_date.text=announcement[position].date+"/"+announcement[position].date
 
         holder?.itemView.setOnClickListener{
             itemClick(announcement[position])
@@ -69,16 +70,14 @@ class ManagerAnnouncementListAdapter (val context: Context,val itemClick: (Annou
         RecyclerView.ViewHolder(itemView) {
         //파이어베이스
 
-        val Month = itemView?.findViewById<TextView>(R.id.frame_textView2)
-        val Category = itemView?.findViewById<TextView>(R.id.frame_textView6)
-        val Title = itemView?.findViewById<TextView>(R.id.frame_textView3)
+        val Number = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_number)
+        val Category = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_category)
+        val Title = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_title)
+        val Date = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_date)
         //val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
 
         fun bind(Announce: AnnouncementData, context: Context) {
-//            Month?.text = Announce.month
-//            Title?.text = Announce.date
-//            Category?.text = Announce.category
-            //EssentialRead?.text= Announce.EssentialRead
+
 
             //itemview를 클릭하면 itemClick(수행)
             itemView.setOnClickListener { itemClick(AnnouncementData()) }

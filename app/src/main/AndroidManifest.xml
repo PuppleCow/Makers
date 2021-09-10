@@ -30,15 +30,14 @@
         <activity android:name=".ui.manager.settings.ManagerResettingPassword2" />
         <activity android:name=".ui.home.ConfirmWaitingActivity" />
         <activity android:name=".ui.manager.ManagerNavActivity" />
+        <activity android:name=".ui.settings.SettingMyInformationSettingActivity"/>
+        <activity android:name=".ui.settings.SettingOpenSourceLicense"/>
+        <activity android:name=".ui.settings.SettingTermsAndPolicy"/>
+        <activity android:name=".ui.settings.SettingCheckSafetyManual"/>
+        <activity android:name=".ui.settings.SettingEmergencyInformationActivity"/>
         <activity android:name=".MainNavActivity" />
         <activity android:name=".ui.login.ResettingPassword2" />
         <activity android:name=".ui.login.ResettingPassword1" />
-        <activity android:name=".SettingCheckSafetyManual" />
-        <activity android:name=".SettingTermsAndPolicy" />
-        <activity android:name=".SettingOpenSourceLicense" />
-        <activity android:name=".SettingMyInformationSettingActivity" />
-        <activity android:name=".SettingEmergencyInformationActivity" />
-        <activity android:name=".SettingActivity" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
         <activity android:name=".temporaryStorage.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
         <activity android:name=".ui.announcement.AnnouncementWorkerActivity" />

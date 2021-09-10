@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.AnnouncementData
+import kotlinx.android.synthetic.main.activity_frameofannouncementlist.view.*
 import kotlin.collections.ArrayList
 
 class AnnouncementListAdapterActivity(val context:Context, val itemClick: (AnnouncementData) -> Unit):
@@ -47,6 +48,10 @@ class AnnouncementListAdapterActivity(val context:Context, val itemClick: (Annou
     override fun onBindViewHolder(holder: Holder, position: Int) {
         //holder?.bind(announcementList[position], context)
         var viewHolder = holder.itemView
+        viewHolder.frameofannouncementlist_number.text=announcement[position].number
+        viewHolder.frameofannouncementlist_category.text="["+announcement[position].category+"]"+announcement[position].title
+        viewHolder.frameofannouncementlist_date.text=announcement[position].month+"/"+announcement[position].date
+
 
         holder?.itemView.setOnClickListener{
             itemClick(announcement[position])
@@ -55,16 +60,18 @@ class AnnouncementListAdapterActivity(val context:Context, val itemClick: (Annou
 
     inner class Holder(itemView: View,itemClick: (AnnouncementData) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
-        val Month = itemView?.findViewById<TextView>(R.id.frame_textView2)
-        val Category = itemView?.findViewById<TextView>(R.id.frame_textView6)
-        val Title = itemView?.findViewById<TextView>(R.id.frame_textView3)
+        val Number = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_number)
+        val Category = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_category)
+        val Title = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_title)
+        val Date = itemView?.findViewById<TextView>(R.id.frameofannouncementlist_date)
+
         //val EssentialRead = itemView?.findViewById<TextView>(R.id.frame_textView5)
 
         fun bind(Announce: AnnouncementData, context: Context) {
-            Month?.text = Announce.month
+          /*  Number?.text = Announce.number
             Title?.text = Announce.date
             Category?.text = Announce.category
-            //EssentialRead?.text= Announce.EssentialRead
+            //EssentialRead?.text= Announce.EssentialRead*/
 
             //itemview를 클릭하면 itemClick(수행)
             itemView.setOnClickListener { itemClick(AnnouncementData()) }

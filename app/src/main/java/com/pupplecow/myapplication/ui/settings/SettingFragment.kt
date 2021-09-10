@@ -18,10 +18,10 @@ class SettingFragment:Fragment() {
             return SettingFragment()
         }
 
-        private lateinit var settingMyInformationFragment: SettingMyInformationFragment
-        private lateinit var settingOpenSourceLicenseFragment: SettingOpenSourceLicenseFragment
-        private lateinit var settingTermsAndPolicyFragment: SettingTermsAndPolicyFragment
-        private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
+//        private lateinit var settingMyInformationFragment: SettingMyInformationFragment
+//        private lateinit var settingOpenSourceLicenseFragment: SettingOpenSourceLicenseFragment
+//        private lateinit var settingTermsAndPolicyFragment: SettingTermsAndPolicyFragment
+//        private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
@@ -46,31 +46,31 @@ class SettingFragment:Fragment() {
         // 오픈소스 라이센스
         binding.fragmentSetting1TextView5.setOnClickListener {
 
-//            val openSourceLicense_intent= Intent(activity,SettingOpenSourceLicense::class.java)
-//            startActivity(openSourceLicense_intent)
+            val openSourceLicense_intent= Intent(requireContext(),SettingOpenSourceLicense::class.java)
+            startActivity(openSourceLicense_intent)
 
-            settingOpenSourceLicenseFragment=SettingOpenSourceLicenseFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingOpenSourceLicenseFragment)?.commit()
+//            settingOpenSourceLicenseFragment=SettingOpenSourceLicenseFragment.newInstance()
+//            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingOpenSourceLicenseFragment)?.commit()
         }
 
         // 약관 및 정책
         binding.fragmentSetting1TextView6.setOnClickListener {
 
-//            val termsAndPolicy_intent= Intent(activity,SettingTermsAndPolicy::class.java)
-//            startActivity(termsAndPolicy_intent)
+            val termsAndPolicy_intent= Intent(requireContext(),SettingTermsAndPolicy::class.java)
+            startActivity(termsAndPolicy_intent)
 
-            settingTermsAndPolicyFragment=SettingTermsAndPolicyFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingTermsAndPolicyFragment)?.commit()
+//            settingTermsAndPolicyFragment=SettingTermsAndPolicyFragment.newInstance()
+//            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingTermsAndPolicyFragment)?.commit()
         }
 
         // 안전 메뉴얼 확인
         binding.fragmentSetting1TextView7.setOnClickListener {
 
-//            val checkSafetyManual_intent= Intent(activity,SettingCheckSafetyManual::class.java)
-//            startActivity(checkSafetyManual_intent)
+            val checkSafetyManual_intent= Intent(activity,SettingCheckSafetyManual::class.java)
+            startActivity(checkSafetyManual_intent)
 
-            settingCheckSafetyManualFragment=SettingCheckSafetyManualFragment.newInstance()
-            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingCheckSafetyManualFragment)?.commit()
+//            settingCheckSafetyManualFragment=SettingCheckSafetyManualFragment.newInstance()
+//            val tran=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame, settingCheckSafetyManualFragment)?.commit()
         }
 
         // 위급상황시 의료정보
