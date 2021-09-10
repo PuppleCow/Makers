@@ -15,13 +15,12 @@ import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListActivity
-import kotlinx.android.synthetic.main.activity_manage.*
+
 import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 
 class ManagerHomeFragment:Fragment() {
-    private lateinit var managerWorkersStatusFragment: ManagerWorkersStatusFragment
-    private lateinit var managerComplaintListFragment: ManagerComplaintListFragment
+
     private lateinit var managerAnnouncementListFragment : ManagerAnnouncementListFragment
     val Manage_SelectGroup = arrayOf("긴급알림 그룹 선택","모든 그룹","인천항만 하역","인천항만 하역","인천항만 하역")
     //직접 쓰기-> 따로 페이지 이동해야 함.
@@ -78,9 +77,9 @@ class ManagerHomeFragment:Fragment() {
         //긴급 알림 버튼
         manager_home_Emergency_button.setOnClickListener {
             //근무자 그룹
-            val Manage_Group=Manage_SelectGroup[manage_SelectGroupSp.selectedItemPosition]
+            val Manage_Group=Manage_SelectGroup[manager_home_SelectGroupSp.selectedItemPosition]
             //알림 종류 선택
-            val Manage_Notif=Manage_SelectNotif[manage_SelectNotifSp.selectedItemPosition]
+            val Manage_Notif=Manage_SelectNotif[manager_home_electNotifSp.selectedItemPosition]
 
             if (Manage_Group == "긴급알림 그룹 선택") {
                 val builder = AlertDialog.Builder(requireContext())

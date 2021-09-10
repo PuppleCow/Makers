@@ -14,8 +14,7 @@ class SafetyManualQuizActivity3 : AppCompatActivity() {
 
         // 확인 버튼 ( 작업장(홈) 으로 가기 )
         binding.quiz3Button3.setOnClickListener{
-            val home_intent=Intent(this, HomeActivity1::class.java )
-            startActivity(home_intent)
+            finish()
         }
     }
 }

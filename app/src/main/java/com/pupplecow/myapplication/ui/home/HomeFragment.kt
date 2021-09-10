@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
 class HomeFragment:Fragment() {
-    private lateinit var complaintFragment: ComplaintFragment
+
 
     val workspaceData =arrayOf("인천항만","인천항만","인천항만","인천항만","기타")
     val workData =arrayOf("하역","하역","하역","하역","기타")

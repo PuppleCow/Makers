@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pupplecow.myapplication.R
-import kotlinx.android.synthetic.main.fragment_manager_workers_status.*
+import kotlinx.android.synthetic.main.activity_manager_workers_status.*
 
 class ManagerWorkersStatusActivity : AppCompatActivity() {
 

@@ -21,7 +21,7 @@ class ManagerAnnouncementListFragment:Fragment() {
 
     private var Firestore: FirebaseFirestore?=null
 
-    private lateinit var managerAnnouncementFragment: ManagerAnnouncementFragment
+
     private lateinit var managerCreateAnnouncementActivity: ManagerCreateAnnouncementActivity
     //private lateinit var auth : FirebaseAuth
 

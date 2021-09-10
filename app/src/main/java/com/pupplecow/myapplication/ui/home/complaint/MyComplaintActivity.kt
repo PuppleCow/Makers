@@ -9,7 +9,8 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import com.pupplecow.myapplication.R
-import kotlinx.android.synthetic.main.fragment_my_complaint.*
+import kotlinx.android.synthetic.main.activity_my_complaint.*
+
 
 class MyComplaintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_manager_nav.*
 @Suppress("DEPRECATION")
 class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var managerHomeFragment: ManagerHomeFragment
-    private lateinit var managerComplaintListFragment: ManagerComplaintListFragment
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     private lateinit var managerSettingFragment: ManagerSettingFragment
