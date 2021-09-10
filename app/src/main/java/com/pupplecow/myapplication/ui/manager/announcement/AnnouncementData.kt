@@ -6,7 +6,8 @@ data class AnnouncementData (
     var date:String="",
     var category:String="",
     var title:String = "",
-    var content:String=""
+    var content:String="",
+    var number:String="" //순번을 임시로 만들어둔 겨
 
 )
 

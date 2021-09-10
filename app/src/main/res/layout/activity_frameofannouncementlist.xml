@@ -20,21 +20,27 @@
             android:layout_weight="0.2">
 
             <TextView
-                android:id="@+id/frame_textView2"
+                android:id="@+id/frameofannouncementlist_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
-                android:id="@+id/frame_textView6"
+                android:id="@+id/frameofannouncementlist_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+
+            <TextView
+                android:id="@+id/frameofannouncementlist_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
                 android:textAlignment="viewEnd" />
 
             <TextView
-                android:id="@+id/frame_textView3"
+                android:id="@+id/frameofannouncementlist_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.9"
