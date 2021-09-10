@@ -8,7 +8,6 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
 import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingFragment
-import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment
 import com.pupplecow.myapplication.ui.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_manager_nav.*
 
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_manager_nav.*
 class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var managerHomeFragment: ManagerHomeFragment
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
-    private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
+    //private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     private lateinit var managerSettingFragment: ManagerSettingFragment
     private lateinit var shoppingFragment: ShoppingFragment
 
@@ -39,8 +38,8 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
             }
             R.id.manager_navbar_safety_manual->{
                 //supportFragmentManager?.popBackStack()
-                settingCheckSafetyManualFragment= SettingCheckSafetyManualFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,settingCheckSafetyManualFragment).commit()
+                //settingCheckSafetyManualFragment= SettingCheckSafetyManualFragment.newInstance()
+                //supportFragmentManager.beginTransaction().replace(R.id.manager_nav_frame,settingCheckSafetyManualFragment).commit()
 
 
             }
