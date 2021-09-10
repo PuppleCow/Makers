@@ -25,7 +25,7 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
 
 
         manager_workerinfo_text_title.text="${name}님의 정보"
-        manager_workerinfo_text_name.text="${name}"
+//        manager_workerinfo_text_name.text="${name}"
         manager_workerinfo_text_startT.text="${startT}"
         manager_workerinfo_text_finishT.text="${finishT}"
         manager_workerinfo_text_phoneNum.text="${phoneNum}"
@@ -40,12 +40,12 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
 
         }
 
-        manager_workerinfo_text_text_news.text="뉴스 제목입니다."
-        manager_workerinfo_text_text_news.setOnClickListener {
-            var intent =
-                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
-            startActivity(intent)
-        }
+//        manager_workerinfo_text_text_news.text="뉴스 제목입니다."
+//        manager_workerinfo_text_text_news.setOnClickListener {
+//            var intent =
+//                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
+//            startActivity(intent)
+//        }
 
     }
 }
