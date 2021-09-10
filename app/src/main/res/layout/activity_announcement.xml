@@ -128,16 +128,16 @@
             android:id="@+id/announcement_text_news"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="#707070"
+            android:background="#E0E0E0"
             android:elegantTextHeight="false"
             android:fontFamily="@font/notosans_bold"
             android:text="최신 안전 뉴스 바로가기"
-            android:textAlignment="gravity"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#575756"
             android:textIsSelectable="false"
             android:textSize="20sp"
-            app:autoSizeTextType="uniform" />
+            app:autoSizeTextType="none" />
 
         <Space
             android:layout_width="match_parent"
