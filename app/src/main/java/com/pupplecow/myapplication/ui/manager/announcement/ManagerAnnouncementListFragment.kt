@@ -12,7 +12,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.ManagerAnnouncementFragment
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 class ManagerAnnouncementListFragment:Fragment() {

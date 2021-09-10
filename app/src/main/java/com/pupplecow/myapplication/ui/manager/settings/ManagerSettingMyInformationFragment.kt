@@ -3,7 +3,6 @@ package com.pupplecow.myapplication.ui.manager.settings
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +10,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_manager_setting_my_information.*
-import com.pupplecow.myapplication.ui.login.ResettingPassword1
-import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingResettingPassword1Fragment
-import com.pupplecow.myapplication.ui.settings.SettingMyInformationFragment
-import com.pupplecow.myapplication.ui.settings.SettingResettingPassword2Fragment
-import com.pupplecow.myapplication.ui.manager.settings.ManagerResettingPassword1
 
 class ManagerSettingMyInformationFragment: Fragment() {
 

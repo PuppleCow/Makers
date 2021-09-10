@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz3Binding
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 
 class SafetyManualQuizActivity3 : AppCompatActivity() {
     private lateinit var binding:ActivitySafetyManualQuiz3Binding

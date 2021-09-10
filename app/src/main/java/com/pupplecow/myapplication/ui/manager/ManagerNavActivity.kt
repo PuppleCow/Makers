@@ -6,7 +6,6 @@ import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
-import com.pupplecow.myapplication.temporaryStorage.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
 import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingFragment
 import com.pupplecow.myapplication.ui.settings.SettingCheckSafetyManualFragment

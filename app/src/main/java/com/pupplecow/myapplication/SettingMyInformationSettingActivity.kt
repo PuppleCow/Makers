@@ -12,7 +12,6 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySettingMyInformationSettingBinding
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import androidx.core.view.isVisible
 import com.pupplecow.myapplication.ui.login.LoginActivity

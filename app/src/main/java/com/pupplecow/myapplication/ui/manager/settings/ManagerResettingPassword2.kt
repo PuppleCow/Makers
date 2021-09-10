@@ -1,16 +1,11 @@
 package com.pupplecow.myapplication.ui.manager.settings
 
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.pupplecow.myapplication.databinding.ActivityManagerResettingPassword2Binding
-import com.pupplecow.myapplication.temporaryStorage.ManageActivity
-import com.pupplecow.myapplication.databinding.ActivityResettingPassword2Binding
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
-import com.pupplecow.myapplication.R
 
 class ManagerResettingPassword2 : AppCompatActivity() {
 

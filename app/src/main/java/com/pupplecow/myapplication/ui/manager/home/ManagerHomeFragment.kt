@@ -13,8 +13,6 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.temporaryStorage.ManagerWorkersStatusFragment
-import com.pupplecow.myapplication.temporaryStorage.ManagerComplaintListFragment
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListActivity
 import kotlinx.android.synthetic.main.activity_manage.*

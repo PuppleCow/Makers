@@ -2,14 +2,11 @@ package com.pupplecow.myapplication.ui.home
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz2Binding
-import com.pupplecow.myapplication.temporaryStorage.HomeActivity1
-import kotlinx.android.synthetic.main.fragment_manager_home.*
 
 class SafetyManualQuizActivity2 : AppCompatActivity() {
     private lateinit var binding: ActivitySafetyManualQuiz2Binding
