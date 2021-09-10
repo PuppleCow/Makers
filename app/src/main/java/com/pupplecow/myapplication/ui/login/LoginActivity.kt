@@ -250,18 +250,32 @@ class LoginActivity : AppCompatActivity() {
                     //
                     if(data==null){
                         //회원가입 페이지로 넘어가기
-
+                        val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
+                        startActivity(intent)
+                        finish()
 
                     }else{
                         //유저타입 분기
                         when(data.userType){
-                            0->{}   //관리자
-                            else->{}  //근무자
+                            0->{
+                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+
+                                val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }   //관리자
+                            else->{
+                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+
+                                val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }  //근무자
                         }
                     }
-                    //Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
                 }else{
-                    Toast.makeText(this,isSuccess.toString()+data?.uid,Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,isSuccess.toString()+data?.uid.toString(),Toast.LENGTH_SHORT).show()
                 }
 
             }

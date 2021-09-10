@@ -8,7 +8,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
-import kotlinx.android.synthetic.main.fragment_manager_complaint_list.*
+import kotlinx.android.synthetic.main.activity_manager_complaint_list.*
+
 
 class ManagerComplaintListActivity : AppCompatActivity() {
 

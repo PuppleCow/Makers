@@ -5,7 +5,8 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pupplecow.myapplication.R
-import kotlinx.android.synthetic.main.fragment_manager_complaint.*
+import kotlinx.android.synthetic.main.activity_manager_complaint.*
+
 
 class ManagerComplaintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

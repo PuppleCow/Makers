@@ -25,13 +25,13 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
 
 
         manager_workerinfo_text_title.text="${name}님의 정보"
-        manager_workerinfo_text_name.text="이름 : ${name}"
-        manager_workerinfo_text_startT.text="오늘 작업 시작시간 : ${startT}"
-        manager_workerinfo_text_finishT.text="오늘 작업 종료시간 : ${finishT}"
-        manager_workerinfo_text_phoneNum.text="전화번호 : ${phoneNum}"
-        manager_workerinfo_text_emergency_contact.text="보호자 연락처 : ${emergencyNum}(${NOK})"
-        manager_workerinfo_text_blood_type.text="혈액형 : ${bloodType}(형)"
-        manager_workerinfo_text_special_note.text="특이사항 : ${specialNote}"
+        manager_workerinfo_text_name.text="${name}"
+        manager_workerinfo_text_startT.text="${startT}"
+        manager_workerinfo_text_finishT.text="${finishT}"
+        manager_workerinfo_text_phoneNum.text="${phoneNum}"
+        manager_workerinfo_text_emergency_contact.text=" ${emergencyNum}(${NOK})"
+        manager_workerinfo_text_blood_type.text="${bloodType}(형)"
+        manager_workerinfo_text_special_note.text=" ${specialNote}"
 
         manager_workerinfo_button_emergency_call.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)
