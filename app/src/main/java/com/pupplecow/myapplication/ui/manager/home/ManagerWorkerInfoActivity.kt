@@ -20,7 +20,7 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
         val phoneNum:String="01027562874"
         val emergencyNum:String="01012345678"
         val NOK:String="부"
-        val bloodType:String="AB"
+        val bloodType:String="RH+ AB"
         val specialNote:String="당뇨,고혈압"
 
 
@@ -30,7 +30,7 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
         manager_workerinfo_text_finishT.text="${finishT}"
         manager_workerinfo_text_phoneNum.text="${phoneNum}"
         manager_workerinfo_text_emergency_contact.text=" ${emergencyNum}(${NOK})"
-        manager_workerinfo_text_blood_type.text="${bloodType}(형)"
+        manager_workerinfo_text_blood_type.text="${bloodType}"
         manager_workerinfo_text_special_note.text=" ${specialNote}"
 
         manager_workerinfo_button_emergency_call.setOnClickListener {

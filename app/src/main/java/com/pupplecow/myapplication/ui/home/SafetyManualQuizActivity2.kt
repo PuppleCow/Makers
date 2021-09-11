@@ -55,7 +55,7 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
                         builder.setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
                             val home_intent=Intent(this, ConfirmWaitingActivity::class.java)
                             startActivity(home_intent)
-                            //finish()
+                            finish()
                         }
 
                         builder.show()
