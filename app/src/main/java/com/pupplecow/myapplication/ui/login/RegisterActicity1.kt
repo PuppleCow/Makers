@@ -51,29 +51,27 @@ class RegisterActicity1 : AppCompatActivity() {
             //휴대폰 번호인지 아닌지 실시간 체크
             //정규표현식
 
-            if(phonenumberPattern.matcher(it.toString()).matches()){
-                register_cellPhoneNumber_message.text=""
+            if(!phonenumberPattern.matcher(it.toString()).matches()){
+                register_cellPhoneNumber_message.text="휴대전화번호를 정확하게 입력해주세요"
                 //인증번호 받기 버튼 눌릴지 아닐지 결정
                 register_id_button.isEnabled=false
 
             }else{
-                register_cellPhoneNumber_message.text="휴대전화번호를 정확하게 입력해주세요"
+                register_cellPhoneNumber_message.text=""
                 register_id_button.isEnabled=true
             }
 
-
-
         }
 
-        //123456-7890123
-        register_id_input.addTextChangedListener {
-            it.toString().replace("-","")
-            if(it.toString().length>6){
-                register_id_input.setText(
-                it.toString().substring(0,6)+"-"+it.toString().substring(6)
-                )
-            }
-        }
+//        //123456-7890123
+//        register_id_input.addTextChangedListener {
+//            it.toString().replace("-","")
+//            if(it.toString().length>6){
+//                register_id_input.setText(
+//                it.toString().substring(0,6)+"-"+it.toString().substring(6)
+//                )
+//            }
+//        }
 
 
 
@@ -203,13 +201,15 @@ class RegisterActicity1 : AppCompatActivity() {
                      //fcmToken=  //푸시 알림
                      phoneNumber=userCellPhoneNumber //01012341234
 
-                    val birthPrefix=userIDNumber.split("-")[1].substring(0,1)  //-> 주민등록번호 뒷자리 한자리 뽑아옴
-                    var birthPostfix=userIDNumber.split("-")[0]  // 990727
+//                    val birthPrefix=userIDNumber.split("-")[1].substring(0,1)  //-> 주민등록번호 뒷자리 한자리 뽑아옴
+//                    var birthPostfix=userIDNumber.split("-")[0]  // 990727
                     //userIDNumber.split("-")[0] //19990727-1234567 -> [990727,1234567]
+                    val birthPrefix=userIDNumber.substring(6,7)
+                    var birthPostfix=userIDNumber.substring(0,6) // 990727
+                    Log.e("birth","$userId$birthPrefix$birthPostfix")
+
 
                      birthDate= (if(birthPrefix=="1"||birthPrefix=="2")"19" else "20")+birthPostfix
-
-
                      userType= mUserType //0: 관리자, 1:일용직 , 2:상용직
                      ssid=userId  //990727-1234567
                 }
@@ -235,7 +235,7 @@ class RegisterActicity1 : AppCompatActivity() {
         }}
 
     }
-//폰넘버 앞에 +82 붙여야함
+    //폰넘버 앞에 +82 붙여야함
     private fun startPhoneNumberVerification() {
 
         var phoneNumber="+82"+register_cellPhoneNumber_input.text.toString().replace(".","").replace("-","").substring(1)
@@ -253,7 +253,7 @@ class RegisterActicity1 : AppCompatActivity() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
             //여기서는 이거 필요 없음
-            //이콜백은 두가지 상황이다
+            //이콜백은 두가지 상황일떄
             //1. 실기기로 테스트일때 내폰이면 인증번호 입력할 필요 없음
             //2. 구글 플레이 서비스가 자동적으로 체크해서 유저 액션 없이
             // This callback will be invoked in two situations:
