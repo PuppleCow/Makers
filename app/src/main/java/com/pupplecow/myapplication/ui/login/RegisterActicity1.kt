@@ -20,10 +20,14 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.UserData
+import com.pupplecow.myapplication.databinding.ActivityLoginBinding
+import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
 import kotlinx.android.synthetic.main.activity_register1.*
 import java.util.concurrent.TimeUnit
 
 class RegisterActicity1 : AppCompatActivity() {
+
+    private lateinit var binding:ActivityRegister1Binding
 
     //2분 기다릴 수 있음
     companion object{
@@ -41,24 +45,28 @@ class RegisterActicity1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register1)
 
-        register_message.isGone
+        binding= ActivityRegister1Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.registerMessage.isGone
 
         //010.1234.5678
         //010-1234-5678
         val phonenumberPattern = "^01(?:0|1|[6-9])[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$".toPattern()
 
-        register_cellPhoneNumber_input.addTextChangedListener {
+
+        binding.registerCellPhoneNumberInput.addTextChangedListener {
             //휴대폰 번호인지 아닌지 실시간 체크
             //정규표현식
 
             if(!phonenumberPattern.matcher(it.toString()).matches()){
-                register_cellPhoneNumber_message.text="휴대전화번호를 정확하게 입력해주세요"
+                binding.registerCellPhoneNumberMessage.text="휴대전화번호를 정확하게 입력해주세요"
                 //인증번호 받기 버튼 눌릴지 아닐지 결정
-                register_id_button.isEnabled=false
+                binding.registerIdButton.isEnabled=false
 
             }else{
-                register_cellPhoneNumber_message.text=""
-                register_id_button.isEnabled=true
+                binding.registerCellPhoneNumberMessage.text=""
+                binding.registerIdButton.isEnabled=true
             }
 
         }
@@ -74,24 +82,23 @@ class RegisterActicity1 : AppCompatActivity() {
 //        }
 
 
-
-        type1Btn.setOnClickListener {
+        binding.type1Btn.setOnClickListener {
             mUserType=1
-            register_text_type.text="근로 형태-상용직"
+            binding.registerTextType.text="근로 형태-일용직"
         }
 
-        type2Btn.setOnClickListener {
+        binding.type2Btn.setOnClickListener {
             mUserType=2
-            register_text_type.text="근로 형태-일용직"
+            binding.registerTextType.text="근로 형태-상용직"
         }
         //인증번호 받기 버튼 클릭
-        register_id_button.setOnClickListener {
+        binding.registerIdButton.setOnClickListener {
             //핸드폰번호 저장
 
             //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
-            val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
-            val userIDNumber=register_id_input.text.toString()
-            val userName=register_name_input.text.toString()
+            val userCellPhoneNumber=binding.registerCellPhoneNumberInput.text.toString()
+            val userIDNumber=binding.registerIdInput.text.toString()
+            val userName=binding.registerNameInput.text.toString()
             if(userCellPhoneNumber==""||userCellPhoneNumber.length!=11){
                 val builder= AlertDialog.Builder(this)
                 builder.setTitle("")
@@ -130,8 +137,8 @@ class RegisterActicity1 : AppCompatActivity() {
 
             //핸드폰 번호로 인증번호 전송 메시지
             //register_message.text=register_cellPhoneNumber_input.text
-            register_message.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
-            register_message.visibility= View.VISIBLE
+            binding.registerMessage.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
+            binding.registerMessage.visibility= View.VISIBLE
             //인증번호 전송하기
                 startPhoneNumberVerification()
 
@@ -139,12 +146,12 @@ class RegisterActicity1 : AppCompatActivity() {
         }
 
         //다음버튼 클릭
-        register_button1.setOnClickListener {
+        binding.registerButton1.setOnClickListener {
 
             //핸드폰번호 입력했는지 확인 (빈칸이면 메시지)
-            val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
-            val userIDNumber=register_id_input.text.toString()
-            val userName=register_name_input.text.toString()
+            val userCellPhoneNumber=binding.registerCellPhoneNumberInput.text.toString()
+            val userIDNumber=binding.registerIdInput.text.toString()
+            val userName=binding.registerNameInput.text.toString()
             if(userCellPhoneNumber==""||userCellPhoneNumber.length!=11){
                 val builder= AlertDialog.Builder(this)
                 builder.setTitle("")
@@ -176,13 +183,13 @@ class RegisterActicity1 : AppCompatActivity() {
 
 
             //인증번호 확인
-            if(register_number_input.text.toString()==storedVerificationId) {
+            if(binding.registerNumberInput.text.toString()==storedVerificationId) {
                 //인증번호 확인되면
                     //이메일도 저장
                 //이름, 주민등록번호, 전화번호 저장
-                val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
-                var userName=register_name_input.text.toString()
-                var userId=register_id_input.text.toString()
+                val userCellPhoneNumber=binding.registerCellPhoneNumberInput.text.toString()
+                val userId=binding.registerIdInput.text.toString()
+                val userName=binding.registerNameInput.text.toString()
 
                 //프로바이더 : 인증제공 업체
                 val user= UserData().apply{
@@ -230,7 +237,7 @@ class RegisterActicity1 : AppCompatActivity() {
             }
             else{
                 //인증번호 틀리면
-                register_message.text="인증번호가 틀렸습니다. 다시 인증해 주세요"
+                binding.registerMessage.text="인증번호가 틀렸습니다. 다시 인증해 주세요"
             }
         }}
 
