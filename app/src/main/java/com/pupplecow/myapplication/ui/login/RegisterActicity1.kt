@@ -1,10 +1,12 @@
 package com.pupplecow.myapplication.ui.login
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
@@ -37,6 +39,7 @@ class RegisterActicity1 : AppCompatActivity() {
     private var mUserType: Int=-1
     private var resendToken:PhoneAuthProvider.ForceResendingToken?=null
     private var storedVerificationId: String = ""
+    private var isPhoneNumberVrify=false
 
     val mAuth=Firebase.auth  //어스는 앱 전체에서 지원되고 있음 ( 이미 구글 로그인 객체가 생성되어있음)
 
@@ -139,10 +142,19 @@ class RegisterActicity1 : AppCompatActivity() {
             //register_message.text=register_cellPhoneNumber_input.text
             binding.registerMessage.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
             binding.registerMessage.visibility= View.VISIBLE
-            //인증번호 전송하기
+
+                //인증번호 전송하기
                 startPhoneNumberVerification()
 
             }
+        }
+
+        binding.registerNumberButton.setOnClickListener{
+            val phoneCredention= PhoneAuthProvider.getCredential(
+                storedVerificationId,
+                binding.registerNumberInput.text.toString()
+            )
+            verifyPhoneNumberWithCode(phoneCredention)
         }
 
         //다음버튼 클릭
@@ -179,67 +191,22 @@ class RegisterActicity1 : AppCompatActivity() {
                 builder.setMessage("이름를 입력해주세요")
                 builder.setPositiveButton("네",null)
                 builder.show()
-            }else{
-
-
-            //인증번호 확인
-            if(binding.registerNumberInput.text.toString()==storedVerificationId) {
-                //인증번호 확인되면
-                    //이메일도 저장
-                //이름, 주민등록번호, 전화번호 저장
-                val userCellPhoneNumber=binding.registerCellPhoneNumberInput.text.toString()
-                val userId=binding.registerIdInput.text.toString()
-                val userName=binding.registerNameInput.text.toString()
-
-                //프로바이더 : 인증제공 업체
-                val user= UserData().apply{
-                     uid=mAuth.uid
-                     email=mAuth.currentUser?.email
-                     name=userName
-                     photoUrl=mAuth.currentUser?.photoUrl.toString()
-                     providerData= try {
-                         mAuth.currentUser?.providerData?.get(1)?.providerId //0:파이어베이스, 1: 구글닷컴
-                     }catch (e:Exception){
-                         mAuth.currentUser?.providerData?.get(0)?.providerId
-                     }
-
-
-                    //로그인 방식
-                     //fcmToken=  //푸시 알림
-                     phoneNumber=userCellPhoneNumber //01012341234
-
-//                    val birthPrefix=userIDNumber.split("-")[1].substring(0,1)  //-> 주민등록번호 뒷자리 한자리 뽑아옴
-//                    var birthPostfix=userIDNumber.split("-")[0]  // 990727
-                    //userIDNumber.split("-")[0] //19990727-1234567 -> [990727,1234567]
-                    val birthPrefix=userIDNumber.substring(6,7)
-                    var birthPostfix=userIDNumber.substring(0,6) // 990727
-                    Log.e("birth","$userId$birthPrefix$birthPostfix")
-
-
-                     birthDate= (if(birthPrefix=="1"||birthPrefix=="2")"19" else "20")+birthPostfix
-                     userType= mUserType //0: 관리자, 1:일용직 , 2:상용직
-                     ssid=userId  //990727-1234567
-                }
-
-                Firebase.database.reference.child("users").child(mAuth.uid!!).setValue(user)
-                    .addOnSuccessListener {
-                        //RegisterActivity_2로 넘어가기
-                        val intent = Intent(this, RegisterActivity2::class.java)
-                        intent.putExtra("userCellPhoneNumber",userCellPhoneNumber)
-                        intent.putExtra("userName",userName)
-                        intent.putExtra("userId",userId)
-                        startActivity(intent)
-                    }
-
-
-
-
+            }else if(!isPhoneNumberVrify) {
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("")
+                builder.setMessage("휴대전화번호 인증을 완료해주세요")
+                builder.setPositiveButton("네", null)
+                builder.show()
             }
             else{
-                //인증번호 틀리면
-                binding.registerMessage.text="인증번호가 틀렸습니다. 다시 인증해 주세요"
+                updateUserData()
+
+            //인증번호 확인
+
+
             }
-        }}
+
+        }
 
     }
     //폰넘버 앞에 +82 붙여야함
@@ -259,6 +226,9 @@ class RegisterActicity1 : AppCompatActivity() {
     val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+            verifyPhoneNumberWithCode(credential)
+
+            //즉시인증,자동인등
             //여기서는 이거 필요 없음
             //이콜백은 두가지 상황일떄
             //1. 실기기로 테스트일때 내폰이면 인증번호 입력할 필요 없음
@@ -277,6 +247,7 @@ class RegisterActicity1 : AppCompatActivity() {
         }
 
         override fun onVerificationFailed(e: FirebaseException) {
+            //오류났을때
             //폰넘버 포맷이 잘못 된경우
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
@@ -307,8 +278,111 @@ class RegisterActicity1 : AppCompatActivity() {
             //재전송
             resendToken = token
         }
+
+
+
+
     }
 
+    //
+//    private fun verifyPhoneNumberWithCode(phoneAuthCredential: PhoneAuthCredential){
+//
+//
+//
+//
+//    }
+
+    private fun verifyPhoneNumberWithCode(credential: PhoneAuthCredential) {
+
+        mAuth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    //인증성공
+                    isPhoneNumberVrify=true
+                    binding.registerNumberAuth.isVisible=true
+                        //updateUserData()
+                    // Sign in success, update UI with the signed-in user's information
+                    //Log.d(TAG, "signInWithCredential:success")
+
+                    val user = task.result?.user
+                } else {
+                    //실패
+                        Toast.makeText(this,"인증번호를 다시 확인해주세요",Toast.LENGTH_SHORT).show()
+
+                    // Sign in failed, display a message and update the UI
+                    //Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                        // The verification code entered was invalid
+                    }
+                    // Update UI
+                }
+            }
+    }
+
+    private fun updateUserData() {
+
+        //인증번호 확인되면
+        //이메일도 저장
+        //이름, 주민등록번호, 전화번호 저장
+        val userCellPhoneNumber=binding.registerCellPhoneNumberInput.text.toString()
+        val userId=binding.registerIdInput.text.toString()
+        val userName=binding.registerNameInput.text.toString()
+
+        //프로바이더 : 인증제공 업체
+        //appli
+
+        //아래와 완전히 똑같은 코드이지만 사이에 코드 들어갈수도 있고 복잡해짐
+        //val user1=UserData()
+        //user1.uid=mAuth.uid
+
+        val user= UserData().apply{
+            uid=mAuth.uid
+            email=mAuth.currentUser?.email
+            name=userName
+            photoUrl=mAuth.currentUser?.photoUrl.toString()
+            providerData= try {
+                mAuth.currentUser?.providerData?.get(1)?.providerId //0:파이어베이스, 1: 구글닷컴
+            }catch (e:Exception){
+                mAuth.currentUser?.providerData?.get(0)?.providerId
+            }
+
+
+            //로그인 방식
+            //fcmToken=  //푸시 알림
+            phoneNumber=userCellPhoneNumber //01012341234
+
+//                    val birthPrefix=userIDNumber.split("-")[1].substring(0,1)  //-> 주민등록번호 뒷자리 한자리 뽑아옴
+//                    var birthPostfix=userIDNumber.split("-")[0]  // 990727
+            //userIDNumber.split("-")[0] //19990727-1234567 -> [990727,1234567]
+
+            //9001011234567 ->6번쨰 글짜 뽑아내기
+            val birthPrefix=userId.substring(6,7)  //1,2,3,4
+            var birthPostfix=userId.substring(0,6) // 990727
+            Log.e("birth","$userId$birthPrefix$birthPostfix")
+
+
+            birthDate= (if(birthPrefix=="1"||birthPrefix=="2")"19" else "20")+birthPostfix
+            userType= mUserType //0: 관리자, 1:일용직 , 2:상용직
+            ssid=userId  //990727-1234567
+        }
+
+        //유저객체 입력
+
+
+        //파이어베이스 데이터 베이스 루트
+        Firebase.database.reference.child("users").child(mAuth.uid!!).setValue(user)
+            .addOnSuccessListener {
+                //RegisterActivity_2로 넘어가기
+                val intent = Intent(this, RegisterActivity2::class.java)
+                intent.putExtra("userCellPhoneNumber",userCellPhoneNumber)
+                intent.putExtra("userName",userName)
+                intent.putExtra("userId",userId)
+                startActivity(intent)
+                finish()
+            }
+
+
+    }
 
 
 }
