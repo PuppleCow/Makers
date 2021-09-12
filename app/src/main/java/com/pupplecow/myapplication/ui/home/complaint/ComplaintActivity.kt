@@ -8,15 +8,24 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.api.FirebaseApi
+import com.pupplecow.myapplication.data.Complaint
+import com.pupplecow.myapplication.data.UserData
+import com.pupplecow.myapplication.databinding.ActivityComplaintBinding
+import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
@@ -24,10 +33,14 @@ import java.util.*
 
 
 class ComplaintActivity : AppCompatActivity() {
-    private var uid:String=""
+//    private lateinit var binding:ActivityComplaintBinding
+    private var photoUri: Uri?=null
 
-    var fbAuth: FirebaseAuth?=null
-    var fbFirestore: FirebaseFirestore?=null
+    //private var mUid:String=""
+
+    var userData: UserData?=null
+    var auth = Firebase.auth
+
 
     val permission_list = arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -40,15 +53,24 @@ class ComplaintActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
 
+        //바인딩을 위한 코드
+//        binding= ActivityRegister1Binding.inflate(layoutInflater)
+//        setContentView(binding.root)
+
         //파이어스토어 파이어베이스
-        fbAuth= FirebaseAuth.getInstance()
-        fbFirestore= FirebaseFirestore.getInstance()
+        auth= FirebaseAuth.getInstance()
 
-        //파이어베이스
-        if(intent.hasExtra("uid")){
-            uid= intent.getStringExtra("uid").toString()
+
+
+        //유저 데이터 가져오기
+        auth.uid?.let {
+            FirebaseApi().getUserData(it){isSuccess,message,data ->
+                Log.e("UserData","$isSuccess $message $data")
+                if(isSuccess){
+                    userData=data
+                }
+            }
         }
-
 //        //산업안전 뉴스 제목,링크 불러오기
 //        complaint_text_news.text="뉴스 제목입니다."
 //        complaint_text_news.setOnClickListener {
@@ -115,8 +137,8 @@ class ComplaintActivity : AppCompatActivity() {
                                 //민원시간 표시
                                 val homeNow = Calendar.getInstance()
                                 val year = homeNow.get(Calendar.YEAR).toString()
-                                val month = (homeNow.get(Calendar.MONTH)+1).toString()
-                                val date = homeNow.get(Calendar.DATE).toString()
+                                val mMonth = (homeNow.get(Calendar.MONTH)+1).toString()
+                                val mDate = homeNow.get(Calendar.DATE).toString()
                                 val hour = homeNow.get(Calendar.HOUR).toString()
                                 val minute = homeNow.get(Calendar.MINUTE).toString()
 
@@ -125,14 +147,29 @@ class ComplaintActivity : AppCompatActivity() {
                                     complaintCategoryData[complaint_spinner_category.selectedItemPosition]
 
 
-                                var dataInput= ComplaintData(
-                                    uid,
-                                    month,date,complaintCategory,
-                                    //complaint_editText_title.text.toString(),
-                                    complaint_editTextTextMultiLine.text.toString()
-                                )
+//                                var dataInput= Complaint(
+//                                    mUid,
+//                                    mMont
+//                                    month,date,complaintCategory,
+//                                    //complaint_editText_title.text.toString(),
+//                                    complaint_editTextTextMultiLine.text.toString()
+//                                )
+
+                                Log.e("COMPLAINT","현장 민원 접수 $title 민원글 올라가는지 확인하는 로그")
+                                var dataInput=Complaint().apply{
+                                    this.uid=auth.uid!!
+                                    this.category=complaintCategory
+                                    this.body=complaint_editTextTextMultiLine.text.toString()
+                                    this.month=mMonth
+                                    this.date=mDate
+                                    this.imageUri=photoUri.toString()
+                                    this.title=this.body.substring(0,min(10,body.length))
+                                    this.writerName=userData?.name?:""
+
+                                }
+                                FirebaseApi().writeComplaint(dataInput){_,_->}
                                 //fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
-                                fbFirestore?.collection("complaint")?.add(dataInput)
+                                //fbFirestore?.collection("complaint")?.add(dataInput)
 
                                 //다음페이지로 넘어가기
                                 //MyConplaintActivity로 넘어가기
@@ -145,7 +182,7 @@ class ComplaintActivity : AppCompatActivity() {
                         }
                     }
                 }
-                builder.setNegativeButton("아니오",listener)
+                builder.setNegativeButton("아니오",null)
                 builder.setPositiveButton("네",listener)
                 builder.show()
             }
@@ -176,29 +213,20 @@ class ComplaintActivity : AppCompatActivity() {
 
         if(resultCode == AppCompatActivity.RESULT_OK){
             // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
-            val uri = data?.data
+            photoUri = data?.data
 
-            if(uri != null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-                    // 안드로이드 10버전 부터
-                    val source = ImageDecoder.createSource(this.contentResolver, uri)
-                    val bitmap = ImageDecoder.decodeBitmap(source)
-                    complaint_imageView.setImageBitmap(bitmap)
-                } else {
-                    // 안드로이드 9버전 까지
-                    val cursor = this.contentResolver.query(uri, null, null, null, null)
-                    if(cursor != null){
-                        cursor.moveToNext()
-                        // 이미지 경로를 가져온다.
-                        @Suppress("DEPRECATION")
-                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                        val source = cursor.getString(index)
-                        // 이미지를 생성한다.
-                        val bitmap = BitmapFactory.decodeFile(source)
-                        complaint_imageView.setImageBitmap(bitmap)
-                    }
-                }
+            if(photoUri != null){
+                Glide.with(this).load(photoUri).into(complaint_imageView)
+
             }
+        }
+    }
+
+    fun min(a:Int,b:Int):Int{
+        return if(a<b){
+            a
+        }else{
+            b
         }
     }
 

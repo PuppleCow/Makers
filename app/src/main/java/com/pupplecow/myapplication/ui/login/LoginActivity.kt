@@ -13,16 +13,14 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.api.FirebaseDatabase
+import com.pupplecow.myapplication.api.FirebaseApi
 import com.pupplecow.myapplication.databinding.ActivityLoginBinding
-import com.pupplecow.myapplication.ui.home.HomeFragment
 import com.pupplecow.myapplication.ui.manager.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
@@ -245,7 +243,8 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         //데이터베이스에 있는지 없는지 체크
         if (user != null) {
-            FirebaseDatabase().getUserData(user.uid) {isSuccess,data ->
+            FirebaseApi().getUserData(user.uid) { isSuccess, message, data ->
+                Log.e("getUserData","$isSuccess $message $data")
                 if(isSuccess){
                     //
                     if(data==null){
@@ -258,24 +257,30 @@ class LoginActivity : AppCompatActivity() {
                         //유저타입 분기
                         when(data.userType){
                             0->{
+                                //관리자
                                 Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
                                 val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
                                 startActivity(intent)
                                 finish()
-                            }   //관리자
+                            }
                             else->{
+                                //근무자
                                 Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
                                 val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
                                 startActivity(intent)
                                 finish()
-                            }  //근무자
+                            }
                         }
                     }
                     Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this,isSuccess.toString()+data?.uid.toString(),Toast.LENGTH_SHORT).show()
+                    //회원가입 페이지로 넘어가기
+                    val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
+                    startActivity(intent)
+                    finish()
                 }
 
             }

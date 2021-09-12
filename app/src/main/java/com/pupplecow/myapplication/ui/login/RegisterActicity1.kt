@@ -20,6 +20,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.UserData
 import com.pupplecow.myapplication.databinding.ActivityLoginBinding
@@ -40,6 +41,7 @@ class RegisterActicity1 : AppCompatActivity() {
     private var resendToken:PhoneAuthProvider.ForceResendingToken?=null
     private var storedVerificationId: String = ""
     private var isPhoneNumberVrify=false
+    private var myUid=""
 
     val mAuth=Firebase.auth  //어스는 앱 전체에서 지원되고 있음 ( 이미 구글 로그인 객체가 생성되어있음)
 
@@ -51,6 +53,7 @@ class RegisterActicity1 : AppCompatActivity() {
         binding= ActivityRegister1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        myUid=mAuth.uid.toString()
         binding.registerMessage.isGone
 
         //010.1234.5678
@@ -336,7 +339,7 @@ class RegisterActicity1 : AppCompatActivity() {
         //user1.uid=mAuth.uid
 
         val user= UserData().apply{
-            uid=mAuth.uid
+            uid=myUid
             email=mAuth.currentUser?.email
             name=userName
             photoUrl=mAuth.currentUser?.photoUrl.toString()
@@ -370,14 +373,11 @@ class RegisterActicity1 : AppCompatActivity() {
 
 
         //파이어베이스 데이터 베이스 루트
-        Firebase.database.reference.child("users").child(mAuth.uid!!).setValue(user)
+        Firebase.database.reference.child("users").child(myUid!!).setValue(user)
             .addOnSuccessListener {
-                //RegisterActivity_2로 넘어가기
-                val intent = Intent(this, RegisterActivity2::class.java)
-                intent.putExtra("userCellPhoneNumber",userCellPhoneNumber)
-                intent.putExtra("userName",userName)
-                intent.putExtra("userId",userId)
-                startActivity(intent)
+                mAuth.signOut()
+                //Toast.makeText(this,"")
+
                 finish()
             }
 
