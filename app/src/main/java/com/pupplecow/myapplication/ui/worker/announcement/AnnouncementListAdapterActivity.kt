@@ -1,5 +1,5 @@
 
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.ui.worker.announcement
 
 import android.content.Context
 import android.view.LayoutInflater

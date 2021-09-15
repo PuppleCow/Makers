@@ -2,7 +2,6 @@ package com.pupplecow.myapplication.api
 
 import com.pupplecow.myapplication.data.Complaint
 import com.pupplecow.myapplication.data.UserData
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
 
 //파베데에서 쓸수있는 함수를 제약해놓음
 interface Contract {

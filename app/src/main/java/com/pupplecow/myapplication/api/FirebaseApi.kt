@@ -1,6 +1,5 @@
 package com.pupplecow.myapplication.api
 
-import android.net.Uri
 import androidx.core.net.toUri
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -11,8 +10,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.pupplecow.myapplication.data.Complaint
 import com.pupplecow.myapplication.data.UserData
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
-import java.io.File
 
 class FirebaseApi :Contract.firebaseDatabase {
     val firestore=Firebase.firestore

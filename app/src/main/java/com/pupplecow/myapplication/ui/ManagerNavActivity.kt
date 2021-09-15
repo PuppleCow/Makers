@@ -1,10 +1,11 @@
-package com.pupplecow.myapplication.ui.manager
+package com.pupplecow.myapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.databinding.ActivityManagerNavBinding
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.home.ManagerHomeFragment
 import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingFragment
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_manager_nav.*
 
 @Suppress("DEPRECATION")
 class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+    private lateinit var binding: ActivityManagerNavBinding
     private lateinit var managerHomeFragment: ManagerHomeFragment
     private lateinit var managerAnnouncementListFragment: ManagerAnnouncementListFragment
     //private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
@@ -22,9 +24,11 @@ class ManagerNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigatio
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_nav)
+        binding= ActivityManagerNavBinding.inflate(layoutInflater)
 
-        manager_nav_bottom_van_bar.setOnNavigationItemSelectedListener(this)
-        manager_nav_bottom_van_bar.selectedItemId=R.id.manager_navbar_home
+
+        binding.managerNavBottomVanBar.setOnNavigationItemSelectedListener(this)
+        binding.managerNavBottomVanBar.selectedItemId=R.id.manager_navbar_home
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 

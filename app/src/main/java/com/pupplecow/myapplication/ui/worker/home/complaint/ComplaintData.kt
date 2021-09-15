@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.home.complaint
+package com.pupplecow.myapplication.ui.worker.home.complaint
 
 data class ComplaintData(
     var uid:String="",

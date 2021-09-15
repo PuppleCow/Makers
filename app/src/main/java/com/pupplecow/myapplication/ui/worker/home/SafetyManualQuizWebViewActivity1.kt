@@ -1,11 +1,6 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.worker.home
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.widget.CompoundButton
-import android.view.View
-import android.os.PersistableBundle
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient

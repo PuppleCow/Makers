@@ -12,12 +12,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
 import com.pupplecow.myapplication.databinding.FragmentManagerHomeBinding
-import com.pupplecow.myapplication.databinding.FragmentSettingBinding
 import com.pupplecow.myapplication.ui.manager.announcement.ManagerAnnouncementListFragment
 import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListActivity
 

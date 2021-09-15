@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.pupplecow.myapplication.ui.announcement.AnnouncementListFragment
-import com.pupplecow.myapplication.ui.home.HomeFragment
-import com.pupplecow.myapplication.ui.settings.SettingFragment
+import com.pupplecow.myapplication.databinding.ActivityMainNavBinding
+import com.pupplecow.myapplication.ui.worker.announcement.AnnouncementListFragment
+import com.pupplecow.myapplication.ui.worker.home.HomeFragment
+import com.pupplecow.myapplication.ui.worker.settings.SettingFragment
 import com.pupplecow.myapplication.ui.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_main_nav.*
 
 
 @Suppress("DEPRECATION")
 class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener{
+    private lateinit var binding: ActivityMainNavBinding
 
     private lateinit var homeFragment: HomeFragment
     //private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
@@ -23,9 +25,11 @@ class MainNavActivity : AppCompatActivity(), BottomNavigationView.OnNavigationIt
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_nav)
+        binding=ActivityMainNavBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        main_nav_bottom_van_bar.setOnNavigationItemSelectedListener(this)
-        main_nav_bottom_van_bar.selectedItemId=R.id.navbar_home
+        binding.mainNavBottomVanBar.setOnNavigationItemSelectedListener(this)
+        binding.mainNavBottomVanBar.selectedItemId=R.id.navbar_home
     }
 
 

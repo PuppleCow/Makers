@@ -23,7 +23,7 @@ import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.UserData
-import com.pupplecow.myapplication.databinding.ActivityLoginBinding
+
 import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
 import kotlinx.android.synthetic.main.activity_register1.*
 import java.util.concurrent.TimeUnit

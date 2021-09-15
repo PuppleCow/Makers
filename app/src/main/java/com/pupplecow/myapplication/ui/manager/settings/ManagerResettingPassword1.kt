@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivityManagerResettingPassword1Binding
-import com.pupplecow.myapplication.databinding.ActivityResettingPassword1Binding
 
 class ManagerResettingPassword1 : AppCompatActivity() {
     private lateinit var binding: ActivityManagerResettingPassword1Binding

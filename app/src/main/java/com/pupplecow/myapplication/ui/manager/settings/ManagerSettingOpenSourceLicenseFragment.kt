@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.FragmentManagerSettingOpenSourceLicenseBinding
-import com.pupplecow.myapplication.databinding.FragmentSettingOpenSourceLicenseBinding
 
 class ManagerSettingOpenSourceLicenseFragment: Fragment() {
 

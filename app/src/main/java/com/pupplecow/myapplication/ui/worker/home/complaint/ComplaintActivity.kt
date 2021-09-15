@@ -1,11 +1,8 @@
-package com.pupplecow.myapplication.ui.home.complaint
+package com.pupplecow.myapplication.ui.worker.home.complaint
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -17,8 +14,6 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.api.FirebaseApi
@@ -33,7 +28,7 @@ import java.util.*
 
 
 class ComplaintActivity : AppCompatActivity() {
-//    private lateinit var binding:ActivityComplaintBinding
+    private lateinit var binding: ActivityComplaintBinding
     private var photoUri: Uri?=null
 
     //private var mUid:String=""
@@ -54,8 +49,8 @@ class ComplaintActivity : AppCompatActivity() {
         setContentView(R.layout.activity_complaint)
 
         //바인딩을 위한 코드
-//        binding= ActivityRegister1Binding.inflate(layoutInflater)
-//        setContentView(binding.root)
+        binding= ActivityComplaintBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //파이어스토어 파이어베이스
         auth= FirebaseAuth.getInstance()
@@ -79,19 +74,19 @@ class ComplaintActivity : AppCompatActivity() {
 //            startActivity(intent)
 //        }
 
-        complaint_button_image_delete.isVisible=false
+        binding.complaintButtonImageDelete.isVisible=false
         //민원항목 선택 스피너
 
         val complaintAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,complaintCategoryData)
         complaintAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        complaint_spinner_category.adapter= complaintAdapter
+        binding.complaintSpinnerCategory.adapter= complaintAdapter
 
 
         @Suppress("DEPRECATION")
         requestPermissions(permission_list, 0)
 
         //사진첨부버튼
-        complaint_imageView.setOnClickListener {
+        binding.complaintImageView.setOnClickListener {
             // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
             val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
             // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)

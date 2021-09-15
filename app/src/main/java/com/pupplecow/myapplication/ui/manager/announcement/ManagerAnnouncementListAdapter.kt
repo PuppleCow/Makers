@@ -1,7 +1,6 @@
 
 package com.pupplecow.myapplication.ui.manager.announcement
 
-import android.app.Person
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.manager.announcement.AnnouncementData
 import kotlinx.android.synthetic.main.activity_frameofannouncementlist.view.*
-import kotlinx.android.synthetic.main.manager_complaint_list_item.view.*
-import kotlinx.android.synthetic.main.manager_complaint_list_item.view.manager_complaint_list_title
 
 class ManagerAnnouncementListAdapter (val context: Context,val itemClick: (AnnouncementData) -> Unit):
     RecyclerView.Adapter<ManagerAnnouncementListAdapter.Holder>() {

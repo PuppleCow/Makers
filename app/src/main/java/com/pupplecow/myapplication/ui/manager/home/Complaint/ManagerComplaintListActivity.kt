@@ -1,52 +1,57 @@
 package com.pupplecow.myapplication.ui.manager.home.Complaint
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
+import com.pupplecow.myapplication.databinding.ActivityManagerComplaintListBinding
+import com.pupplecow.myapplication.databinding.ActivityManagerCreateAnnouncementBinding
+import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintData
+import com.pupplecow.myapplication.ui.worker.home.complaint.MyComplaintActivity
+import kotlinx.android.synthetic.main.activity_complaint_list.*
 import kotlinx.android.synthetic.main.activity_manager_complaint_list.*
 
 
 class ManagerComplaintListActivity : AppCompatActivity() {
-//
-//    private lateinit var database: DatabaseReference
-//    private lateinit var auth: FirebaseAuth
-//
-//    var managerComplaintList= arrayListOf<ManagerComplaint>(
-//        //숫자,제목,항목,사진
-////        ManagerComplaintList("05","23","불편사항 신고",""),
-////        ManagerComplaintList("05","23","불편사항 신고",""),
-//
-//
-//    )
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_manager_complaint_list)
-//
-//        auth = FirebaseAuth.getInstance()
-//
-//        database= FirebaseDatabase.getInstance().getReference().child("board")
-//
-//        val mAdapter = ManagerComplaintListAdapter(this){
-//                complaint->
-//            //해당 민원 내용프래그먼트로 넘어가기
-//            //넘어갈때 해당 내용 서버에서 불러오기
-//            //MyConplaintActivity로 넘어가기
-//            val intent = Intent(this, ManagerComplaintActivity::class.java)
-//            intent.putExtra("uid",auth.currentUser?.uid)
-//            startActivity(intent)
-//        }
-//        manager_complaint_recyclerview.adapter = mAdapter
-//
-//        val lm = LinearLayoutManager(this)
-//        manager_complaint_recyclerview.layoutManager = lm
-//        manager_complaint_recyclerview.setHasFixedSize(true)
-//
+    private lateinit var binding:ActivityManagerComplaintListBinding
+
+    private var fbFirestore: FirebaseFirestore?=null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_manager_complaint_list)
+        binding=ActivityManagerComplaintListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        fbFirestore= FirebaseFirestore.getInstance()
+
+        //database= FirebaseDatabase.getInstance().getReference().child("board")
+
+        val mAdapter = ManagerComplaintListAdapter(this){
+                complaint->
+            //해당 민원 내용프래그먼트로 넘어가기
+            //넘어갈때 해당 내용 서버에서 불러오기
+            //MyConplaintActivity로 넘어가기
+            val intent = Intent(this, ManagerComplaintActivity::class.java)
+            //intent.putExtra("uid",auth.currentUser?.uid)
+            startActivity(intent)
+        }
+
+
+        binding.managerComplaintRecyclerview.adapter = mAdapter
+
+
+        val lm = LinearLayoutManager(this)
+        binding.managerComplaintRecyclerview.layoutManager = lm
+        binding.managerComplaintRecyclerview.setHasFixedSize(true)
+
 //        database.addValueEventListener(object : ValueEventListener {
 //            override fun onCancelled(error: DatabaseError) {
 //                TODO("Not yet implemented")
@@ -76,4 +81,4 @@ class ManagerComplaintListActivity : AppCompatActivity() {
 //        FirebaseDatabase.getInstance()
 //
 //    }
-}
+}}

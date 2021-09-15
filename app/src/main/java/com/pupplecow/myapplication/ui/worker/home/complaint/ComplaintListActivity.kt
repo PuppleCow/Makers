@@ -1,39 +1,50 @@
-package com.pupplecow.myapplication.ui.home.complaint
+package com.pupplecow.myapplication.ui.worker.home.complaint
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.databinding.ActivityComplaintListBinding
 import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListAdapter
 import kotlinx.android.synthetic.main.activity_complaint_list.*
 
 
 class ComplaintListActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityComplaintListBinding
 
     private var fbFirestore:FirebaseFirestore?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint_list)
+        binding= ActivityComplaintListBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         fbFirestore= FirebaseFirestore.getInstance()
 
 //        val mAdapter = ManagerComplaintListAdapter(this, complaintList){
         val mAdapter = ManagerComplaintListAdapter(this) {
                 complaint->
+
+            //도큐먼트 아이디 추출
+            val documentID="6RBnNbKIjWlcgg3PuqAj"
+
+
             //해당 민원 내용프래그먼트로 넘어가기
-            //넘어갈때 해당 내용 서버에서 불러오기
+            //넘어갈때 도큐먼트 아이디 넘기기
             val intent = Intent(this, MyComplaintActivity::class.java)
-            //intent.putExtra("uid",auth.currentUser?.uid)
+            intent.putExtra("DocumentID",documentID)
             startActivity(intent)
         }
-        complaint_list_recyclerview.adapter = mAdapter
+        binding.complaintListRecyclerview.adapter = mAdapter
+
 
         val lm = LinearLayoutManager(this)
-        complaint_list_recyclerview.layoutManager = lm
-        complaint_list_recyclerview.setHasFixedSize(true)
+        binding.complaintListRecyclerview.layoutManager = lm
+        binding.complaintListRecyclerview.setHasFixedSize(true)
     }
 
 }

@@ -1,11 +1,8 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.worker.home
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.CompoundButton
@@ -13,10 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivitySafetyManualQuiz1Binding
-import com.pupplecow.myapplication.ui.home.SafetyManualQuizActivity2
-import android.net.Uri
 import android.os.Build
-import android.os.PersistableBundle
 import android.webkit.WebResourceRequest
 
 class SafetyManualQuizActivity1 : AppCompatActivity() {

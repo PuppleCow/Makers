@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.settings
+package com.pupplecow.myapplication.ui.worker.settings
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

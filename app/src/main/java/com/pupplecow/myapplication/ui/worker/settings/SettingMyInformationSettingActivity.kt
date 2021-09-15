@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.settings
+package com.pupplecow.myapplication.ui.worker.settings
 
 import android.Manifest
 import android.content.DialogInterface

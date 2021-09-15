@@ -1,21 +1,25 @@
 package com.pupplecow.myapplication.ui.manager.home.Complaint
 
-import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.databinding.ActivityManagerComplaintBinding
+import com.pupplecow.myapplication.databinding.ActivityRegister2Binding
 import kotlinx.android.synthetic.main.activity_manager_complaint.*
 
 
 class ManagerComplaintActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityManagerComplaintBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manager_complaint)
+        binding= ActivityManagerComplaintBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         //서버에서 제목,내용,날짜받아오기
-        manager_MyComplaint_text_title.text="민원제목입니다."
-        manager_MyComplaint_text_content.text="민원내용입니다."
+        binding.managerMyComplaintTextTitle.text="민원제목입니다."
+        binding.managerMyComplaintTextContent.text="민원 내용입니다."
 
 
 
@@ -29,8 +33,8 @@ class ManagerComplaintActivity : AppCompatActivity() {
 //        }
 
         //목록버튼
-        manager_MyComplaint_button_list.setOnClickListener {
-            //목록페이지로 넘어가기
+
+        binding.managerMyComplaintButtonList.setOnClickListener {
             finish()
         }
 

@@ -4,12 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintData
+import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintData
 import kotlinx.android.synthetic.main.manager_complaint_list_item.view.*
 
 
@@ -21,7 +20,7 @@ class ManagerComplaintListAdapter(val context: Context, val itemClick: (Complain
     var complaintList:ArrayList<ComplaintData> = arrayListOf(    )
 
     init{
-        firestore?.collection("complaint")?.addSnapshotListener{querySnapshot,firebaseFirestoreException ->
+        firestore?.collection("COMPLAINT")?.addSnapshotListener{querySnapshot,firebaseFirestoreException ->
         // ArrayList 비워줌
             complaintList.clear()
 

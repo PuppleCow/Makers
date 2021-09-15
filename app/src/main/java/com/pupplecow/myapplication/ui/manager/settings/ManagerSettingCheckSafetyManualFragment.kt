@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.FragmentManagerSettingCheckSafetyManualBinding
 import kotlinx.android.synthetic.main.fragment_manager_setting_check_safety_manual.*
 
 class ManagerSettingCheckSafetyManualFragment :Fragment(){

@@ -1,31 +1,47 @@
-package com.pupplecow.myapplication.ui.home.complaint
+package com.pupplecow.myapplication.ui.worker.home.complaint
 
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isInvisible
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.data.Complaint
+import com.pupplecow.myapplication.databinding.ActivityMyComplaintBinding
 import kotlinx.android.synthetic.main.activity_my_complaint.*
 
 
 class MyComplaintActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMyComplaintBinding
+    private var fbFirestore: FirebaseFirestore?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_complaint)
+        binding=ActivityMyComplaintBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        fbFirestore= FirebaseFirestore.getInstance()
+
+
+        //인텐트 가져오기
+        val intent = intent
+
+        val docID=intent.extras!!.getString("DocumentID")
+
 //산업안전 뉴스 제목,링크 불러오기
         //mycomplaint_text_news.text="뉴스 제목입니다."
         //val data = intent.getSerializableExtra("uid")
         //사진 서버에서 가져오기
         //이미지 가져오기(있을때 없을때 구분)
         if(true) {
-            //MyComplaint_imageView.setImageResource(0)
+            //binding.MyComplaintImageView.setImageResource(0)
         }
         else{
-            MyComplaint_imageView.visibility= View.VISIBLE
+            binding.MyComplaintImageView.visibility= View.VISIBLE
         }
 
 //        mycomplaint_text_news.setOnClickListener {
@@ -35,11 +51,30 @@ class MyComplaintActivity : AppCompatActivity() {
 //        }
 
         //서버에서 내용받아오기
-        MyComplaint_text_title.text="민원제목입니다."
-        MyComplaint_text_content.text="민원내용입니다."
+
+        val docRef = fbFirestore!!.collection("COMPLAINT").document(docID.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    //var complaint = document.data
+                    docRef.get().addOnSuccessListener { documentSnapshot ->
+                        val complaint = documentSnapshot.toObject<Complaint>()
+                        binding.MyComplaintTextTitle.text= complaint?.title
+                        binding.MyComplaintTextContent.text=complaint?.body
+                        binding.MyComplaintTextDate.text="${complaint?.month}월 ${complaint?.date}일"
+                    }
+
+                } else {
+                    Log.d("문서 데이터 없음", "No such document")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("문서 데이터 실패", "get failed with ", exception)
+            }
+
 
         //삭제버튼
-        MyComplaint_button_delete.setOnClickListener {
+        binding.MyComplaintButtonDelete.setOnClickListener {
             //민원삭제 다이얼로그
             val builder= AlertDialog.Builder(this)
             builder.setTitle("민원삭제")
@@ -67,7 +102,7 @@ class MyComplaintActivity : AppCompatActivity() {
         }
 
         //수정버튼
-        MyComplaint_button_edit.setOnClickListener {
+        binding.MyComplaintButtonEdit.setOnClickListener {
             //민원삭제 다이얼로그
             val builder= AlertDialog.Builder(this)
             builder.setTitle("민원수정")
@@ -92,7 +127,7 @@ class MyComplaintActivity : AppCompatActivity() {
         }
 
         //목록버튼
-        MyComplaint_button_list.setOnClickListener {
+        binding.MyComplaintButtonList.setOnClickListener {
             //목록페이지로 넘어가기
             //myComplaintListFragment= MyComplaintListFragment.newInstance()
             finish()

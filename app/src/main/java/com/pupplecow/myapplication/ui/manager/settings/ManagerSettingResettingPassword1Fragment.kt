@@ -1,6 +1,5 @@
 package com.pupplecow.myapplication.ui.manager.settings
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
 import kotlinx.android.synthetic.main.fragment_manager_setting_resetting_password1.*
-import com.pupplecow.myapplication.ui.manager.settings.ManagerSettingResettingPassword2Fragement
 
 class ManagerSettingResettingPassword1Fragment:Fragment() {
 

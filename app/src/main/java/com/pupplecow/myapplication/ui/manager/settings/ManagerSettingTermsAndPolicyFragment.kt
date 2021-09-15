@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.databinding.FragmentManagerSettingTermsAndPolicyBinding
 
 class ManagerSettingTermsAndPolicyFragment :Fragment(){
 

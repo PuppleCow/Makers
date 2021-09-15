@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.home
+package com.pupplecow.myapplication.ui.worker.home
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -10,15 +10,15 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.ui.login.CheckInActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.home.complaint.ComplaintActivity
+import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintActivity
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
 class HomeFragment:Fragment() {
+
 
 
     val workspaceData =arrayOf("인천항만","인천항만","인천항만","인천항만","기타")

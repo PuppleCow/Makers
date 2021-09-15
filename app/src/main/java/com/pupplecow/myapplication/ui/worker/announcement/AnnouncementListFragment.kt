@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.announcement
+package com.pupplecow.myapplication.ui.worker.announcement
 
 import android.content.Intent
 import android.os.Bundle
