@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "49282523445-3449psbcro1k182kk40m6b0q1bhlegn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pupplecow.myapplication",
+            "certificate_hash": "9e1788c57c3f94d0373ee247385456ed3ee2fa87"
+          }
+        },
+        {
           "client_id": "49282523445-e38cs7bfo23u7h9ibroe89180t4m7nj2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
