@@ -35,69 +35,69 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         binding = ActivitySettingMyInformationSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 사진 삭제 버튼 안 보이게 하기
-        binding.setting2ImageDelete2.isVisible=false
+//        // 사진 삭제 버튼 안 보이게 하기
+//        binding.setting2ImageDelete2.isVisible=false
+//
+//        @Suppress("DEPRECATION")
+//        requestPermissions(permission_list, 0)
+//
+//         //사진 빈칸 클릭
+//        binding.setting2ImageView.setOnClickListener{
+//
+//            // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
+//            val albumInternet=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+//            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
+//            albumInternet.type="image/*"
+//            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
+//            val mimeType= arrayOf("image/*")
+//            albumInternet.putExtra(Intent.EXTRA_MIME_TYPES,mimeType)
+//            @Suppress("DEPRECATION")
+//            startActivityForResult(albumInternet,0)
+//            binding.setting2ImageDelete2.isVisible=true
+//        }
+//
+//
+//
+//        binding.setting2ImageDelete2.setOnClickListener {
+//            binding.setting2ImageView.setImageResource(0)
+//            binding.setting2ImageDelete2.isVisible=false
+//        }
+//
+//        // 내 정보 저장
+//        binding.setting2Button1.setOnClickListener {
+//
+//            // 입력하지 않은 정보가 있다면
+//            if(binding.setting2EditTextTextPhoneNumber.text.toString()==""||
+//                binding.setting2EditTextTextBirth.text.toString()==""||
+//                binding.setting2EditTextTextOtherNumber.text.toString()=="" ||
+//                binding.setting2EditTextTextBloodType.text.toString()==""){
+//
+//                val t1 = Toast.makeText(this, "입력하지 않은 정보가 있습니다", Toast.LENGTH_SHORT)
+//                t1.show()
+//            }
+//
+//            // 사진 등록이 안 되어있다면
+//            else if(binding.setting2ImageView.getDrawable()==null){
+//                val t1 = Toast.makeText(this, "사진 부분을 클릭하여 사진을 등록해주세요", Toast.LENGTH_SHORT)
+//                t1.show()
+//            }
+//            else{
+//            val t1 = Toast.makeText(this, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
+//            t1.show()
+//        }
+//        }
 
-        @Suppress("DEPRECATION")
-        requestPermissions(permission_list, 0)
-
-         //사진 빈칸 클릭
-        binding.setting2ImageView.setOnClickListener{
-
-            // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
-            val albumInternet=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
-            albumInternet.type="image/*"
-            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
-            val mimeType= arrayOf("image/*")
-            albumInternet.putExtra(Intent.EXTRA_MIME_TYPES,mimeType)
-            @Suppress("DEPRECATION")
-            startActivityForResult(albumInternet,0)
-            binding.setting2ImageDelete2.isVisible=true
-        }
-
-
-
-        binding.setting2ImageDelete2.setOnClickListener {
-            binding.setting2ImageView.setImageResource(0)
-            binding.setting2ImageDelete2.isVisible=false
-        }
-
-        // 내 정보 저장
-        binding.setting2Button1.setOnClickListener {
-
-            // 입력하지 않은 정보가 있다면
-            if(binding.setting2EditTextTextPhoneNumber.text.toString()==""||
-                binding.setting2EditTextTextBirth.text.toString()==""||
-                binding.setting2EditTextTextOtherNumber.text.toString()=="" ||
-                binding.setting2EditTextTextBloodType.text.toString()==""){
-
-                val t1 = Toast.makeText(this, "입력하지 않은 정보가 있습니다", Toast.LENGTH_SHORT)
-                t1.show()
-            }
-
-            // 사진 등록이 안 되어있다면
-            else if(binding.setting2ImageView.getDrawable()==null){
-                val t1 = Toast.makeText(this, "사진 부분을 클릭하여 사진을 등록해주세요", Toast.LENGTH_SHORT)
-                t1.show()
-            }
-            else{
-            val t1 = Toast.makeText(this, "정보가 저장되었습니다", Toast.LENGTH_SHORT)
-            t1.show()
-        }
-        }
-
-        // 비밀번호 변경으로 이동
-        // ResettingPassword1 액티비티로 이동
-        binding.setting2Button4.setOnClickListener{
-//            val intent=Intent(requireContext(), SettingResettingPassword1Fragment::class.java)
+//        // 비밀번호 변경으로 이동
+//        // ResettingPassword1 액티비티로 이동
+//        binding.setting2Button4.setOnClickListener{
+////            val intent=Intent(requireContext(), SettingResettingPassword1Fragment::class.java)
+////            startActivity(intent)
+////            settingResettingPassword1Fragment= SettingResettingPassword1Fragment.newInstance()
+////            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,
+////                settingResettingPassword1Fragment)?.addToBackStack(null)?.commit()
+//            val intent=Intent(this,ResettingPassword1::class.java)
 //            startActivity(intent)
-//            settingResettingPassword1Fragment= SettingResettingPassword1Fragment.newInstance()
-//            val transaction=activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.main_nav_frame,
-//                settingResettingPassword1Fragment)?.addToBackStack(null)?.commit()
-            val intent=Intent(this,ResettingPassword1::class.java)
-            startActivity(intent)
-        }
+//        }
 
         // 회원탈퇴
         binding.setting2Button2.setOnClickListener {
@@ -168,35 +168,35 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        @Suppress("DEPRECATION")
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode == AppCompatActivity.RESULT_OK){
-            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
-            val uri = data?.data
-
-            if(uri != null){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-                    // 안드로이드 10버전 부터
-                    val source = ImageDecoder.createSource(this.contentResolver, uri)
-                    val bitmap = ImageDecoder.decodeBitmap(source)
-                    binding.setting2ImageView.setImageBitmap(bitmap)
-                } else {
-                    // 안드로이드 9버전 까지
-                    val cursor = this.contentResolver.query(uri, null, null, null, null)
-                    if(cursor != null){
-                        cursor.moveToNext()
-                        // 이미지 경로를 가져온다.
-                        @Suppress("DEPRECATION")
-                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                        val source = cursor.getString(index)
-                        // 이미지를 생성한다.
-                        val bitmap = BitmapFactory.decodeFile(source)
-                        binding.setting2ImageView.setImageBitmap(bitmap)
-                    }
-                }
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        @Suppress("DEPRECATION")
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        if(resultCode == AppCompatActivity.RESULT_OK){
+//            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
+//            val uri = data?.data
+//
+//            if(uri != null){
+//                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+//                    // 안드로이드 10버전 부터
+//                    val source = ImageDecoder.createSource(this.contentResolver, uri)
+//                    val bitmap = ImageDecoder.decodeBitmap(source)
+//                    binding.setting2ImageView.setImageBitmap(bitmap)
+//                } else {
+//                    // 안드로이드 9버전 까지
+//                    val cursor = this.contentResolver.query(uri, null, null, null, null)
+//                    if(cursor != null){
+//                        cursor.moveToNext()
+//                        // 이미지 경로를 가져온다.
+//                        @Suppress("DEPRECATION")
+//                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+//                        val source = cursor.getString(index)
+//                        // 이미지를 생성한다.
+//                        val bitmap = BitmapFactory.decodeFile(source)
+//                        binding.setting2ImageView.setImageBitmap(bitmap)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
