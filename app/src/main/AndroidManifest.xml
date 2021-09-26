@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -19,8 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.manager.home.Complaint.ManagerComplaintListActivity"></activity>
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintListActivity" />
+        <activity android:name=".ui.worker.settings.SettingMyInformationSettingChangeActivity"></activity>
+        <activity android:name=".ui.manager.home.Complaint.ManagerComplaintListActivity" />
+        <activity android:name=".ui.worker.home.complaint.ComplaintListActivity" />
         <activity android:name=".ui.manager.home.Complaint.ManagerComplaintActivity" />
         <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
@@ -28,30 +28,32 @@
         <activity android:name=".ui.manager.home.ManagerWorkerInfoActivity" />
         <activity android:name=".ui.manager.settings.ManagerResettingPassword1" />
         <activity android:name=".ui.manager.settings.ManagerResettingPassword2" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.ConfirmWaitingActivity" />
+        <activity android:name=".ui.worker.home.ConfirmWaitingActivity" />
         <activity android:name=".ui.ManagerNavActivity" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.settings.SettingMyInformationSettingActivity"/>
-        <activity android:name="com.pupplecow.myapplication.ui.worker.settings.SettingOpenSourceLicense"/>
-        <activity android:name="com.pupplecow.myapplication.ui.worker.settings.SettingTermsAndPolicy"/>
-        <activity android:name="com.pupplecow.myapplication.ui.worker.settings.SettingCheckSafetyManual"/>
-        <activity android:name="com.pupplecow.myapplication.ui.worker.settings.SettingEmergencyInformationActivity"/>
+        <activity android:name=".ui.worker.settings.SettingMyInformationSettingActivity" />
+        <activity android:name=".ui.worker.settings.SettingOpenSourceLicense" />
+        <activity android:name=".ui.worker.settings.SettingTermsAndPolicy" />
+        <activity android:name=".ui.worker.settings.SettingCheckSafetyManual" />
+        <activity android:name=".ui.worker.settings.SettingEmergencyInformationActivity" />
         <activity android:name=".MainNavActivity" />
         <activity android:name=".ui.login.ResettingPassword2" />
         <activity android:name=".ui.login.ResettingPassword1" />
         <activity android:name=".temporaryStorage.WorkersStatusActivity" />
         <activity android:name=".temporaryStorage.AnnounceMentListActivity" /> <!-- <activity android:name=".Setting" /> -->
-        <activity android:name="com.pupplecow.myapplication.ui.worker.announcement.AnnouncementWorkerActivity" />
+        <activity android:name=".ui.worker.announcement.AnnouncementWorkerActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".temporaryStorage.ManageActivity" />
+
         <activity android:name="com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintActivity" />
         <activity android:name="com.pupplecow.myapplication.ui.worker.home.complaint.WriteComplaintActivity" />
         <activity android:name="com.pupplecow.myapplication.ui.worker.home.SafetyManualQuizActivity3" />
+
         <activity android:name=".ui.login.CheckInActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".temporaryStorage.HomeActivity1" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.SafetyManualQuizActivity2" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.SafetyManualQuizActivity1" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.SafetyManualQuizWebViewActivity1" />
+        <activity android:name=".ui.worker.home.SafetyManualQuizActivity2" />
+        <activity android:name=".ui.worker.home.SafetyManualQuizActivity1" />
+        <activity android:name=".ui.worker.home.SafetyManualQuizWebViewActivity1" />
         <activity android:name=".ui.login.RegisterActivity2" />
         <activity android:name=".ui.login.RegisterActicity1" />
         <activity android:name=".MainActivity">
