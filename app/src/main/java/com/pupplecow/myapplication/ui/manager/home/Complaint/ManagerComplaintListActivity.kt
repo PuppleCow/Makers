@@ -4,19 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
+import com.pupplecow.myapplication.Adapter.ComplaintListAdapter
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivityManagerComplaintListBinding
-import com.pupplecow.myapplication.databinding.ActivityManagerCreateAnnouncementBinding
-import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintData
-import com.pupplecow.myapplication.ui.worker.home.complaint.MyComplaintActivity
-import kotlinx.android.synthetic.main.activity_complaint_list.*
-import kotlinx.android.synthetic.main.activity_manager_complaint_list.*
 
 
 class ManagerComplaintListActivity : AppCompatActivity() {
@@ -34,7 +25,7 @@ class ManagerComplaintListActivity : AppCompatActivity() {
 
         //database= FirebaseDatabase.getInstance().getReference().child("board")
 
-        val mAdapter = ManagerComplaintListAdapter(this){
+        val mAdapter = ComplaintListAdapter(this){
                 complaint->
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 해당 내용 서버에서 불러오기

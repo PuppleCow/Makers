@@ -6,17 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.Complaint
+import com.pupplecow.myapplication.databinding.ActivityComplaintBinding
 import com.pupplecow.myapplication.databinding.ActivityMyComplaintBinding
 import kotlinx.android.synthetic.main.activity_my_complaint.*
 
 
-class MyComplaintActivity : AppCompatActivity() {
-    private lateinit var binding:ActivityMyComplaintBinding
+class ComplaintActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMyComplaintBinding
     private var fbFirestore: FirebaseFirestore?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,11 +87,18 @@ class MyComplaintActivity : AppCompatActivity() {
                         DialogInterface.BUTTON_POSITIVE -> {
 
                             //서버에서 민원삭제
+                            fbFirestore!!.collection("COMPLAINT").document(docID.toString())
+                                .delete()
+                                .addOnSuccessListener {
+                                    Log.d("COMPLAINT", "민원 삭제 성공")
+                                    finish()
+                                }
+                                .addOnFailureListener {
+                                        e -> Log.w("COMPLAINT", "민원 삭제 에러", e)
+                                    Toast.makeText(this@ComplaintActivity, "민원이 삭제되지 않았습니다.", Toast.LENGTH_SHORT).show()
+                                }
 
 
-                            //다음페이지로 넘어가기
-                            //민원 목록페이지로 넘어가기
-                           finish()
                         }
 
                     }
@@ -114,7 +123,8 @@ class MyComplaintActivity : AppCompatActivity() {
 
                         //다음페이지로 넘어가기
                         //민원작성페이지로 넘어가기
-                        val intent = Intent(this@MyComplaintActivity, ComplaintListActivity::class.java)
+                        val intent = Intent(this@ComplaintActivity, WriteComplaintActivity::class.java)
+                        intent.putExtra("DocumentID",docID)
                         startActivity(intent)
                     }
 

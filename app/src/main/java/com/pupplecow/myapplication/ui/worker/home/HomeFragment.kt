@@ -13,7 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.ui.login.CheckInActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintActivity
+import com.pupplecow.myapplication.ui.worker.home.complaint.WriteComplaintActivity
 import kotlinx.android.synthetic.main.activity_home1.*
 import java.util.*
 
@@ -172,7 +172,8 @@ class HomeFragment:Fragment() {
         //현장 민원접수 버튼 눌렀을때
         home_button_complaint.setOnClickListener {
             //민원접수 페이지로 가기
-            val intent = Intent(requireContext(), ComplaintActivity::class.java)
+            val intent = Intent(requireContext(), WriteComplaintActivity::class.java)
+            intent.putExtra("DocumentID","null")
             startActivity(intent)
         }
 

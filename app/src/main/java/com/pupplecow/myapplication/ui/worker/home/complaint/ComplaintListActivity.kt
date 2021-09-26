@@ -2,14 +2,12 @@ package com.pupplecow.myapplication.ui.worker.home.complaint
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivityComplaintListBinding
-import com.pupplecow.myapplication.ui.manager.home.Complaint.ManagerComplaintListAdapter
-import kotlinx.android.synthetic.main.activity_complaint_list.*
+import com.pupplecow.myapplication.Adapter.ComplaintListAdapter
 
 
 class ComplaintListActivity : AppCompatActivity() {
@@ -26,16 +24,16 @@ class ComplaintListActivity : AppCompatActivity() {
         fbFirestore= FirebaseFirestore.getInstance()
 
 //        val mAdapter = ManagerComplaintListAdapter(this, complaintList){
-        val mAdapter = ManagerComplaintListAdapter(this) {
+        val mAdapter = ComplaintListAdapter(this) {
                 complaint->
 
             //도큐먼트 아이디 추출
-            val documentID="6RBnNbKIjWlcgg3PuqAj"
+            val documentID="null"
 
 
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 도큐먼트 아이디 넘기기
-            val intent = Intent(this, MyComplaintActivity::class.java)
+            val intent = Intent(this, ComplaintActivity::class.java)
             intent.putExtra("DocumentID",documentID)
             startActivity(intent)
         }

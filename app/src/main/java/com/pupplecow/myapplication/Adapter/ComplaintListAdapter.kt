@@ -1,4 +1,4 @@
-package com.pupplecow.myapplication.ui.manager.home.Complaint
+package com.pupplecow.myapplication.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,16 +8,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintData
+import com.pupplecow.myapplication.data.Complaint
 import kotlinx.android.synthetic.main.manager_complaint_list_item.view.*
 
 
 //class ManagerComplaintListAdapter(val context: Context,val complaint:ArrayList<ManagerComplaint>, val itemClick: (ManagerComplaint) -> Unit):
-class ComplaintListAdapter(val context: Context, val itemClick: (ComplaintData) -> Unit):
+class ComplaintListAdapter(val context: Context, val itemClick: (Complaint) -> Unit):
     RecyclerView.Adapter<ComplaintListAdapter.Holder>() {
     var firestore:FirebaseFirestore?= FirebaseFirestore.getInstance()
 
-    var complaintList:ArrayList<ComplaintData> = arrayListOf(    )
+    var complaintList:ArrayList<Complaint> = arrayListOf(    )
 
     init{
         firestore?.collection("COMPLAINT")?.addSnapshotListener{querySnapshot,firebaseFirestoreException ->
@@ -25,7 +25,7 @@ class ComplaintListAdapter(val context: Context, val itemClick: (ComplaintData) 
             complaintList.clear()
 
         for (snapshot in querySnapshot!!.documents) {
-            var item = snapshot.toObject(ComplaintData::class.java)
+            var item = snapshot.toObject(Complaint::class.java)
             complaintList.add(item!!)
         }
         notifyDataSetChanged()
@@ -54,14 +54,14 @@ class ComplaintListAdapter(val context: Context, val itemClick: (ComplaintData) 
         }
     }
 
-    inner class Holder(itemView: View, itemClick: (ComplaintData) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    inner class Holder(itemView: View, itemClick: (Complaint) -> Unit) : RecyclerView.ViewHolder(itemView) {
 
         //val complaintPhoto = itemView?.findViewById<ImageView>(R.id.manager_complaint_list_imageview)
         val complaintNum = itemView?.findViewById<TextView>(R.id.manager_complaint_list_number)
         val complaintTitle = itemView?.findViewById<TextView>(R.id.manager_complaint_list_title)
         //val complaintCategory = itemView?.findViewById<TextView>(R.id.manager_complaint_list_category)
 
-        fun bind(complaint: ComplaintData, context: Context) {
+        fun bind(complaint: Complaint, context: Context) {
 
             itemView.setOnClickListener { itemClick(complaint) }
             /* (3) itemView가 클릭됐을 때 처리할 일을 itemClick으로 설정한다.

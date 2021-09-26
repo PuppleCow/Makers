@@ -14,22 +14,25 @@ import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.api.FirebaseApi
 import com.pupplecow.myapplication.data.Complaint
 import com.pupplecow.myapplication.data.UserData
 import com.pupplecow.myapplication.databinding.ActivityComplaintBinding
-import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.activity_home1.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
 
 
-class ComplaintActivity : AppCompatActivity() {
+class WriteComplaintActivity : AppCompatActivity() {
+    private var fbFirestore: FirebaseFirestore?=null
     private lateinit var binding: ActivityComplaintBinding
     private var photoUri: Uri?=null
+
 
     //private var mUid:String=""
 
@@ -47,6 +50,39 @@ class ComplaintActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complaint)
+
+        fbFirestore= FirebaseFirestore.getInstance()
+
+        //수정할때 필요한코드
+        val intent = intent
+        var docID:String?="null"
+        docID=intent.extras!!.getString("DocumentID")
+        if(docID!="null"){
+            val docRef = fbFirestore!!.collection("COMPLAINT").document(docID.toString())
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        //var complaint = document.data
+                        docRef.get().addOnSuccessListener { documentSnapshot ->
+                            val complaint = documentSnapshot.toObject<Complaint>()
+                            //binding.MyComplaintTextTitle.text= complaint?.title
+                                binding.complaintEditTextTextMultiLine.setText(complaint?.body)
+
+                            binding.complaintSpinnerCategory.prompt=complaint?.category
+
+                        }
+
+                    } else {
+                        Log.d("문서 데이터 없음", "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d("문서 데이터 실패", "get failed with ", exception)
+                }
+            //수정하는 페이지
+
+
+        }
 
         //바인딩을 위한 코드
         binding= ActivityComplaintBinding.inflate(layoutInflater)
@@ -100,7 +136,8 @@ class ComplaintActivity : AppCompatActivity() {
         }
 
         //사진삭제버튼
-        complaint_button_image_delete.setOnClickListener {
+
+        binding.complaintButtonImageDelete.setOnClickListener {
             complaint_imageView.setImageResource(0)
             complaint_button_image_delete.visibility=View.INVISIBLE
         }
@@ -108,7 +145,7 @@ class ComplaintActivity : AppCompatActivity() {
 
 
         //등록하기버튼
-        complaint_button_enroll.setOnClickListener {
+        binding.complaintButtonEnroll.setOnClickListener {
             //textarea비어있는지 확인
             if(complaint_editTextTextMultiLine.text.toString()=="") {
                 //비어있으면 작성해주세요 다이얼로그
@@ -194,9 +231,9 @@ class ComplaintActivity : AppCompatActivity() {
 //
 //
         //나의 민원 보기 버튼
-        complaint_button_mycomplaint.setOnClickListener {
+        binding.complaintButtonMycomplaint.setOnClickListener {
             //MyConplaintActivity로 넘어가기
-            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
+            val intent = Intent(this@WriteComplaintActivity, ComplaintListActivity::class.java)
             startActivity(intent)
         }
 
