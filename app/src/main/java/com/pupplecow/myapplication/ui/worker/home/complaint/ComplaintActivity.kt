@@ -1,231 +1,139 @@
 package com.pupplecow.myapplication.ui.worker.home.complaint
-import android.Manifest
+
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
-import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.api.FirebaseApi
 import com.pupplecow.myapplication.data.Complaint
-import com.pupplecow.myapplication.data.UserData
-import com.pupplecow.myapplication.databinding.ActivityComplaintBinding
-import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
-import kotlinx.android.synthetic.main.activity_complaint.*
-import kotlinx.android.synthetic.main.activity_home1.*
-import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
-import java.util.*
+import com.pupplecow.myapplication.databinding.ActivityMyComplaintBinding
+import kotlinx.android.synthetic.main.activity_my_complaint.*
 
 
-class ComplaintActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityComplaintBinding
-    private var photoUri: Uri?=null
-
-    //private var mUid:String=""
-
-    var userData: UserData?=null
-    var auth = Firebase.auth
-
-
-    val permission_list = arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
-    )
-    //민원항목
-    val complaintCategoryData= arrayOf("불편사항 접수","불법행위 신고","시설물 파손 신고/수리요청","환경오염 행위 신고","기타")
-
+class MyComplaintActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMyComplaintBinding
+    private var fbFirestore: FirebaseFirestore?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_complaint)
-
-        //바인딩을 위한 코드
-        binding= ActivityComplaintBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_my_complaint)
+        binding=ActivityMyComplaintBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //파이어스토어 파이어베이스
-        auth= FirebaseAuth.getInstance()
+        fbFirestore= FirebaseFirestore.getInstance()
 
 
+        //인텐트 가져오기(문서 아이디 가져오기)
+        val intent = intent
+        val docID=intent.extras!!.getString("DocumentID")
 
-        //유저 데이터 가져오기
-        auth.uid?.let {
-            FirebaseApi().getUserData(it){isSuccess,message,data ->
-                Log.e("UserData","$isSuccess $message $data")
-                if(isSuccess){
-                    userData=data
-                }
-            }
+//산업안전 뉴스 제목,링크 불러오기
+        //mycomplaint_text_news.text="뉴스 제목입니다."
+        //val data = intent.getSerializableExtra("uid")
+        //사진 서버에서 가져오기
+        //이미지 가져오기(있을때 없을때 구분)
+        if(true) {
+            //binding.MyComplaintImageView.setImageResource(0)
         }
-//        //산업안전 뉴스 제목,링크 불러오기
-//        complaint_text_news.text="뉴스 제목입니다."
-//        complaint_text_news.setOnClickListener {
+        else{
+            binding.MyComplaintImageView.visibility= View.VISIBLE
+        }
+
+//        mycomplaint_text_news.setOnClickListener {
 //            var intent =
 //                Intent(Intent.ACTION_VIEW, Uri.parse("https://www.news1.kr/articles/?4386702"))
 //            startActivity(intent)
 //        }
 
-        binding.complaintButtonImageDelete.isVisible=false
-        //민원항목 선택 스피너
+        //서버에서 내용받아오기
 
-        val complaintAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,complaintCategoryData)
-        complaintAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.complaintSpinnerCategory.adapter= complaintAdapter
+        val docRef = fbFirestore!!.collection("COMPLAINT").document(docID.toString())
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null) {
+                    //var complaint = document.data
+                    docRef.get().addOnSuccessListener { documentSnapshot ->
+                        val complaint = documentSnapshot.toObject<Complaint>()
+                        binding.MyComplaintTextTitle.text= complaint?.title
+                        binding.MyComplaintTextContent.text=complaint?.body
+                        binding.MyComplaintTextDate.text="${complaint?.month}월 ${complaint?.date}일"
+                    }
 
-
-        @Suppress("DEPRECATION")
-        requestPermissions(permission_list, 0)
-
-        //사진첨부버튼
-        binding.complaintImageView.setOnClickListener {
-            // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
-            val albumIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
-            albumIntent.type = "image/*"
-            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
-            val mimeType = arrayOf("image/*")
-            albumIntent.putExtra(Intent.EXTRA_MIME_TYPES, mimeType)
-            @Suppress("DEPRECATION")
-            startActivityForResult(albumIntent, 0)
-            //complaint_button_image_delete.visibility=View.VISIBLE
-        }
-
-        //사진삭제버튼
-        complaint_button_image_delete.setOnClickListener {
-            complaint_imageView.setImageResource(0)
-            complaint_button_image_delete.visibility=View.INVISIBLE
-        }
-
-
-
-        //등록하기버튼
-        complaint_button_enroll.setOnClickListener {
-            //textarea비어있는지 확인
-            if(complaint_editTextTextMultiLine.text.toString()=="") {
-                //비어있으면 작성해주세요 다이얼로그
-                val builder= AlertDialog.Builder(this)
-                builder.setTitle("민원접수")
-                builder.setMessage("민원내용을 작성해주세요")
-                builder.setPositiveButton("네",null)
-                builder.show()
+                } else {
+                    Log.d("문서 데이터 없음", "No such document")
+                }
             }
-            else {
-                //민원접수 다이얼로그
-                val builder= AlertDialog.Builder(this)
-                builder.setTitle("민원접수")
-                builder.setMessage("민원내용을 접수하시겠습니까?")
-                var listener = object : DialogInterface.OnClickListener {
-                    override fun onClick(p0: DialogInterface?, p1: Int) {
-                        when (p1) {
-                            //"네" 눌렀을때
-                            DialogInterface.BUTTON_POSITIVE -> {
-
-                                //민원시간 표시
-                                val homeNow = Calendar.getInstance()
-                                val year = homeNow.get(Calendar.YEAR).toString()
-                                val mMonth = (homeNow.get(Calendar.MONTH)+1).toString()
-                                val mDate = homeNow.get(Calendar.DATE).toString()
-                                val hour = homeNow.get(Calendar.HOUR).toString()
-                                val minute = homeNow.get(Calendar.MINUTE).toString()
-
-                                //민원항목
-                                val complaintCategory =
-                                    complaintCategoryData[complaint_spinner_category.selectedItemPosition]
+            .addOnFailureListener { exception ->
+                Log.d("문서 데이터 실패", "get failed with ", exception)
+            }
 
 
-//                                var dataInput= Complaint(
-//                                    mUid,
-//                                    mMont
-//                                    month,date,complaintCategory,
-//                                    //complaint_editText_title.text.toString(),
-//                                    complaint_editTextTextMultiLine.text.toString()
-//                                )
+        //삭제버튼
+        binding.MyComplaintButtonDelete.setOnClickListener {
+            //민원삭제 다이얼로그
+            val builder= AlertDialog.Builder(this)
+            builder.setTitle("민원삭제")
+            builder.setMessage("민원내용을 삭제하시겠습니까?")
+            var listener = object : DialogInterface.OnClickListener {
+                override fun onClick(p0: DialogInterface?, p1: Int) {
+                    when (p1) {
+                        //"네" 눌렀을때
+                        DialogInterface.BUTTON_POSITIVE -> {
 
-                                Log.e("COMPLAINT","현장 민원 접수 $title 민원글 올라가는지 확인하는 로그")
-                                var dataInput=Complaint().apply{
-                                    this.uid=auth.uid!!
-                                    this.category=complaintCategory
-                                    this.body=complaint_editTextTextMultiLine.text.toString()
-                                    this.month=mMonth
-                                    this.date=mDate
-                                    this.imageUri=photoUri.toString()
-                                    this.title=this.body.substring(0,min(10,body.length))
-                                    this.writerName=userData?.name?:""
+                            //서버에서 민원삭제
 
-                                }
-                                FirebaseApi().writeComplaint(dataInput){_,_->}
-                                //fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
-                                //fbFirestore?.collection("complaint")?.add(dataInput)
 
-                                //다음페이지로 넘어가기
-                                //MyConplaintActivity로 넘어가기
-//                                val intent = Intent(this@ComplaintActivity, MyComplaintActivity::class.java)
-//                                startActivity(intent)
-                                setResult(RESULT_OK)
-                                finish()
-                            }
-
+                            //다음페이지로 넘어가기
+                            //민원 목록페이지로 넘어가기
+                           finish()
                         }
+
                     }
                 }
-                builder.setNegativeButton("아니오",null)
-                builder.setPositiveButton("네",listener)
-                builder.show()
             }
+            builder.setNegativeButton("아니오",listener)
+            builder.setPositiveButton("네",listener)
+            builder.show()
         }
 
+        //수정버튼
+        binding.MyComplaintButtonEdit.setOnClickListener {
+            //민원삭제 다이얼로그
+            val builder= AlertDialog.Builder(this)
+            builder.setTitle("민원수정")
+            builder.setMessage("민원내용을 수정하시겠습니까?")
+            var listener = DialogInterface.OnClickListener { p0, p1 ->
+                when (p1) {
+                    //"네" 눌렀을때
+                    DialogInterface.BUTTON_POSITIVE -> {
 
 
-//        //전화걸기 버튼
-//        complaint_button_phonecall.setOnClickListener {
-//            var intent = Intent(Intent.ACTION_DIAL)
-//            intent.data = Uri.parse("tel:01012345678")
-//            startActivity(intent)
-//        }
-//
-//
-        //나의 민원 보기 버튼
-        complaint_button_mycomplaint.setOnClickListener {
-            //MyConplaintActivity로 넘어가기
-            val intent = Intent(this@ComplaintActivity, ComplaintListActivity::class.java)
-            startActivity(intent)
-        }
+                        //다음페이지로 넘어가기
+                        //민원작성페이지로 넘어가기
+                        val intent = Intent(this@MyComplaintActivity, ComplaintListActivity::class.java)
+                        startActivity(intent)
+                    }
 
-
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        @Suppress("DEPRECATION")
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if(resultCode == AppCompatActivity.RESULT_OK){
-            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
-            photoUri = data?.data
-
-            if(photoUri != null){
-                Glide.with(this).load(photoUri).into(complaint_imageView)
-
+                }
             }
+            builder.setNegativeButton("아니오",listener)
+            builder.setPositiveButton("네",listener)
+            builder.show()
         }
-    }
 
-    fun min(a:Int,b:Int):Int{
-        return if(a<b){
-            a
-        }else{
-            b
+        //목록버튼
+        binding.MyComplaintButtonList.setOnClickListener {
+            //목록페이지로 넘어가기
+            //myComplaintListFragment= MyComplaintListFragment.newInstance()
+            finish()
+
         }
-    }
 
+
+
+    }
 }
-
-
-

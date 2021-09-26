@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.manager_complaint_list_item.view.*
 
 
 //class ManagerComplaintListAdapter(val context: Context,val complaint:ArrayList<ManagerComplaint>, val itemClick: (ManagerComplaint) -> Unit):
-class ManagerComplaintListAdapter(val context: Context, val itemClick: (ComplaintData) -> Unit):
-    RecyclerView.Adapter<ManagerComplaintListAdapter.Holder>() {
+class ComplaintListAdapter(val context: Context, val itemClick: (ComplaintData) -> Unit):
+    RecyclerView.Adapter<ComplaintListAdapter.Holder>() {
     var firestore:FirebaseFirestore?= FirebaseFirestore.getInstance()
 
     var complaintList:ArrayList<ComplaintData> = arrayListOf(    )
