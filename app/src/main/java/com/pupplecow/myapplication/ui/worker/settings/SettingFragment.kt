@@ -1,10 +1,16 @@
 package com.pupplecow.myapplication.ui.worker.settings
 
+import android.Manifest
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.pupplecow.myapplication.databinding.FragmentSettingBinding
 
@@ -23,6 +29,14 @@ class SettingFragment:Fragment() {
 //        private lateinit var settingCheckSafetyManualFragment: SettingCheckSafetyManualFragment
     }
 
+
+    // 사진을 가져오기 위한 권한을 확인하는 코드
+    val permission_list = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.ACCESS_MEDIA_LOCATION
+    )
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?{
        _binding= FragmentSettingBinding.inflate(inflater,container,false)
         return binding.root
@@ -30,6 +44,25 @@ class SettingFragment:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        @Suppress("DEPRECATION")
+        requestPermissions(permission_list, 0)
+
+
+        // 사진 저장
+        // 처음엔 기본 이미지, 등록 후엔 변경된 이미지 보여주기
+        binding.fragmentSetting1MyImage.setOnClickListener {
+            // 앨범에서 사진을 선택할 수 있는 액티비티를 실행한다.
+            val albumInternet=Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            // 실행할 액티비티의 타입을 설정(이미지를 선택할 수 있는 것)
+            albumInternet.type="image/*"
+            // 선택할 파일의 타입을 지정(안드로이드 OS가 사전작업을 할 수 있도록)
+            val mimeType= arrayOf("image/*")
+            albumInternet.putExtra(Intent.EXTRA_MIME_TYPES,mimeType)
+            @Suppress("DEPRECATION")
+            startActivityForResult(albumInternet,0)
+        }
+
 
         // 내 정보 설정
         binding.fragmentSetting1TextView4.setOnClickListener {
@@ -76,6 +109,38 @@ class SettingFragment:Fragment() {
         binding.fragmentSetting1TextView8.setOnClickListener {
             val emergencyInformaion_intent= Intent(requireContext(),SettingEmergencyInformationActivity::class.java)
             startActivity(emergencyInformaion_intent)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        @Suppress("DEPRECATION")
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == AppCompatActivity.RESULT_OK){
+            // 선택한 이미지의 경로 데이터를 관리하는 Uri 객체를 추출한다.
+            val uri = data?.data
+
+            if(uri != null){
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                    // 안드로이드 10버전 부터
+                    val source = ImageDecoder.createSource(this.requireActivity().contentResolver, uri)
+                    val bitmap = ImageDecoder.decodeBitmap(source)
+                    binding.fragmentSetting1MyImage.setImageBitmap(bitmap)
+                } else {
+                    // 안드로이드 9버전 까지
+                    val cursor = this.requireActivity().contentResolver.query(uri, null, null, null, null)
+                    if(cursor != null){
+                        cursor.moveToNext()
+                        // 이미지 경로를 가져온다.
+                        @Suppress("DEPRECATION")
+                        val index = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+                        val source = cursor.getString(index)
+                        // 이미지를 생성한다.
+                        val bitmap = BitmapFactory.decodeFile(source)
+                        binding.fragmentSetting1MyImage.setImageBitmap(bitmap)
+                    }
+                }
+            }
         }
     }
 }

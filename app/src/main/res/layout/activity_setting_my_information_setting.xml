@@ -129,7 +129,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/setting2_my_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"
@@ -159,7 +159,7 @@
                     android:textColor="@color/black" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/setting2_my_birth"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"

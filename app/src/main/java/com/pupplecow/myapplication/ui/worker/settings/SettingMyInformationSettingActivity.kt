@@ -35,6 +35,15 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         binding = ActivitySettingMyInformationSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 이름 가져오기
+        binding.setting2MyName
+
+        // 전화번호 가져오기
+        binding.setting2MyPhone
+
+        // 생년월일 가져오기
+        binding.setting2MyBirth
+
 //        // 사진 삭제 버튼 안 보이게 하기
 //        binding.setting2ImageDelete2.isVisible=false
 //
@@ -167,7 +176,7 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
             builder.show()
         }
     }
-
+//
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        @Suppress("DEPRECATION")
 //        super.onActivityResult(requestCode, resultCode, data)

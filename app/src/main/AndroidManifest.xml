@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.worker.settings.SettingMyInformationSettingChangeActivity"></activity>
+        <activity android:name=".ui.worker.settings.SettingEmergencyInformationChangeActivity"></activity>
+        <activity android:name=".ui.worker.settings.SettingMyInformationSettingChangeActivity" />
         <activity android:name=".ui.manager.home.Complaint.ManagerComplaintListActivity" />
         <activity android:name=".ui.worker.home.complaint.ComplaintListActivity" />
         <activity android:name=".ui.manager.home.Complaint.ManagerComplaintActivity" />
@@ -43,11 +44,9 @@
         <activity android:name=".ui.worker.announcement.AnnouncementWorkerActivity" />
         <activity android:name=".EmergencyNoticeActivity" />
         <activity android:name=".temporaryStorage.ManageActivity" />
-
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.complaint.ComplaintActivity" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.complaint.WriteComplaintActivity" />
-        <activity android:name="com.pupplecow.myapplication.ui.worker.home.SafetyManualQuizActivity3" />
-
+        <activity android:name=".ui.worker.home.complaint.ComplaintActivity" />
+        <activity android:name=".ui.worker.home.complaint.WriteComplaintActivity" />
+        <activity android:name=".ui.worker.home.SafetyManualQuizActivity3" />
         <activity android:name=".ui.login.CheckInActivity" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".temporaryStorage.HomeActivity1" />

@@ -37,24 +37,45 @@
         android:layout_width="match_parent"
         android:layout_height="10dp" />
 
-    <TextView
-        android:id="@+id/fragment_setting1_textView2"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/notosans_bold"
-        android:text="ooo님"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#393939" />
+        android:orientation="horizontal"
+        android:paddingStart="16dp">
 
-    <TextView
-        android:id="@+id/fragment_setting1_textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/notosans_medium"
-        android:text="반갑습니다"
-        android:textAlignment="center"
-        android:textColor="@color/black" />
+        <ImageView
+            android:id="@+id/fragment_setting1_my_image"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fragment_setting1_textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_bold"
+                android:paddingStart="8dp"
+                android:text="ooo님"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#393939" />
+
+            <TextView
+                android:id="@+id/fragment_setting1_textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_medium"
+                android:paddingStart="8dp"
+                android:text="반갑습니다"
+                android:textAlignment="textStart"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
