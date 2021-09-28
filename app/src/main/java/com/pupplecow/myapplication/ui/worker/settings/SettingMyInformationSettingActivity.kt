@@ -35,6 +35,12 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         binding = ActivitySettingMyInformationSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 수정 버튼 누르면 이동하기
+        binding.setting2Change.setOnClickListener {
+            val intent=Intent(this,SettingMyInformationSettingChangeActivity::class.java)
+            startActivity(intent)
+        }
+
         // 이름 가져오기
         binding.setting2MyName
 
