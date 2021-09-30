@@ -25,6 +25,7 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.UserData
 
 import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
+import com.pupplecow.myapplication.ui.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_register1.*
 import java.util.concurrent.TimeUnit
 
@@ -297,13 +298,13 @@ class RegisterActicity1 : AppCompatActivity() {
 
     private fun verifyPhoneNumberWithCode(credential: PhoneAuthCredential) {
 
-        mAuth.signInWithCredential(credential)
+        mAuth.currentUser!!.linkWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     //인증성공
                     isPhoneNumberVrify=true
                     binding.registerNumberAuth.isVisible=true
-                        //updateUserData()
+                        updateUserData()
                     // Sign in success, update UI with the signed-in user's information
                     //Log.d(TAG, "signInWithCredential:success")
 
@@ -316,6 +317,7 @@ class RegisterActicity1 : AppCompatActivity() {
                     //Log.w(TAG, "signInWithCredential:failure", task.exception)
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
+                        Log.e("Exciprtoni",task.exception?.message.toString())
                     }
                     // Update UI
                 }
@@ -375,10 +377,21 @@ class RegisterActicity1 : AppCompatActivity() {
         //파이어베이스 데이터 베이스 루트
         Firebase.database.reference.child("users").child(myUid!!).setValue(user)
             .addOnSuccessListener {
-                mAuth.signOut()
+
+                //mAuth.signOut()
                 //Toast.makeText(this,"")
 
-                finish()
+                //finish()
+
+                if(mUserType==0){
+                    val intent=Intent(this,ManagerNavActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    val intent=Intent(this,MainNavActivity::class.java)
+                    startActivity(intent)
+                }
+
+
             }
 
 

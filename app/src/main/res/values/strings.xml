@@ -16,6 +16,7 @@
     <string name="underline_3"><u>주민등록번호지속처리동의(권장)</u></string>
     <string name="underline_4"><u>출근 안내등 정보 이용 동의(권장)</u></string>
     <string name="underline_약관보기"><u>약관보기</u></string>
+    <string name="default_notification_channel_id">defalut_fcm</string>
 
 
 </resources>

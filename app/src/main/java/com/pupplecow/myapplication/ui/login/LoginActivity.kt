@@ -13,10 +13,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.api.FirebaseApi
@@ -42,6 +45,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        if(auth.currentUser!=null){
+            updateUI(auth.currentUser)
+        }
 
         googleLoginInit()
         binding.loginGoogle.setOnClickListener {
@@ -243,49 +251,83 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         //데이터베이스에 있는지 없는지 체크
         if (user != null) {
-            FirebaseApi().getUserData(user.uid) { isSuccess, message, data ->
-                Log.e("getUserData","$isSuccess $message $data")
-                if(isSuccess){
-                    //
-                    if(data==null){
-                        //회원가입 페이지로 넘어가기
-                        val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
-                        startActivity(intent)
-                        finish()
+            getFcmToken()
+        }
+//            FirebaseApi().getUserData(user.uid) { isSuccess, message, data ->
+//                Log.e("getUserData","$isSuccess $message $data")
+//                if(isSuccess){
+//                    //
+//                    if(data==null){
+//                        //회원가입 페이지로 넘어가기
+//                        val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
+//                        startActivity(intent)
+//                        finish()
+//
+//                    }else{
+//                        //유저타입 분기
+//                        when(data.userType){
+//                            0->{
+//                                //관리자
+//                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+//
+//                                val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
+//                                startActivity(intent)
+//                                finish()
+//                            }
+//                            else->{
+//                                //근무자
+//                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
+//
+//                                val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
+//                                startActivity(intent)
+//                                finish()
+//                            }
+//                        }
+//                    }
+//                    Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
+//                }else{
+//                    Toast.makeText(this,isSuccess.toString()+data?.uid.toString(),Toast.LENGTH_SHORT).show()
+//                    //회원가입 페이지로 넘어가기
+//                    val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
+//                    startActivity(intent)
+//                    finish()
+//                }
+//
+//            }
+//        }
+    }
 
-                    }else{
-                        //유저타입 분기
-                        when(data.userType){
-                            0->{
-                                //관리자
-                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
 
-                                val intent = Intent(this@LoginActivity, ManagerNavActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-                            else->{
-                                //근무자
-                                Toast.makeText(this@LoginActivity, "정상적으로 로그인되었습니다.", Toast.LENGTH_SHORT).show()
-
-                                val intent = Intent(this@LoginActivity, MainNavActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            }
-                        }
-                    }
-                    Toast.makeText(this,isSuccess.toString()+data.toString(),Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this,isSuccess.toString()+data?.uid.toString(),Toast.LENGTH_SHORT).show()
-                    //회원가입 페이지로 넘어가기
-                    val intent = Intent(this@LoginActivity, RegisterActicity1::class.java)
-                    startActivity(intent)
-                    finish()
+        private fun getFcmToken() {
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Log.w("FCM", "Fetching FCM registration token failed", task.exception)
+                    return@OnCompleteListener
                 }
 
-            }
+                // Get new FCM registration token
+                val token = task.result
+
+                // Log and toast
+                val msg = token.toString()
+                Log.d("FCM", msg)
+                Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+
+                //토큰은 한기기에 하나(일대일 대응)
+                //리얼타임데이터베이스의 루트 -> 유저s->uid -> fcm token에 msg를 setvalue
+                Firebase.database.reference
+                    .child("users")
+                    .child(auth.uid!!)
+                    .child("fcmToken")
+                    .setValue(
+                        msg
+                    ).addOnCompleteListener {
+                        val intent=Intent(this,MainNavActivity::class.java)
+                        startActivity(intent)
+                    }
+            })
         }
-    }
+
     // [END auth_with_google]
 
     private fun googleLoginInit() {
