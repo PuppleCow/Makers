@@ -213,7 +213,7 @@
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/setting6_textView17"
+                android:id="@+id/setting6_other_disease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_regular"

@@ -20,6 +20,24 @@ class SettingEmergencyInformationActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
+        // 보호자 연락처 가져오기
+        binding.setting6EmergencyPhone
+
+        // 혈액형
+        binding.setting6BloodType
+
+        // 특이사항
+        // 당뇨
+        binding.setting6Diabetes
+
+        // 고혈압
+        binding.setting6HighBloodPressure
+
+        // 고지혈증
+        binding.setting6Hyperlipidemia
+
+        // 기타
+        binding.setting6OtherDisease
 
     }
 }
