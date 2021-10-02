@@ -199,7 +199,7 @@ class WriteComplaintActivity : AppCompatActivity() {
                                     this.writerName=userData?.name?:""
 
                                 }
-                                FirebaseApi().writeComplaint(dataInput){_,_->}
+                                FirebaseApi().writeComplaint(docID?:"null",dataInput){_,_->}
                                 //fbFirestore?.collection("complaint")?.document(fbAuth?.uid.toString())?.set(dataInput)
                                 //fbFirestore?.collection("complaint")?.add(dataInput)
 

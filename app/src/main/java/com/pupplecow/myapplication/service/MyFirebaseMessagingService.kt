@@ -24,6 +24,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      *
      * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
      */
+    //
     // [START receive_message]
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         // [START_EXCLUDE]
@@ -56,6 +57,8 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
             Log.d(TAG, "Message Notification Body: ${it.body}")
+            //포어그라운드에서도 작동
+            sendNotification(it.body.toString())
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -140,6 +143,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             val channel = NotificationChannel(channelId,
                 "Channel human readable title",
                 //중요도 보통
+                //NotificationManager.IMPORTANCE_DEFAULT)
                 NotificationManager.IMPORTANCE_DEFAULT)
                 //중요: 상태표시줄, 진동, 헤드 노티뜸
             notificationManager.createNotificationChannel(channel)

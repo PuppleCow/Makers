@@ -43,9 +43,9 @@ class FirebaseApi :Contract.firebaseDatabase {
             })
     }
 
-    override fun writeComplaint(data: Complaint, callback: (Boolean, String) -> Unit) {
+    override fun writeComplaint(docId:String,data: Complaint, callback: (Boolean, String) -> Unit) {
         val ref=firestore.collection("COMPLAINT")
-        val id=ref.document().id
+        val id=if(docId=="null") ref.document().id else docId
 
         //파일 업로드
         val imageRef=storage.child("COMPLAINT").child(id+".jpg")

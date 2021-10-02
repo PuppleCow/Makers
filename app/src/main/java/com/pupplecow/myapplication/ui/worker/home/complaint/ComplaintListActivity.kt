@@ -2,18 +2,24 @@ package com.pupplecow.myapplication.ui.worker.home.complaint
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.databinding.ActivityComplaintListBinding
 import com.pupplecow.myapplication.Adapter.ComplaintListAdapter
+import com.pupplecow.myapplication.data.Complaint
+import com.pupplecow.myapplication.view.LinearLayoutManagerWrapper
 
 
 class ComplaintListActivity : AppCompatActivity() {
     private lateinit var binding:ActivityComplaintListBinding
 
-    private var fbFirestore:FirebaseFirestore?=null
+    private val db=Firebase.firestore
+    private val complaintList:ArrayList<Complaint> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,28 +27,54 @@ class ComplaintListActivity : AppCompatActivity() {
         binding= ActivityComplaintListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        fbFirestore= FirebaseFirestore.getInstance()
+
 
 //        val mAdapter = ManagerComplaintListAdapter(this, complaintList){
         val mAdapter = ComplaintListAdapter(this) {
                 complaint->
 
             //도큐먼트 아이디 추출
-            val documentID="null"
+            //val documentID="null"
 
 
             //해당 민원 내용프래그먼트로 넘어가기
             //넘어갈때 도큐먼트 아이디 넘기기
             val intent = Intent(this, ComplaintActivity::class.java)
-            intent.putExtra("DocumentID",documentID)
+            intent.putExtra("DocumentID",complaint.key)
             startActivity(intent)
         }
         binding.complaintListRecyclerview.adapter = mAdapter
 
 
-        val lm = LinearLayoutManager(this)
+        val lm = LinearLayoutManagerWrapper(this,LinearLayoutManager.VERTICAL,false)
         binding.complaintListRecyclerview.layoutManager = lm
         binding.complaintListRecyclerview.setHasFixedSize(true)
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadData()
+    }
+
+    private fun loadData() {
+        db.collection("COMPLAINT")
+            //.whereEqualTo("writerName", "최지혜")  //조건 추가 가능
+            .get()
+            .addOnSuccessListener { documents ->
+                complaintList.clear()
+                for (document in documents) {
+                    Log.e("COMPLAINT", "${document.id} => ${document.data}")
+                    val data=document.toObject(Complaint::class.java)
+                    data.key=document.id
+                    complaintList.add(data)
+                }
+                (binding.complaintListRecyclerview.adapter as ComplaintListAdapter).setDatas(complaintList)
+            }
+            .addOnFailureListener { exception ->
+                Log.w("", "Error getting documents: ", exception)
+            }
     }
 
 }

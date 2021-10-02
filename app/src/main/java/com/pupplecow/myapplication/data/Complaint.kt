@@ -13,6 +13,7 @@ import androidx.annotation.Keep
 
 @Keep
 data class Complaint (
+    var key:String?=null,
     var uid:String="",
     var replyUid:String?=null,
 

@@ -7,7 +7,7 @@ import com.pupplecow.myapplication.data.UserData
 interface Contract {
     interface firebaseDatabase{
         fun getUserData(uid: String, callback: (Boolean, String,UserData?) -> Unit)
-        fun writeComplaint(data: Complaint, callback: (Boolean, String) -> Unit)
+        fun writeComplaint(docId:String,data: Complaint, callback: (Boolean, String) -> Unit)
         //fun updatePhoneNumber(uid:String,phonenumber:Int,callback: (Boolean, String) -> Unit)
     }
 }
