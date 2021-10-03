@@ -11,8 +11,20 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.pupplecow.myapplication.R
 
-class workersStatusListAdapter(val context: Context, val workersList: ArrayList<workersStatus>,val itemClick:(workersStatus)->Unit)  :
+class workersStatusListAdapter(val context: Context, val workersList: ArrayList<workersStatus>,val itemClick:(workersStatus)->Unit,val checkClick:(String,Boolean)->Unit)  :
     RecyclerView.Adapter<workersStatusListAdapter.Holder>() {
+
+    fun changeCheck(position: Int,checked:Boolean){
+        workersList[position].checked=checked
+        notifyItemChanged(position)
+    }
+
+    fun changeCheckAll(checked: Boolean){
+        for(worker in workersList){
+            worker.checked=checked
+        }
+        notifyItemRangeChanged(0,workersList.size)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.workers_status_item, parent, false)
@@ -46,8 +58,14 @@ class workersStatusListAdapter(val context: Context, val workersList: ArrayList<
             else if(worker.confirm=="승인"){
                 workersNoneConfirm.isVisible=true
                 workersConfirm.isInvisible=true
+                worker
 
             }
+
+
+            workersNoneConfirm.isChecked =worker.checked
+
+
 
             workersName?.text=worker.workerName
             workersPhoneNum?.text=worker.phoneNumber
@@ -56,6 +74,7 @@ class workersStatusListAdapter(val context: Context, val workersList: ArrayList<
             workersmanager?.text=worker.manager
 
             itemView.setOnClickListener { itemClick(worker) }
+            workersNoneConfirm.setOnClickListener{checkClick(worker.key!!,workersNoneConfirm.isChecked)}
         }
     }
 }

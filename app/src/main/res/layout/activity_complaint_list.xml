@@ -27,6 +27,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        <!--inputType줄바꿈이 안됨(키보드의 기본입력형태)-->
+        <EditText
+            android:id="@+id/searchEt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="8dp"
+            android:inputType="textEmailSubject"
+            android:maxLength="30" />
+
+        <ImageView
+            android:id="@+id/searchClearIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:onClick="onClick"
+            android:src="@drawable/ic_baseline_close_24"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginEnd="12dp"/>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/searchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/main_color"
+            android:textColor="@color/white"
+            android:onClick="onClick"
+            android:text="검색"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="37dp"
