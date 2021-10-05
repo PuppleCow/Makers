@@ -22,7 +22,6 @@ class ComplaintActivity : AppCompatActivity() {
     private var fbFirestore: FirebaseFirestore?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_complaint)
         binding=ActivityMyComplaintBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

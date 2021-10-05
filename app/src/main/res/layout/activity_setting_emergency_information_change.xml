@@ -20,7 +20,7 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="30dp" />
 
             <TextView
                 android:id="@+id/setting6_change_textView"
@@ -47,11 +47,14 @@
             <EditText
                 android:id="@+id/setting6_change_emergency_phone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/button_color_422a81"
+                android:layout_height="40dp"
+                android:background="@drawable/purple_round"
                 android:ems="10"
                 android:hint="보호자 연락처 입력"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -60,11 +63,14 @@
             <EditText
                 android:id="@+id/setting6_change_blood_type"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/button_color_422a81"
+                android:layout_height="40dp"
+                android:background="@drawable/purple_round"
                 android:ems="10"
                 android:hint="본인 혈액형 입력"
-                android:inputType="phone" />
+                android:inputType="textPersonName"
+                android:paddingLeft="10dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"/>
 
             <Space
                 android:layout_width="match_parent"
@@ -76,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/notosans_regular"
-                android:paddingStart="16dp"
+                android:paddingStart="7dp"
                 android:text="특이사항"
                 android:textAlignment="textStart"
                 android:textColor="@color/black" />
@@ -133,7 +139,7 @@
                 android:backgroundTint="@color/button_color_422a81"
                 android:ems="10"
                 android:hint="ex) 위암 1기, 혈압약 복용 중"
-                android:inputType="phone" />
+                android:inputType="textPersonName" />
 
             <Space
                 android:layout_width="match_parent"

@@ -81,6 +81,10 @@
 
             </LinearLayout>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
@@ -138,7 +142,8 @@
                     android:paddingStart="16dp"
                     android:text="혈액형"
                     android:textAlignment="textStart"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/setting6_blood_type"
@@ -147,7 +152,8 @@
                     android:fontFamily="@font/notosans_regular"
                     android:paddingEnd="16dp"
                     android:text="예) +82 10-12**-56**"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
             </LinearLayout>
 
@@ -164,12 +170,14 @@
                 android:paddingStart="16dp"
                 android:text="특이사항"
                 android:textAlignment="textStart"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingStart="9dp">
 
                 <CheckBox
                     android:id="@+id/setting6_diabetes"
@@ -209,16 +217,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_regular"
+                android:paddingStart="16dp"
                 android:text="기타"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/setting6_other_disease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_regular"
+                android:paddingStart="16dp"
                 android:text="혈압약 복용 중"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="match_parent"

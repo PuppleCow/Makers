@@ -34,12 +34,18 @@ class SafetyManualQuizActivity2 : AppCompatActivity() {
 
 
                     // 틀렸을 때
+                    // 정답 보여주고 다음으로 넘어가기
                     if (binding.quiz2RadioButton1.isChecked == false || binding.quiz2RadioButton3.isChecked == false) {
 //                        val t1 = Toast.makeText(this, "정답이 아닙니다.", Toast.LENGTH_SHORT)
 //                        t1.show()
                         val builder=AlertDialog.Builder(this)
-                        builder.setMessage("정답이 아닙니다")
-                        builder.setPositiveButton("확인",null)
+                        builder.setTitle("정답\n\n")
+                        builder.setMessage("\n1. 관리자\n\n2. 오른쪽")
+                        builder.setPositiveButton("확인"){dialogInterface: DialogInterface,i: Int->
+                            val home_intent=Intent(this, ConfirmWaitingActivity::class.java)
+                            startActivity(home_intent)
+                            finish()
+                        }
                         builder.show()
                     }
 

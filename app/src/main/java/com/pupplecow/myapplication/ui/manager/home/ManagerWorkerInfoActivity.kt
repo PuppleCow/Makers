@@ -14,7 +14,6 @@ class ManagerWorkerInfoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManagerWorkerInfoBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_manager_worker_info)
         binding= ActivityManagerWorkerInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
