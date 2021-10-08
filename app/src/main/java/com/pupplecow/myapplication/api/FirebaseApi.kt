@@ -12,24 +12,24 @@ import com.pupplecow.myapplication.data.Complaint
 import com.pupplecow.myapplication.data.UserData
 
 class FirebaseApi :Contract.firebaseDatabase {
-    val firestore=Firebase.firestore
-    val storage=Firebase.storage.reference
-    val db=Firebase.database.reference  //루트가져옴
+    val firestore = Firebase.firestore
+    val storage = Firebase.storage.reference
+    val db = Firebase.database.reference  //루트가져옴
 
     //유저 데이터 가져오기
-    override fun getUserData(uid: String, callback: (Boolean, String,UserData?) -> Unit) {
-       //루트 안에 자식들에게 접근
+    override fun getUserData(uid: String, callback: (Boolean, String, UserData?) -> Unit) {
+        //루트 안에 자식들에게 접근
         db.child("users")
             .child(uid)
-            .addListenerForSingleValueEvent(object : ValueEventListener{
+            .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
 
                     //데이터 있으면
-                    if(snapshot.exists()){
-                        callback(true,"SUCCESS",snapshot.getValue(UserData::class.java))
-                    }else{
+                    if (snapshot.exists()) {
+                        callback(true, "SUCCESS", snapshot.getValue(UserData::class.java))
+                    } else {
                         //epdlxj djqtdmaus
-                        callback(false,"NO DATA",null)
+                        callback(false, "NO DATA", null)
                     }
 
                 }
@@ -37,22 +37,26 @@ class FirebaseApi :Contract.firebaseDatabase {
                 override fun onCancelled(error: DatabaseError) {
                     //접근권한없을 때 데이터 없을때 등 실패 했을 떄
                     //callback(false,UserData().apply { this.uid=error.message.toString() })
-                    callback(false,error.message,null) //이클래스 안에 겟유저데이더-> uid,받아오고 콜백 반환
+                    callback(false, error.message, null) //이클래스 안에 겟유저데이더-> uid,받아오고 콜백 반환
                 }
 
             })
     }
 
-    override fun writeComplaint(docId:String,data: Complaint, callback: (Boolean, String) -> Unit) {
-        val ref=firestore.collection("COMPLAINT")
-        val id=if(docId=="null") ref.document().id else docId
+    override fun writeComplaint(
+        docId: String,
+        data: Complaint,
+        callback: (Boolean, String) -> Unit
+    ) {
+        val ref = firestore.collection("COMPLAINT")
+        val id = if (docId == "null") ref.document().id else docId
 
         //파일 업로드
-        val imageRef=storage.child("COMPLAINT").child(id+".jpg")
+        val imageRef = storage.child("COMPLAINT").child(id + ".jpg")
 
-        if(data.imageUri.isNullOrBlank()||data.imageUri=="null"){
+        if (data.imageUri.isNullOrBlank() || data.imageUri == "null") {
             ref.document(id).set(data)
-        }else {
+        } else {
 
             val uploadTask = imageRef.putFile(data.imageUri!!.toUri())
 
@@ -81,5 +85,5 @@ class FirebaseApi :Contract.firebaseDatabase {
 
     }
 
-
 }
+

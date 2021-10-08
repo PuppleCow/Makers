@@ -8,12 +8,20 @@ import android.graphics.ImageDecoder
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.firebase.auth.FirebaseAuth
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.pupplecow.myapplication.databinding.ActivitySettingMyInformationSettingBinding
 import com.pupplecow.myapplication.ui.login.ResettingPassword1
 import androidx.core.view.isVisible
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
+import com.pupplecow.myapplication.data.Complaint
+import com.pupplecow.myapplication.data.UserData
 import com.pupplecow.myapplication.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 
@@ -22,7 +30,10 @@ import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 
 
 class SettingMyInformationSettingActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivitySettingMyInformationSettingBinding
+    private var fbFirestore: FirebaseFirestore?=null
+    var auth = Firebase.auth
 
     // 사진을 가져오기 위한 권한을 확인하는 코드
     val permission_list = arrayOf(
@@ -41,14 +52,51 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // 이름 가져오기
-        binding.setting2MyName
 
-        // 전화번호 가져오기
-        binding.setting2MyPhone
+        // 파이어스토어에서 데이터 가져오기
+        val docRef = fbFirestore?.collection("USER")?.document(auth.uid!!)
+        docRef?.get()
+            ?.addOnSuccessListener { document ->
+                if (document != null) {
+                    //val userData=document.data
+                    Log.d("개인정보 가져오기 성공", "DocumentSnapshot data: ${document.data}")
 
-        // 생년월일 가져오기
-        binding.setting2MyBirth
+                    // 개인정보 가져오기 성공했을 때
+                    docRef?.get().addOnSuccessListener { documentSnapshot ->
+                        val information = documentSnapshot.toObject<UserData>()
+//                        //binding.MyComplaintTextTitle.text= complaint?.title
+//                        binding.complaintEditTextTextMultiLine.setText(complaint?.body)
+//
+//                        binding.complaintSpinnerCategory.prompt=complaint?.category
+
+                        // 이름 가져오기
+                    //binding.setting2MyName.text=my_information?.name
+                        binding.setting2MyName.setText("aaa")
+
+                    // 전화번호 가져오기
+                    binding.setting2MyPhone.text=information?.phoneNumber
+
+                    // 생년월일 가져오기
+                    binding.setting2MyBirth.text=information?.birthDate
+                    }
+
+                } else {
+                    Log.d("개인정보 등록 안 되어 있음", "No such document")
+                }
+            }
+            ?.addOnFailureListener { exception ->
+                Log.e("개인정보 가져오기 실패", "get failed with ", exception)
+            }
+
+
+//        // 이름 가져오기
+//        binding.setting2MyName
+//
+//        // 전화번호 가져오기
+//        binding.setting2MyPhone
+//
+//        // 생년월일 가져오기
+//        binding.setting2MyBirth
 
 //        // 사진 삭제 버튼 안 보이게 하기
 //        binding.setting2ImageDelete2.isVisible=false
