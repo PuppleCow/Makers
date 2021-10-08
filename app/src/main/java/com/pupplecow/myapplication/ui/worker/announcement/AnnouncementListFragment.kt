@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.pupplecow.myapplication.Adapter.AnnouncementListAdapterActivity
 import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.ui.manager.announcement.AnnouncementData
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
@@ -38,7 +39,7 @@ class AnnouncementListFragment:Fragment() {
         firestore = FirebaseFirestore.getInstance()
 
 
-        announcementlist_writeButton.visibility=View.GONE
+        floatingActionButton.visibility=View.GONE
 
 
         val listAdapter = AnnouncementListAdapterActivity(requireContext()){

@@ -77,6 +77,8 @@ dependencies {
     //앱에 실시간 데이터베이스 SDK 추가
     implementation 'com.google.firebase:firebase-database-ktx'
 
+    //플로팅 버튼 때문에 추가한 것
+    implementation 'com.google.android.material:material:<version>'
 
 
     //레트로핏핏

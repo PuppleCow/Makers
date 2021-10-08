@@ -49,12 +49,18 @@
         <activity android:name=".ui.manager.home.Complaint.ManagerComplaintActivity" />
         <activity android:name=".ui.manager.announcement.ManagerCreateAnnouncementActivity" />
         <activity android:name=".ui.manager.announcement.ManagerAnnouncementActivity" />
-        <activity android:name=".ui.manager.home.ManagerWorkersStatusActivity" />
+        <activity android:name="MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".ui.manager.home.ManagerWorkerInfoActivity" />
         <activity android:name=".ui.manager.settings.ManagerResettingPassword1" />
         <activity android:name=".ui.manager.settings.ManagerResettingPassword2" />
         <activity android:name=".ui.worker.home.ConfirmWaitingActivity" />
-        <activity android:name=".ui.ManagerNavActivity" />
+        <activity android:name=".ManagerNavActivity" />
         <activity android:name=".ui.worker.settings.SettingMyInformationSettingActivity" />
         <activity android:name=".ui.worker.settings.SettingOpenSourceLicense" />
         <activity android:name=".ui.worker.settings.SettingTermsAndPolicy" />
@@ -78,13 +84,9 @@
         <activity android:name=".ui.worker.home.SafetyManualQuizWebViewActivity1" />
         <activity android:name=".ui.login.RegisterActivity2" />
         <activity android:name=".ui.login.RegisterActicity1" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--        <activity android:name=".MainActivity">-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        </activity>-->
     </application>
 
 </manifest>

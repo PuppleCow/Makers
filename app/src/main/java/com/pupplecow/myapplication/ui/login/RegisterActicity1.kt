@@ -1,6 +1,5 @@
 package com.pupplecow.myapplication.ui.login
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +24,7 @@ import com.pupplecow.myapplication.R
 import com.pupplecow.myapplication.data.UserData
 
 import com.pupplecow.myapplication.databinding.ActivityRegister1Binding
-import com.pupplecow.myapplication.ui.ManagerNavActivity
+import com.pupplecow.myapplication.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_register1.*
 import java.util.concurrent.TimeUnit
 
@@ -136,16 +135,16 @@ class RegisterActicity1 : AppCompatActivity() {
             }
 
             else{
-            //val inputCellPhoneNumber
-           // val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
-            val userCellPhoneNumberFront=userCellPhoneNumber.substring(0,3)
-            val userCellPhoneNumberBack=userCellPhoneNumber.substring(7,11)
+                //val inputCellPhoneNumber
+                // val userCellPhoneNumber=register_cellPhoneNumber_input.text.toString()
+                val userCellPhoneNumberFront=userCellPhoneNumber.substring(0,3)
+                val userCellPhoneNumberBack=userCellPhoneNumber.substring(7,11)
 
 
-            //핸드폰 번호로 인증번호 전송 메시지
-            //register_message.text=register_cellPhoneNumber_input.text
-            binding.registerMessage.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
-            binding.registerMessage.visibility= View.VISIBLE
+                //핸드폰 번호로 인증번호 전송 메시지
+                //register_message.text=register_cellPhoneNumber_input.text
+                binding.registerMessage.text=userCellPhoneNumberFront+" **** "+userCellPhoneNumberBack+"로 인증번호가 전송되었습니다.\n회원가입을 계속하시려면 인증번호를 입력하세요."
+                binding.registerMessage.visibility= View.VISIBLE
 
                 //인증번호 전송하기
                 startPhoneNumberVerification()
@@ -205,7 +204,7 @@ class RegisterActicity1 : AppCompatActivity() {
             else{
                 updateUserData()
 
-            //인증번호 확인
+                //인증번호 확인
 
 
             }
@@ -304,14 +303,14 @@ class RegisterActicity1 : AppCompatActivity() {
                     //인증성공
                     isPhoneNumberVrify=true
                     binding.registerNumberAuth.isVisible=true
-                        updateUserData()
+                    updateUserData()
                     // Sign in success, update UI with the signed-in user's information
                     //Log.d(TAG, "signInWithCredential:success")
 
                     val user = task.result?.user
                 } else {
                     //실패
-                        Toast.makeText(this,"인증번호를 다시 확인해주세요",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"인증번호를 다시 확인해주세요",Toast.LENGTH_SHORT).show()
 
                     // Sign in failed, display a message and update the UI
                     //Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -384,7 +383,7 @@ class RegisterActicity1 : AppCompatActivity() {
                 //finish()
 
                 if(mUserType==0){
-                    val intent=Intent(this,ManagerNavActivity::class.java)
+                    val intent=Intent(this, ManagerNavActivity::class.java)
                     startActivity(intent)
                 }else{
                     val intent=Intent(this,MainNavActivity::class.java)

@@ -22,9 +22,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
-import com.pupplecow.myapplication.api.FirebaseApi
 import com.pupplecow.myapplication.databinding.ActivityLoginBinding
-import com.pupplecow.myapplication.ui.ManagerNavActivity
+import com.pupplecow.myapplication.ManagerNavActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.view.*
 

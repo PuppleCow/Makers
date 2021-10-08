@@ -9,208 +9,224 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|top"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_height="match_parent">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <TextView
-            android:id="@+id/login_textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
-            android:gravity="center"
-            android:text="로그인"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFFFFF" />
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/login_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/notosans_medium"
-                android:text="휴대폰 번호"
-                android:textColor="#FFFFFF" />
+            android:gravity="center|top"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="14dp"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/login_editTextPhone"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:autoText="true"
-                android:background="@drawable/round"
-                android:ems="10"
-                android:hint="010-"
-                android:inputType="phone"
-                android:textAlignment="textStart"
-                android:textColor="#FFFFFF" />
-
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+                android:layout_height="50dp" />
 
             <TextView
-                android:id="@+id/login_passwordText"
+                android:id="@+id/login_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/notosans_medium"
-                android:text="비밀번호"
+                android:fontFamily="@font/notosans_bold"
+                android:gravity="center"
+                android:text="로그인"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#FFFFFF" />
+
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="14dp"
-                android:layout_weight="1" />
+                android:layout_height="50dp" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@drawable/round"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <EditText
-                    android:id="@+id/login_editTextPassword"
-                    android:layout_width="280dp"
+                <TextView
+                    android:id="@+id/login_phone"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="비밀번호를 입력하세요"
-                    android:background="@null"
-                    android:inputType="textPassword"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/notosans_medium"
+                    android:text="휴대폰 번호"
                     android:textColor="#FFFFFF" />
 
-                <ToggleButton
-                    android:id="@+id/login_showButton"
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/eyes"
-                    android:text="ToggleButton"
-                    android:textOff="."
-                    android:textOn="." />
+                    android:layout_height="14dp"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/login_editTextPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:autoText="true"
+                    android:background="@drawable/round"
+                    android:ems="10"
+                    android:fontFamily="@font/notosans_medium"
+                    android:hint="휴대폰 번호를 입력해주세요."
+                    android:inputType="phone"
+                    android:paddingStart="20dp"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="12sp" />
+
             </LinearLayout>
 
-        </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
-        <TextView
-            android:id="@+id/login_passwordhintText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autoText="false"
-            android:fontFamily="@font/notosans_medium"
-            android:text="기존 비밀번호는 생년월일 6자리입니다."
-            android:textColor="#FFFFFF" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="40dp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/login_google"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            app:cardCornerRadius="20dp" >
-
-            <ImageView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="4dp"
-                android:src="@drawable/icon_login_google"/>
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/login_passwordText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/notosans_medium"
+                    android:text="비밀번호"
+                    android:textColor="#FFFFFF" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="14dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/login_editTextPassword"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:background="@null"
+                        android:ems="10"
+                        android:hint="비밀번호를 입력하세요"
+                        android:inputType="textPassword"
+                        android:paddingStart="15dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="12sp" />
+
+                    <ToggleButton
+                        android:id="@+id/login_showButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/eyes"
+                        android:text="ToggleButton"
+                        android:textOff="."
+                        android:textOn="." />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/login_passwordhintText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoText="false"
+                android:fontFamily="@font/notosans_medium"
+                android:text="기존 비밀번호는 생년월일 6자리입니다."
+                android:textColor="#FFFFFF" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/login_google"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity=""
+                app:cardCornerRadius="20dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/imgooglebutton" />
             </androidx.cardview.widget.CardView>
 
-        <Spinner
-            android:id="@+id/login_workpart"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:spinnerMode="dialog" />
+            <Spinner
+                android:id="@+id/login_workpart"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:spinnerMode="dialog" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/round"
-            android:backgroundTint="#422A81"
-            android:fontFamily="@font/notosans_bold"
-            android:text="로그인"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp" />
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/round"
+                android:backgroundTint="#422A81"
+                android:fontFamily="@font/notosans_bold"
+                android:text="로그인"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
 
-        <Button
-            android:id="@+id/login_button10"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/round"
-            android:backgroundTint="#D9FFFFFF"
-            android:fontFamily="@font/notosans_bold"
-            android:text="비밀번호 찾기"
-            android:textColor="#422A81"
-            android:textSize="15sp"
-            app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/login_button10"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/round"
+                android:backgroundTint="#D9FFFFFF"
+                android:fontFamily="@font/notosans_bold"
+                android:text="비밀번호 찾기"
+                android:textColor="#422A81"
+                android:textSize="15sp"
+                app:cornerRadius="20dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_medium"
-            android:text="아직 회원이 아니신가요?"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_medium"
+                android:text="아직 회원이 아니신가요?"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/login_register_button"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/round"
-            android:backgroundTint="#D9FFFFFF"
-            android:fontFamily="@font/notosans_bold"
-            android:text="회원가입"
-            android:textColor="#422A81"
-            android:textSize="15sp"
-            app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/login_register_button"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/round"
+                android:backgroundTint="#D9FFFFFF"
+                android:fontFamily="@font/notosans_bold"
+                android:text="회원가입"
+                android:textColor="#422A81"
+                android:textSize="15sp"
+                app:cornerRadius="20dp" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

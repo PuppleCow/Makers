@@ -103,7 +103,7 @@ class ManagerAnnouncementListFragment:Fragment() {
 
         }
 
-        announcementlist_writeButton.setOnClickListener {
+        floatingActionButton.setOnClickListener {
             val intent = Intent(requireContext(), ManagerCreateAnnouncementActivity::class.java)
             startActivity(intent)
         }
