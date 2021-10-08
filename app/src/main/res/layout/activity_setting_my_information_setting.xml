@@ -114,7 +114,6 @@
                     android:layout_height="match_parent"
                     android:fontFamily="@font/notosans_regular"
                     android:paddingEnd="16dp"
-                    android:text="예) 김철수"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
             </LinearLayout>
