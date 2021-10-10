@@ -6,16 +6,23 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import com.bumptech.glide.Glide
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.pupplecow.myapplication.EmergencyNoticeActivity
-import com.pupplecow.myapplication.MainActivity
-import com.pupplecow.myapplication.MainNavActivity
 import com.pupplecow.myapplication.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import java.io.IOException
+import java.net.URL
 
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
@@ -49,16 +56,24 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 //                // For long-running tasks (10 seconds or more) use WorkManager.
 //                scheduleJob()
 //            } else {
-                // Handle message within 10 seconds
-                handleNow()
+            // Handle message within 10 seconds
+            handleNow()
             //}
         }
 
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
-            Log.d(TAG, "Message Notification Body: ${it.body}")
+            Log.d(
+                TAG, """Message Notification Body: 
+                |${it.body}
+                |${it.title}
+                |${it.icon}
+                |${it.imageUrl}
+                |${it.link}
+                |""".trimMargin()
+            )
             //포어그라운드에서도 작동
-            sendNotification(it.body.toString())
+            sendNotification(it)
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -120,32 +135,48 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
      */
 
     //알림만드는
-    private fun sendNotification(messageBody: String) {
+    private fun sendNotification(noti: RemoteMessage.Notification) {
+
+        val image =
+            try {
+                Glide.with(this)
+                    .asBitmap()
+                    .load(noti.imageUrl)
+                    .submit().get()
+            } catch (e:Exception) {
+                null
+            }
         val intent = Intent(this, EmergencyNoticeActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this, 0 /* Request code */, intent,
-            PendingIntent.FLAG_ONE_SHOT)
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0 /* Request code */, intent,
+            PendingIntent.FLAG_ONE_SHOT
+        )
 
         val channelId = getString(R.string.default_notification_channel_id)
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.emergency_notice)
-            .setContentTitle("emergencies")
-            .setContentText(messageBody)
+            .setLargeIcon(image)
+            .setContentTitle(noti.title)
+            .setContentText(noti.body)
             .setAutoCancel(true)
             .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)
 
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         // Since android Oreo notification channel is needed.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(channelId,
+            val channel = NotificationChannel(
+                channelId,
                 "Channel human readable title",
                 //중요도 보통
                 //NotificationManager.IMPORTANCE_DEFAULT)
-                NotificationManager.IMPORTANCE_DEFAULT)
-                //중요: 상태표시줄, 진동, 헤드 노티뜸
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
+            //중요: 상태표시줄, 진동, 헤드 노티뜸
             notificationManager.createNotificationChannel(channel)
         }
 

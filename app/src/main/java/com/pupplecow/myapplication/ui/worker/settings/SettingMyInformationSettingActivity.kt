@@ -46,6 +46,8 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
         binding = ActivitySettingMyInformationSettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        fbFirestore= FirebaseFirestore.getInstance()
+
         // 수정 버튼 누르면 이동하기
         binding.setting2Change.setOnClickListener {
             val intent=Intent(this,SettingMyInformationSettingChangeActivity::class.java)
@@ -54,30 +56,29 @@ class SettingMyInformationSettingActivity : AppCompatActivity() {
 
 
         // 파이어스토어에서 데이터 가져오기
-        val docRef = fbFirestore?.collection("USER")?.document(auth.uid!!)
+        val docRef = fbFirestore?.collection("USER")?.document(auth.uid.toString())
         docRef?.get()
             ?.addOnSuccessListener { document ->
                 if (document != null) {
                     //val userData=document.data
-                    Log.d("개인정보 가져오기 성공", "DocumentSnapshot data: ${document.data}")
+                    Log.e("개인정보 가져오기 성공", "DocumentSnapshot data: ${document.data}")
 
                     // 개인정보 가져오기 성공했을 때
                     docRef?.get().addOnSuccessListener { documentSnapshot ->
                         val information = documentSnapshot.toObject<UserData>()
-//                        //binding.MyComplaintTextTitle.text= complaint?.title
-//                        binding.complaintEditTextTextMultiLine.setText(complaint?.body)
-//
-//                        binding.complaintSpinnerCategory.prompt=complaint?.category
 
                         // 이름 가져오기
-                    //binding.setting2MyName.text=my_information?.name
-                        binding.setting2MyName.setText("aaa")
+                        binding.setting2MyName.text=information?.name
+                        //binding.setting2MyName.text = "aaa"
 
-                    // 전화번호 가져오기
-                    binding.setting2MyPhone.text=information?.phoneNumber
+                         // 전화번호 가져오기 010-1234-5678
+                        var tempPhoneNum=information?.phoneNumber
+                        binding.setting2MyPhone.text=tempPhoneNum
 
-                    // 생년월일 가져오기
-                    binding.setting2MyBirth.text=information?.birthDate
+
+                        // 생년월일 가져오기 예) 1968년 1월 12일
+                        var tempBirth=information?.birthDate
+                        binding.setting2MyBirth.text=tempBirth
                     }
 
                 } else {
