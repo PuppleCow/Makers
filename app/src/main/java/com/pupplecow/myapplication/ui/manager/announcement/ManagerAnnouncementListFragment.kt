@@ -11,22 +11,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.pupplecow.myapplication.Adapter.AnnouncementListAdapterActivity
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.data.Announcement
+import com.pupplecow.myapplication.databinding.FragmentManagerAnnouncementListBinding
 import kotlinx.android.synthetic.main.fragment_manager_announcement_list.*
 
 class ManagerAnnouncementListFragment:Fragment() {
 
-    private lateinit var database: DatabaseReference
-    private lateinit var auth: FirebaseAuth
+    private lateinit var binding: FragmentManagerAnnouncementListBinding
 
-    private var Firestore: FirebaseFirestore?=null
 
 
     private lateinit var managerCreateAnnouncementActivity: ManagerCreateAnnouncementActivity
     //private lateinit var auth : FirebaseAuth
 
 
-    var AnnouncementList= arrayListOf<AnnouncementData>(
+    var AnnouncementList= arrayListOf<Announcement>(
 
 
     )
@@ -40,16 +41,12 @@ class ManagerAnnouncementListFragment:Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        Firestore= FirebaseFirestore.getInstance()
-
-        auth = FirebaseAuth.getInstance()
-        database= FirebaseDatabase.getInstance().getReference().child("announcement")
 
 
-        val listAdapter = ManagerAnnouncementListAdapter(requireContext()){
+        val listAdapter = AnnouncementListAdapterActivity(requireContext()){
                 Announcement->
             val intent = Intent(requireContext(), ManagerAnnouncementActivity::class.java)
-            intent.putExtra("uid",auth.currentUser?.uid)
+//            intent.putExtra("uid",auth.currentUser?.uid)
             startActivity(intent)
 
         }

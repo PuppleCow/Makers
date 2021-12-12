@@ -9,5 +9,7 @@ interface Contract {
         fun getUserData(uid: String, callback: (Boolean, String,UserData?) -> Unit)
         fun writeComplaint(docId:String,data: Complaint, callback: (Boolean, String) -> Unit)
         //fun updatePhoneNumber(uid:String,phonenumber:Int,callback: (Boolean, String) -> Unit)
+        //공지사항
+        fun writeAnnouncement(docId:String,data: Complaint, callback: (Boolean, String) -> Unit)
     }
 }

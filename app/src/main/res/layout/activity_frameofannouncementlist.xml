@@ -4,10 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +13,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.2">
 
             <TextView
@@ -24,29 +24,44 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <TextView
-                android:id="@+id/frameofannouncementlist_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2" />
+                android:fontFamily="@font/notosans_bold"
+                android:text="순번"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/main_text_color"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/frameofannouncementlist_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2"
-                android:textAlignment="viewEnd" />
+                android:fontFamily="@font/notosans_bold"
+                android:text="내용"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/main_text_color" />
 
             <TextView
                 android:id="@+id/frameofannouncementlist_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.9"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:layout_marginEnd="20dp"
+                android:layout_weight="0.1"
+                android:fontFamily="@font/notosans_bold"
+                android:text="일자"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/main_text_color"
+                android:textSize="15sp" />
 
         </LinearLayout>
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_weight="0.2"
+            android:background="@color/line_color" />
 
     </LinearLayout>
 

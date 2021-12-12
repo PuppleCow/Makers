@@ -23,5 +23,7 @@ class SafetyManualQuizWebViewActivity1: AppCompatActivity() {
         webView.webViewClient= WebViewClient()
         webView.webChromeClient= WebChromeClient()
         webView.loadUrl("file:///android_asset/index1.html")
+
+
     }
 }

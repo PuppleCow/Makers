@@ -297,6 +297,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
+
         private fun getFcmToken() {
             FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
                 if (!task.isSuccessful) {
@@ -321,7 +322,7 @@ class LoginActivity : AppCompatActivity() {
                     .setValue(
                         msg
                     ).addOnCompleteListener {
-                        val intent=Intent(this,MainNavActivity::class.java)
+                        val intent=Intent(this,RegisterActicity1::class.java)
                         startActivity(intent)
                     }
             })

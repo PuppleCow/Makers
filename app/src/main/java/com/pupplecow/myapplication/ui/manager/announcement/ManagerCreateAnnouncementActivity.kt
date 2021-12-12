@@ -15,6 +15,7 @@ import androidx.core.view.isVisible
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.pupplecow.myapplication.R
+import com.pupplecow.myapplication.data.Announcement
 import kotlinx.android.synthetic.main.activity_complaint.*
 import kotlinx.android.synthetic.main.fragment_manager_create_announecement.*
 import java.util.*
@@ -138,11 +139,11 @@ class ManagerCreateAnnouncementActivity : AppCompatActivity() {
                                     //서버에 사진,공지 제목,공지내용,공지날짜,시간,공지한 사람 정보 저장,필독정보
                                     //파이어베이스
 
-                                    val dataInput = AnnouncementData(
+                                    val dataInput = Announcement(
                                         uid,
                                         month,date,selectCategory,
                                         manager_create_announcement_editText_title.text.toString(),
-                                        manager_create_announcement_editTextTextMultiLine.text.toString()
+//                                        manager_create_announcement_editTextTextMultiLine.text.toString()
 
                                     )
 

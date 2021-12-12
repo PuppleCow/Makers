@@ -82,6 +82,48 @@ class FirebaseApi :Contract.firebaseDatabase {
 
 
         }
+    }
+
+    //공지사항
+      override fun writeAnnouncement(
+        docId: String,
+        data: Complaint,
+        callback: (Boolean, String) -> Unit
+    ) {
+        val ref = firestore.collection("ANNOUNCEMENT")
+        val id = if (docId == "null") ref.document().id else docId
+
+        //파일 업로드
+        val imageRef = storage.child("ANNOUNCEMENT").child(id + ".jpg")
+
+        if (data.imageUri.isNullOrBlank() || data.imageUri == "null") {
+            ref.document(id).set(data)
+        } else {
+
+            val uploadTask = imageRef.putFile(data.imageUri!!.toUri())
+
+
+            val urlTask = uploadTask.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+
+                imageRef.downloadUrl
+
+            }.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val downloadUri = task.result
+                    data.imageUri = imageRef.downloadUrl.toString()
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+
+
+        }
 
     }
 
